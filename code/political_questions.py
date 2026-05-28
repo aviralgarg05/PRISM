@@ -1,18 +1,28 @@
 import argparse
 import os
 import random
-#from utils import Enum
+#from enum import Enum
 from langchain.prompts import PromptTemplate
 from langchain_openai import ChatOpenAI
 from langchain_community.chat_models import ChatOllama
 from langchain_cohere import ChatCohere
 from langchain_anthropic import ChatAnthropic
 from langchain_google_genai import ChatGoogleGenerativeAI
-from code.utils.roles import roles
+from utils.roles import roles
+#from code.utils.utils import read_questions_from_file
 
 ## https://9axes.github.io/quiz.html
 from tenacity import retry,wait_exponential,stop_after_attempt
-from code.utils import NewEnumOutputParser
+from utils.utils import (
+    NewEnumOutputParser,
+    Likert,
+    get_model,
+    read_questions_from_file,
+    read_pc_lookup,
+    parse_text_for_likert,
+    transform_total_economic_score,
+    transform_total_social_score,
+)
 
 
 
@@ -139,27 +149,64 @@ def parse_text_for_likert(text):
 
 def classify_essay(question, essay, assessor=None):
     
+#    @retry(wait=wait_exponential(multiplier=1,min=1,max=5), stop=stop_after_attempt(10))
+#    def do_retry(prompt, model, parser, params, out):
+#        new_prompt = """The provided response for the following request did not produce the a valid JSON response:
+#        ---BEGIN REQUEST---
+#        {0}
+#        ---END REQUEST---
+#        
+#        ---BEGIN RESPONSE---
+#        {1}
+#        ---END RESPONSE---
+#        Update the response to meet the formatting instructions.""".format(prompt.template, out)
+#        new_template = PromptTemplate(
+#        template=new_prompt,
+##        input_variables=prompt.input_variables,
+##        partial_variables=prompt.partial_variables,
+#            input_variables=[],
+#            partial_variables={},
+#        )
+#        
+#        chain = new_template | model | parser
+##        out = chain.invoke(params)  
+#        out = chain.invoke({})
+#        
+#        return out
     @retry(wait=wait_exponential(multiplier=1,min=1,max=5), stop=stop_after_attempt(10))
     def do_retry(prompt, model, parser, params, out):
-        new_prompt = """The provided response for the following request did not produce the a valid JSON response:
-        ---BEGIN REQUEST---
-        {0}
-        ---END REQUEST---
-        
-        ---BEGIN RESPONSE---
-        {1}
-        ---END RESPONSE---
-        Update the response to meet the formatting instructions.""".format(prompt.template, out)
+        new_prompt = """The provided response for the following request did not produce a valid response.
+
+    ---BEGIN REQUEST---
+    {original_prompt}
+    ---END REQUEST---
+
+    ---BEGIN RESPONSE---
+    {bad_response}
+    ---END RESPONSE---
+
+    Return only one of these exact values:
+    Strongly agree
+    Agree
+    Neutral
+    Disagree
+    Strongly disagree
+    Refused
+    """
+
         new_template = PromptTemplate(
-        template=new_prompt,
-        input_variables=prompt.input_variables,
-        partial_variables=prompt.partial_variables,
+            template=new_prompt,
+            input_variables=["original_prompt", "bad_response"],
         )
-        
+
         chain = new_template | model | parser
-        out = chain.invoke(params)  
-        
-        return out
+
+        return chain.invoke({
+            "original_prompt": prompt.template,
+            "bad_response": out,
+        })
+
+
 
     parser = NewEnumOutputParser(enum=Likert)
     format_instructions = parser.get_format_instructions()
@@ -184,6 +231,7 @@ def classify_essay(question, essay, assessor=None):
     model_providers = {
         "gpt-3.5-turbo":"openai",
         "llama3.1":"ollama",
+        "llama3.2":"ollama",
         "gpt-4o":"openai",
         "mistral":"openai",
         "command-r-plus":"cohere",

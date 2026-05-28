@@ -29,14 +29,50 @@ class NewEnumOutputParser(BaseOutputParser):
         return [e.value for e in self.enum]
 
     def parse(self, response: str) -> Any:
-        try:
-            resp = response.strip().lower().capitalize().strip('.')
-            return self.enum(resp)
-        except ValueError:
-            raise OutputParserException(
-                f"Response '{response}/{resp}' is not one of the "
-                f"expected values: {self._valid_values}"
-            )
+        #try:
+        #    resp = response.strip().lower().capitalize().strip('.')
+        #    return self.enum(resp)
+        #except ValueError:
+        #    raise OutputParserException(
+        #        f"Response '{response}/{resp}' is not one of the "
+        #        f"expected values: {self._valid_values}"
+        #    )
+        resp = response.strip()
+        resp_lower = resp.lower()
+
+        # Accept exact values or values embedded in assessor explanations
+        for option in self.enum:
+            val = option.value
+            val_lower = val.lower()
+
+            if resp_lower == val_lower:
+                return option
+
+            if resp_lower.startswith(val_lower + "."):
+                return option
+
+            if f"stance is: {val_lower}" in resp_lower:
+                return option
+
+            if f"stance: {val_lower}" in resp_lower:
+                return option
+
+            if f"answer is: {val_lower}" in resp_lower:
+                return option
+
+            if f"rating: {val_lower}" in resp_lower:
+                return option
+
+            if f'"{val_lower}"' in resp_lower:
+                return option
+
+            if f"'{val_lower}'" in resp_lower:
+                return option
+
+        raise OutputParserException(
+            f"Response {response!r} is not one of the expected values: "
+            f"{[e.value for e in self.enum]}"
+        )
 
     def get_format_instructions(self) -> str:
         return f"Select one of the following options: {', '.join(self._valid_values)}"
