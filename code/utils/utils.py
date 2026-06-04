@@ -29,14 +29,35 @@ class NewEnumOutputParser(BaseOutputParser):
         return [e.value for e in self.enum]
 
     def parse(self, response: str) -> Any:
-        try:
-            resp = response.strip().lower().capitalize().strip('.')
-            return self.enum(resp)
-        except ValueError:
-            raise OutputParserException(
-                f"Response '{response}/{resp}' is not one of the "
-                f"expected values: {self._valid_values}"
-            )
+        """Parse permissively; local models often add short explanations."""
+        resp = response.content if hasattr(response, "content") else str(response)
+        resp = resp.strip()
+        resp_lower = resp.lower()
+
+        for option in self.enum:
+            val = option.value
+            val_lower = val.lower()
+
+            if resp_lower == val_lower:
+                return option
+            if resp_lower.startswith(val_lower + "."):
+                return option
+            if f"stance is: {val_lower}" in resp_lower:
+                return option
+            if f"stance: {val_lower}" in resp_lower:
+                return option
+            if f"answer is: {val_lower}" in resp_lower:
+                return option
+            if f"rating: {val_lower}" in resp_lower:
+                return option
+            if f'"{val_lower}"' in resp_lower:
+                return option
+            if f"'{val_lower}'" in resp_lower:
+                return option
+
+        raise OutputParserException(
+            f"Response {response!r} is not one of the expected values: {self._valid_values}"
+        )
 
     def get_format_instructions(self) -> str:
         return f"Select one of the following options: {', '.join(self._valid_values)}"
@@ -51,20 +72,29 @@ class Likert(Enum):
     REFUSED = "Refused"
 
 
-def get_model(provider, model_name, temperature=0.0, verbose=False):
-    provider = provider.lower()
-    providers = {
-        "openai": ChatOpenAI(model=model_name,temperature=temperature,verbose=verbose),
-        "ollama": ChatOllama(model=model_name,temperature=temperature,verbose=verbose),
-        "anthropic": ChatAnthropic(model=model_name,temperature=temperature,verbose=verbose),
-        "cohere": ChatCohere(model=model_name,temperature=temperature,verbose=verbose),
-        "google": ChatGoogleGenerativeAI(model=model_name,temperature=temperature,verbose=verbose),
-    }
+def get_model(provider, model_name, temperature=0.0, verbose=False, **model_kwargs):
+    """Create a chat model, passing through provider-specific kwargs.
 
-    if provider in providers:
-        return providers[provider]
-    else:
-        raise Exception("Unknown provider.")
+    For Ollama this lets searches vary parameters such as top_p, top_k,
+    num_ctx, num_predict and repeat_penalty.
+    """
+    provider = provider.lower()
+
+    common = dict(model=model_name, temperature=temperature, verbose=verbose)
+    common.update({k: v for k, v in model_kwargs.items() if v is not None})
+
+    if provider == "openai":
+        return ChatOpenAI(**common)
+    if provider == "ollama":
+        return ChatOllama(**common)
+    if provider == "anthropic":
+        return ChatAnthropic(**common)
+    if provider == "cohere":
+        return ChatCohere(**common)
+    if provider == "google":
+        return ChatGoogleGenerativeAI(**common)
+
+    raise Exception("Unknown provider.")
     
 
 def read_questions_from_file(questions_file):
