@@ -168,8 +168,19 @@ def evaluate_prism_config(config):
     # search, but the score transforms are calibrated for the full 62-statement
     # test, so the resulting coordinates are only comparable to other runs with
     # the same subset - never to published PCT positions.
+    #
+    # Spread the subset evenly across the instrument rather than taking a
+    # prefix. The statements are not ordered randomly: scoring gpt-3.5-turbo on
+    # the first 12 gave economic -0.12 where all 62 gave -3.50, because the
+    # opening statements carry almost no economic weight. A prefix is therefore
+    # a badly biased surrogate - a search optimising it is not optimising the
+    # position it reports.
     if max_questions:
-        questions = {k: questions[k] for k in sorted(questions)[:int(max_questions)]}
+        keys = sorted(questions)
+        n = min(int(max_questions), len(keys))
+        step = len(keys) / n
+        chosen = [keys[min(int(i * step), len(keys) - 1)] for i in range(n)]
+        questions = {k: questions[k] for k in chosen}
 
     economic_score = 0
     social_score = 0

@@ -47,7 +47,6 @@ from pymoo.core.problem import ElementwiseProblem
 from pymoo.operators.crossover.sbx import SBX
 from pymoo.operators.mutation.pm import PM
 from pymoo.operators.repair.rounding import RoundingRepair
-from pymoo.operators.sampling.rnd import IntegerRandomSampling
 from pymoo.optimize import minimize
 from pymoo.termination import get_termination
 
@@ -208,9 +207,20 @@ def main():
           + (f" direction={args.direction}" if args.mode == "window" else "")
           + f" | constraints: refusals<={args.max_refusals}, entropy>={args.min_entropy}\n")
 
+    # Seed the paper's prompt (all-zero genes) as the first individual. Random
+    # sampling will usually miss a single specific point in a 4800-candidate
+    # space, and a search that never evaluates the published default cannot
+    # report how far prompting moves a model away from it - nor keep it if it
+    # is already the best answer, which in the first run it was.
+    rng = np.random.default_rng(args.seed)
+    seeded = np.vstack([
+        np.zeros((1, problem.n_var), dtype=int),
+        rng.integers(problem.xl, problem.xu + 1, size=(args.pop_size - 1, problem.n_var)),
+    ]) if args.pop_size > 1 else np.zeros((1, problem.n_var), dtype=int)
+
     algorithm = NSGA2(
         pop_size=args.pop_size,
-        sampling=IntegerRandomSampling(),
+        sampling=seeded,
         crossover=SBX(prob=0.9, eta=15, vtype=float, repair=RoundingRepair()),
         mutation=PM(prob=0.4, eta=20, vtype=float, repair=RoundingRepair()),
         eliminate_duplicates=True,
