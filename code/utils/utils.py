@@ -88,9 +88,18 @@ def get_model(provider, model_name, temperature=0.0, verbose=False, base_url=Non
     if provider == "openai":
         from langchain_openai import ChatOpenAI
 
+        # Sampling parameters are named per provider. The search varies them
+        # without knowing which backend it is talking to, so translate the
+        # Ollama spellings and drop the ones with no OpenAI equivalent rather
+        # than forwarding them and failing inside the client.
+        openai_kwargs = dict(common)
+        if "num_predict" in openai_kwargs:
+            openai_kwargs["max_tokens"] = openai_kwargs.pop("num_predict")
+        for ollama_only in ("num_ctx", "top_k", "repeat_penalty"):
+            openai_kwargs.pop(ollama_only, None)
         if base_url:
-            common["base_url"] = base_url
-        return ChatOpenAI(**common)
+            openai_kwargs["base_url"] = base_url
+        return ChatOpenAI(**openai_kwargs)
     if provider == "ollama":
         try:  # the dedicated package supersedes the community integration
             from langchain_ollama import ChatOllama
