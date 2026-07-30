@@ -10,7 +10,11 @@ import os
 from pathlib import Path
 from time import perf_counter
 
-from langchain.prompts import PromptTemplate
+try:  # langchain >= 1.0 moved the prompt classes out of the langchain package
+    from langchain_core.prompts import PromptTemplate
+except ImportError:  # pragma: no cover - older langchain 0.2.x layout
+    from langchain.prompts import PromptTemplate
+
 from tenacity import retry, wait_exponential, stop_after_attempt
 
 from utils.roles import roles

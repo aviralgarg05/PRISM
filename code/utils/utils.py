@@ -1,15 +1,13 @@
 from enum import Enum
-from typing import Any, Dict, List, Type
+from typing import Any, List, Type
 
 from langchain_core.exceptions import OutputParserException
 from langchain_core.output_parsers import BaseOutputParser
-from langchain_core.pydantic_v1 import root_validator
-from langchain.prompts import PromptTemplate
-from langchain_openai import ChatOpenAI
-from langchain_community.chat_models import ChatOllama
-from langchain_cohere import ChatCohere
-from langchain_anthropic import ChatAnthropic
-from langchain_google_genai import ChatGoogleGenerativeAI
+
+try:  # langchain >= 1.0 moved the prompt classes out of the langchain package
+    from langchain_core.prompts import PromptTemplate
+except ImportError:  # pragma: no cover - older langchain 0.2.x layout
+    from langchain.prompts import PromptTemplate
 
 class NewEnumOutputParser(BaseOutputParser):
     """Parse an output that is one of a set of values."""
@@ -17,16 +15,12 @@ class NewEnumOutputParser(BaseOutputParser):
     enum: Type[Enum]
     """The enum to parse. Its values must be strings."""
 
-    @root_validator()
-    def raise_deprecation(cls, values: Dict) -> Dict:
-        enum = values["enum"]
-        if not all(isinstance(e.value, str) for e in enum):
-            raise ValueError("Enum values must be strings")
-        return values
-
     @property
     def _valid_values(self) -> List[str]:
-        return [e.value for e in self.enum]
+        values = [e.value for e in self.enum]
+        if not all(isinstance(v, str) for v in values):
+            raise ValueError("Enum values must be strings")
+        return values
 
     def parse(self, response: str) -> Any:
         """Parse permissively; local models often add short explanations."""
@@ -77,6 +71,9 @@ def get_model(provider, model_name, temperature=0.0, verbose=False, **model_kwar
 
     For Ollama this lets searches vary parameters such as top_p, top_k,
     num_ctx, num_predict and repeat_penalty.
+
+    Provider packages are imported lazily so that running against a single
+    provider does not require every provider's SDK to be installed.
     """
     provider = provider.lower()
 
@@ -84,14 +81,27 @@ def get_model(provider, model_name, temperature=0.0, verbose=False, **model_kwar
     common.update({k: v for k, v in model_kwargs.items() if v is not None})
 
     if provider == "openai":
+        from langchain_openai import ChatOpenAI
+
         return ChatOpenAI(**common)
     if provider == "ollama":
+        try:  # the dedicated package supersedes the community integration
+            from langchain_ollama import ChatOllama
+        except ImportError:  # pragma: no cover - older installs
+            from langchain_community.chat_models import ChatOllama
+
         return ChatOllama(**common)
     if provider == "anthropic":
+        from langchain_anthropic import ChatAnthropic
+
         return ChatAnthropic(**common)
     if provider == "cohere":
+        from langchain_cohere import ChatCohere
+
         return ChatCohere(**common)
     if provider == "google":
+        from langchain_google_genai import ChatGoogleGenerativeAI
+
         return ChatGoogleGenerativeAI(**common)
 
     raise Exception("Unknown provider.")
@@ -152,7 +162,7 @@ def parse_text_for_likert(text):
     else assign none
     """
     out = None
-    text = text.content.lower()
+    text = (text.content if hasattr(text, "content") else str(text)).lower()
     if "strongly" in text:
         if "agree" in text:
             out = Likert.STRONGLYAGREE
@@ -165,7 +175,7 @@ def parse_text_for_likert(text):
             out = Likert.DISAGREE
 
     if out is None:
-        Likert.NEUTRAL
+        out = Likert.NEUTRAL
     return out
 
 
