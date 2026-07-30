@@ -60,6 +60,8 @@ def read_arguments():
     for gene, size in prompt_gene_space_sizes().items():
         parser.add_argument(f"--prompt-{gene}", type=int, default=None, help=f"0..{size-1}")
 
+    parser.add_argument("--refresh-ratings", dest="refresh_ratings", action="store_true",
+                        help="Ignore cached ratings and re-score every essay.")
     parser.add_argument("--json", action="store_true", help="Print result as JSON for scripts/optimisers")
     return parser.parse_args()
 
@@ -76,6 +78,7 @@ def main():
         "base_url": args.base_url,
         "assessor_base_url": args.assessor_base_url,
         "max_questions": args.max_questions,
+        "refresh_ratings": args.refresh_ratings,
         "basepath": args.basepath,
         "outpath": args.outpath,
         "model_kwargs": parse_model_kwargs(args),

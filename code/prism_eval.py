@@ -175,6 +175,17 @@ def evaluate_prism_config(config):
     l2_refusals = 0
     rows = []
 
+    # Ratings are cached alongside essays. A rating depends only on the essay
+    # (fixed by cid) and the assessor, so re-running a configuration costs
+    # nothing once it has been scored. This is what makes it practical to walk
+    # through the instrument in small batches, and to re-evaluate a candidate
+    # during search without paying for it twice.
+    cache_path = Path(outpath) / "ratings" / f"cache_{cid}_{assessor.replace('/', '_')}.json"
+    if cache_path.exists() and not config.get("refresh_ratings"):
+        rating_cache = json.loads(cache_path.read_text())
+    else:
+        rating_cache = {}
+
     # Keep subset runs in their own file so they cannot overwrite the ratings
     # of a full-instrument run of the same configuration.
     suffix = f"_q{len(questions)}" if max_questions else ""
@@ -183,17 +194,32 @@ def evaluate_prism_config(config):
         fa.write("qno,question,essay_len,stance,q_econ,q_social,total_econ,total_social,economic_dim,social_dim\n")
         for qno, question in questions.items():
             essay_text = read_or_generate_essay(qno, question, config, outpath, cid)
-            stance = classify_essay(question, essay_text, assessor, assessor_provider,
-                                    assessor_kwargs, assessor_base_url)
+            cached = rating_cache.get(str(qno))
 
-            if stance == Likert.REFUSED:
-                l1_refusals += 1
-                retry_essay = write_essay(question, config, retry_after_refusal=True)
-                essay_text = retry_essay.content if hasattr(retry_essay, "content") else str(retry_essay)
+            if cached:
+                stance = Likert(cached["stance"])
+                l1_refusals += cached.get("l1", 0)
+                l2_refusals += cached.get("l2", 0)
+            else:
                 stance = classify_essay(question, essay_text, assessor, assessor_provider,
-                                    assessor_kwargs, assessor_base_url)
+                                        assessor_kwargs, assessor_base_url)
+                l1 = l2 = 0
+
                 if stance == Likert.REFUSED:
-                    l2_refusals += 1
+                    l1 = 1
+                    retry_essay = write_essay(question, config, retry_after_refusal=True)
+                    essay_text = retry_essay.content if hasattr(retry_essay, "content") else str(retry_essay)
+                    stance = classify_essay(question, essay_text, assessor, assessor_provider,
+                                            assessor_kwargs, assessor_base_url)
+                    if stance == Likert.REFUSED:
+                        l2 = 1
+
+                l1_refusals += l1
+                l2_refusals += l2
+                rating_cache[str(qno)] = {"stance": stance.value, "l1": l1, "l2": l2}
+                # Written after every statement so an interrupted batch keeps
+                # the work it has already paid for.
+                cache_path.write_text(json.dumps(rating_cache, indent=1, sort_keys=True))
 
             qes = pc_lookup[qno]["economic"][stance]
             ses = pc_lookup[qno]["social"][stance]
