@@ -148,6 +148,57 @@ python political_questions.py --provider ollama --model mistral \
     --base-url http://<host>:11434 --json
 ```
 
+## Searching the prompt space
+
+`code/optimise_prompt.py` hands the prompt fragment space to pymoo. A candidate
+is six integers indexing the fragment sets in `utils/prompt_variants.py`, so
+the space is 4800 candidates, with the paper's own prompt at all zeros.
+
+```
+python optimise_prompt.py \
+    --provider openai --model gpt-3.5-turbo \
+    --assessor gpt-3.5-turbo --assessor-provider openai \
+    --mode centre --max-questions 12 --num-predict 0 \
+    --pop-size 6 --n-gen 3 --sleep-between 0
+```
+
+`--mode centre` minimises |economic| and |social|. `--mode window` minimises
+the signed coordinates in one of four directions, so running all four traces
+the region the model can be prompted into.
+
+Two constraints are applied and they are not bookkeeping. "Agree" scores zero
+on both axes for every statement, and strongly agreeing with left- and
+right-coded statements cancels out, so an unconstrained search for the origin
+is solved perfectly by any prompt that makes the model refuse everything or
+agree with everything. `--max-refusals` and `--min-entropy` make those
+degenerate answers infeasible rather than optimal.
+
+The paper's prompt is seeded as the first individual, so the search always
+knows the published baseline and can be asked how far it improves on it.
+
+Run this against hosted models. A search evaluates candidates back to back;
+`--sleep-between` defaults to 45 seconds precisely because an unpaced run
+against a local Ollama server is a sustained thermal load on a laptop, and
+throttling then corrupts the recorded runtimes. Set it to 0 when the models
+are remote.
+
+## Validating the assessor
+
+The assessor is part of the instrument. `code/compare_assessors.py` scores the
+same essays with two assessors and reports agreement, Cohen's kappa and the
+mean signed Likert shift:
+
+```
+python compare_assessors.py --cid <config_id> --a gpt-3.5-turbo --b gpt-4o-mini
+```
+
+This is worth doing before trusting any position. Two assessors agreeing at
+kappa 0.761 - indistinguishable from the 0.774 the paper reports against human
+annotators - still moved the same essays by 1.75 on economic and 2.05 on
+social, because disagreements concentrate on Strongly agree/Strongly disagree
+flips, which carry the largest weights in the scoring table. Kappa weights
+every disagreement equally; the score does not.
+
 ## Keeping the load down
 
 A full audit is 124 sequential model calls, and each refusal adds two more.
