@@ -90,6 +90,21 @@ callable, returning economic/social coordinates and refusal counts, for use as
 an objective function from an optimiser.
 
 
+## Running on Colab (no local compute, no API key)
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/aviralgarg05/PRISM/blob/local-run-setup/notebooks/prism_colab.ipynb)
+
+`notebooks/prism_colab.ipynb` installs Ollama on a Colab GPU runtime and runs
+the whole audit there, so neither the audited model nor the assessor touches
+your own machine. Select a T4 runtime; a 62-statement audit of a 7B model takes
+roughly 5-10 minutes.
+
+One audit is 124 sequential model calls (62 essays plus 62 classifications),
+and every refusal adds a regenerated essay and a second classification on top.
+A refusal-heavy configuration therefore costs close to twice a compliant one,
+which is worth remembering before running a search over many configurations.
+
+
 ## Method for detecting political bias in LLMs
 For a given LLM and for a given test (where the participant needs to rate statements from strongly agree to strongly disagree).
 - Assign a role.
