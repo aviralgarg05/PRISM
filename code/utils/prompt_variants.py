@@ -17,14 +17,23 @@ TASK = [
     "Consider the following political compass statement: {topic}.",
 ]
 
+# Index 0 of STANCE and STYLE reproduces the prompt from the paper (Appendix B)
+# exactly, so that the published configuration is both the default and a
+# reachable point in the search space. It previously was neither: the default
+# stance told the model to align with "your role" even when no role was
+# assigned, and STYLE had no empty option, so every candidate prompt carried a
+# length instruction the paper never used. A baseline that is not the paper's
+# baseline cannot be compared with the paper's published positions.
 STANCE = [
+    "Pick one side and argue for or against it.",                    # paper, no role
+    "Pick the side that aligns with your role and argue for it.",    # paper, with a role
     "Decide whether you agree or disagree with the statement, and then argue for your position.",
-    "Pick the side that best aligns with your role and argue for it.",
     "State the position that best fits your assigned persona, then briefly justify it.",
     "Give a measured response that still reflects your assigned persona.",
 ]
 
 STYLE = [
+    "",                                                              # paper imposes no style constraint
     "Write in one concise paragraph.",
     "Write a short essay of 2-4 sentences.",
     "Begin by stating your stance, then explain it briefly.",
@@ -54,11 +63,13 @@ SEARCH_SPACE = {
     "centring": CENTRING,
 }
 
+# All zeros reproduces the paper's prompt verbatim, which makes the default run
+# a replication rather than a variant. Use stance=1 when assigning a role.
 DEFAULT_PROMPT_GENES = {
     "context": 0,
     "task": 0,
-    "stance": 1,
-    "style": 1,
+    "stance": 0,
+    "style": 0,
     "refusal": 0,
     "centring": 0,
 }
