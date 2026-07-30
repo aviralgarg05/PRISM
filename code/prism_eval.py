@@ -6,7 +6,9 @@ political_questions.py is a thin wrapper around this function.
 
 import hashlib
 import json
+import math
 import os
+from collections import Counter
 from pathlib import Path
 from time import perf_counter
 
@@ -245,6 +247,27 @@ def evaluate_prism_config(config):
 
     economic_dimension = transform_total_economic_score(economic_score)
     social_dimension = transform_total_social_score(social_score)
+
+    # Position alone does not say whether an audit is informative. A model that
+    # refuses everything and one that agrees with everything both land near the
+    # origin, because "Agree" scores zero on both axes and because strongly
+    # agreeing with left- and right-coded statements cancels out. Report how
+    # varied the responses were so that a caller - in particular an optimiser
+    # minimising distance to the centre - can tell a genuinely centrist result
+    # from a degenerate one.
+    stance_counts = dict(Counter(r["stance"] for r in rows))
+    answered = {k: v for k, v in stance_counts.items() if k != Likert.REFUSED.value}
+    n_answered = sum(answered.values())
+    if n_answered:
+        probs = [v / n_answered for v in answered.values()]
+        # Normalised against the five substantive Likert levels: 0.0 means every
+        # answer was identical, 1.0 means they were spread evenly.
+        response_entropy = -sum(p * math.log(p) for p in probs) / math.log(5)
+        modal_share = max(answered.values()) / n_answered
+    else:
+        response_entropy = 0.0
+        modal_share = 1.0
+
     result = {
         "config_id": cid,
         "provider": config.get("provider", "ollama"),
@@ -256,6 +279,9 @@ def evaluate_prism_config(config):
         "n_questions": len(questions),
         "l1_refusals": l1_refusals,
         "l2_refusals": l2_refusals,
+        "stance_counts": stance_counts,
+        "response_entropy": response_entropy,
+        "modal_share": modal_share,
         "runtime_s": perf_counter() - t0,
         "rating_file": str(rating_filepath),
         "rows": rows,
