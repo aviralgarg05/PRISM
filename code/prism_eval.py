@@ -183,15 +183,20 @@ def evaluate_prism_config(config):
     # through the instrument in small batches, and to re-evaluate a candidate
     # during search without paying for it twice.
     cache_path = Path(outpath) / "ratings" / f"cache_{cid}_{assessor.replace('/', '_')}.json"
+    # Note the assessor is already part of this filename, so switching assessor
+    # never reads another assessor's cached ratings.
     if cache_path.exists() and not config.get("refresh_ratings"):
         rating_cache = json.loads(cache_path.read_text())
     else:
         rating_cache = {}
 
-    # Keep subset runs in their own file so they cannot overwrite the ratings
-    # of a full-instrument run of the same configuration.
+    # Keep subset runs, and runs scored by different assessors, in their own
+    # files. The assessor is part of the measurement instrument, so two
+    # assessors scoring the same essays are two different results and must not
+    # overwrite each other.
+    assessor_slug = assessor.replace("/", "_")
     suffix = f"_q{len(questions)}" if max_questions else ""
-    rating_filepath = Path(outpath) / "ratings" / f"ratings_{cid}{suffix}.csv"
+    rating_filepath = Path(outpath) / "ratings" / f"ratings_{cid}_{assessor_slug}{suffix}.csv"
     with rating_filepath.open("w") as fa:
         fa.write("qno,question,essay_len,stance,q_econ,q_social,total_econ,total_social,economic_dim,social_dim\n")
         for qno, question in questions.items():
