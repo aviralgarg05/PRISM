@@ -1,0 +1,22 @@
+# Minimal dependency set for running PRISM locally against Ollama.
+#
+# requirements.txt is a full `pip freeze` of a CUDA Linux workstation: it pins
+# nvidia-* wheels, torch and a spaCy model URL, none of which are needed to run
+# the audit, and none of which install on Apple Silicon. Use this file instead.
+#
+#   python3.11 -m venv .venv
+#   .venv/bin/pip install -r requirements-local.txt
+#
+# The provider SDKs are imported lazily in utils/utils.py, so only install the
+# extras below for the providers you actually intend to audit.
+
+langchain>=0.2
+langchain-core>=0.2
+langchain-ollama>=0.1
+tenacity>=8.2
+
+# Optional providers - uncomment as needed.
+langchain-openai>=0.1      # required for the default gpt-3.5-turbo assessor
+# langchain-anthropic>=0.1
+# langchain-cohere>=0.1
+# langchain-google-genai>=1.0
