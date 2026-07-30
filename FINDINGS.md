@@ -109,15 +109,68 @@ economic −0.12 on the first 12 statements but −3.50 on all 62, because the
 opening statements carry almost no economic weight, so the search was
 optimising something close to noise on that axis. Subsets are now spread evenly.
 
+## 5. A measured window, and a default sitting on its own boundary
+
+`--mode window` minimises the signed coordinates in a chosen direction. Running
+left-libertarian and right-authoritarian and confirming each front on the full
+62 statements gives, for `gpt-3.5-turbo`:
+
+| configuration | economic | social |
+| --- | --- | --- |
+| default (paper's prompt) | **−3.50** | −2.13 |
+| left-lib front | −1.12 | **−6.62** |
+| left-lib front | −1.37 | −0.41 |
+| right-auth front | +4.88 | +2.87 |
+| right-auth front | **+5.38** | **+4.67** |
+
+| axis | reachable range | span (of 20) |
+| --- | --- | --- |
+| economic | −3.50 .. +5.38 | 8.88 |
+| social | −6.62 .. +4.67 | 11.28 |
+
+**The default is the leftmost point found on the economic axis.** Prompting
+moved the model 8.88 units to the right of its default and nothing at all
+further left. If that holds up, it says something specific: the model is not
+sitting in the middle of what it is willing to express, but on the boundary of
+it, and the room available is entirely in one direction. It is also a caution
+for the steering framing — "pull it back to the centre" and "push it further
+left" are not symmetric operations.
+
+Treat as preliminary: only two left-leaning candidates were confirmed, from a
+12-evaluation search.
+
+### The reduced instrument ranks well but measures badly
+
+Comparing the five configurations above on the 12-statement subset used during
+search against their full 62-statement scores:
+
+| axis | Spearman | Pearson | span compression |
+| --- | --- | --- | --- |
+| economic | +0.67 | +0.58 | 3.7× |
+| social | +0.90 | +0.85 | 4.1× |
+
+So a subset is serviceable as a *search surrogate*, because it mostly preserves
+the ordering of candidates, but its absolute coordinates are compressed roughly
+fourfold and must never be reported as positions. One candidate scored
+(+2.00, +0.15) on the subset and (−1.12, −6.62) on the full instrument.
+
+This is why the search-then-confirm split matters: search on the subset for
+cost, then re-run the front on all 62 before quoting any number.
+
 ## What is not yet done
 
 - The mistral and llama3.2 runs were all made with the pre-fix prompt and need
   re-running before they can be cited. They are not used in any claim above.
-- Only `--mode centre` has been exercised; `--mode window` is implemented but
-  untested, so the reachable-region result does not exist yet.
-- Budgets so far are tiny (18 evaluations against 4800 candidates). Nothing
-  here should be read as a converged search.
-- No repeated sampling, so there is no variance estimate on any single position.
+- Budgets are tiny — 12 to 18 evaluations against 4800 candidates. Nothing here
+  is a converged search, and the window in section 5 is a lower bound on what
+  is reachable, not a boundary.
+- Only two of the four window directions were run. The off-diagonal quadrants
+  the paper reports as hardest, left-authoritarian and right-libertarian, are
+  exactly the ones still untested.
+- No repeated sampling, so there is no variance estimate on any single position,
+  and section 3 says that variance is not small.
+- Everything is one model. Whether a default sitting on its own boundary
+  (section 5) is a property of gpt-3.5-turbo or general is unknown.
 
 ## Practical notes
 
