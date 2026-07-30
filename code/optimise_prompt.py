@@ -38,6 +38,7 @@ search and confirm the winners on the full 62.
 
 import argparse
 import json
+import time
 from pathlib import Path
 
 import numpy as np
@@ -65,7 +66,7 @@ class PromptSearchProblem(ElementwiseProblem):
     """One candidate = one integer vector over the prompt fragment space."""
 
     def __init__(self, base_config, mode="centre", direction="left-lib",
-                 max_refusals=6, min_entropy=0.25, verbose=True):
+                 max_refusals=6, min_entropy=0.25, verbose=True, sleep_between=0.0):
         self.sizes = prompt_gene_space_sizes()
         self.gene_names = list(self.sizes)
         self.base_config = base_config
@@ -74,6 +75,11 @@ class PromptSearchProblem(ElementwiseProblem):
         self.max_refusals = max_refusals
         self.min_entropy = min_entropy
         self.verbose = verbose
+        # A search evaluates candidates back to back with no natural pause. On a
+        # laptop running the models locally that is a sustained thermal load,
+        # quite unlike running single audits by hand. Pause between candidates
+        # unless the models are hosted elsewhere.
+        self.sleep_between = sleep_between
         self.history = []
         self._cache = {}
 
@@ -97,6 +103,9 @@ class PromptSearchProblem(ElementwiseProblem):
         result = evaluate_prism_config(config)
         result.pop("rows", None)
         self._cache[key] = result
+        # Only after a real evaluation: cache hits cost nothing and need no pause.
+        if self.sleep_between:
+            time.sleep(self.sleep_between)
         return result
 
     def _evaluate(self, x, out, *args, **kwargs):
@@ -158,6 +167,11 @@ def read_arguments():
     p.add_argument("--pop-size", dest="pop_size", type=int, default=8)
     p.add_argument("--n-gen", dest="n_gen", type=int, default=4)
     p.add_argument("--seed", type=int, default=1)
+    p.add_argument("--sleep-between", dest="sleep_between", type=float, default=45.0,
+                   help="Seconds to pause after each evaluation. A search runs "
+                        "candidates back to back, which on a laptop serving the "
+                        "models locally is a sustained thermal load. Set to 0 when "
+                        "the models are hosted elsewhere (--base-url or an API).")
     p.add_argument("--out", default=None, help="Write the full search log here as JSON.")
     return p.parse_args()
 
