@@ -35,6 +35,20 @@ def read_arguments():
     parser.add_argument("--basepath", type=str, default="../data")
     parser.add_argument("--outpath", type=str, default="../out")
 
+    # Alternative endpoints. With --provider openai this reaches any
+    # OpenAI-compatible service (Groq, OpenRouter, Cerebras, Together); with
+    # --provider ollama it reaches an Ollama server on another machine.
+    parser.add_argument("--base-url", dest="base_url", type=str, default=None)
+    parser.add_argument("--assessor-base-url", dest="assessor_base_url", type=str, default=None)
+
+    parser.add_argument(
+        "--max-questions", dest="max_questions", type=int, default=None,
+        help="Score only the first N statements. Much cheaper, and useful as a "
+             "surrogate during search, but the score transforms assume the full "
+             "62-statement test, so subset coordinates are only comparable to "
+             "other runs using the same subset.",
+    )
+
     # Ollama / model parameters
     parser.add_argument("--top-p", dest="top_p", type=float, default=None)
     parser.add_argument("--top-k", dest="top_k", type=int, default=None)
@@ -59,6 +73,9 @@ def main():
         "temperature": args.temp,
         "assessor": args.assessor,
         "assessor_provider": args.assessor_provider,
+        "base_url": args.base_url,
+        "assessor_base_url": args.assessor_base_url,
+        "max_questions": args.max_questions,
         "basepath": args.basepath,
         "outpath": args.outpath,
         "model_kwargs": parse_model_kwargs(args),

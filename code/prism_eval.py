@@ -86,12 +86,14 @@ def write_essay(topic, config, retry_after_refusal=False):
 
     _, description = role_details(role)
     prompt = make_essay_prompt(role, prompt_genes)
-    model = get_model(provider, model_name, temperature, **model_kwargs)
+    model = get_model(provider, model_name, temperature,
+                      base_url=config.get("base_url"), **model_kwargs)
     chain = prompt | model
     return chain.invoke({"topic": topic, "description": description})
 
 
-def classify_essay(question, essay, assessor="gpt-3.5-turbo", assessor_provider=None, assessor_kwargs=None):
+def classify_essay(question, essay, assessor="gpt-3.5-turbo", assessor_provider=None,
+                   assessor_kwargs=None, assessor_base_url=None):
     @retry(wait=wait_exponential(multiplier=1, min=1, max=5), stop=stop_after_attempt(5))
     def do_retry(prompt_text, bad_response):
         retry_prompt = PromptTemplate(
@@ -112,7 +114,7 @@ def classify_essay(question, essay, assessor="gpt-3.5-turbo", assessor_provider=
 
     assessor_provider = assessor_provider or ASSESSOR_PROVIDERS.get(assessor, "openai")
     assessor_kwargs = assessor_kwargs or {}
-    model = get_model(assessor_provider, assessor, **assessor_kwargs)
+    model = get_model(assessor_provider, assessor, base_url=assessor_base_url, **assessor_kwargs)
 
     chain = prompt | model
     out = chain.invoke({"question": question, "essay": essay})
@@ -150,6 +152,8 @@ def evaluate_prism_config(config):
     assessor = config.get("assessor", "gpt-3.5-turbo")
     assessor_provider = config.get("assessor_provider")
     assessor_kwargs = config.get("assessor_kwargs", {})
+    assessor_base_url = config.get("assessor_base_url")
+    max_questions = config.get("max_questions")
     cid = config.get("config_id") or config_id(config)
 
     Path(outpath, "ratings").mkdir(parents=True, exist_ok=True)
@@ -158,24 +162,36 @@ def evaluate_prism_config(config):
     questions = read_questions_from_file(os.path.join(basepath, "compass_questions.txt"))
     pc_lookup = read_pc_lookup(os.path.join(basepath, "pc_lookup.csv"))
 
+    # A reduced instrument is much cheaper and is useful as a surrogate during
+    # search, but the score transforms are calibrated for the full 62-statement
+    # test, so the resulting coordinates are only comparable to other runs with
+    # the same subset - never to published PCT positions.
+    if max_questions:
+        questions = {k: questions[k] for k in sorted(questions)[:int(max_questions)]}
+
     economic_score = 0
     social_score = 0
     l1_refusals = 0
     l2_refusals = 0
     rows = []
 
-    rating_filepath = Path(outpath) / "ratings" / f"ratings_{cid}.csv"
+    # Keep subset runs in their own file so they cannot overwrite the ratings
+    # of a full-instrument run of the same configuration.
+    suffix = f"_q{len(questions)}" if max_questions else ""
+    rating_filepath = Path(outpath) / "ratings" / f"ratings_{cid}{suffix}.csv"
     with rating_filepath.open("w") as fa:
         fa.write("qno,question,essay_len,stance,q_econ,q_social,total_econ,total_social,economic_dim,social_dim\n")
         for qno, question in questions.items():
             essay_text = read_or_generate_essay(qno, question, config, outpath, cid)
-            stance = classify_essay(question, essay_text, assessor, assessor_provider, assessor_kwargs)
+            stance = classify_essay(question, essay_text, assessor, assessor_provider,
+                                    assessor_kwargs, assessor_base_url)
 
             if stance == Likert.REFUSED:
                 l1_refusals += 1
                 retry_essay = write_essay(question, config, retry_after_refusal=True)
                 essay_text = retry_essay.content if hasattr(retry_essay, "content") else str(retry_essay)
-                stance = classify_essay(question, essay_text, assessor, assessor_provider, assessor_kwargs)
+                stance = classify_essay(question, essay_text, assessor, assessor_provider,
+                                    assessor_kwargs, assessor_base_url)
                 if stance == Likert.REFUSED:
                     l2_refusals += 1
 
@@ -211,6 +227,7 @@ def evaluate_prism_config(config):
         "assessor": assessor,
         "economic": economic_dimension,
         "social": social_dimension,
+        "n_questions": len(questions),
         "l1_refusals": l1_refusals,
         "l2_refusals": l2_refusals,
         "runtime_s": perf_counter() - t0,

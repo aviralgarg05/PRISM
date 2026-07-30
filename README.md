@@ -105,6 +105,63 @@ A refusal-heavy configuration therefore costs close to twice a compliant one,
 which is worth remembering before running a search over many configurations.
 
 
+## Running against a hosted endpoint
+
+`--base-url` points the client somewhere other than the default. Combined with
+`--provider openai` this reaches any OpenAI-compatible service, several of
+which have a free tier that needs only a signup, no card:
+
+| Service | Base URL | Example model |
+| --- | --- | --- |
+| Groq | `https://api.groq.com/openai/v1` | `llama-3.3-70b-versatile` |
+| Cerebras | `https://api.cerebras.ai/v1` | `llama-3.3-70b` |
+| OpenRouter | `https://openrouter.ai/api/v1` | any model tagged `:free` |
+
+The OpenAI client reads its key from `OPENAI_API_KEY`, so set that to the key
+for whichever service you are using:
+
+```
+export OPENAI_API_KEY=<key for the service above>
+cd code
+python political_questions.py \
+    --provider openai --model llama-3.3-70b-versatile \
+    --base-url https://api.groq.com/openai/v1 \
+    --assessor llama-3.3-70b-versatile --assessor-provider openai \
+    --assessor-base-url https://api.groq.com/openai/v1 \
+    --role red --json
+```
+
+Google AI Studio also has a free tier and needs no `--base-url`, since the
+`google` provider is supported directly - `pip install langchain-google-genai`,
+set `GOOGLE_API_KEY`, then `--provider google --model gemini-2.0-flash`. The
+Gemini family appears in the PRISM paper, so those results are comparable to
+the published figures.
+
+Free tiers are rate limited, and one audit is 124 requests plus two per
+refusal. If you hit a limit, use `--max-questions` to shorten the instrument.
+
+`--base-url` also works with `--provider ollama`, which is how you point at an
+Ollama server running on another machine:
+
+```
+python political_questions.py --provider ollama --model mistral \
+    --base-url http://<host>:11434 --json
+```
+
+## Keeping the load down
+
+A full audit is 124 sequential model calls, and each refusal adds two more.
+On a laptop that is a sustained load; these flags reduce it:
+
+- `--max-questions 15` scores a subset of the instrument. Note that the score
+  transforms are calibrated for the full 62-statement test, so subset
+  coordinates compare only to other runs using the same subset - not to
+  published PCT positions. Subset runs are written to their own ratings file.
+- `--num-predict 300` caps the essay length; the prompt only asks for 2-4
+  sentences, so the tail of a long generation is wasted work.
+- Essays are cached by configuration hash, so re-running a configuration you
+  have already evaluated costs only the classification calls.
+
 ## Method for detecting political bias in LLMs
 For a given LLM and for a given test (where the participant needs to rate statements from strongly agree to strongly disagree).
 - Assign a role.

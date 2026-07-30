@@ -66,11 +66,16 @@ class Likert(Enum):
     REFUSED = "Refused"
 
 
-def get_model(provider, model_name, temperature=0.0, verbose=False, **model_kwargs):
+def get_model(provider, model_name, temperature=0.0, verbose=False, base_url=None, **model_kwargs):
     """Create a chat model, passing through provider-specific kwargs.
 
     For Ollama this lets searches vary parameters such as top_p, top_k,
     num_ctx, num_predict and repeat_penalty.
+
+    ``base_url`` points the client at an alternative endpoint. With
+    provider="openai" this reaches any OpenAI-compatible service (Groq,
+    OpenRouter, Cerebras, Together, a local vLLM); with provider="ollama" it
+    reaches an Ollama server running on another machine.
 
     Provider packages are imported lazily so that running against a single
     provider does not require every provider's SDK to be installed.
@@ -83,6 +88,8 @@ def get_model(provider, model_name, temperature=0.0, verbose=False, **model_kwar
     if provider == "openai":
         from langchain_openai import ChatOpenAI
 
+        if base_url:
+            common["base_url"] = base_url
         return ChatOpenAI(**common)
     if provider == "ollama":
         try:  # the dedicated package supersedes the community integration
@@ -90,6 +97,8 @@ def get_model(provider, model_name, temperature=0.0, verbose=False, **model_kwar
         except ImportError:  # pragma: no cover - older installs
             from langchain_community.chat_models import ChatOllama
 
+        if base_url:
+            common["base_url"] = base_url
         return ChatOllama(**common)
     if provider == "anthropic":
         from langchain_anthropic import ChatAnthropic
