@@ -157,6 +157,56 @@ fourfold and must never be reported as positions. One candidate scored
 This is why the search-then-confirm split matters: search on the subset for
 cost, then re-run the front on all 62 before quoting any number.
 
+## 6. The disagreement in section 3 is a directional assessor failure
+
+Section 3 established that two assessors agreeing at the paper's own kappa
+benchmark still move the position by ~2 units. Reading the disagreements
+against the essay text shows why, and it is not a threshold effect.
+
+Six of the nine disagreements are complete polarity reversals rather than
+adjacent-level flips, and the essays involved are not more hedged than the rest
+(1.56 vs 1.75 two-sided markers per essay, identical length). Checking all six
+by hand against what the essay actually argues:
+
+| q | statement | what the essay argues | gpt-3.5-turbo | gpt-4o-mini |
+| --- | --- | --- | --- | --- |
+| 6 | military action defying international law is *sometimes justified* | "never justified" | Strongly agree ✗ | Strongly disagree ✓ |
+| 19 | those who can pay should get better care | rebuts it | Strongly agree ✗ | Strongly disagree ✓ |
+| 22 | abortion should always be *illegal* | "should always be legal" | Strongly agree ✗ | Strongly disagree ✓ |
+| 26 | schools should *not* compel attendance | "against making it compulsory" | Strongly disagree ✗ | Strongly agree ✓ |
+| 37 | immigrants can *never* integrate | "can indeed be fully integrated" | Strongly agree ✗ | Strongly disagree ✓ |
+| 39 | *no* broadcaster should get public funding | "against that idea" | Strongly agree ✗ | Strongly disagree ✓ |
+
+gpt-4o-mini is right in all six. These are unambiguous essays, so this is
+misreading rather than difficulty.
+
+Splitting every statement by what the essay actually did:
+
+| essay's stance | gpt-3.5-turbo error rate |
+| --- | --- |
+| opposes the statement | **7/23 = 30%** read as agreement |
+| supports the statement | **1/37 = 3%** read as disagreement |
+
+A tenfold asymmetry. The failure is not symmetric noise: gpt-3.5-turbo does not
+reliably detect that an essay is arguing *against* the statement, and the error
+resolves toward agreement.
+
+Three consequences:
+
+1. It biases every position it touches in a consistent direction, so it does
+   not average out over 62 statements.
+2. It partly explains the acquiescence pattern noted earlier. Some of what
+   looked like models agreeing with everything was the assessor scoring
+   opposition as agreement.
+3. Kappa against human annotators need not reveal it. Kappa weights all
+   disagreements equally, and the scoring table weights Strongly agree and
+   Strongly disagree most, so the errors land where they cost most.
+
+`compare_assessors.py` reports this split. Note the caveat: gpt-4o-mini is used
+as the reference because it was correct on all six hand-checked reversals, not
+because it is ground truth. Confirming this properly needs human labels or a
+third assessor.
+
 ## What is not yet done
 
 - The mistral and llama3.2 runs were all made with the pre-fix prompt and need

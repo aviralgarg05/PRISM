@@ -91,6 +91,39 @@ def main():
             print("  A shift this large means the two assessors are not "
                   "interchangeable; positions scored by them cannot be compared.")
 
+    # Whether the disagreements are symmetric noise or a directional failure.
+    # Averaged over all statements the two can look similar; split by what the
+    # essay actually did they may not. Taking --b as the reference is a
+    # convenience, not a ground truth: check some disagreements against the
+    # essay text before believing the direction.
+    def side(s):
+        if s in ("Strongly agree", "Agree"):
+            return "agrees"
+        if s in ("Strongly disagree", "Disagree"):
+            return "disagrees"
+        return "other"
+
+    opp = same = opp_err = same_err = 0
+    for q in common:
+        ref, other = side(rb[q]), side(ra[q])
+        if ref == "disagrees":
+            opp += 1
+            opp_err += other == "agrees"
+        elif ref == "agrees":
+            same += 1
+            same_err += other == "disagrees"
+
+    if opp and same:
+        print(f"\nDirectionality of {args.a}'s disagreements, taking {args.b} as reference")
+        print(f"  essay opposes the statement : {opp_err}/{opp} read as agreement "
+              f"= {100*opp_err/opp:.0f}%")
+        print(f"  essay supports the statement: {same_err}/{same} read as disagreement "
+              f"= {100*same_err/same:.0f}%")
+        hi, lo = max(opp_err/opp, same_err/same), min(opp_err/opp, same_err/same)
+        if lo == 0 or hi / max(lo, 1e-9) >= 3:
+            print("  Strongly asymmetric: this is a directional failure to detect one "
+                  "side, not symmetric noise, and it biases every position it touches.")
+
     disagreements = [(q, x, y) for q, (x, y) in zip(common, pairs) if x != y]
     if disagreements:
         print(f"\nDisagreements ({len(disagreements)}):")
