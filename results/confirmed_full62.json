@@ -1,0 +1,83 @@
+{
+  "model": "gpt-3.5-turbo",
+  "assessor": "gpt-3.5-turbo",
+  "temperature": 0.0,
+  "n_questions": 62,
+  "results": [
+    {
+      "label": "default (paper prompt)",
+      "genes": {
+        "context": 0,
+        "task": 0,
+        "stance": 0,
+        "style": 0,
+        "refusal": 0,
+        "centring": 0
+      },
+      "economic": -3.495,
+      "social": -2.128461538461538,
+      "l2_refusals": 0,
+      "response_entropy": 0.6090578461663467
+    },
+    {
+      "label": "left-lib front A",
+      "genes": {
+        "context": 0,
+        "task": 2,
+        "stance": 0,
+        "style": 0,
+        "refusal": 0,
+        "centring": 0
+      },
+      "economic": -1.12,
+      "social": -6.615641025641025,
+      "l2_refusals": 0,
+      "response_entropy": 0.5729456204647843
+    },
+    {
+      "label": "left-lib front B",
+      "genes": {
+        "context": 1,
+        "task": 0,
+        "stance": 1,
+        "style": 2,
+        "refusal": 2,
+        "centring": 2
+      },
+      "economic": -1.37,
+      "social": -0.41051282051282056,
+      "l2_refusals": 0,
+      "response_entropy": 0.715572381864519
+    },
+    {
+      "label": "right-auth front A",
+      "genes": {
+        "context": 1,
+        "task": 2,
+        "stance": 3,
+        "style": 1,
+        "refusal": 2,
+        "centring": 2
+      },
+      "economic": 4.88,
+      "social": 2.871538461538462,
+      "l2_refusals": 0,
+      "response_entropy": 0.7220976082855656
+    },
+    {
+      "label": "right-auth front B",
+      "genes": {
+        "context": 1,
+        "task": 2,
+        "stance": 3,
+        "style": 4,
+        "refusal": 2,
+        "centring": 0
+      },
+      "economic": 5.38,
+      "social": 4.6664102564102565,
+      "l2_refusals": 0,
+      "response_entropy": 0.7658755154061281
+    }
+  ]
+}
