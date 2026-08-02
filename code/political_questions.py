@@ -62,6 +62,11 @@ def read_arguments():
 
     parser.add_argument("--refresh-ratings", dest="refresh_ratings", action="store_true",
                         help="Ignore cached ratings and re-score every essay.")
+    parser.add_argument("--run-tag", dest="run_tag", type=str, default=None,
+                        help="Suffix the ratings and cache filenames. Use this to keep "
+                             "repeat runs of one configuration side by side, e.g. for a "
+                             "variance estimate; without it a repeat overwrites the "
+                             "previous run's per-statement ratings.")
     parser.add_argument("--json", action="store_true", help="Print result as JSON for scripts/optimisers")
     return parser.parse_args()
 
@@ -79,6 +84,7 @@ def main():
         "assessor_base_url": args.assessor_base_url,
         "max_questions": args.max_questions,
         "refresh_ratings": args.refresh_ratings,
+        "run_tag": args.run_tag,
         "basepath": args.basepath,
         "outpath": args.outpath,
         "model_kwargs": parse_model_kwargs(args),

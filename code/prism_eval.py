@@ -156,6 +156,12 @@ def evaluate_prism_config(config):
     assessor_kwargs = config.get("assessor_kwargs", {})
     assessor_base_url = config.get("assessor_base_url")
     max_questions = config.get("max_questions")
+    # Repeat runs of one configuration are separate observations, not a
+    # correction of each other. Without a tag the second run overwrites the
+    # first's ratings, which silently destroys exactly the data a variance
+    # estimate needs.
+    run_tag = config.get("run_tag")
+    tag = f"_{run_tag}" if run_tag else ""
     cid = config.get("config_id") or config_id(config)
 
     Path(outpath, "ratings").mkdir(parents=True, exist_ok=True)
@@ -193,7 +199,7 @@ def evaluate_prism_config(config):
     # nothing once it has been scored. This is what makes it practical to walk
     # through the instrument in small batches, and to re-evaluate a candidate
     # during search without paying for it twice.
-    cache_path = Path(outpath) / "ratings" / f"cache_{cid}_{assessor.replace('/', '_')}.json"
+    cache_path = Path(outpath) / "ratings" / f"cache_{cid}_{assessor.replace('/', '_')}{tag}.json"
     # Note the assessor is already part of this filename, so switching assessor
     # never reads another assessor's cached ratings.
     if cache_path.exists() and not config.get("refresh_ratings"):
@@ -207,7 +213,7 @@ def evaluate_prism_config(config):
     # overwrite each other.
     assessor_slug = assessor.replace("/", "_")
     suffix = f"_q{len(questions)}" if max_questions else ""
-    rating_filepath = Path(outpath) / "ratings" / f"ratings_{cid}_{assessor_slug}{suffix}.csv"
+    rating_filepath = Path(outpath) / "ratings" / f"ratings_{cid}_{assessor_slug}{suffix}{tag}.csv"
     with rating_filepath.open("w") as fa:
         fa.write("qno,question,essay_len,stance,q_econ,q_social,total_econ,total_social,economic_dim,social_dim\n")
         for qno, question in questions.items():
