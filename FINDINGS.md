@@ -207,6 +207,44 @@ as the reference because it was correct on all six hand-checked reversals, not
 because it is ground truth. Confirming this properly needs human labels or a
 third assessor.
 
+## 7. Repeat variance, and what it is not
+
+Everything above ran at temperature 0. Repeating one configuration
+(gpt-3.5-turbo, paper prompt, assessor gpt-3.5-turbo) gives:
+
+| | economic sd | social sd | economic range | social range |
+| --- | --- | --- | --- | --- |
+| full pipeline, fresh essays and ratings (n=4, spanning hours) | 0.16 | **0.27** | 0.38 | 0.69 |
+| assessor only, one fixed essay set re-scored (n=3, back to back) | 0.12 | 0.00 | 0.25 | 0.00 |
+
+Against the effects being measured:
+
+| effect | size |
+| --- | --- |
+| repeat noise, social (sd) | 0.27 |
+| prompt steering found by the search, social | 1.74 |
+| swapping assessor, social | 2.05 |
+
+So a single configuration is reproducible: run-to-run noise is roughly eight
+times smaller than either the steering effect or the assessor effect. The
+instability is not general brittleness at temperature 0 — it sits specifically
+between assessors, which is consistent with section 6 identifying it as a
+systematic misread rather than sampling variation.
+
+That is the useful split. The steering signal is comfortably above repeat
+noise, so the search is measuring something real. The assessor term is not, and
+it is the one to control.
+
+Two cautions on these numbers. The three back-to-back assessor-only repeats
+returned an identical social score, while the same essays scored hours earlier
+gave a value 0.51 different; repeats run close together therefore understate
+variance, and the full-pipeline row is the more honest of the two because it
+spans hours. And n=4 is a small basis for an sd — this is an order-of-magnitude
+statement, not a confidence interval.
+
+`--run-tag` keeps repeat runs side by side; without it each repeat overwrites
+the previous run's per-statement ratings.
+
 ## What is not yet done
 
 - The mistral and llama3.2 runs were all made with the pre-fix prompt and need
