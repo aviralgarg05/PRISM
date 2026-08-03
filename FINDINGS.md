@@ -245,6 +245,78 @@ statement, not a confidence interval.
 `--run-tag` keeps repeat runs side by side; without it each repeat overwrites
 the previous run's per-statement ratings.
 
+## 8. Role scenarios on mistral, run on the Stirling GPU
+
+Essays generated with ollama on an RTX 3060 Ti, scored here with gpt-4o-mini so
+that no API key leaves this machine. Paper prompt, all 62 statements,
+**zero refusals in all seven runs — 434 statements.**
+
+| role | economic | social | entropy |
+| --- | --- | --- | --- |
+| none (baseline) | −2.68 | −4.56 | 0.82 |
+| pcleftlib | **−7.62** | **−7.64** | 0.43 |
+| pcleftauth | −5.62 | +0.46 | 0.35 |
+| pcrightlib | +4.88 | −2.51 | 0.41 |
+| pcrightauth | +3.75 | +2.77 | 0.40 |
+| blue (Democrat) | −2.25 | −1.77 | 0.78 |
+| red (Republican) | +1.00 | +1.92 | 0.55 |
+
+**All four quadrants are reached, with the right signs, and nothing is
+refused.** The paper reports that models are unwilling to occupy
+authoritarian-left and libertarian-right; mistral occupies both on request.
+The nearest thing to resistance is that `pcleftauth` only just crosses into
+authoritarian at +0.46, and carries the lowest response entropy of any run.
+
+**Positional wording beats identity labels by about four to one.** The four
+`pc*` roles span 12.50 economic and 10.41 social; `blue` and `red` together
+span 3.25 and 3.69. "You are economically left and socially libertarian" moves
+the model; "you are a Democrat" barely does. Worth knowing before spending
+search budget on identity labels.
+
+**mistral's default sits inside its window**, with room in both directions
+(4.94 further left, 7.56 right; 3.08 more libertarian, 7.33 more
+authoritarian). That is the opposite of gpt-3.5-turbo in section 5, whose
+default *was* the leftmost point found. So "the default sits on its own
+boundary" is a property of that model, not a general one — worth stating,
+since section 5 could otherwise be read as general.
+
+### The assessor term is larger than reported in section 3, and worst where it matters
+
+Every configuration above was scored twice: once by mistral itself during
+generation, once by gpt-4o-mini. The same essays, two assessors:
+
+| role | mistral as assessor | gpt-4o-mini | distance |
+| --- | --- | --- | --- |
+| none (baseline) | +0.26, +1.64 | −2.68, −4.56 | **6.86** |
+| blue | −0.87, +2.15 | −2.25, −1.77 | 4.16 |
+| pcleftlib | −5.87, −5.38 | −7.62, −7.64 | 2.86 |
+| pcleftauth | −3.87, +2.05 | −5.62, +0.46 | 2.36 |
+| pcrightlib | +4.88, −1.13 | +4.88, −2.51 | 1.38 |
+| red | +1.13, +2.77 | +1.00, +1.92 | 0.86 |
+| pcrightauth | +3.75, +2.72 | +3.75, +2.77 | **0.05** |
+
+Two things follow.
+
+First, **a 7B local assessor put mistral in the wrong quadrant entirely.**
+Scored by itself, mistral's default is right-authoritarian (+0.26, +1.64);
+scored by gpt-4o-mini it is left-libertarian (−2.68, −4.56), which is where the
+paper places Mistral. The earlier mismatch with the published figure was the
+assessor, not the pipeline. Two models now reproduce their published quadrant.
+
+Second, **the disagreement is not a constant offset — it ranges from 0.05 to
+6.86 and tracks how varied the answers are** (Pearson +0.79, p=0.035; Spearman
++0.64, p=0.119; n=7, so suggestive rather than established). Under a strong
+persona the essays become formulaic and the two assessors agree almost exactly.
+On the unroled baseline, where the model answers with the most variety, they
+diverge most.
+
+That is an awkward place for the error to live: the unroled default is the
+number normally reported as "the model's position".
+
+The practical rule this gives, which matters for anyone auditing on limited
+compute: generate with a local model if you like, but **do not assess with
+one.**
+
 ## What is not yet done
 
 - The mistral and llama3.2 runs were all made with the pre-fix prompt and need

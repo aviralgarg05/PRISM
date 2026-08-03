@@ -60,8 +60,10 @@ cd code
 ```
 
 The default assessor is `gpt-3.5-turbo` and needs `OPENAI_API_KEY`. Passing
-`--assessor`/`--assessor-provider` as above keeps everything offline, but the
-assessor is part of the instrument - see `FINDINGS.md`.
+`--assessor`/`--assessor-provider` as above keeps everything offline, but do
+not report positions scored that way: a 7B local assessor placed mistral in the
+wrong compass quadrant entirely. Generate locally if you like, assess with a
+capable model. See `FINDINGS.md`.
 
 Essays and assessor ratings are cached by configuration hash under `--outpath`,
 so re-evaluating a configuration is free.

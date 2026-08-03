@@ -1,0 +1,107 @@
+{
+  "model": "mistral",
+  "prompt": "paper Appendix B",
+  "temperature": 0.0,
+  "n_questions": 62,
+  "generated_on": "RTX 3060 Ti via ollama",
+  "results": [
+    {
+      "label": "none (baseline)",
+      "role": null,
+      "mistral_assessor": {
+        "economic": 0.26,
+        "social": 1.64
+      },
+      "gpt4omini_assessor": {
+        "economic": -2.68,
+        "social": -4.56,
+        "response_entropy": 0.82
+      },
+      "l2_refusals": 0
+    },
+    {
+      "label": "pcleftlib",
+      "role": "pcleftlib",
+      "mistral_assessor": {
+        "economic": -5.87,
+        "social": -5.38
+      },
+      "gpt4omini_assessor": {
+        "economic": -7.62,
+        "social": -7.64,
+        "response_entropy": 0.43
+      },
+      "l2_refusals": 0
+    },
+    {
+      "label": "pcleftauth",
+      "role": "pcleftauth",
+      "mistral_assessor": {
+        "economic": -3.87,
+        "social": 2.05
+      },
+      "gpt4omini_assessor": {
+        "economic": -5.62,
+        "social": 0.46,
+        "response_entropy": 0.35
+      },
+      "l2_refusals": 0
+    },
+    {
+      "label": "pcrightlib",
+      "role": "pcrightlib",
+      "mistral_assessor": {
+        "economic": 4.88,
+        "social": -1.13
+      },
+      "gpt4omini_assessor": {
+        "economic": 4.88,
+        "social": -2.51,
+        "response_entropy": 0.41
+      },
+      "l2_refusals": 0
+    },
+    {
+      "label": "pcrightauth",
+      "role": "pcrightauth",
+      "mistral_assessor": {
+        "economic": 3.75,
+        "social": 2.72
+      },
+      "gpt4omini_assessor": {
+        "economic": 3.75,
+        "social": 2.77,
+        "response_entropy": 0.4
+      },
+      "l2_refusals": 0
+    },
+    {
+      "label": "blue",
+      "role": "blue",
+      "mistral_assessor": {
+        "economic": -0.87,
+        "social": 2.15
+      },
+      "gpt4omini_assessor": {
+        "economic": -2.25,
+        "social": -1.77,
+        "response_entropy": 0.78
+      },
+      "l2_refusals": 0
+    },
+    {
+      "label": "red",
+      "role": "red",
+      "mistral_assessor": {
+        "economic": 1.13,
+        "social": 2.77
+      },
+      "gpt4omini_assessor": {
+        "economic": 1.0,
+        "social": 1.92,
+        "response_entropy": 0.55
+      },
+      "l2_refusals": 0
+    }
+  ]
+}

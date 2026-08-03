@@ -149,6 +149,45 @@ def plot_fragments(history, outpath):
     print("wrote", outpath)
 
 
+def plot_roles(data, outpath):
+    """Role scenarios under both assessors, on one compass.
+
+    Plotting both scorings of the same essays makes the size of the assessor
+    term visible next to the size of the steering it is being used to measure.
+    """
+    fig, ax = plt.subplots(figsize=(7.5, 7.5))
+    ax.axhspan(0, 10, xmin=0, xmax=0.5, color="#f4d4d4", zorder=0)
+    ax.axhspan(0, 10, xmin=0.5, xmax=1, color="#d4dcf4", zorder=0)
+    ax.axhspan(-10, 0, xmin=0, xmax=0.5, color="#d4f0d8", zorder=0)
+    ax.axhspan(-10, 0, xmin=0.5, xmax=1, color="#f4f0d0", zorder=0)
+
+    for r in data["results"]:
+        a, b = r["mistral_assessor"], r["gpt4omini_assessor"]
+        base = r["role"] is None
+        # a line joining the two scorings of the identical essays
+        ax.plot([a["economic"], b["economic"]], [a["social"], b["social"]],
+                color="#999", lw=1.0, ls="-", zorder=2)
+        ax.scatter(a["economic"], a["social"], s=45, marker="x",
+                   color="#888", zorder=3)
+        ax.scatter(b["economic"], b["social"],
+                   s=200 if base else 110, marker="*" if base else "o",
+                   color="#c1272d" if base else "#1f4e9c",
+                   edgecolor="white", linewidth=1.1, zorder=4)
+        ax.annotate(r["label"], (b["economic"], b["social"]),
+                    textcoords="offset points", xytext=(9, 6), fontsize=8.5, zorder=5)
+
+    ax.axhline(0, color="k", lw=0.9); ax.axvline(0, color="k", lw=0.9)
+    ax.set_xlim(-10, 10); ax.set_ylim(-10, 10)
+    ax.set_xlabel("Economic     left  ←  →  right")
+    ax.set_ylabel("Social     libertarian  ←  →  authoritarian")
+    ax.set_title("mistral under role scenarios, all 62 statements, 0 refusals\n"
+                 "circles scored by gpt-4o-mini, grey crosses by mistral itself; "
+                 "a line joins the two scorings of the same essays", fontsize=9.5)
+    ax.grid(alpha=0.25, lw=0.5)
+    fig.tight_layout(); fig.savefig(outpath, dpi=150); plt.close(fig)
+    print("wrote", outpath)
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--results", default="../results")
@@ -163,6 +202,10 @@ def main():
     Path(args.outdir).mkdir(parents=True, exist_ok=True)
     plot_compass(confirmed, Path(args.outdir) / "compass.png")
     plot_fragments(history, Path(args.outdir) / "fragments.png")
+
+    roles_file = Path(args.results) / "mistral_roles_full62.json"
+    if roles_file.exists():
+        plot_roles(json.loads(roles_file.read_text()), Path(args.outdir) / "roles.png")
 
 
 if __name__ == "__main__":
