@@ -17,6 +17,16 @@ def parse_model_kwargs(args):
 
 def parse_prompt_genes(args):
     genes = dict(DEFAULT_PROMPT_GENES)
+
+    # Appendix B gives two wordings: "Pick one side and argue for or against
+    # it" without a role, and "Pick the side that aligns with your role and
+    # argue for it" with one. The default genes encode the first, so a run
+    # with --role would otherwise get the roleless wording - the mirror of the
+    # bug where the roled wording was sent without a role. Explicit
+    # --prompt-stance still wins, so the search is unaffected.
+    if args.role and args.prompt_stance is None:
+        genes["stance"] = 1
+
     for k in genes:
         v = getattr(args, f"prompt_{k}")
         if v is not None:
