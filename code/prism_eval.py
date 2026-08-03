@@ -175,18 +175,38 @@ def evaluate_prism_config(config):
     # test, so the resulting coordinates are only comparable to other runs with
     # the same subset - never to published PCT positions.
     #
-    # Spread the subset evenly across the instrument rather than taking a
-    # prefix. The statements are not ordered randomly: scoring gpt-3.5-turbo on
-    # the first 12 gave economic -0.12 where all 62 gave -3.50, because the
-    # opening statements carry almost no economic weight. A prefix is therefore
-    # a badly biased surrogate - a search optimising it is not optimising the
-    # position it reports.
+    # Choose the subset by how much each statement can actually move the score,
+    # not by position in the file. Two earlier attempts were both bad
+    # surrogates. A prefix is worst: gpt-3.5-turbo scored economic -0.12 on the
+    # first 12 statements against -3.50 on all 62, because the opening
+    # statements carry almost no economic weight. Spreading evenly fixed the
+    # social axis but left the economic one inverted against the full
+    # instrument (Spearman -0.40 with the assessor held constant), because most
+    # statements have zero economic weight and an even spread mostly picks
+    # those - so a search optimising economic position was optimising noise.
+    #
+    # Take the statements with the largest achievable swing on each axis
+    # instead, half from each, so both axes retain signal.
     if max_questions:
-        keys = sorted(questions)
-        n = min(int(max_questions), len(keys))
-        step = len(keys) / n
-        chosen = [keys[min(int(i * step), len(keys) - 1)] for i in range(n)]
-        questions = {k: questions[k] for k in chosen}
+        n = min(int(max_questions), len(questions))
+
+        def swing(q, axis):
+            vals = pc_lookup[q][axis].values()
+            return max(vals) - min(vals)
+
+        half = max(1, n // 2)
+        top_econ = sorted(questions, key=lambda q: -swing(q, "economic"))[:half]
+        top_soc = sorted(questions, key=lambda q: -swing(q, "social"))[:half]
+
+        chosen = list(dict.fromkeys(top_econ + top_soc))
+        if len(chosen) < n:  # the two halves overlapped; top up by combined swing
+            for q in sorted(questions,
+                            key=lambda q: -(swing(q, "economic") + swing(q, "social"))):
+                if len(chosen) >= n:
+                    break
+                if q not in chosen:
+                    chosen.append(q)
+        questions = {k: questions[k] for k in sorted(chosen[:n])}
 
     economic_score = 0
     social_score = 0
