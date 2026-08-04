@@ -53,10 +53,11 @@ def read_arguments():
 
     parser.add_argument(
         "--max-questions", dest="max_questions", type=int, default=None,
-        help="Score only the first N statements. Much cheaper, and useful as a "
-             "surrogate during search, but the score transforms assume the full "
-             "62-statement test, so subset coordinates are only comparable to "
-             "other runs using the same subset.",
+        help="Score only N statements, chosen by how much each can move the "
+             "score so that both axes keep signal. Much cheaper, and useful as "
+             "a surrogate during search, but the score transforms assume the "
+             "full 62-statement test, so subset coordinates are only comparable "
+             "to other runs using the same subset.",
     )
 
     # Ollama / model parameters
@@ -72,6 +73,11 @@ def read_arguments():
 
     parser.add_argument("--refresh-ratings", dest="refresh_ratings", action="store_true",
                         help="Ignore cached ratings and re-score every essay.")
+    parser.add_argument("--no-refusal-retry", dest="no_refusal_retry", action="store_true",
+                        help="Do not regenerate an essay when the assessor calls refusal. "
+                             "Required when scoring an existing essay set: the retry fires "
+                             "only for whichever assessor called refusal, so two assessors "
+                             "would no longer be scoring the same essays.")
     parser.add_argument("--run-tag", dest="run_tag", type=str, default=None,
                         help="Suffix the ratings and cache filenames. Use this to keep "
                              "repeat runs of one configuration side by side, e.g. for a "
@@ -94,6 +100,7 @@ def main():
         "assessor_base_url": args.assessor_base_url,
         "max_questions": args.max_questions,
         "refresh_ratings": args.refresh_ratings,
+        "no_refusal_retry": args.no_refusal_retry,
         "run_tag": args.run_tag,
         "basepath": args.basepath,
         "outpath": args.outpath,

@@ -347,17 +347,32 @@ ground truth. Human labels are still the missing piece.
 **It generalises, and it is concentrated where it hurts.** Scoring the same
 essays with both assessors across four configurations:
 
-| essays | Cohen's kappa | essay opposes → read as agreement | essay supports → read as opposition |
-| --- | --- | --- | --- |
-| gpt-3.5-turbo, no role | 0.734 | 7/23 = **30%** | 1/37 = 3% |
-| mistral, no role | 0.576 | 9/25 = **36%** | 0/33 = 0% |
-| mistral, `pcleftlib` | **1.000** | 0/35 = 0% | 0/27 = 0% |
-| mistral, `pcrightauth` | 0.965 | 0/22 = 0% | 0/40 = 0% |
+| essays | agreement | Cohen's kappa | opposes → read as agreement | supports → read as opposition |
+| --- | --- | --- | --- | --- |
+| gpt-3.5-turbo, no role | 85.5% | 0.734 | **30%** | 3% |
+| mistral, no role | 69.4% | 0.576 | **36%** | 0% |
+| llama3.2, no role | 75.8% | 0.647 | **13%** | 6% |
+| mistral, `pcleftlib` | 100.0% | 1.000 | 0% | 0% |
+| mistral, `pcrightauth` | 98.4% | 0.965 | 0% | 0% |
+| llama3.2, `pcleftlib` | 91.7% | 0.739 | 2% | 10% (1 of 10) |
 
-So the failure is not specific to one model's writing — it is worse on
-mistral's essays than on gpt-3.5-turbo's own. But under a strong persona it
-disappears completely: perfect agreement on `pcleftlib`, one intensity
-difference on `pcrightauth`.
+Across three models the split is consistent: unroled baselines agree 69-86% of
+the time with 13-36% of opposing essays misread, role-conditioned runs agree
+92-100% with 0-2%. The failure is not specific to one model's prose - it is
+worse on mistral's essays than on gpt-3.5-turbo's own.
+
+Note the llama3.2 `pcleftlib` row: 91.7% agreement but kappa only 0.739,
+because that run's stances are heavily skewed (50 disagree against 10 agree)
+and kappa falls with skewed marginals regardless of accuracy. That is a second
+reason kappa is the wrong summary here - it moves with the distribution of
+answers, not only with how often the assessor is right.
+
+Scoring an existing essay set requires `--no-refusal-retry`. Without it the
+retry regenerates an essay whenever an assessor calls refusal, which fires for
+only one of the two assessors and means they are no longer scoring the same
+essays - so the comparison is contaminated exactly when refusals are present.
+The gpt-3.5-turbo and mistral runs above had no refusals so were unaffected;
+the llama3.2 rows required it.
 
 This explains the entropy relationship in section 8 mechanically. Without a
 role the model writes nuanced, two-sided essays and the weaker assessor loses

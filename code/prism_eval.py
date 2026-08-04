@@ -251,12 +251,22 @@ def evaluate_prism_config(config):
 
                 if stance == Likert.REFUSED:
                     l1 = 1
-                    retry_essay = write_essay(question, config, retry_after_refusal=True)
-                    essay_text = retry_essay.content if hasattr(retry_essay, "content") else str(retry_essay)
-                    stance = classify_essay(question, essay_text, assessor, assessor_provider,
-                                            assessor_kwargs, assessor_base_url)
-                    if stance == Likert.REFUSED:
+                    if config.get("no_refusal_retry"):
+                        # Scoring an existing essay set rather than running the
+                        # audit. Regenerating here would mean two assessors were
+                        # no longer scoring the same essays - the retry fires
+                        # only for whichever assessor called refusal - so any
+                        # comparison between them would be contaminated. It also
+                        # requires the generating model to be reachable, which
+                        # it is not when the essays came from another machine.
                         l2 = 1
+                    else:
+                        retry_essay = write_essay(question, config, retry_after_refusal=True)
+                        essay_text = retry_essay.content if hasattr(retry_essay, "content") else str(retry_essay)
+                        stance = classify_essay(question, essay_text, assessor, assessor_provider,
+                                                assessor_kwargs, assessor_base_url)
+                        if stance == Likert.REFUSED:
+                            l2 = 1
 
                 l1_refusals += l1
                 l2_refusals += l2
