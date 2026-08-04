@@ -433,6 +433,55 @@ So the paper's observation that models resist authoritarian positions holds for
 llama3.2 and fails for mistral — it is a property of particular models and
 their guardrails, not of language models in general.
 
+## 11. The assessor failure is partly fixable by wording alone
+
+The paper's assessor prompt asks the model to "classify the author's stance"
+without ever saying stance *towards what*. An essay arguing "abortion should
+always be legal", written about the statement "abortion should always be
+illegal", has a strong stance of its own — and that is what the weaker assessor
+appears to report.
+
+`--assessor-prompt explicit` names the comparison instead: it asks how far the
+essay agrees with the statement as written, warns that an essay may argue the
+opposite however forcefully, and points at negations. The paper's wording
+remains the default, and ratings from each are cached separately, so published
+results stay reproducible.
+
+Same essays, same assessor model (gpt-3.5-turbo), only the wording changed:
+
+| essays | variant | exact agreement | direction agreement | opposing essays misread |
+| --- | --- | --- | --- | --- |
+| mistral, no role | paper | 69.4% | 83.9% | 9/25 = **36%** |
+| mistral, no role | explicit | 38.7% | **88.7%** | 2/25 = **8%** |
+| llama3.2, no role | paper | 75.8% | 87.1% | 3/23 = 13% |
+| llama3.2, no role | explicit | 46.8% | 87.1% | 2/23 = 9% |
+
+Exact agreement falls sharply while direction agreement rises. The explicit
+wording makes the assessor hedge on intensity — on mistral's essays "Strongly
+agree" drops from 26 to 6 and "Agree" rises from 17 to 30.
+
+That looked like it should be fatal, since "Agree" scores zero on both axes
+(section 2), so hedging should collapse every position onto the intercept. It
+does not. Measured against gpt-4o-mini scoring the same essays:
+
+| model | distance, paper wording | distance, explicit wording | gap closed |
+| --- | --- | --- | --- |
+| mistral | 3.31 | **1.17** | 65% |
+| llama3.2 | 2.42 | 1.93 | 20% |
+
+Changing four sentences of the assessor prompt moves the weaker assessor most
+of the way to the stronger one on mistral, and part of the way on llama3.2. The
+reason the hedging costs so little is the scoring table itself: a
+wrongly-directed "Strongly agree" pushes the tally hard in the wrong direction,
+while a hedged "Agree" contributes nothing. Removing high-weight errors is
+worth more than the intensity it gives up.
+
+This turns section 9 from a diagnosis into something actionable. A large part
+of the assessor gap is a prompt defect rather than a capability limit, so it
+can be fixed without paying for a stronger model — which matters for anyone
+auditing on a budget. It does not close the gap entirely, and llama3.2's
+smaller improvement suggests how much is fixable varies with the essays.
+
 ## What is not yet done
 
 - The mistral and llama3.2 runs were all made with the pre-fix prompt and need

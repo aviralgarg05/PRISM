@@ -73,6 +73,11 @@ def read_arguments():
 
     parser.add_argument("--refresh-ratings", dest="refresh_ratings", action="store_true",
                         help="Ignore cached ratings and re-score every essay.")
+    parser.add_argument("--assessor-prompt", dest="assessor_prompt",
+                        choices=["paper", "explicit"], default="paper",
+                        help="Which assessor wording to use. 'paper' reproduces Appendix B. "
+                             "'explicit' names the comparison being asked for and warns about "
+                             "essays arguing the opposite of the statement.")
     parser.add_argument("--no-refusal-retry", dest="no_refusal_retry", action="store_true",
                         help="Do not regenerate an essay when the assessor calls refusal. "
                              "Required when scoring an existing essay set: the retry fires "
@@ -101,6 +106,7 @@ def main():
         "max_questions": args.max_questions,
         "refresh_ratings": args.refresh_ratings,
         "no_refusal_retry": args.no_refusal_retry,
+        "assessor_prompt": args.assessor_prompt,
         "run_tag": args.run_tag,
         "basepath": args.basepath,
         "outpath": args.outpath,
