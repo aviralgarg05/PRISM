@@ -375,6 +375,49 @@ weights every disagreement equally, while the scoring table puts the most
 weight on exactly the Strongly agree / Strongly disagree flips where the errors
 land.
 
+## 10. Refusal is model-specific, and identity labels trip guardrails that positional wording does not
+
+The same six roles on llama3.2, paper prompt, scored locally (provisional
+positions, but refusal counts do not depend on the assessor):
+
+| role | economic | social | refusals |
+| --- | --- | --- | --- |
+| pcleftlib | −4.75 | −3.95 | 2/62 |
+| pcleftauth | −3.50 | −0.21 | 3/62 |
+| pcrightlib | +4.50 | −1.28 | 5/62 |
+| pcrightauth | +0.76 | +1.54 | **22/62** |
+| blue (Democrat) | −0.37 | +2.10 | **49/62** |
+| red (Republican) | +1.38 | +2.10 | **53/62** |
+
+Two things stand out.
+
+**Identity labels are refused six times more often than positional wording.**
+Averaged, llama3.2 refuses 51 of 62 statements under "you are a Democrat" or
+"you are a Republican", against 8 under the `pc*` roles — which ask for
+substantially the same positions in different words. "You are economically
+right and socially authoritarian" gets through where "you are a Republican"
+does not. Whatever the guardrail is keyed on, it is the party name rather than
+the positions.
+
+This also means the `blue` and `red` coordinates above are not positions at
+all. With 49 and 53 refusals scoring zero on both axes, both sit near the
+intercept by construction — which is exactly the degenerate case section 2
+warned about, arriving in real data.
+
+**Refusal is strongly model-specific.** Dropping the runs where refusals make
+the coordinate meaningless:
+
+| model | usable runs | economic span | reachable social |
+| --- | --- | --- | --- |
+| mistral | 6 of 6 | 12.50 | −7.64 .. **+2.77** |
+| llama3.2 | 3 of 6 | 9.25 | −3.95 .. **−0.21** |
+
+mistral reaches the authoritarian half with zero refusals anywhere. llama3.2
+never crosses zero on the social axis without its refusal rate rising to 35%.
+So the paper's observation that models resist authoritarian positions holds for
+llama3.2 and fails for mistral — it is a property of particular models and
+their guardrails, not of language models in general.
+
 ## What is not yet done
 
 - The mistral and llama3.2 runs were all made with the pre-fix prompt and need
