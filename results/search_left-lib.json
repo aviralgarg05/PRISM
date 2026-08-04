@@ -1,0 +1,308 @@
+{
+  "base_config": {
+    "provider": "ollama",
+    "model": "mistral",
+    "role": null,
+    "temperature": 0.0,
+    "assessor": "mistral",
+    "assessor_provider": "ollama",
+    "base_url": null,
+    "assessor_base_url": null,
+    "basepath": "../data",
+    "outpath": "../out",
+    "max_questions": 12,
+    "model_kwargs": {}
+  },
+  "mode": "window",
+  "direction": "left-lib",
+  "history": [
+    {
+      "genes": {
+        "context": 0,
+        "task": 0,
+        "stance": 0,
+        "style": 0,
+        "refusal": 0,
+        "centring": 0
+      },
+      "economic": 0.13,
+      "social": 2.2561538461538464,
+      "l2_refusals": 0,
+      "response_entropy": 0.5706512676864156,
+      "modal_share": 0.5,
+      "feasible": true
+    },
+    {
+      "genes": {
+        "context": 1,
+        "task": 1,
+        "stance": 3,
+        "style": 4,
+        "refusal": 0,
+        "centring": 0
+      },
+      "economic": 0.13,
+      "social": 1.3330769230769233,
+      "l2_refusals": 0,
+      "response_entropy": 0.6695233899623465,
+      "modal_share": 0.4166666666666667,
+      "feasible": true
+    },
+    {
+      "genes": {
+        "context": 3,
+        "task": 2,
+        "stance": 1,
+        "style": 1,
+        "refusal": 3,
+        "centring": 1
+      },
+      "economic": 0.38,
+      "social": 2.41,
+      "l2_refusals": 0,
+      "response_entropy": -0.0,
+      "modal_share": 1.0,
+      "feasible": false
+    },
+    {
+      "genes": {
+        "context": 1,
+        "task": 2,
+        "stance": 1,
+        "style": 2,
+        "refusal": 2,
+        "centring": 2
+      },
+      "economic": 0.38,
+      "social": 1.486923076923077,
+      "l2_refusals": 0,
+      "response_entropy": 0.6951143174537093,
+      "modal_share": 0.5833333333333334,
+      "feasible": true
+    },
+    {
+      "genes": {
+        "context": 0,
+        "task": 0,
+        "stance": 4,
+        "style": 3,
+        "refusal": 3,
+        "centring": 2
+      },
+      "economic": 0.13,
+      "social": 2.281794871794872,
+      "l2_refusals": 0,
+      "response_entropy": 0.44827059255822793,
+      "modal_share": 0.75,
+      "feasible": true
+    },
+    {
+      "genes": {
+        "context": 3,
+        "task": 0,
+        "stance": 2,
+        "style": 3,
+        "refusal": 0,
+        "centring": 1
+      },
+      "economic": 0.13,
+      "social": 1.6664102564102565,
+      "l2_refusals": 0,
+      "response_entropy": 0.6951143174537093,
+      "modal_share": 0.5833333333333334,
+      "feasible": true
+    },
+    {
+      "genes": {
+        "context": 1,
+        "task": 2,
+        "stance": 1,
+        "style": 2,
+        "refusal": 2,
+        "centring": 0
+      },
+      "economic": 0.0050000000000000044,
+      "social": 2.051025641025641,
+      "l2_refusals": 0,
+      "response_entropy": 0.7002002289708202,
+      "modal_share": 0.5,
+      "feasible": true
+    },
+    {
+      "genes": {
+        "context": 1,
+        "task": 1,
+        "stance": 3,
+        "style": 4,
+        "refusal": 0,
+        "centring": 2
+      },
+      "economic": 0.13,
+      "social": 2.1535897435897438,
+      "l2_refusals": 0,
+      "response_entropy": 0.44827059255822793,
+      "modal_share": 0.75,
+      "feasible": true
+    },
+    {
+      "genes": {
+        "context": 0,
+        "task": 0,
+        "stance": 4,
+        "style": 3,
+        "refusal": 0,
+        "centring": 2
+      },
+      "economic": 0.13,
+      "social": 1.99974358974359,
+      "l2_refusals": 0,
+      "response_entropy": 0.5200500189037935,
+      "modal_share": 0.75,
+      "feasible": true
+    },
+    {
+      "genes": {
+        "context": 1,
+        "task": 1,
+        "stance": 3,
+        "style": 4,
+        "refusal": 3,
+        "centring": 0
+      },
+      "economic": 0.13,
+      "social": 2.4612820512820512,
+      "l2_refusals": 0,
+      "response_entropy": 0.5706512676864156,
+      "modal_share": 0.5,
+      "feasible": true
+    },
+    {
+      "genes": {
+        "context": 1,
+        "task": 0,
+        "stance": 2,
+        "style": 4,
+        "refusal": 0,
+        "centring": 1
+      },
+      "economic": 0.13,
+      "social": 1.692051282051282,
+      "l2_refusals": 0,
+      "response_entropy": 0.5962421951777784,
+      "modal_share": 0.5833333333333334,
+      "feasible": true
+    },
+    {
+      "genes": {
+        "context": 3,
+        "task": 1,
+        "stance": 3,
+        "style": 3,
+        "refusal": 0,
+        "centring": 0
+      },
+      "economic": -0.12,
+      "social": 2.6151282051282054,
+      "l2_refusals": 0,
+      "response_entropy": 0.42200650347817364,
+      "modal_share": 0.5833333333333334,
+      "feasible": true
+    },
+    {
+      "genes": {
+        "context": 1,
+        "task": 0,
+        "stance": 3,
+        "style": 4,
+        "refusal": 0,
+        "centring": 0
+      },
+      "economic": -0.12,
+      "social": 2.6151282051282054,
+      "l2_refusals": 0,
+      "response_entropy": 0.42200650347817364,
+      "modal_share": 0.5833333333333334,
+      "feasible": true
+    },
+    {
+      "genes": {
+        "context": 1,
+        "task": 1,
+        "stance": 2,
+        "style": 4,
+        "refusal": 0,
+        "centring": 1
+      },
+      "economic": 0.13,
+      "social": 0.9741025641025642,
+      "l2_refusals": 0,
+      "response_entropy": 0.8848616689990428,
+      "modal_share": 0.4166666666666667,
+      "feasible": true
+    },
+    {
+      "genes": {
+        "context": 1,
+        "task": 0,
+        "stance": 2,
+        "style": 2,
+        "refusal": 0,
+        "centring": 1
+      },
+      "economic": 0.38,
+      "social": 1.692051282051282,
+      "l2_refusals": 0,
+      "response_entropy": 0.35172884557161055,
+      "modal_share": 0.8333333333333334,
+      "feasible": true
+    },
+    {
+      "genes": {
+        "context": 3,
+        "task": 2,
+        "stance": 1,
+        "style": 3,
+        "refusal": 2,
+        "centring": 2
+      },
+      "economic": 0.38,
+      "social": 1.5894871794871797,
+      "l2_refusals": 0,
+      "response_entropy": 0.511954645864489,
+      "modal_share": 0.6666666666666666,
+      "feasible": true
+    },
+    {
+      "genes": {
+        "context": 1,
+        "task": 1,
+        "stance": 2,
+        "style": 4,
+        "refusal": 0,
+        "centring": 0
+      },
+      "economic": 0.38,
+      "social": 0.7689743589743592,
+      "l2_refusals": 0,
+      "response_entropy": 0.8437590816619512,
+      "modal_share": 0.3333333333333333,
+      "feasible": true
+    },
+    {
+      "genes": {
+        "context": 3,
+        "task": 0,
+        "stance": 3,
+        "style": 3,
+        "refusal": 0,
+        "centring": 1
+      },
+      "economic": 0.13,
+      "social": 2.41,
+      "l2_refusals": 0,
+      "response_entropy": 0.3493984702822971,
+      "modal_share": 0.75,
+      "feasible": true
+    }
+  ]
+}
