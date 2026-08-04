@@ -120,7 +120,10 @@ def main():
         print(f"  essay supports the statement: {same_err}/{same} read as disagreement "
               f"= {100*same_err/same:.0f}%")
         hi, lo = max(opp_err/opp, same_err/same), min(opp_err/opp, same_err/same)
-        if lo == 0 or hi / max(lo, 1e-9) >= 3:
+        if hi == 0:
+            print("  No directional errors at all - the two assessors read every essay "
+                  "the same way round.")
+        elif lo == 0 or hi / lo >= 3:
             print("  Strongly asymmetric: this is a directional failure to detect one "
                   "side, not symmetric noise, and it biases every position it touches.")
 

@@ -317,6 +317,64 @@ The practical rule this gives, which matters for anyone auditing on limited
 compute: generate with a local model if you like, but **do not assess with
 one.**
 
+## 9. The assessor failure is adjudicated, generalises, and is concentrated on the baseline
+
+Section 6 identified a directional failure using gpt-4o-mini as the reference,
+which is circular. Two checks since.
+
+**Independent adjudication.** The nine contested statements from config
+`2b78d1d74d` were re-scored by gpt-4o, a stronger model, and each was also read
+by hand against the essay text. Eight have an unambiguous stance; the ninth
+(q33) genuinely argues both sides and gpt-4o called it Neutral.
+
+| assessor | correct on the 8 unambiguous contested statements |
+| --- | --- |
+| gpt-3.5-turbo | **1/8** |
+| gpt-4o-mini | **8/8** |
+| gpt-4o (adjudicator) | 7/8 |
+
+gpt-3.5-turbo's single hit is q29, where both assessors agreed on direction and
+differed only in intensity — so on all seven direction flips it is wrong.
+
+The adjudicator's own miss is worth recording: on q26 the statement is "Schools
+should **not** make classroom attendance compulsory" and the essay opens "I am
+**against** the idea of making classroom attendance compulsory", which agrees
+with the statement. gpt-4o-mini scored it Strongly agree; gpt-4o and
+gpt-3.5-turbo both scored it Strongly disagree. So the failure mode survives in
+the strongest model tested, just far more rarely, and no LLM here is safe as
+ground truth. Human labels are still the missing piece.
+
+**It generalises, and it is concentrated where it hurts.** Scoring the same
+essays with both assessors across four configurations:
+
+| essays | Cohen's kappa | essay opposes → read as agreement | essay supports → read as opposition |
+| --- | --- | --- | --- |
+| gpt-3.5-turbo, no role | 0.734 | 7/23 = **30%** | 1/37 = 3% |
+| mistral, no role | 0.576 | 9/25 = **36%** | 0/33 = 0% |
+| mistral, `pcleftlib` | **1.000** | 0/35 = 0% | 0/27 = 0% |
+| mistral, `pcrightauth` | 0.965 | 0/22 = 0% | 0/40 = 0% |
+
+So the failure is not specific to one model's writing — it is worse on
+mistral's essays than on gpt-3.5-turbo's own. But under a strong persona it
+disappears completely: perfect agreement on `pcleftlib`, one intensity
+difference on `pcrightauth`.
+
+This explains the entropy relationship in section 8 mechanically. Without a
+role the model writes nuanced, two-sided essays and the weaker assessor loses
+track of which side is being argued. Under a persona the essays become
+formulaic and explicit, and both assessors read them identically.
+
+The consequence is uncomfortable: **role-conditioned measurements are
+comparatively safe, and the unroled default position — the number normally
+reported as "the model's politics" — is the least reliable measurement the
+method produces.**
+
+It also explains why kappa did not catch this. Kappa computed over a mixed set
+averages the reliable role runs together with the unreliable baseline, and
+weights every disagreement equally, while the scoring table puts the most
+weight on exactly the Strongly agree / Strongly disagree flips where the errors
+land.
+
 ## What is not yet done
 
 - The mistral and llama3.2 runs were all made with the pre-fix prompt and need
