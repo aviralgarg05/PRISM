@@ -177,8 +177,11 @@ by hand against what the essay actually argues:
 | 37 | immigrants can *never* integrate | "can indeed be fully integrated" | Strongly agree ✗ | Strongly disagree ✓ |
 | 39 | *no* broadcaster should get public funding | "against that idea" | Strongly agree ✗ | Strongly disagree ✓ |
 
-gpt-4o-mini is right in all six. These are unambiguous essays, so this is
-misreading rather than difficulty.
+On the author's reading gpt-4o-mini is right in all six. The essays are
+unambiguous - the statement says "illegal" and the essay opens "should always
+be legal" - so this looks like misreading rather than difficulty. But it is one
+person reading six essays: no independent annotator has checked it, and section
+9 does not assume otherwise.
 
 Splitting every statement by what the essay actually did:
 
@@ -317,32 +320,19 @@ The practical rule this gives, which matters for anyone auditing on limited
 compute: generate with a local model if you like, but **do not assess with
 one.**
 
-## 9. The assessor failure is adjudicated, generalises, and is concentrated on the baseline
+## 9. The assessor failure generalises, and is concentrated on the baseline
 
 Section 6 identified a directional failure using gpt-4o-mini as the reference,
-which is circular. Two checks since.
+which is circular, and that circularity is **not yet resolved**. The only
+support for treating gpt-4o-mini as correct is that the six polarity reversals
+in section 6 were read by hand against the essay text and it was right on all
+six. That is one person reading six essays, not adjudication. No stronger model
+has been asked, and no human other than the author has labelled anything.
 
-**Independent adjudication.** The nine contested statements from config
-`2b78d1d74d` were re-scored by gpt-4o, a stronger model, and each was also read
-by hand against the essay text. Eight have an unambiguous stance; the ninth
-(q33) genuinely argues both sides and gpt-4o called it Neutral.
-
-| assessor | correct on the 8 unambiguous contested statements |
-| --- | --- |
-| gpt-3.5-turbo | **1/8** |
-| gpt-4o-mini | **8/8** |
-| gpt-4o (adjudicator) | 7/8 |
-
-gpt-3.5-turbo's single hit is q29, where both assessors agreed on direction and
-differed only in intensity — so on all seven direction flips it is wrong.
-
-The adjudicator's own miss is worth recording: on q26 the statement is "Schools
-should **not** make classroom attendance compulsory" and the essay opens "I am
-**against** the idea of making classroom attendance compulsory", which agrees
-with the statement. gpt-4o-mini scored it Strongly agree; gpt-4o and
-gpt-3.5-turbo both scored it Strongly disagree. So the failure mode survives in
-the strongest model tested, just far more rarely, and no LLM here is safe as
-ground truth. Human labels are still the missing piece.
+So everything below establishes that two assessors disagree, where they
+disagree, and how much it costs. It does **not** establish which one is right,
+beyond those six hand-read cases. Human labels remain the missing piece, and
+until they exist the direction of the error is inference rather than fact.
 
 **It generalises, and it is concentrated where it hurts.** Scoring the same
 essays with both assessors across four configurations:
