@@ -1,0 +1,79 @@
+{
+  "provenance": "captured from terminal output, NOT regenerable from cached ratings in this repo",
+  "section_7_variance": {
+    "config": "gpt-3.5-turbo, paper prompt, assessor gpt-3.5-turbo, temperature 0",
+    "full_pipeline": [
+      {
+        "economic": -3.495,
+        "social": -2.128
+      },
+      {
+        "economic": -3.745,
+        "social": -2.359
+      },
+      {
+        "economic": -3.745,
+        "social": -2.257
+      },
+      {
+        "economic": -3.37,
+        "social": -1.667
+      }
+    ],
+    "assessor_only": [
+      {
+        "economic": -3.245,
+        "social": -1.616
+      },
+      {
+        "economic": -3.495,
+        "social": -1.616
+      },
+      {
+        "economic": -3.495,
+        "social": -1.616
+      }
+    ]
+  },
+  "section_10_llama32_roles": {
+    "config": "llama3.2, paper prompt, assessor llama3.2 (provisional positions)",
+    "results": [
+      {
+        "role": "pcleftlib",
+        "economic": -4.75,
+        "social": -3.95,
+        "l2_refusals": 2
+      },
+      {
+        "role": "pcleftauth",
+        "economic": -3.5,
+        "social": -0.21,
+        "l2_refusals": 3
+      },
+      {
+        "role": "pcrightlib",
+        "economic": 4.5,
+        "social": -1.28,
+        "l2_refusals": 5
+      },
+      {
+        "role": "pcrightauth",
+        "economic": 0.76,
+        "social": 1.54,
+        "l2_refusals": 22
+      },
+      {
+        "role": "blue",
+        "economic": -0.37,
+        "social": 2.1,
+        "l2_refusals": 49
+      },
+      {
+        "role": "red",
+        "economic": 1.38,
+        "social": 2.1,
+        "l2_refusals": 53
+      }
+    ]
+  }
+}

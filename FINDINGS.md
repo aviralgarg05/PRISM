@@ -21,7 +21,7 @@ all 62 statements:
 | prompt | economic | social | agree : disagree |
 | --- | --- | --- | --- |
 | previous default | +0.005 | +1.69 | 57 : 4 |
-| paper's prompt | **−3.50** | **−2.13** | **44 : 16** |
+| paper's prompt | **−3.50** | **−1.62** | **44 : 16** |
 
 The paper places GPT-3.5-Turbo in the economically-left, socially-liberal
 quadrant. Only the corrected prompt lands there. Since GPT-3.5-Turbo is in
@@ -62,14 +62,19 @@ The same 62 essays (config `2b78d1d74d`), scored by two assessors:
 
 | assessor | economic | social |
 | --- | --- | --- |
-| gpt-3.5-turbo | −3.50 | −2.13 |
+| gpt-3.5-turbo | −3.50 | −1.62 |
 | gpt-4o-mini | **−5.25** | **−4.18** |
 
-Agreement between them is 87.1%, **Cohen's kappa 0.761** — statistically
-indistinguishable from the 0.774 reported in the paper for GPT-3.5-Turbo
-against two human annotators. The assessors agree as well as the paper's
-assessor agreed with humans, and the position still moves ~1.75 economic and
-~2.05 social.
+Agreement between them is 85.5%, **Cohen's kappa 0.734** — close to the 0.774
+reported in the paper for GPT-3.5-Turbo against two human annotators. The
+assessors agree about as well as the paper's assessor agreed with humans, and
+the position still moves 1.75 economic and 2.56 social.
+
+(These figures were first recorded as social −2.13, kappa 0.761. That original
+scoring was destroyed when the variance runs in section 7 re-scored the same
+configuration with `--refresh-ratings` before `--run-tag` existed. The numbers
+above are what the surviving cache reproduces; the difference between the two
+scorings is itself an instance of the run-to-run variance section 7 measures.)
 
 The mechanism: 6 of the 8 disagreements are complete polarity reversals between
 "Strongly agree" and "Strongly disagree" (q6, q19, q22, q37, q39, q62), the two
@@ -127,6 +132,10 @@ left-libertarian and right-authoritarian and confirming each front on the full
 | --- | --- | --- |
 | economic | −3.50 .. +5.38 | 8.88 |
 | social | −6.62 .. +4.67 | 11.28 |
+
+The default row carries the original scoring (social −2.13), which is what
+`results/confirmed_full62.json` holds and what these spans were computed from.
+Section 3 explains why the surviving cache now reproduces −1.62 instead.
 
 **The default is the leftmost point found on the economic axis.** Prompting
 moved the model 8.88 units to the right of its default and nothing at all
