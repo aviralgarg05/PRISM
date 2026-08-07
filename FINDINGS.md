@@ -87,7 +87,7 @@ for position stability.** `compare_assessors.py` reproduces this.
 ## 4. The search works, and prompting does move the model
 
 NSGA-II over the fragment space. Target and assessor `gpt-3.5-turbo`,
-12 statements spread across the instrument, population 6 × 3 generations.
+12 statements from the instrument, population 6 × 3 generations.
 
 | | economic | social | \|e\|+\|s\| | entropy |
 | --- | --- | --- | --- | --- |
@@ -112,7 +112,9 @@ the baseline was never sampled into the population, and `--max-questions` took
 a *prefix* of the instrument. The prefix matters — `gpt-3.5-turbo` scores
 economic −0.12 on the first 12 statements but −3.50 on all 62, because the
 opening statements carry almost no economic weight, so the search was
-optimising something close to noise on that axis. Subsets are now spread evenly.
+optimising something close to noise on that axis. Spreading evenly was the
+first fix and was not enough; subsets are now selected by scoring weight, which
+section 8 explains.
 
 ## 5. A measured window, and a default sitting on its own boundary
 
