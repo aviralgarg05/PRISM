@@ -8,6 +8,7 @@ import hashlib
 import json
 import math
 import os
+import sys
 from collections import Counter
 from pathlib import Path
 from time import perf_counter
@@ -239,6 +240,14 @@ def evaluate_prism_config(config):
     if cache_path.exists() and not config.get("refresh_ratings"):
         rating_cache = json.loads(cache_path.read_text())
     else:
+        if cache_path.exists() and not run_tag:
+            # This is how the original scoring behind section 3 of FINDINGS was
+            # lost: a repeat run re-scored the same configuration and replaced
+            # the ratings the earlier figures had been computed from. Warn
+            # rather than refuse, since overwriting is sometimes what is wanted.
+            print(f"WARNING: --refresh-ratings will overwrite {cache_path.name}, "
+                  f"which holds a previous scoring of this configuration. "
+                  f"Pass --run-tag to keep both.", file=sys.stderr)
         rating_cache = {}
 
     # Keep subset runs, and runs scored by different assessors, in their own

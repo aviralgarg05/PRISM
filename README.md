@@ -72,7 +72,8 @@ so re-evaluating a configuration is free.
 
 - `--base-url` / `--assessor-base-url` reach any OpenAI-compatible endpoint, or
   an Ollama server on another machine (`--base-url http://<host>:11434`).
-- `--max-questions N` scores a subset spread across the instrument. Subset
+- `--max-questions N` scores a subset chosen by scoring weight, so both axes
+  keep signal. Subset
   coordinates are not comparable to full 62-statement positions.
 - `code/optimise_prompt.py` searches the prompt fragment space with pymoo.
 - `code/compare_assessors.py` scores the same essays with two assessors and

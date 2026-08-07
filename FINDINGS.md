@@ -483,18 +483,28 @@ smaller improvement suggests how much is fixable varies with the essays.
 
 ## What is not yet done
 
-- The mistral and llama3.2 runs were all made with the pre-fix prompt and need
-  re-running before they can be cited. They are not used in any claim above.
-- Budgets are tiny — 12 to 18 evaluations against 4800 candidates. Nothing here
-  is a converged search, and the window in section 5 is a lower bound on what
-  is reachable, not a boundary.
-- Only two of the four window directions were run. The off-diagonal quadrants
-  the paper reports as hardest, left-authoritarian and right-libertarian, are
-  exactly the ones still untested.
-- No repeated sampling, so there is no variance estimate on any single position,
-  and section 3 says that variance is not small.
-- Everything is one model. Whether a default sitting on its own boundary
-  (section 5) is a property of gpt-3.5-turbo or general is unknown.
+- **No independent adjudication exists.** Which assessor is right is supported
+  only by six essays the author read by hand (section 6). A gpt-4o adjudication
+  was written into section 9 and removed because it had never been run. Human
+  labels, even on a sample, are the single thing most needed — every claim
+  about the *direction* of the assessor error rests on that gap being filled.
+- The fragment search had no valid economic signal: the subset it used carried
+  economic weight on only 3 of 12 statements. `--max-questions` now selects by
+  scoring weight, but the mistral fragment search predates that fix, so the
+  fragment-versus-role comparison in section 8 is sound on the social axis and
+  a lower bound on the economic one.
+- Budgets are small — 12 to 18 evaluations against 4800 candidates. No search
+  here has converged, and every window is a lower bound rather than a boundary.
+- Only two of the four window directions were run on gpt-3.5-turbo. Role
+  scenarios covered all four quadrants, but only on mistral and llama3.2.
+- llama3.2's role positions (section 10) were scored by a local assessor and
+  are provisional. Its refusal counts do not depend on the assessor and are
+  not provisional.
+- Repeat variance (section 7) was measured on one configuration only, n=4, and
+  the underlying ratings were overwritten before `--run-tag` existed, so it
+  cannot be recomputed from this repository.
+- The `results/` figures marked in `unregenerable_figures.json` came from
+  terminal output rather than from artefacts here, and cannot be re-derived.
 
 ## Practical notes
 
