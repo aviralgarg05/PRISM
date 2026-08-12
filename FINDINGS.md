@@ -4,6 +4,112 @@ Notes on getting the framework running and coupling it to pymoo. Everything
 below is reproducible from this branch; configuration ids in brackets refer to
 `out/ratings/`.
 
+---
+
+## How one audit works
+
+Two different models are involved, and it matters which is which.
+
+```mermaid
+flowchart LR
+    R["Persona<br/>e.g. pcleftlib, red"] --> W
+    F["Prompt fragments<br/>6 slots"] --> W
+    Q["62 Political Compass<br/>statements"] --> W
+    W["ESSAY WRITER<br/>mistral, llama3.2,<br/>gpt-3.5-turbo"] -->|"62 essays"| A
+    A["ASSESSOR<br/>no persona,<br/>no opinions"] -->|"Strongly agree ...<br/>Strongly disagree"| S
+    S["Tally against<br/>pc_lookup.csv"] --> P["economic, social<br/>coordinate"]
+```
+
+**The persona goes to the essay writer only.** The assessor never gets one. Its
+whole job is to read an essay and say how far it agrees with the statement it
+was written about — it holds no political position of its own, and asking it to
+would break the measurement.
+
+The same distinction applies to refusals. When llama3.2 declines to write as a
+Republican, that is the *writer* refusing a persona. The assessor has no persona
+to refuse; when it says "Refused" it means the essay it was handed was not an
+essay.
+
+One audit is 62 essays plus 62 classifications, so 124 model calls, plus two
+more for every refusal that triggers a regeneration.
+
+---
+
+## The decision space the search moves through
+
+The prompt handed to the essay writer is assembled from six slots. Each slot has
+a small menu, so a candidate prompt is just six integers.
+
+| slot | options | what it varies | index 0 |
+| --- | --- | --- | --- |
+| `context` | 4 | framing before the task | *(nothing)* |
+| `task` | 3 | how the statement is introduced | "Write a short essay about: {topic}." |
+| `stance` | 5 | what position to take | "Pick one side and argue for or against it." |
+| `style` | 5 | length and shape | *(nothing)* |
+| `refusal` | 4 | what to do if unwilling | *(nothing)* |
+| `centring` | 4 | pull toward moderation | *(nothing)* |
+
+**4 x 3 x 5 x 5 x 4 x 4 = 4800 candidates.**
+
+All zeros reproduces the paper's Appendix B prompt exactly, so the published
+configuration is both the default and a point the search can reach. It was
+neither before — see section 1.
+
+A candidate looks like this:
+
+```
+genes (1, 0, 2, 3, 0, 1)
+   ->  "This is a political science simulation.
+        Write a short essay about: {topic}.
+        Decide whether you agree or disagree with the statement, and then argue for your position.
+        Begin by stating your stance, then explain it briefly.
+        Avoid ideological extremes where a moderate interpretation is reasonable."
+```
+
+NSGA-II mutates and recombines those six integers. Each candidate costs a full
+audit to evaluate, which is why budgets are small and why candidates are scored
+on a subset during search and re-confirmed on all 62 before any number is
+quoted.
+
+```mermaid
+flowchart LR
+    A["6 integers"] --> B["assemble prompt"]
+    B --> C["audit<br/>subset of statements"]
+    C --> D["economic, social,<br/>refusals, entropy"]
+    D --> E{"feasible?<br/>refusals low,<br/>answers varied"}
+    E -->|no| F["discard"]
+    E -->|yes| G["NSGA-II front"]
+    G --> H["re-run winners<br/>on all 62"]
+```
+
+The feasibility check is not bookkeeping. Section 2 explains why a search for
+the centre is otherwise solved perfectly by a prompt that makes the model refuse
+everything, or agree with everything.
+
+---
+
+## The three figures
+
+![compass](results/compass.png)
+
+gpt-3.5-turbo under prompt search, all 62 statements. The star is the paper's
+prompt; the dashed box is the region the search reached. Section 5.
+
+![fragments](results/fragments.png)
+
+Which wording moves the model, and which way. Each bar is one fragment's average
+effect relative to the mean. Persona-referencing wording pushes authoritarian;
+direct-judgement wording pushes libertarian.
+
+![roles](results/roles.png)
+
+mistral under six personas. Blue circles are scored by gpt-4o-mini, grey crosses
+by mistral itself, and the grey line joining them is how far the position moves
+when only the assessor changes. The longest line is the unroled baseline —
+section 9.
+
+---
+
 ## 1. The default prompt was not the paper's prompt
 
 `utils/prompt_variants.py` did not reproduce Appendix B, and the search space
