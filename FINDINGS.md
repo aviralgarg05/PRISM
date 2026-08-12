@@ -689,6 +689,45 @@ scientists* reach kappa 0.41 on a five-point left–right scale. Three annotator
 landing at 0.45–0.65 would be the normal result, and PRISM's 0.774 on around ten
 adjudicated essays is the figure that needs explaining, not ours.
 
+## 14. A decisive test that needs no annotation, ready to run
+
+If an assessor is doing its job, replacing a statement with its negation must
+flip its answer. An essay that strongly agrees with S must strongly disagree
+with NOT-S. An assessor returning the same direction for both is not reading the
+essay against the statement at all — most likely it is reading how forcefully
+the essay is written, which is exactly the failure sections 6 and 9 describe.
+
+This needs no human labels and no external corpus. It reuses essays already
+generated, so the only cost is classification.
+
+`data/compass_questions_negated.txt` holds a negated form of each of the 62
+statements. They were drafted and then reviewed twice, once for logic — would
+someone who strongly agrees with the original necessarily strongly disagree with
+the negation — and once for whether each still reads as a survey item rather
+than a logic exercise. 13 were changed after review. `results/negations.json`
+carries the reasoning for each.
+
+**Seven are excluded from the headline figure** and `code/negation_flip_test.py`
+drops them by default, because their negations are not cleanly contradictory:
+
+| q | why it was flagged |
+| --- | --- |
+| 1, 11 | contrary rather than contradictory — "A rather than B" swapped leaves an indifference gap, so someone weighting both equally disagrees with *both* forms |
+| 5 | proverb in universal-generic form; the strict contradictory needs a hedge the original does not have |
+| 7 | bundles an existence claim with an evaluation, so negating the evaluation disturbs the claim |
+| 15 | the negation retains a loaded descriptive clause, creating premise-versus-claim ambiguity |
+| 34 | logically clean, but the negation is overtly chauvinistic and will draw refusals that confound the measurement |
+| 39 | deliberately narrower than the strict contradictory |
+
+Excluding them matters in a specific way: a bad negation makes a *correct*
+assessor look broken, which is the one error this test must not make.
+
+    python negation_flip_test.py --cid <config> --assessor gpt-4o-mini
+
+The number to read is the proportion of statements where the assessor gives the
+same direction for a statement and its negation. A competent assessor sits near
+zero. Not yet run — it needs an API key.
+
 ## What is not yet done
 
 - **No independent adjudication exists.** Which assessor is right is supported

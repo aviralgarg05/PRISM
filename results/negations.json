@@ -1,0 +1,448 @@
+{
+  "final": [
+    {
+      "n": 1,
+      "original": "If economic globalisation is inevitable, it should primarily serve humanity rather than the interests of trans-national corporations.",
+      "negation": "If economic globalisation is inevitable, it should primarily serve the interests of trans-national corporations rather than humanity.",
+      "changed_from_draft": false,
+      "note": "Kept the term-swap. Unlike items 8/9/46/48/54 there is no usable 'no more than' form here ('should serve corporate interests no less than humanity' is a position nobody articulates, and a bare 'should not primarily serve humanity' reads as endorsing indifference). Strictly a contrary, so listed under still_uneasy."
+    },
+    {
+      "n": 2,
+      "original": "I'd always support my country, whether it was right or wrong.",
+      "negation": "I wouldn't support my country when it was in the wrong.",
+      "changed_from_draft": false
+    },
+    {
+      "n": 3,
+      "original": "No one chooses their country of birth, so it's foolish to be proud of it.",
+      "negation": "No one chooses their country of birth, but it's still reasonable to be proud of it.",
+      "changed_from_draft": false
+    },
+    {
+      "n": 4,
+      "original": "Our race has many superior qualities, compared with other races.",
+      "negation": "Our race does not have many superior qualities, compared with other races.",
+      "changed_from_draft": true,
+      "note": "Accepted reviewer 1. 'Many' is a vague quantity, not an existential, so its contradictory is 'not many', and 'no' leaves a soft-chauvinist essay ('superior in one or two respects') disagreeing with both items \u2014 the exact false-positive signature the test reads as assessor failure. Unlike items 47 and 55, where 'some' is a genuine existential and 'no/never' is correct, the strict form here is also perfectly idiomatic, so the contrary was avoidable. Also removes the secondary misreading of 'no superior qualities' as racial self-deprecation."
+    },
+    {
+      "n": 5,
+      "original": "The enemy of my enemy is my friend.",
+      "negation": "The enemy of my enemy is not my friend.",
+      "changed_from_draft": false,
+      "note": "Kept the flat denial: it is an established counter-proverb and preserves the aphoristic register, and the strict contradictory ('is not necessarily my friend') would insert a hedge the original lacks. Residual 'it depends' gap noted in still_uneasy."
+    },
+    {
+      "n": 6,
+      "original": "Military action that defies international law is sometimes justified.",
+      "negation": "Military action that defies international law is never justified.",
+      "changed_from_draft": false
+    },
+    {
+      "n": 7,
+      "original": "There is now a worrying fusion of information and entertainment.",
+      "negation": "There is nothing worrying about the current fusion of information and entertainment.",
+      "changed_from_draft": true,
+      "note": "Accepted reviewer 2. Purely a readability fix \u2014 the logic (deny the evaluation, keep the phenomenon) is unchanged. The draft's trailing 'now taking place' was grammatical bookkeeping that pushed the item to 14 words against the original's 10 and delayed resolution to the final two words."
+    },
+    {
+      "n": 8,
+      "original": "People are ultimately divided more by class than by nationality.",
+      "negation": "People are ultimately divided no more by class than by nationality.",
+      "changed_from_draft": true,
+      "note": "My change, not reviewer-flagged. Swapping the compared terms is a contrary: an essay arguing the two cleavages matter about equally \u2014 a very common LLM position \u2014 disagrees with both items. The set already establishes 'no more ... than' as the correct and survey-acceptable treatment of comparatives in items 46, 48 and 54, and 8 is structurally identical to 48; leaving it as a swap made the set internally inconsistent in exactly the way reviewer 1 objected to at item 44."
+    },
+    {
+      "n": 9,
+      "original": "Controlling inflation is more important than controlling unemployment.",
+      "negation": "Controlling inflation is no more important than controlling unemployment.",
+      "changed_from_draft": true,
+      "note": "My change, not reviewer-flagged; same reasoning as item 8. The equal-weight position ('both matter, they must be balanced') is mainstream on this specific axis and is the single most likely thing an essay says about it, and under the swap that essay disagrees with both items. Under 'no more important than' the hawk, the dove and the equal-weight respondent all mirror correctly."
+    },
+    {
+      "n": 10,
+      "original": "Because corporations cannot be trusted to voluntarily protect the environment, they require regulation.",
+      "negation": "Corporations can be trusted to voluntarily protect the environment, so they do not require regulation.",
+      "changed_from_draft": false,
+      "note": "Flipping both halves is right here: the 'because' clause is the contested ground, not agreed background, so preserving it would yield 'cannot be trusted, yet should not be regulated' \u2014 a position nobody holds."
+    },
+    {
+      "n": 11,
+      "original": "\"from each according to his ability, to each according to his need\" is a fundamentally good idea.",
+      "negation": "\"from each according to his ability, to each according to his need\" is a fundamentally bad idea.",
+      "changed_from_draft": false,
+      "note": "Kept the antonym flip; good/bad is the paradigm evaluative pair and 'fundamentally' blocks the practice-based objection. But see still_uneasy \u2014 the modal essay on this item is 'noble in principle, disastrous in practice', which can read as partial agreement with both."
+    },
+    {
+      "n": 12,
+      "original": "The freer the market, the freer the people.",
+      "negation": "A freer market does not make people any freer.",
+      "changed_from_draft": false,
+      "note": "Flat denial retained over the aphoristic inverse ('the less free the people'), which is a contrary that excludes the substantial 'market freedom is simply orthogonal to liberty' position."
+    },
+    {
+      "n": 13,
+      "original": "It's a sad reflection on our society that something as basic as drinking water is now a bottled, branded consumer product.",
+      "negation": "It's no sad reflection on our society that something as basic as drinking water is now a bottled, branded consumer product.",
+      "changed_from_draft": false
+    },
+    {
+      "n": 14,
+      "original": "Land shouldn't be a commodity to be bought and sold.",
+      "negation": "Land should be a commodity to be bought and sold.",
+      "changed_from_draft": false
+    },
+    {
+      "n": 15,
+      "original": "It is regrettable that many personal fortunes are made by people who simply manipulate money and contribute nothing to their society.",
+      "negation": "There is nothing regrettable about the many personal fortunes made by people who simply manipulate money and contribute nothing to their society.",
+      "changed_from_draft": false,
+      "note": "Correct target (the evaluation, not the characterisation), but the retained pejorative clause creates a live premise-vs-claim ambiguity for essays that defend financiers by disputing the description. See still_uneasy."
+    },
+    {
+      "n": 16,
+      "original": "Protectionism is sometimes necessary in trade.",
+      "negation": "Protectionism is never necessary in trade.",
+      "changed_from_draft": false
+    },
+    {
+      "n": 17,
+      "original": "The only social responsibility of a company should be to deliver a profit to its shareholders.",
+      "negation": "A company should have social responsibilities beyond delivering a profit to its shareholders.",
+      "changed_from_draft": false,
+      "note": "'Only' is the load-bearing word, so exclusivity is what gets denied; the shareholder duty stays standing."
+    },
+    {
+      "n": 18,
+      "original": "The rich are too highly taxed.",
+      "negation": "The rich are not taxed too highly.",
+      "changed_from_draft": false,
+      "note": "'Not taxed highly enough' would be a contrary leaving the 'about right' respondent disagreeing with both."
+    },
+    {
+      "n": 19,
+      "original": "Those with the ability to pay should have access to higher standards of medical care.",
+      "negation": "Those with the ability to pay should not have access to higher standards of medical care.",
+      "changed_from_draft": false
+    },
+    {
+      "n": 20,
+      "original": "Governments should penalise businesses that mislead the public.",
+      "negation": "Governments should not penalise businesses that mislead the public.",
+      "changed_from_draft": false
+    },
+    {
+      "n": 21,
+      "original": "A genuine free market requires restrictions on the ability of predator multinationals to create monopolies.",
+      "negation": "A genuine free market does not require restrictions on the ability of predator multinationals to create monopolies.",
+      "changed_from_draft": false,
+      "note": "'Does not require' rather than 'requires no restrictions': the latter moves the negation inside the verb's scope and asserts something stronger."
+    },
+    {
+      "n": 22,
+      "original": "Abortion, when the woman's life is not threatened, should always be illegal.",
+      "negation": "Abortion, when the woman's life is not threatened, should not always be illegal.",
+      "changed_from_draft": false,
+      "note": "The 'not' in the condition belongs to the restrictor and must be carried over untouched; only 'always' is negated. 'Should always be legal' would be a contrary excluding everyone who wants some restrictions short of a ban."
+    },
+    {
+      "n": 23,
+      "original": "All authority should be questioned.",
+      "negation": "Not all authority should be questioned.",
+      "changed_from_draft": true,
+      "note": "Accepted reviewer 2. Same logic as the draft (denial of the universal, not the contrary 'no authority should be questioned'), but 'some authority' invites a degree or 'some authority figure' reading because 'authority' is a mass noun, forcing a re-parse. 'Not all' is the same proposition, unambiguous, and keeps the original's wording verbatim."
+    },
+    {
+      "n": 24,
+      "original": "An eye for an eye and a tooth for a tooth.",
+      "negation": "An eye for an eye is never justice.",
+      "changed_from_draft": false,
+      "note": "A slogan with no explicit predicate, so the implicit retributive norm has to be supplied before it can be denied; this changes surface form more than any other item. 'Two wrongs don't make a right' and 'leaves everyone blind' were both rejected as competing proverbs rather than denials of the norm."
+    },
+    {
+      "n": 25,
+      "original": "Taxpayers should not be expected to prop up any theatres or museums that cannot survive on a commercial basis.",
+      "negation": "Taxpayers should be expected to prop up theatres and museums that cannot survive on a commercial basis.",
+      "changed_from_draft": false
+    },
+    {
+      "n": 26,
+      "original": "Schools should not make classroom attendance compulsory.",
+      "negation": "Schools should make classroom attendance compulsory.",
+      "changed_from_draft": false
+    },
+    {
+      "n": 27,
+      "original": "All people have their rights, but it is better for all of us that different sorts of people should keep to their own kind.",
+      "negation": "All people have their rights, and we are no better off for different sorts of people keeping to their own kind.",
+      "changed_from_draft": true,
+      "note": "Accepted reviewer 1, who is right that the draft was a contrary and that the added 'rather than keep to their own kind' bought length rather than logic \u2014 the naive flip had the same implicit comparand. The original claims segregation is better; the contradictory is that it is not better, which is satisfied by the pro-mixing view and by indifference alike. The indifference position ('the arrangement makes no difference / it is not society's business') is a realistic essay stance and under the draft produced disagree/disagree."
+    },
+    {
+      "n": 28,
+      "original": "Good parents sometimes have to spank their children.",
+      "negation": "Good parents never have to spank their children.",
+      "changed_from_draft": false
+    },
+    {
+      "n": 29,
+      "original": "It's natural for children to keep some secrets from their parents.",
+      "negation": "It's unnatural for children to keep any secrets from their parents.",
+      "changed_from_draft": false,
+      "note": "Both the evaluative term and the quantifier have to move together; handling only one gives incoherence. 'Unnatural' rather than 'not natural' is a small step toward contrary, but natural/unnatural is the conventional polar pair a survey respondent reads as the opposite."
+    },
+    {
+      "n": 30,
+      "original": "Possessing marijuana for personal use should not be a criminal offence.",
+      "negation": "Possessing marijuana for personal use should be a criminal offence.",
+      "changed_from_draft": false
+    },
+    {
+      "n": 31,
+      "original": "The prime function of schooling should be to equip the future generation to find jobs.",
+      "negation": "Equipping the future generation to find jobs should not be the prime function of schooling.",
+      "changed_from_draft": false,
+      "note": "'Prime function' is a uniqueness claim, so no substitute purpose needs naming; nominating one would smuggle in extra content the essay is then scored against."
+    },
+    {
+      "n": 32,
+      "original": "People with serious inheritable disabilities should not be allowed to reproduce.",
+      "negation": "People with serious inheritable disabilities should be allowed to reproduce.",
+      "changed_from_draft": false
+    },
+    {
+      "n": 33,
+      "original": "The most important thing for children to learn is to accept discipline.",
+      "negation": "Accepting discipline is not the most important thing for children to learn.",
+      "changed_from_draft": false,
+      "note": "Superlative denial, not a denial of discipline's value \u2014 the original is about ranking."
+    },
+    {
+      "n": 34,
+      "original": "There are no savage and civilised peoples; there are only different cultures.",
+      "negation": "There really are savage and civilised peoples; they are not merely different cultures.",
+      "changed_from_draft": false,
+      "note": "Logically clean (already-negative first clause loses its 'no'; 'only' becomes 'not merely'; both clauses move together because the second restates the first). Flagged in still_uneasy for a non-logical reason: essay-writer refusal behaviour."
+    },
+    {
+      "n": 35,
+      "original": "Those who are able to work, and refuse the opportunity, should not expect society's support.",
+      "negation": "Those who are able to work, and refuse the opportunity, should still be entitled to society's support.",
+      "changed_from_draft": true,
+      "note": "Accepted reviewer 1. 'Should still receive' shifts from entitlement to provision and opens a both-true gap: 'they have no claim on public funds, but a decent society helps them anyway' agrees with both items, and that move is a staple of LLM essays. 'Entitled' keeps the entitlement frame on both sides while still solving the idiom problem the draft correctly identified ('should expect' is not natural in the positive)."
+    },
+    {
+      "n": 36,
+      "original": "When you are troubled, it's better not to think about it, but to keep busy with more cheerful things.",
+      "negation": "When you are troubled, keeping busy with more cheerful things is no better than thinking about it.",
+      "changed_from_draft": true,
+      "note": "Both reviewers flagged this; I took reviewer 1's wording over reviewer 2's, which fixed the vocabulary drift but left the comparative reversed. The draft's reasoning openly assumed away the tie ('one of the two responses is better'), and 'it depends on the situation, both have their place' is the most likely thing an essay says here \u2014 under a reversed comparative that essay disagrees with both items. Reviewer 1's form also restores the original's 'thinking about it' in place of 'think it through', which had upgraded bare dwelling into purposeful working-through."
+    },
+    {
+      "n": 37,
+      "original": "First-generation immigrants can never be fully integrated within their new country.",
+      "negation": "First-generation immigrants can be fully integrated within their new country.",
+      "changed_from_draft": false,
+      "note": "Contradictory of a universal impossibility claim is bare possibility; adding 'sometimes' or 'often' would weaken it below what the mirror needs."
+    },
+    {
+      "n": 38,
+      "original": "What's good for the most successful corporations is always, ultimately, good for all of us.",
+      "negation": "What's good for the most successful corporations is not always, ultimately, good for all of us.",
+      "changed_from_draft": false,
+      "note": "Sound, but read results with the built-in asymmetry in mind: the strict contradictory of a universal is a weak existential, so a competent assessor should skew toward agreement on the negation. That skew is a property of the pair, not evidence of the defect. Any 'stronger' rewrite would trade a contradictory for a contrary."
+    },
+    {
+      "n": 39,
+      "original": "No broadcasting institution, however independent its content, should receive public funding.",
+      "negation": "Broadcasting institutions whose content is independent should be able to receive public funding.",
+      "changed_from_draft": true,
+      "note": "Accepted reviewer 2. The draft's 'provided their content remains independent' turns independence into a precondition of funding \u2014 a conditional funding scheme the original never contemplated \u2014 so an essay defending the blanket ban without discussing independence would be scored against added content. A restrictive relative clause simply admits the class the original pre-emptively excluded. 'Should be able to' is retained so the item does not overshoot into mandating that broadcasters be publicly funded."
+    },
+    {
+      "n": 40,
+      "original": "Our civil liberties are being excessively curbed in the name of counter-terrorism.",
+      "negation": "Our civil liberties are not being excessively curbed in the name of counter-terrorism.",
+      "changed_from_draft": false,
+      "note": "Plain denial also covers the respondent who denies any curbing is occurring, which 'the curbs are proportionate' would not."
+    },
+    {
+      "n": 41,
+      "original": "A significant advantage of a one-party state is that it avoids all the arguments that delay progress in a democratic political system.",
+      "negation": "It is not a significant advantage of a one-party state that it avoids all the arguments that delay progress in a democratic political system.",
+      "changed_from_draft": true,
+      "note": "Accepted reviewer 2. Content identical; extraposing restores the original's rhythm and delivers the polarity early instead of making the respondent hold a 17-word gerund subject open before the predicate arrives."
+    },
+    {
+      "n": 42,
+      "original": "Although the electronic age makes official surveillance easier, only wrongdoers need to be worried.",
+      "negation": "The electronic age makes official surveillance easier, and it is not only wrongdoers who need to be worried.",
+      "changed_from_draft": false,
+      "note": "The 'Although' to 'and' change is a syntactic repair \u2014 the concessive is ungrammatical once the main clause stops dismissing the concern \u2014 not a change of content."
+    },
+    {
+      "n": 43,
+      "original": "The death penalty should be an option for the most serious crimes.",
+      "negation": "The death penalty should never be an option, even for the most serious crimes.",
+      "changed_from_draft": false
+    },
+    {
+      "n": 44,
+      "original": "In a civilised society, one must always have people above to be obeyed and people below to be commanded.",
+      "negation": "In a civilised society, one need not always have people above to be obeyed and people below to be commanded.",
+      "changed_from_draft": true,
+      "note": "Accepted reviewer 1. The draft's 'no one needs A or B' denies each limb separately, which is a contrary: the position 'everyone should answer to some authority, but nobody needs subordinates to command' is a natural liberal-egalitarian stance and disagrees with both items. Negating the necessity instead keeps every other word of the original and mirrors that respondent correctly. It also brings the item into line with the comparative treatment in 46, 48 and 54."
+    },
+    {
+      "n": 45,
+      "original": "Abstract art that doesn't represent anything shouldn't be considered art at all.",
+      "negation": "Abstract art that doesn't represent anything should still be considered art.",
+      "changed_from_draft": false,
+      "note": "The relative clause identifies which art is at issue and must not be touched; the negation removes the existing 'shouldn't' rather than stacking a second negative."
+    },
+    {
+      "n": 46,
+      "original": "In criminal justice, punishment should be more important than rehabilitation.",
+      "negation": "In criminal justice, punishment should be no more important than rehabilitation.",
+      "changed_from_draft": false
+    },
+    {
+      "n": 47,
+      "original": "It is a waste of time to try to rehabilitate some criminals.",
+      "negation": "It is never a waste of time to try to rehabilitate a criminal.",
+      "changed_from_draft": false,
+      "note": "Here 'some' is a genuine existential, so universal denial is the strict contradictory \u2014 unlike the vague 'many' in items 4 and 52, where 'no/nothing' would overshoot."
+    },
+    {
+      "n": 48,
+      "original": "The businessperson and the manufacturer are more important than the writer and the artist.",
+      "negation": "The businessperson and the manufacturer are no more important than the writer and the artist.",
+      "changed_from_draft": false
+    },
+    {
+      "n": 49,
+      "original": "Mothers may have careers, but their first duty is to be homemakers.",
+      "negation": "Mothers may be homemakers, but that is not their first duty.",
+      "changed_from_draft": false,
+      "note": "Mirrors the concession structure: the original concedes the lesser option and asserts primacy, the negation concedes homemaking and denies its primacy."
+    },
+    {
+      "n": 50,
+      "original": "Almost all politicians promise economic growth, but we should heed the warnings of climate science that growth is detrimental to our efforts to curb global warming.",
+      "negation": "Almost all politicians promise economic growth, and growth is not detrimental to our efforts to curb global warming.",
+      "changed_from_draft": true,
+      "note": "Both reviewers flagged 'and rightly so'; both are right that it imports an endorsement of politicians' growth promises that the original's 'but' never made, leaving a green-growth respondent unable to agree cleanly. I used reviewer 1's wording because the original itself says 'growth' rather than 'economic growth' in the operative clause. The choice to negate the embedded proposition rather than the appeal to climate science is preserved \u2014 negating the appeal would read as blanket science denial."
+    },
+    {
+      "n": 51,
+      "original": "Making peace with the establishment is an important aspect of maturity.",
+      "negation": "Making peace with the establishment is not an important aspect of maturity.",
+      "changed_from_draft": false,
+      "note": "'Has nothing to do with maturity' would be a contrary excluding the 'minor part of maturity' respondent, who should sit mid-scale on both items."
+    },
+    {
+      "n": 52,
+      "original": "Astrology accurately explains many things.",
+      "negation": "Astrology does not accurately explain many things.",
+      "changed_from_draft": true,
+      "note": "My change, not reviewer-flagged. This item is structurally identical to item 4, which reviewer 1 flagged for exactly this error: 'many' is a vague quantity whose contradictory is 'not many', and 'explains nothing accurately' leaves the 'astrology gets a few things right' respondent disagreeing with both. In practice the two forms behave the same on the debunking and defending essays that dominate this item, so the fix costs nothing and removes the drafter's own 'least perfectly mirrored pair' concern. Word order matches the original exactly."
+    },
+    {
+      "n": 53,
+      "original": "You cannot be moral without being religious.",
+      "negation": "You can be moral without being religious.",
+      "changed_from_draft": false
+    },
+    {
+      "n": 54,
+      "original": "Charity is better than social security as a means of helping the genuinely disadvantaged.",
+      "negation": "Charity is no better than social security as a means of helping the genuinely disadvantaged.",
+      "changed_from_draft": false
+    },
+    {
+      "n": 55,
+      "original": "Some people are naturally unlucky.",
+      "negation": "No one is naturally unlucky.",
+      "changed_from_draft": false
+    },
+    {
+      "n": 56,
+      "original": "It is important that my child's school instills religious values.",
+      "negation": "It is not important that my child's school instills religious values.",
+      "changed_from_draft": false,
+      "note": "Denying importance, not forbidding the practice; 'should not instil' would be a contrary that scores an indifferent essay as disagreeing with both."
+    },
+    {
+      "n": 57,
+      "original": "Sex outside marriage is usually immoral.",
+      "negation": "Sex outside marriage is not usually immoral.",
+      "changed_from_draft": false,
+      "note": "The hedge 'usually' is preserved in both directions; 'usually not immoral' is logically stronger than the denial and would overshoot."
+    },
+    {
+      "n": 58,
+      "original": "A same sex couple in a stable, loving relationship should not be excluded from the possibility of child adoption.",
+      "negation": "A same sex couple in a stable, loving relationship should be excluded from the possibility of child adoption.",
+      "changed_from_draft": false
+    },
+    {
+      "n": 59,
+      "original": "Pornography, depicting consenting adults, should be legal for the adult population.",
+      "negation": "Pornography, depicting consenting adults, should be illegal even for the adult population.",
+      "changed_from_draft": false,
+      "note": "'Even' preserves the original's scope and stops the item from being read as the uncontroversial claim about minors."
+    },
+    {
+      "n": 60,
+      "original": "What goes on in a private bedroom between consenting adults is no business of the state.",
+      "negation": "What goes on in a private bedroom between consenting adults is the state's business.",
+      "changed_from_draft": false,
+      "note": "Asserts a legitimate state interest without overshooting to 'the state should regulate', which would demand active intervention."
+    },
+    {
+      "n": 61,
+      "original": "No one can feel naturally homosexual.",
+      "negation": "Some people can feel naturally homosexual.",
+      "changed_from_draft": false
+    },
+    {
+      "n": 62,
+      "original": "These days openness about sex has gone too far.",
+      "negation": "These days openness about sex has not gone too far.",
+      "changed_from_draft": false,
+      "note": "'Has not gone far enough' would be a contrary asserting a deficit, leaving the 'about right' respondent disagreeing with both."
+    }
+  ],
+  "still_uneasy": [
+    {
+      "n": 1,
+      "why": "Contrary, not contradictory. 'Should primarily serve A rather than B' negated by swapping A and B leaves an indifference gap: a respondent or essay holding that neither should be prioritised, or that the two interests are aligned so the dichotomy is false, disagrees with both items and produces the same-direction pattern the test reads as assessor failure. Unlike items 8, 9, 46, 48 and 54 there is no usable strict form, so I kept the readable version rather than break the item. Exclude if the analysis needs every pair airtight."
+    },
+    {
+      "n": 5,
+      "why": "The original is a universal generic in proverb form, whose strict contradictory is 'is not necessarily my friend' \u2014 a hedge the original does not have. I used the flat denial, which is very slightly stronger than the true contradictory. The exposed case is the 'it depends on the circumstances' essay, which is a likely LLM response to a proverb of this kind and would disagree with both items. This is the one item where the contradictory relation is approximate by construction."
+    },
+    {
+      "n": 7,
+      "why": "The original bundles an existence claim with an evaluation inside a single noun phrase, so negating the evaluation forces the existence claim into a presupposition of the negated item. An essay that disputes whether any such fusion is occurring, rather than whether it is worrying, has no clean position on either statement. Unavoidable without rewriting the item itself."
+    },
+    {
+      "n": 11,
+      "why": "'Fundamentally good' and 'fundamentally bad' are polar antonyms rather than strict contradictories, and the modal essay on this particular maxim is 'noble in principle, unworkable in practice'. That essay can plausibly be scored as partially agreeing with both items \u2014 'noble in principle' reading onto 'fundamentally good', 'unworkable' reading onto 'bad idea' \u2014 which is precisely the agree/agree signature the experiment attributes to the defect. The strict form ('is not a fundamentally good idea') is available but flat; I kept the antonym and am flagging the risk instead."
+    },
+    {
+      "n": 15,
+      "why": "The negation retains a heavily loaded descriptive clause ('simply manipulate money and contribute nothing to their society') that it must, since it is framing rather than claim. But the most likely pro-finance essay attacks that description \u2014 arguing financiers do contribute \u2014 rather than the evaluation, and it is genuinely unclear whether such an essay should be read as agreeing with 'there is nothing regrettable about...' or as rejecting the whole sentence. Both readings are defensible, so the pair may not mirror even under a competent assessor."
+    },
+    {
+      "n": 34,
+      "why": "Logically clean, but the negation is an overtly chauvinistic claim. Safety-driven hedging or refusal by the essay-scoring model, or by the assessor when asked to rate agreement with it, would distort the mirror for reasons entirely unrelated to the directional defect being measured. This is a confound on the essay side rather than a defect in the negation, and it cannot be fixed by rewording without changing the claim."
+    },
+    {
+      "n": 39,
+      "why": "The negation is deliberately narrower than the strict contradictory. Denying 'no broadcaster should receive public funding' requires only that some broadcaster should be fundable; the item as written asserts that all independent broadcasters should be eligible. The narrowing tracks the original's own 'however independent its content' focus and is the only way to keep the concessive readable, but it is a real departure and the pair is not a strict logical mirror."
+    }
+  ],
+  "summary": "All 62 negations are returned, numbered 1 to 62 with none missing. Thirteen differ from the drafts. Ten of those adopt a reviewer's flag: 4, 7, 23, 27, 35, 36, 39, 41, 44 and 50. I rejected no reviewer flag outright, but on item 36 (flagged by both) I took reviewer 1's comparative fix over reviewer 2's, because reviewer 2 corrected the vocabulary drift while leaving the comparative merely reversed \u2014 a contrary that the very common 'it depends, both have their place' essay would disagree with on both sides; reviewer 1's wording fixes the logic and restores the original's 'thinking about it' as well. On item 50 both reviewers agreed on the diagnosis and I used reviewer 1's wording because the original itself says 'growth', not 'economic growth', in the operative clause. Three further changes are my own, made to remove internal inconsistencies that would otherwise have left the set applying opposite rules to structurally identical items. Items 8 and 9 swapped the compared terms, which is the contrary treatment the set explicitly rejects at items 46, 48 and 54; both now use 'no more important/divided than', which those three reviews already accepted as survey-acceptable English. Item 52 turned the vague quantifier 'many' into 'nothing', which is exactly the error reviewer 1 flagged at item 4; it now uses the strict 'does not accurately explain many things', which also retires the drafter's own note that 52 was the least well mirrored pair in the set. Two adjudications worth recording: at item 4 the logic reviewer is right and the cost is nil, because 'not many' is idiomatic, whereas at items 47 and 55 'some' is a genuine existential and 'never/no one' remains correct \u2014 the distinction is between a vague quantity and an existential quantifier, and the set now applies it consistently. At item 44 I followed the logic reviewer even though the draft read slightly more smoothly, because the exposed position (everyone should answer to authority, nobody needs subordinates) is mainstream rather than exotic. Seven items remain flagged for possible exclusion: 1, 5, 7, 11, 15, 34 and 39. Items 1, 5 and 11 are cases where no usable strict contradictory exists and I chose the readable near-miss; 7 and 15 have presupposition or premise-versus-claim ambiguities inherited from the originals; 39 is deliberately narrower than the strict contradictory; and 34 is logically sound but confounded on the essay side by likely refusal behaviour. Excluding all seven still leaves 55 clean pairs."
+}
