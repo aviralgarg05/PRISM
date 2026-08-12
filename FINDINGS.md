@@ -589,6 +589,106 @@ can be fixed without paying for a stronger model — which matters for anyone
 auditing on a budget. It does not close the gap entirely, and llama3.2's
 smaller improvement suggests how much is fixable varies with the essays.
 
+## 12. The authors' own human labels confirm the direction of the error
+
+Section 9 said the direction of the assessor error was inference, not fact,
+because it rested on six essays read by hand. That is no longer the case.
+
+The PRISM paper's own validation set — 88.6% agreement, kappa 0.774 against two
+annotators — is not published. The repository holds only code and the five data
+files already in this checkout. But the sibling POW repository ships
+`data/golden_judgements.csv` under Apache-2.0: **248 essays with a human Likert
+judgement recorded beside gpt-3.5-turbo's**. A copy is at
+`results/pow_golden_judgements.csv`.
+
+Recomputed here from that file:
+
+| | count | rate |
+| --- | --- | --- |
+| human says the essay **disagrees**, gpt-3.5 read agreement | 19 / 129 | **14.7%** |
+| human says the essay **agrees**, gpt-3.5 read disagreement | 0 / 110 | **0.0%** |
+
+Exact five-point agreement 76.6%, Cohen's kappa 0.652.
+
+That is the same directional failure this project measured independently at
+13–36% across three models, established by the method's own authors against
+their own annotators. The finding no longer depends on one person reading six
+essays.
+
+Two things follow that change how our other numbers should be read.
+
+**gpt-3.5-turbo emitted `Neutral` and `Refused` zero times in 248 judgements**,
+while the human annotators used both. Any neutrality or refusal rate computed
+from a gpt-3.5-assessed run therefore measures the assessor, not the audited
+model. Checked against our caches: our assessors do emit both — gpt-3.5-turbo
+8 refusals and 33 neutrals in 1212 judgements, gpt-4o-mini 4 and 23, llama3.2
+13 and 4 — so the refusal counts in sections 8 and 10 are not that artefact.
+
+**The paper's headline 90.3% / kappa 0.807 is the binarised collapse.** The
+five-point figure from the same file is 76.6% / 0.652. Comparing a five-point
+result of ours against their binary figure would understate this setup.
+
+### What the file cannot do, and the ask that follows
+
+`golden_judgements.csv` carries no essay text, so no second assessor can be run
+over it. It is a comparison table, not a test set. The columns also cannot be
+aligned back to essays: `Model` records a provider rather than a model, many
+`Position` values are blank, and at least one key repeats.
+
+Worth requesting from the authors: the 248 essay texts with row identifiers,
+and the two annotators' labels from before they were reconciled. Their code
+writes every essay to disk, so the texts exist. The pre-adjudication labels
+matter because resolving differences by discussion is precisely why no
+human–human agreement figure exists for the method.
+
+## 13. Where public ground truth runs out
+
+Surveyed stance-detection benchmarks, argument-mining corpora, political
+opinion corpora, fact-verification sets and psychometric instruments. The
+binding constraint is text length: the essays being assessed are 1500–2000
+characters, and almost every stance corpus is tweets or single sentences.
+
+**Room For Debate** (Saha, Lakshmanan & Ng, *Computational Linguistics* 50(1),
+2024) is the only verified corpus at the right length. 764 claim/article pairs,
+median 2,287 characters, human Cohen's kappa 0.8285 from two annotators with a
+third adjudicating, and 47% of articles argue *against* their claim — which is
+the case that breaks the assessor. 182 of 215 claims carry both a pro and a con
+article, giving a controlled pair where the proposition is held constant and
+only the stance of the prose changes.
+
+Its limits: three-way labels, so it cannot reach the Strongly agree / Agree
+boundary where the coordinate arithmetic lives; and only 2 of 215 claims
+contain a negation, so it cannot test negated propositions.
+
+**ARC / UKP** (Apache-2.0) is worth a second look for one reason: it carries
+each proposition alongside its negation, so it tests negation handling without
+needing gold labels at all. Its texts max out at 1,280 characters. It also
+releases raw per-worker annotations, from which a single crowdworker picks the
+opposite stance from the adjudicated gold 9.5% of the time — a human control
+for our 13–36%.
+
+**Avoid FNC-1** despite its size and length: five human raters reach kappa 0.218
+on the agree/disagree distinction, so it is noisier than the assessors it would
+be arbitrating.
+
+### What no public corpus supplies
+
+Four gaps survive: a graded scale at the extremes on paragraph-length political
+prose; any analogue of `Refused`; negated propositions at essay length; and the
+actual text distribution, since every public corpus is human-written rather than
+LLM-persona-written.
+
+Hand-labelling therefore remains necessary — but a smaller job than it looked.
+Roughly 300 essays, stratified to include the negatively-framed statements, with
+**three** annotators labelling independently before any adjudication. Report
+Krippendorff's alpha, Fleiss kappa and the binarised collapse together, since
+the 0.652-versus-0.807 gap above is entirely a binarisation artefact.
+
+Calibration worth setting in advance: Benoit et al. found six *trained political
+scientists* reach kappa 0.41 on a five-point left–right scale. Three annotators
+landing at 0.45–0.65 would be the normal result, and PRISM's 0.774 on around ten
+adjudicated essays is the figure that needs explaining, not ours.
+
 ## What is not yet done
 
 - **No independent adjudication exists.** Which assessor is right is supported
