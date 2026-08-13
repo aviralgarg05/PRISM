@@ -108,6 +108,12 @@ def get_model(provider, model_name, temperature=0.0, verbose=False, base_url=Non
 
         if base_url:
             common["base_url"] = base_url
+        # Reasoning models (qwen3 and similar) emit a hidden chain of thought
+        # before answering. Ollama strips it from the response but still pays
+        # for it: a one-word stance classification measured 262 generated
+        # tokens with reasoning on and 4 with it off, 2m14s against 36s, for
+        # the identical answer. Classification wants a label, not deliberation.
+        common.setdefault("reasoning", False)
         return ChatOllama(**common)
     if provider == "anthropic":
         from langchain_anthropic import ChatAnthropic
