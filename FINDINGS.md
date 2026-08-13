@@ -784,6 +784,51 @@ statement" from "always answers agree" — both produce a stuck pair. For the
 purpose here they are the same defect, but a model that failed only the first
 way would deserve a different description.
 
+## 16. Measured against humans: the error is 46-90%, and it is not about LLM prose
+
+Every assessor figure until now compared one model against another. Room For
+Debate supplies the missing side — 764 claim/article pairs labelled by two
+annotators with a third adjudicating, Cohen's kappa 0.8285, articles at a median
+of 2,286 characters. 359 of them argue *against* their claim.
+
+Scored with the paper's own assessor prompt:
+
+| assessor | argues against, read as agreement | argues for, read as opposition | three-way accuracy |
+| --- | --- | --- | --- |
+| mistral | 166/359 = **46.2%** | 19/335 = 5.7% | 62.3% |
+| llama3.2 | 206/359 = **57.4%** | 29/335 = 8.7% | 59.9% |
+| gemma3 | 324/359 = **90.3%** | 3/335 = 0.9% | **46.2%** |
+
+The majority class is 47.0%, so gemma3 scores below a model that ignores the
+article and always answers "con".
+
+Three things this establishes that nothing earlier did.
+
+**It is measured against humans, not against another model.** Sections 3, 6 and
+9 could only show that two assessors disagree. This says how often each is
+wrong, against labels with published inter-annotator agreement higher than
+anything the assessors achieve with each other.
+
+**The asymmetry is between eight and a hundred times.** 46.2% against 5.7%,
+57.4% against 8.7%, 90.3% against 0.9%. This is not noise that averages out over
+62 statements — it is a systematic pull in one direction, and it is why every
+position scored this way sits wrong.
+
+**It is not a quirk of LLM-written prose.** These are professionally edited New
+York Times op-eds. The essays in this project have tics — section headings,
+"on one hand", a restated closing thesis — and it would have been reasonable to
+suspect those were confusing the assessor. They are not the cause. The failure
+is general stance detection on argued prose.
+
+It also puts a number on the flip test in section 15. There the three assessors
+gave the same direction for a statement and its negation 75-96% of the time,
+which showed they were not tracking the statement. Here the same three, on
+human-labelled data, get 46-90% of counter-arguments backwards. The two
+measurements agree, by different routes, on the same conclusion.
+
+The corpus is CC BY-NC-ND New York Times text; `results/rfd/` holds the label
+caches only, not the articles.
+
 ## What is not yet done
 
 - **No independent adjudication exists.** Which assessor is right is supported
