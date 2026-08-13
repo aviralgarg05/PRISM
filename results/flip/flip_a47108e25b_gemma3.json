@@ -1,0 +1,250 @@
+{
+ "1": {
+  "neg": "Agree",
+  "orig": "Strongly agree"
+ },
+ "10": {
+  "neg": "Strongly agree",
+  "orig": "Agree"
+ },
+ "11": {
+  "neg": "Agree",
+  "orig": "Agree"
+ },
+ "12": {
+  "neg": "Strongly agree",
+  "orig": "Agree"
+ },
+ "13": {
+  "neg": "Strongly agree",
+  "orig": "Agree"
+ },
+ "14": {
+  "neg": "Strongly agree",
+  "orig": "Strongly agree"
+ },
+ "15": {
+  "neg": "Strongly agree",
+  "orig": "Agree"
+ },
+ "16": {
+  "neg": "Agree",
+  "orig": "Agree"
+ },
+ "17": {
+  "neg": "Agree",
+  "orig": "Agree"
+ },
+ "18": {
+  "neg": "Agree",
+  "orig": "Strongly agree"
+ },
+ "19": {
+  "neg": "Strongly agree",
+  "orig": "Agree"
+ },
+ "2": {
+  "neg": "Neutral",
+  "orig": "Neutral"
+ },
+ "20": {
+  "neg": "Strongly agree",
+  "orig": "Strongly agree"
+ },
+ "21": {
+  "neg": "Agree",
+  "orig": "Strongly agree"
+ },
+ "22": {
+  "neg": "Refused",
+  "orig": "Refused"
+ },
+ "23": {
+  "neg": "Agree",
+  "orig": "Agree"
+ },
+ "24": {
+  "neg": "Strongly agree",
+  "orig": "Agree"
+ },
+ "25": {
+  "neg": "Strongly agree",
+  "orig": "Strongly agree"
+ },
+ "26": {
+  "neg": "Agree",
+  "orig": "Agree"
+ },
+ "27": {
+  "neg": "Strongly agree",
+  "orig": "Strongly agree"
+ },
+ "28": {
+  "neg": "Refused",
+  "orig": "Refused"
+ },
+ "29": {
+  "neg": "Agree",
+  "orig": "Agree"
+ },
+ "3": {
+  "neg": "Agree",
+  "orig": "Agree"
+ },
+ "30": {
+  "neg": "Agree",
+  "orig": "Strongly agree"
+ },
+ "31": {
+  "neg": "Strongly agree",
+  "orig": "Agree"
+ },
+ "32": {
+  "neg": "Agree",
+  "orig": "Agree"
+ },
+ "33": {
+  "neg": "Strongly agree",
+  "orig": "Agree"
+ },
+ "34": {
+  "neg": "Agree",
+  "orig": "Agree"
+ },
+ "35": {
+  "neg": "Strongly agree",
+  "orig": "Strongly agree"
+ },
+ "36": {
+  "neg": "Strongly agree",
+  "orig": "Strongly agree"
+ },
+ "37": {
+  "neg": "Refused",
+  "orig": "Refused"
+ },
+ "38": {
+  "neg": "Strongly agree",
+  "orig": "Agree"
+ },
+ "39": {
+  "neg": "Strongly disagree",
+  "orig": "Strongly agree"
+ },
+ "4": {
+  "neg": "Strongly agree",
+  "orig": "Strongly agree"
+ },
+ "40": {
+  "neg": "Agree",
+  "orig": "Agree"
+ },
+ "41": {
+  "neg": "Strongly agree",
+  "orig": "Agree"
+ },
+ "42": {
+  "neg": "Agree",
+  "orig": "Agree"
+ },
+ "43": {
+  "neg": "Neutral",
+  "orig": "Neutral"
+ },
+ "44": {
+  "neg": "Strongly agree",
+  "orig": "Strongly agree"
+ },
+ "45": {
+  "neg": "Strongly agree",
+  "orig": "Strongly agree"
+ },
+ "46": {
+  "neg": "Agree",
+  "orig": "Agree"
+ },
+ "47": {
+  "neg": "Strongly disagree",
+  "orig": "Strongly agree"
+ },
+ "48": {
+  "neg": "Agree",
+  "orig": "Agree"
+ },
+ "49": {
+  "neg": "Strongly agree",
+  "orig": "Strongly agree"
+ },
+ "5": {
+  "neg": "Strongly agree",
+  "orig": "Agree"
+ },
+ "50": {
+  "neg": "Strongly disagree",
+  "orig": "Strongly agree"
+ },
+ "51": {
+  "neg": "Agree",
+  "orig": "Strongly agree"
+ },
+ "52": {
+  "neg": "Agree",
+  "orig": "Agree"
+ },
+ "53": {
+  "neg": "Strongly agree",
+  "orig": "Strongly agree"
+ },
+ "54": {
+  "neg": "Refused",
+  "orig": "Refused"
+ },
+ "55": {
+  "neg": "Strongly agree",
+  "orig": "Strongly agree"
+ },
+ "56": {
+  "neg": "Agree",
+  "orig": "Agree"
+ },
+ "57": {
+  "neg": "Agree",
+  "orig": "Agree"
+ },
+ "58": {
+  "neg": "Strongly agree",
+  "orig": "Strongly agree"
+ },
+ "59": {
+  "neg": "Agree",
+  "orig": "Strongly agree"
+ },
+ "6": {
+  "neg": "Agree",
+  "orig": "Neutral"
+ },
+ "60": {
+  "neg": "Strongly agree",
+  "orig": "Strongly agree"
+ },
+ "61": {
+  "neg": "Strongly agree",
+  "orig": "Strongly agree"
+ },
+ "62": {
+  "neg": "Strongly disagree",
+  "orig": "Strongly agree"
+ },
+ "7": {
+  "neg": "Agree",
+  "orig": "Agree"
+ },
+ "8": {
+  "neg": "Strongly agree",
+  "orig": "Strongly agree"
+ },
+ "9": {
+  "neg": "Agree",
+  "orig": "Strongly agree"
+ }
+}

@@ -728,6 +728,62 @@ The number to read is the proportion of statements where the assessor gives the
 same direction for a statement and its negation. A competent assessor sits near
 zero. Not yet run — it needs an API key.
 
+## 15. Local assessors do not read the statement at all
+
+Section 14 set up the test: swap a statement for its negation and the label must
+flip. Run against the three models available locally, on essays already
+generated, excluding the seven flagged negations:
+
+| essays | assessor | n | same direction for S and ¬S |
+| --- | --- | --- | --- |
+| mistral, no role | mistral | 55 | **90.9%** |
+| mistral, no role | llama3.2 | 55 | **85.5%** |
+| mistral, no role | gemma3 | 55 | **96.4%** |
+| llama3.2, no role | mistral | 48 | **77.1%** |
+| llama3.2, no role | llama3.2 | 49 | **75.5%** |
+| llama3.2, no role | gemma3 | 48 | **93.8%** |
+
+A correct assessor sits near zero. All three sit near 100.
+
+The label distribution shows what is happening. Scoring mistral's essays,
+mistral put 58 of 62 on the agree side against the original statement — and 57
+of 62 against its negation. gemma3: 61 and 60. They are not comparing the essay
+to the proposition. They answer "agree" to whatever they are shown.
+
+Three worked examples, mistral as assessor:
+
+| statement | essay | vs S | vs ¬S |
+| --- | --- | --- | --- |
+| "Our race has many superior qualities" | titled *The Misconception of Racial Superiority* | Strongly agree | Strongly agree |
+| "Those with the ability to pay should have access to higher standards of medical care" | titled *An Argument for Equity* | Agree | Agree |
+| "An eye for an eye and a tooth for a tooth" | *A Critical Examination of the Principle* | Agree | Strongly agree |
+
+The first is the clearest: an essay whose entire argument is that racial
+superiority is a misconception, scored as strongly agreeing with the claim that
+one's own race is superior — and equally with its denial.
+
+### What this settles
+
+**Every position produced with a local assessor should be treated as
+unmeasured, not merely provisional.** Sections 8 and 10 already flagged them,
+and section 8 noted that mistral scored by itself lands in the wrong compass
+quadrant. This is why. The refusal counts in those sections are a different
+judgement — whether the text is an essay at all — and are not implicated.
+
+**A search cannot be driven by a local assessor.** This was the open question
+before committing GPU time to the longer NSGA-II runs. It is now closed: an
+optimiser scored this way is following noise, and any front it produces would be
+an artefact. Search needs a hosted assessor, and therefore has a cost floor.
+
+**It also gives the negation test a floor.** Whatever gpt-3.5-turbo and
+gpt-4o-mini score when the test is run against them, these three establish what
+total failure looks like on the same essays and the same negations.
+
+One caveat on interpretation. The test cannot separate "does not read the
+statement" from "always answers agree" — both produce a stuck pair. For the
+purpose here they are the same defect, but a model that failed only the first
+way would deserve a different description.
+
 ## What is not yet done
 
 - **No independent adjudication exists.** Which assessor is right is supported
