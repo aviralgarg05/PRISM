@@ -108,12 +108,17 @@ def get_model(provider, model_name, temperature=0.0, verbose=False, base_url=Non
 
         if base_url:
             common["base_url"] = base_url
-        # Reasoning models (qwen3 and similar) emit a hidden chain of thought
-        # before answering. Ollama strips it from the response but still pays
-        # for it: a one-word stance classification measured 262 generated
-        # tokens with reasoning on and 4 with it off, 2m14s against 36s, for
-        # the identical answer. Classification wants a label, not deliberation.
-        common.setdefault("reasoning", False)
+        # Do NOT disable reasoning here. It looks like a free speedup - a
+        # one-word stance classification costs 262 generated tokens with it on
+        # and 4 with it off - but it changes the answers. Scoring 40
+        # human-labelled articles with qwen3:8b, reasoning off called every
+        # single one "pro" and got 100% of the counter-arguments wrong;
+        # reasoning on gave a spread and 63%. The saving was bought by making
+        # the model degenerate. Callers who want it off must ask explicitly.
+        #
+        # Note also that ollama rejects reasoning=True outright for models
+        # without a thinking mode ("mistral does not support thinking"), so the
+        # flag can only ever be passed to models it applies to.
         return ChatOllama(**common)
     if provider == "anthropic":
         from langchain_anthropic import ChatAnthropic
