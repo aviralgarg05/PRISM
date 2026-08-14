@@ -1,0 +1,119 @@
+[
+  {
+    "assessor": "gemma3 4B",
+    "prompt": "paper",
+    "n": 764,
+    "con_to_agree": 90.3,
+    "pro_to_con": 0.9,
+    "accuracy": 46.2,
+    "kappa": 0.065
+  },
+  {
+    "assessor": "gemma3 4B",
+    "prompt": "explicit",
+    "n": 764,
+    "con_to_agree": 93.0,
+    "pro_to_con": 0.3,
+    "accuracy": 44.5,
+    "kappa": 0.036
+  },
+  {
+    "assessor": "qwen3 8B",
+    "prompt": "paper",
+    "n": 764,
+    "con_to_agree": 81.1,
+    "pro_to_con": 1.2,
+    "accuracy": 49.3,
+    "kappa": 0.122
+  },
+  {
+    "assessor": "qwen3 8B",
+    "prompt": "explicit",
+    "n": 764,
+    "con_to_agree": 70.2,
+    "pro_to_con": 2.1,
+    "accuracy": 55.6,
+    "kappa": 0.211
+  },
+  {
+    "assessor": "llama3.2 3B",
+    "prompt": "paper",
+    "n": 764,
+    "con_to_agree": 57.4,
+    "pro_to_con": 8.7,
+    "accuracy": 59.9,
+    "kappa": 0.277
+  },
+  {
+    "assessor": "llama3.2 3B",
+    "prompt": "explicit",
+    "n": 764,
+    "con_to_agree": 20.3,
+    "pro_to_con": 31.3,
+    "accuracy": 67.8,
+    "kappa": 0.409
+  },
+  {
+    "assessor": "mistral 7B",
+    "prompt": "paper",
+    "n": 764,
+    "con_to_agree": 46.2,
+    "pro_to_con": 5.7,
+    "accuracy": 62.3,
+    "kappa": 0.352
+  },
+  {
+    "assessor": "mistral 7B",
+    "prompt": "explicit",
+    "n": 764,
+    "con_to_agree": 0.6,
+    "pro_to_con": 38.2,
+    "accuracy": 62.6,
+    "kappa": 0.385
+  },
+  {
+    "assessor": "qwen3 30B",
+    "prompt": "paper",
+    "n": 250,
+    "con_to_agree": 34.5,
+    "pro_to_con": 9.1,
+    "accuracy": 66.0,
+    "kappa": 0.412
+  },
+  {
+    "assessor": "gpt-3.5-turbo",
+    "prompt": "paper",
+    "n": 764,
+    "con_to_agree": 36.5,
+    "pro_to_con": 7.2,
+    "accuracy": 68.1,
+    "kappa": 0.444
+  },
+  {
+    "assessor": "gpt-3.5-turbo",
+    "prompt": "explicit",
+    "n": 764,
+    "con_to_agree": 20.1,
+    "pro_to_con": 13.7,
+    "accuracy": 73.7,
+    "kappa": 0.533
+  },
+  {
+    "assessor": "gpt-4o-mini",
+    "prompt": "paper",
+    "n": 764,
+    "con_to_agree": 14.2,
+    "pro_to_con": 9.3,
+    "accuracy": 77.4,
+    "kappa": 0.604
+  },
+  {
+    "assessor": "gpt-4o-mini",
+    "prompt": "explicit",
+    "n": 764,
+    "con_to_agree": 4.7,
+    "pro_to_con": 25.4,
+    "accuracy": 76.7,
+    "kappa": 0.575
+  }
+]

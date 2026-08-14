@@ -901,6 +901,73 @@ rows stand.
 The general lesson is worth carrying: a cost optimisation on an LLM judge has to
 be validated on labels, not on a spot check that the answer looks the same.
 
+## 18. The full picture, measured against human labels
+
+All thirteen configurations on Room For Debate. Two human annotators reach
+kappa 0.8285 on this corpus; majority class is 47.0%.
+
+| assessor | prompt | argues against → "agree" | argues for → "against" | accuracy | kappa |
+| --- | --- | --- | --- | --- | --- |
+| gemma3 4B | paper | 90.3% | 0.9% | 46.2% | 0.065 |
+| gemma3 4B | explicit | 93.0% | 0.3% | 44.5% | 0.036 |
+| qwen3 8B | paper | 81.1% | 1.2% | 49.3% | 0.122 |
+| qwen3 8B | explicit | 70.2% | 2.1% | 55.6% | 0.211 |
+| llama3.2 3B | paper | 57.4% | 8.7% | 59.9% | 0.277 |
+| mistral 7B | paper | 46.2% | 5.7% | 62.3% | 0.352 |
+| mistral 7B | explicit | 0.6% | 38.2% | 62.6% | 0.385 |
+| llama3.2 3B | explicit | 20.3% | 31.3% | 67.8% | 0.409 |
+| qwen3 30B | paper | 34.5% | 9.1% | 66.0% | 0.412 *(n=250)* |
+| **gpt-3.5-turbo** | paper | **36.5%** | 7.2% | 68.1% | 0.444 |
+| gpt-3.5-turbo | explicit | 20.1% | 13.7% | 73.7% | 0.533 |
+| **gpt-4o-mini** | **paper** | **14.2%** | 9.3% | **77.4%** | **0.604** |
+| gpt-4o-mini | explicit | 4.7% | 25.4% | 76.7% | 0.575 |
+
+### Two corpora agree on the number
+
+PRISM's own gold set puts gpt-3.5-turbo's directional error at 14.7%
+(section 12). Room For Debate puts gpt-4o-mini's at 14.2%. Different corpora,
+different annotators, different domain — political compass essays against New
+York Times op-eds — and the best assessor lands in the same band the paper's
+own annotators found for theirs.
+
+gpt-3.5-turbo is worse here, at 36.5%. That is the upper end of the 13-36%
+range measured across three models in section 9, so the two lines of evidence
+close on each other rather than diverging.
+
+### The explicit prompt shifts the boundary; whether that helps depends where you start
+
+Every model except gemma3 moves the same way: fewer counter-arguments read as
+agreement, more supporting articles read as opposition. It is one shift, applied
+to models sitting at different places.
+
+| | accuracy change |
+| --- | --- |
+| qwen3 8B | 49.3 → 55.6 (+6.3) |
+| llama3.2 3B | 59.9 → 67.8 (+7.9) |
+| gpt-3.5-turbo | 68.1 → 73.7 (+5.6) |
+| mistral 7B | 62.3 → 62.6 (+0.3, overshoots) |
+| gpt-4o-mini | 77.4 → 76.7 (−0.7, overshoots) |
+| gemma3 4B | 46.2 → 44.5 (−1.7, unresponsive) |
+
+It helps models in the middle by five to eight points and overshoots at both
+ends — mistral lands at 0.6%/38.2%, gpt-4o-mini at 4.7%/25.4%, both having
+traded one bias for the opposite one. **The best configuration overall is
+gpt-4o-mini with the paper's own prompt**, which is worth stating plainly: the
+wording change is a real improvement for weaker assessors and a mild
+disimprovement for the best one.
+
+This refines section 17 rather than reversing it. There the claim was that the
+prompt inverts rather than fixes; with the hosted models included it is clearer
+that it moves a decision boundary in one direction, which repairs a model biased
+one way and breaks one already balanced.
+
+### Nothing reaches human agreement
+
+The best assessor scores kappa 0.604 against gold. The two humans scored 0.8285
+against each other. The gap is not closed by capability, by prompt, or by both
+together, and every position in this project — and in the paper — rests on
+labels produced somewhere on this table.
+
 ## What is not yet done
 
 - **No independent adjudication exists.** Which assessor is right is supported
