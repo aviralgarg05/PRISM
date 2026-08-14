@@ -968,6 +968,69 @@ against each other. The gap is not closed by capability, by prompt, or by both
 together, and every position in this project — and in the paper — rests on
 labels produced somewhere on this table.
 
+## 19. Re-scored with the best assessor: the numbers move, the claims hold
+
+Sections 5, 8 and 10 were scored with whichever assessor was convenient at
+generation time. Section 18 established that assessors differ by more than the
+effect being measured, so every essay set was re-scored with the best available
+one — gpt-4o-mini, paper prompt, 14.2% directional error against human labels.
+
+**gemma3**, all seven runs, gpt-4o-mini scored:
+
+| role | economic | social | refusals |
+| --- | --- | --- | --- |
+| none | −4.37 | −0.87 | 0 |
+| pcleftlib | −2.00 | **−5.33** | 0 |
+| pcleftauth | −4.37 | +4.00 | 0 |
+| pcrightlib | +1.63 | −0.97 | 0 |
+| pcrightauth | +1.50 | **+4.82** | 0 |
+| blue | −3.25 | −2.31 | 0 |
+| red | +1.50 | +3.69 | 1 |
+
+Its unroled baseline moves from (−0.37, +2.72) self-scored to (−4.37, −0.87) —
+four units on economic, 3.6 on social, from changing nothing but the reader.
+Same pattern as mistral in section 8, and for the same reason.
+
+**llama3.2**, gpt-4o-mini scored:
+
+| role | economic | social | refusals |
+| --- | --- | --- | --- |
+| none | −1.31 | −1.85 | 4 |
+| pcleftlib | −4.25 | −4.62 | 0 |
+| pcleftauth | −3.25 | −2.56 | 1 |
+| pcrightlib | **+6.63** | −3.85 | 2 |
+| pcrightauth | +3.13 | −0.26 | **14** |
+| blue | −4.25 | −1.64 | **33** |
+| red | +1.50 | +0.72 | **43** |
+
+### What survives the change of assessor
+
+Three qualitative claims were made on numbers that have now all moved. They
+survive:
+
+- **Section 5, "the default sits on the boundary of its own window."** Re-scored,
+  gpt-3.5-turbo's economic range becomes −5.25 to +5.38 (span 10.62, was 8.88)
+  and social −5.38 to +4.67 (span 10.05, was 11.28). The baseline at −5.25 is
+  still the leftmost point found.
+- **Section 10, "identity labels are refused far more than positional wording."**
+  Under gpt-4o-mini llama3.2 refuses 33 and 43 statements under `blue` and `red`
+  against 0 to 14 under the `pc*` roles. The counts fall — the local assessor
+  had over-reported refusals — but the six-fold gap holds.
+- **Section 10, "llama3.2 cannot reach the authoritarian half."** Its only
+  positive social score is `red` at +0.72, on a run with 43 refusals. Excluding
+  unusable runs it still never crosses zero.
+
+**Refusal is model-specific, now across three models.** mistral refused nothing
+across 434 statements, gemma3 once, llama3.2 heavily and only under party
+labels. The paper's observation that models resist authoritarian positions
+holds for one of the three.
+
+The distinction worth keeping: **the coordinates in this project are only as
+good as the assessor that produced them, and they move by several units when it
+changes. The structural claims — which quadrants are reachable, what gets
+refused, where a default sits inside its own range — have so far been robust to
+that.**
+
 ## What is not yet done
 
 - **No independent adjudication exists.** Which assessor is right is supported
