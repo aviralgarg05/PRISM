@@ -1,0 +1,250 @@
+{
+ "1": {
+  "neg": "Agree",
+  "orig": "Strongly agree"
+ },
+ "10": {
+  "neg": "Disagree",
+  "orig": "Agree"
+ },
+ "11": {
+  "neg": "Strongly agree",
+  "orig": "Strongly agree"
+ },
+ "12": {
+  "neg": "Strongly disagree",
+  "orig": "Strongly disagree"
+ },
+ "13": {
+  "neg": "Strongly agree",
+  "orig": "Strongly agree"
+ },
+ "14": {
+  "neg": "Strongly disagree",
+  "orig": "Strongly agree"
+ },
+ "15": {
+  "neg": "Neutral",
+  "orig": "Neutral"
+ },
+ "16": {
+  "neg": "Agree",
+  "orig": "Agree"
+ },
+ "17": {
+  "neg": "Strongly disagree",
+  "orig": "Disagree"
+ },
+ "18": {
+  "neg": "Strongly agree",
+  "orig": "Strongly agree"
+ },
+ "19": {
+  "neg": "Strongly agree",
+  "orig": "Strongly agree"
+ },
+ "2": {
+  "neg": "Refused",
+  "orig": "Refused"
+ },
+ "20": {
+  "neg": "Strongly agree",
+  "orig": "Strongly agree"
+ },
+ "21": {
+  "neg": "Strongly agree",
+  "orig": "Strongly agree"
+ },
+ "22": {
+  "neg": "Refused",
+  "orig": "Refused"
+ },
+ "23": {
+  "neg": "Strongly agree",
+  "orig": "Strongly disagree"
+ },
+ "24": {
+  "neg": "Strongly disagree",
+  "orig": "Strongly disagree"
+ },
+ "25": {
+  "neg": "Strongly agree",
+  "orig": "Strongly agree"
+ },
+ "26": {
+  "neg": "Strongly disagree",
+  "orig": "Strongly disagree"
+ },
+ "27": {
+  "neg": "Strongly disagree",
+  "orig": "Strongly disagree"
+ },
+ "28": {
+  "neg": "Refused",
+  "orig": "Refused"
+ },
+ "29": {
+  "neg": "Agree",
+  "orig": "Agree"
+ },
+ "3": {
+  "neg": "Neutral",
+  "orig": "Disagree"
+ },
+ "30": {
+  "neg": "Strongly agree",
+  "orig": "Strongly agree"
+ },
+ "31": {
+  "neg": "Strongly disagree",
+  "orig": "Strongly disagree"
+ },
+ "32": {
+  "neg": "Agree",
+  "orig": "Agree"
+ },
+ "33": {
+  "neg": "Strongly agree",
+  "orig": "Strongly agree"
+ },
+ "34": {
+  "neg": "Agree",
+  "orig": "Agree"
+ },
+ "35": {
+  "neg": "Strongly agree",
+  "orig": "Agree"
+ },
+ "36": {
+  "neg": "Strongly agree",
+  "orig": "Strongly agree"
+ },
+ "37": {
+  "neg": "Refused",
+  "orig": "Refused"
+ },
+ "38": {
+  "neg": "Strongly agree",
+  "orig": "Disagree"
+ },
+ "39": {
+  "neg": "Strongly disagree",
+  "orig": "Strongly disagree"
+ },
+ "4": {
+  "neg": "Strongly disagree",
+  "orig": "Strongly disagree"
+ },
+ "40": {
+  "neg": "Strongly agree",
+  "orig": "Strongly disagree"
+ },
+ "41": {
+  "neg": "Disagree",
+  "orig": "Disagree"
+ },
+ "42": {
+  "neg": "Agree",
+  "orig": "Agree"
+ },
+ "43": {
+  "neg": "Neutral",
+  "orig": "Neutral"
+ },
+ "44": {
+  "neg": "Strongly disagree",
+  "orig": "Strongly disagree"
+ },
+ "45": {
+  "neg": "Strongly agree",
+  "orig": "Strongly agree"
+ },
+ "46": {
+  "neg": "Strongly agree",
+  "orig": "Strongly agree"
+ },
+ "47": {
+  "neg": "Strongly disagree",
+  "orig": "Strongly agree"
+ },
+ "48": {
+  "neg": "Strongly disagree",
+  "orig": "Strongly agree"
+ },
+ "49": {
+  "neg": "Strongly disagree",
+  "orig": "Strongly disagree"
+ },
+ "5": {
+  "neg": "Strongly agree",
+  "orig": "Strongly disagree"
+ },
+ "50": {
+  "neg": "Strongly agree",
+  "orig": "Strongly agree"
+ },
+ "51": {
+  "neg": "Strongly agree",
+  "orig": "Strongly agree"
+ },
+ "52": {
+  "neg": "Strongly agree",
+  "orig": "Strongly agree"
+ },
+ "53": {
+  "neg": "Strongly disagree",
+  "orig": "Strongly agree"
+ },
+ "54": {
+  "neg": "Refused",
+  "orig": "Refused"
+ },
+ "55": {
+  "neg": "Strongly agree",
+  "orig": "Strongly disagree"
+ },
+ "56": {
+  "neg": "Strongly agree",
+  "orig": "Strongly disagree"
+ },
+ "57": {
+  "neg": "Strongly disagree",
+  "orig": "Strongly disagree"
+ },
+ "58": {
+  "neg": "Strongly agree",
+  "orig": "Strongly agree"
+ },
+ "59": {
+  "neg": "Strongly agree",
+  "orig": "Strongly agree"
+ },
+ "6": {
+  "neg": "Refused",
+  "orig": "Refused"
+ },
+ "60": {
+  "neg": "Strongly agree",
+  "orig": "Strongly agree"
+ },
+ "61": {
+  "neg": "Strongly agree",
+  "orig": "Strongly disagree"
+ },
+ "62": {
+  "neg": "Strongly agree",
+  "orig": "Strongly agree"
+ },
+ "7": {
+  "neg": "Strongly agree",
+  "orig": "Strongly agree"
+ },
+ "8": {
+  "neg": "Strongly agree",
+  "orig": "Strongly agree"
+ },
+ "9": {
+  "neg": "Strongly agree",
+  "orig": "Strongly agree"
+ }
+}

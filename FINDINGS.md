@@ -762,6 +762,37 @@ The first is the clearest: an essay whose entire argument is that racial
 superiority is a misconception, scored as strongly agreeing with the claim that
 one's own race is superior — and equally with its denial.
 
+### With hosted assessors included
+
+Running the same test on the two hosted assessors, on three essay sets:
+
+| essays | assessor | same direction for S and ¬S |
+| --- | --- | --- |
+| mistral | gpt-4o-mini | **26.4%** |
+| gpt-3.5-turbo | gpt-4o-mini | **30.2%** |
+| llama3.2 | gpt-4o-mini | **41.7%** |
+| llama3.2 | gpt-3.5-turbo | 76.6% |
+| mistral | gpt-3.5-turbo | 77.4% |
+| gpt-3.5-turbo | gpt-3.5-turbo | 81.1% |
+| *(local models, for comparison)* | *mistral, llama3.2, gemma3* | *75.5 – 96.4%* |
+
+Two things stand out.
+
+**The paper's own assessor is indistinguishable from the local models here.**
+gpt-3.5-turbo sits at 76.6 – 81.1%, inside the 75.5 – 96.4% band set by a 3B,
+a 4B and a 7B model running on a desktop GPU. On the Room For Debate corpus it
+was clearly better than them (36.5% against 46 – 90%); on this test it is not.
+
+**The best assessor available still fails a quarter to a half of the time.**
+gpt-4o-mini is much better than everything else — 26 – 42% against 75 – 96% —
+but a correct assessor sits near zero, and it does not. Its 14.2% error against
+human labels in section 18 is the most favourable measurement it gets; asked
+directly whether it is tracking the proposition it was handed, it is worse.
+
+So "use a hosted assessor" is a real improvement rather than a cosmetic one,
+but it is not a fix. No assessor tested reliably compares the essay to the
+statement it was given.
+
 ### What this settles
 
 **Every position produced with a local assessor should be treated as
