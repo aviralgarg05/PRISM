@@ -829,6 +829,78 @@ measurements agree, by different routes, on the same conclusion.
 The corpus is CC BY-NC-ND New York Times text; `results/rfd/` holds the label
 caches only, not the articles.
 
+## 17. No local assessor is usable, and the explicit prompt inverts the bias rather than fixing it
+
+Section 16 measured three local assessors against Room For Debate's human
+labels. This extends that to a capability ladder and to both prompts. Full
+corpus except where noted; majority class is 47.0%.
+
+| assessor | prompt | argues against → "agree" | argues for → "against" | accuracy |
+| --- | --- | --- | --- | --- |
+| gemma3 4B | paper | 90.3% | 0.9% | 46.2% |
+| qwen3 8B | paper | 81.1% | 1.2% | 49.3% |
+| qwen3 8B | explicit | 70.2% | 2.1% | 55.6% |
+| llama3.2 3B | paper | 57.4% | 8.7% | 59.9% |
+| mistral 7B | paper | 46.2% | 5.7% | 62.3% |
+| mistral 7B | explicit | **0.6%** | **38.2%** | 62.6% |
+| llama3.2 3B | explicit | 20.3% | 31.3% | **67.8%** |
+| qwen3 30B | paper | **34.5%** | 9.1% | 66.0% *(n=250)* |
+
+### The explicit prompt does not fix the failure. It reverses it.
+
+Look at mistral. Errors on counter-arguments fall from 46.2% to 0.6% — which
+read alone looks like a fix. Errors in the other direction rise from 5.7% to
+38.2%, and accuracy moves 62.3% to 62.6%. Nothing was repaired; the assessor
+went from answering "agree" to almost everything to answering "disagree" to
+almost everything.
+
+**This corrects section 11**, which reported the explicit wording closing 65% of
+the position gap and treated that as a fix. That gap was measured against
+gpt-4o-mini, on the assumption that gpt-4o-mini was right — circular, as section
+9 admits. Against human labels the improvement mostly disappears. Only llama3.2
+gains genuinely, 59.9% to 67.8%. gemma3 is unmoved. The wording changes which
+direction the assessor is wrong in, and for one model out of four it also
+happens to help.
+
+### Capability helps, but not at any size available here
+
+qwen3 8B is *worse* than mistral 7B (81.1% against 46.2%), so this is not a
+size ladder — it is model-specific. qwen3 30B is the best assessor tested at
+34.5%, clearly better than everything smaller.
+
+But 34.5% is not usable. It sits in the same band as gpt-3.5-turbo, which
+PRISM's own gold set puts at 14.7% and sections 6 and 9 show is systematically
+wrong. The best local option available is roughly as good as the assessor whose
+failures started this investigation.
+
+**So a search cannot be driven locally.** Section 15 argued this from the
+negation test; this settles it against human labels, across four model families
+and two prompts. Search carries a hosted-assessor cost floor.
+
+### An optimisation that quietly broke the measurement
+
+qwen3 emits a hidden chain of thought before answering. Ollama removes it from
+the response but the tokens are still generated: a one-word classification cost
+262 generated tokens with reasoning on and 4 with it off, 2m14s against 36s, and
+a spot check returned the same label. Disabling it looked free, so it was
+disabled and made the default.
+
+It was not free. On 40 human-labelled articles, qwen3 8B with reasoning off
+labelled **all 40** as "pro" and got **100%** of counter-arguments wrong. With
+reasoning on: a spread of labels and 63%. The speedup was bought by making the
+model degenerate.
+
+Every qwen3 figure in the first pass was therefore an artefact and was
+discarded; the table above is from re-runs with reasoning left on. The default
+is reverted, with the reason recorded at the call site.
+
+Non-reasoning models were never affected — ollama rejects the flag outright for
+them ("mistral does not support thinking") — so the mistral, llama3.2 and gemma3
+rows stand.
+
+The general lesson is worth carrying: a cost optimisation on an LLM judge has to
+be validated on labels, not on a spot check that the answer looks the same.
+
 ## What is not yet done
 
 - **No independent adjudication exists.** Which assessor is right is supported
