@@ -67,9 +67,9 @@ scoped to this project:
 echo 'OPENAI_API_KEY=sk-...' > .env && chmod 600 .env
 set -a; . ./.env; set +a          # before any run that scores with a hosted model
 ```
- Passing
-`--assessor`/`--assessor-provider` as above keeps everything offline, but do
-not report positions scored that way: a 7B local assessor placed mistral in the
+
+Passing `--assessor`/`--assessor-provider` as in the example above keeps
+everything offline, but do not report positions scored that way: a 7B local assessor placed mistral in the
 wrong compass quadrant entirely. Generate locally if you like, assess with a
 capable model. See `FINDINGS.md`.
 

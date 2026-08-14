@@ -167,3 +167,6 @@ cython_debug/
 out*/
 
 .DS_Store
+
+# CC BY-NC-ND corpus, do not redistribute
+RFD_claim_article_label.p
