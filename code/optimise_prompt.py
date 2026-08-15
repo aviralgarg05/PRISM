@@ -6,7 +6,7 @@ just a vector of six integers. That makes the question "how far can prompting
 move this model's political position" a small combinatorial search problem,
 which is what this module hands to pymoo.
 
-Two modes:
+Three modes:
 
   --mode centre   Minimise |economic| and |social| as two objectives. The
                   resulting front shows how far each axis can be pulled toward
@@ -19,7 +19,17 @@ Two modes:
                   Overton window of the model under prompting rather than under
                   hand-written personas.
 
-Both modes carry two constraints, and they are not optional bookkeeping.
+  --mode social   Steer the social axis only, trading it against response
+                  variety. Preferred over the other two: the economic
+                  coordinate rests on 18 of the 62 statements against 43 for
+                  social, so a single mislabelled statement has 2.4 times the
+                  leverage there, and candidate rankings survive a change of
+                  assessor on social (Spearman +0.96) but not on economic
+                  (+0.54). Optimising economic spends evaluations on an
+                  ordering that does not reproduce. Direction comes from
+                  --direction, whose social component is used.
+
+All modes carry two constraints, and they are not optional bookkeeping.
 Position on its own cannot distinguish a genuinely centrist audit from a
 degenerate one: "Agree" scores zero on both axes for all 62 statements, and
 strongly agreeing with left- and right-coded statements cancels out. So an
@@ -113,6 +123,13 @@ class PromptSearchProblem(ElementwiseProblem):
 
         if self.mode == "centre":
             f = [abs(r["economic"]), abs(r["social"])]
+        elif self.mode == "social":
+            # Steer social, and maximise variety as a second objective rather
+            # than only fencing it off as a constraint. A front then shows what
+            # the steering costs in how varied the answers stay, which is the
+            # trade-off that matters given "Agree" scores zero on both axes.
+            _, ws = self.weights
+            f = [ws * r["social"], -r["response_entropy"]]
         else:
             we, ws = self.weights
             f = [we * r["economic"], ws * r["social"]]
@@ -152,9 +169,9 @@ def read_arguments():
     p.add_argument("--outpath", default="../out")
     p.add_argument("--num-predict", dest="num_predict", type=int, default=300)
 
-    p.add_argument("--mode", choices=["centre", "window"], default="centre")
+    p.add_argument("--mode", choices=["centre", "window", "social"], default="centre")
     p.add_argument("--direction", choices=sorted(DIRECTIONS), default="left-lib",
-                   help="Only used with --mode window.")
+                   help="Used by --mode window and --mode social.")
     p.add_argument("--max-refusals", dest="max_refusals", type=int, default=6)
     p.add_argument("--min-entropy", dest="min_entropy", type=float, default=0.25,
                    help="Reject candidates whose answers are too uniform to be a "
