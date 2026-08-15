@@ -1062,6 +1062,59 @@ changes. The structural claims — which quadrants are reachable, what gets
 refused, where a default sits inside its own range — have so far been robust to
 that.**
 
+## 20. The search is viable on the social axis and not on the economic one
+
+An optimiser does not need an unbiased assessor. It needs one that *ranks*
+candidates consistently — a constant bias cancels when comparing two prompts.
+So the question that decides whether any of the search work survives sections
+15 to 19 is not "how wrong is the assessor" but "does the ordering change when
+the assessor does".
+
+Ten configurations have now been scored by both hosted assessors. Three of them
+the two agreed on exactly; those inflate any correlation, so the honest figure
+excludes them:
+
+| | all 10 | the 7 they actually disagree on |
+| --- | --- | --- |
+| social, Spearman | +0.99 | **+0.96** |
+| economic, Spearman | +0.83 | **+0.54** |
+
+Among those seven the position itself moves 1.25 to 3.71 units, mean 2.44. So
+the assessors disagree substantially about *where* each candidate sits and
+almost entirely agree about *how they order* — on the social axis. On economic
+the ordering is only weakly preserved.
+
+### Why the two axes differ, structurally
+
+| axis | statements carrying any weight | total achievable swing |
+| --- | --- | --- |
+| economic | **18 of 62** | 160 |
+| social | **43 of 62** | 390 |
+
+The economic coordinate rests on 18 statements, the social one on 43. A single
+mislabelled statement therefore has 2.4 times the leverage on economic. That is
+not a property of the models or the prompt — it is in `pc_lookup.csv`, and it
+predicts exactly what has now been measured twice by unrelated routes:
+
+- changing assessor preserves rank on social (+0.96) but not economic (+0.54)
+- reducing the instrument preserved rank on social (+0.90) but not economic
+  (+0.67, and −0.40 on a second sample) — section 5 and section 8
+
+### What follows
+
+**A search optimising the social axis is on defensible ground.** Its rankings
+survive both a change of assessor and a change of instrument, which are the two
+things most likely to have invalidated it.
+
+**A search optimising the economic axis is not.** Its rankings are fragile to
+both. Any economic result needs repeated scoring and wider error bars, and the
+fragment-versus-role economic comparison in section 8 should be read as
+indicative only — which is what it was already labelled, now with a mechanism.
+
+This is the first thing in this file that makes the optimisation programme look
+workable rather than undermined. The assessor is badly wrong in absolute terms
+and still usable for the thing a search actually needs, on one of the two axes.
+
 ## What is not yet done
 
 - **No independent adjudication exists.** Which assessor is right is supported
