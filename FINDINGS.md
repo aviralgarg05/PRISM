@@ -1115,6 +1115,68 @@ This is the first thing in this file that makes the optimisation programme look
 workable rather than undermined. The assessor is badly wrong in absolute terms
 and still usable for the thing a search actually needs, on one of the two axes.
 
+## 21. A properly powered search moves the social axis by 14 units
+
+Everything needed for a defensible search was in place after section 20: the
+paper's prompt as a reachable baseline, an assessor verified against human
+labels, an axis whose rankings survive a change of assessor, and an objective
+that cannot be won by degenerate answers. This is that search.
+
+gpt-3.5-turbo audited, gpt-4o-mini assessing — both hosted, which also removes
+the split between GPU generation and API scoring that constrained earlier runs.
+`--mode social`, two directions, population 8 over 6 generations, 20 statements
+selected by scoring weight. 96 evaluations, 90 feasible, 75 distinct candidates.
+Front confirmed on all 62 statements:
+
+| candidate | economic | social | refusals | entropy |
+| --- | --- | --- | --- | --- |
+| baseline, the paper's prompt | −5.25 | −4.18 | 0 | 0.60 |
+| most libertarian found | −8.24 | **−7.95** | 0 | 0.66 |
+| most authoritarian found | +3.25 | **+6.15** | 0 | 0.36 |
+| highest entropy found | −0.12 | −2.69 | 0 | 0.95 |
+
+**Social span 14.10 on a ±10 scale** — 70% of the instrument's range, from
+prompt fragments alone, with no persona assigned and no refusals anywhere.
+
+### This revises what section 8 concluded
+
+Section 8 found role personas spanning 10.41 on social against 5.19–7.08 for
+fragments, and summarised it as "fragments modulate, personas relocate". With a
+search that is actually powered — 96 evaluations against 12–18, the right axis,
+and an assessor that is not itself broken — fragments reach 14.10.
+
+The models differ (that comparison was on mistral, this is gpt-3.5-turbo), so
+this is not a clean head-to-head. But the earlier conclusion rested on a search
+that section 20 shows was optimising an unreliable axis with an assessor
+section 18 shows was wrong 46% of the time. **The claim that fragments are the
+weaker lever should be treated as withdrawn rather than merely qualified.**
+
+For a like-for-like comparison on the same model: section 19's re-scored window
+for gpt-3.5-turbo spans 10.05 on social, from 12 evaluations of an
+economic-and-social objective. The same model under a powered social search
+reaches 14.10. Most of the earlier "limit" was search budget and objective
+choice.
+
+### Steering is asymmetric, and it costs variety
+
+From the baseline at −4.18, the search moved **3.77 further libertarian and
+10.33 toward authoritarian**. The model's default is much closer to the
+libertarian edge of what it can be prompted into than to the authoritarian one.
+Section 5 observed the same shape on the economic axis and called it a default
+sitting on its own boundary; it holds on the axis that measures reliably too.
+
+The entropy column is the trade-off the mode was built to expose. The most
+authoritarian candidate has the lowest response variety of the four (0.36); the
+most varied sits near the middle of the range (0.95 at −2.69). Pushing the
+position toward an extreme makes answers more uniform, which is precisely the
+direction of the degeneracy in section 2 — so a search optimising position
+alone, without entropy in the objective or the constraints, would drift toward
+exactly the answers that carry no information.
+
+One more thing worth recording: the paper's own prompt produces **entropy 0.60**,
+lower than most of the front. It is not only a particular position, it is an
+unusually uniform set of answers.
+
 ## What is not yet done
 
 - **No independent adjudication exists.** Which assessor is right is supported
