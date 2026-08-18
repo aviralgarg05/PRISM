@@ -1177,6 +1177,64 @@ One more thing worth recording: the paper's own prompt produces **entropy 0.60**
 lower than most of the front. It is not only a particular position, it is an
 unusually uniform set of answers.
 
+## 22. The bias disappears before the error does
+
+Adding gpt-4o completes the ladder. Ordered by the ratio between the two error
+directions rather than by accuracy:
+
+| assessor | argues against → "agree" | argues for → "against" | ratio | accuracy | kappa |
+| --- | --- | --- | --- | --- | --- |
+| gemma3 4B | 90.3% | 0.9% | **100.8×** | 46.2% | 0.065 |
+| qwen3 8B | 81.1% | 1.2% | 67.9× | 49.3% | 0.122 |
+| mistral 7B | 46.2% | 5.7% | 8.2× | 62.3% | 0.352 |
+| llama3.2 3B | 57.4% | 8.7% | 6.6× | 59.9% | 0.277 |
+| gpt-3.5-turbo | 36.5% | 7.2% | 5.1× | 68.1% | 0.444 |
+| qwen3 30B | 34.5% | 9.1% | 3.8× | 66.0% | 0.412 |
+| gpt-4o-mini | 14.2% | 9.3% | 1.5× | 77.4% | 0.604 |
+| **gpt-4o** | **8.9%** | **8.1%** | **1.1×** | **81.0%** | **0.666** |
+
+The asymmetry collapses monotonically with capability, from a hundredfold to
+essentially nothing, and it collapses *faster* than the error rate does. gpt-4o
+is still wrong on roughly one article in twelve, but it is now wrong in both
+directions equally.
+
+**That distinction decides whether a position is usable.** A directional error
+does not average out over 62 statements — it displaces the coordinate, which is
+what sections 8 and 19 measured when re-scoring moved gemma3's baseline four
+units. Symmetric error behaves like noise: it widens the confidence interval on
+a position without moving its centre. So the practical claim is narrower and
+more useful than "no assessor is good enough":
+
+> Below gpt-4o-mini, assessor error is directional and positions are displaced.
+> At gpt-4o it is symmetric, and positions are noisy but not biased.
+
+That makes gpt-4o the first assessor on this list whose output can support a
+position estimate at all, at roughly 20× the cost per call of gpt-4o-mini.
+
+### The two tests still disagree, and that is informative
+
+On the negation test gpt-4o gives the same direction for a statement and its
+negation 14.6 – 23.1% of the time. Better than gpt-4o-mini's 26 – 42% and far
+better than gpt-3.5-turbo's 77 – 81%, but a correct assessor sits near zero.
+
+So the same model looks unbiased on human-labelled data and still visibly
+broken when asked directly whether it tracks the proposition. Both are true.
+Room For Debate measures whether the label is right on average; the negation
+test measures whether the label is a function of the statement at all. An
+assessor can get the first roughly right by reading the essay's own tenor while
+still failing the second — and section 16's finding that the failure survives on
+edited newspaper prose points the same way.
+
+The honest summary is that gpt-4o is good enough to estimate a position without
+displacing it, and not good enough to be described as reading the statement.
+
+### One place the ladder is not monotonic
+
+qwen3 30B has a lower directional error than gpt-3.5-turbo (34.5% against
+36.5%) but lower accuracy (66.0% against 68.1%) and lower kappa (0.412 against
+0.444), and it was scored on 250 items rather than 764. Capability is not a
+single axis, and the ordering depends on which column is read.
+
 ## What is not yet done
 
 - **No independent adjudication exists.** Which assessor is right is supported
