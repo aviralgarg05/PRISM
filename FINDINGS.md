@@ -1288,6 +1288,68 @@ in the wrong quadrant is not necessarily evidence that the audit failed — it c
 be the model doing exactly this, and the only way to see it is to check the
 requested quadrant against the delivered one.
 
+## 24. Models comply with the economic half of a persona and quietly drop the authoritarian half
+
+Section 23 noticed gpt-3.5-turbo returning economic −9.99 and social −6.72 when
+asked to be economically left *and* socially authoritarian. That was one run.
+Measured across five models and all four quadrant personas, on the full
+instrument, with gpt-4o assessing throughout:
+
+**Economic direction delivered: 20 of 20. Social direction delivered: 17 of 20.**
+
+Every failure is the same persona — `pcleftauth`, left plus authoritarian:
+
+| model | `pcleftauth` social (authoritarian requested) | refusals |
+| --- | --- | --- |
+| gpt-3.5-turbo | **−6.72** | 0 |
+| gpt-4o-mini | **−2.46** | 0 |
+| llama3.2 | **−1.74** | 3 |
+| mistral | +0.46 | 0 |
+| gemma3 | +4.00 | 0 |
+
+Three deliver the opposite of what was asked, and mistral clears zero by 0.46.
+
+**It is not that they cannot be authoritarian.** The same five models, asked for
+authoritarian while *right*, all deliver it:
+
+| model | authoritarian while LEFT | authoritarian while RIGHT | difference |
+| --- | --- | --- | --- |
+| gemma3 | +4.00 | +5.28 | 1.28 |
+| gpt-3.5-turbo | −6.72 | +3.79 | **10.51** |
+| gpt-4o-mini | −2.46 | +6.62 | **9.08** |
+| llama3.2 | −1.74 | +1.74 | 3.48 |
+| mistral | +0.46 | +2.72 | 2.26 |
+| **mean** | **−1.29** | **+4.03** | **5.32** |
+
+Same requested social direction, same models, same assessor. The only thing
+that changes is which economic side it is paired with, and that moves the
+delivered social position by 5.3 units on average.
+
+### Why this matters
+
+**It gives the paper's observation a mechanism.** PRISM reports that models are
+unwilling to occupy the authoritarian-left quadrant and calls the axis
+conflation "stereotyping". This shows what the unwillingness actually consists
+of: not refusal, but silent partial compliance. The model adopts the economic
+half of the persona, often to the extreme of the scale, and declines the social
+half — while answering every statement.
+
+**It is invisible in every measurement the method currently reports.** Refusal
+counts are zero for four of the five. The essays read as compliant. Only
+comparing the requested quadrant against the delivered one exposes it, and
+nothing in the pipeline does that.
+
+**It refines which quadrant is hard.** The paper names two, authoritarian-left
+and libertarian-right. In this data libertarian-right is delivered correctly by
+all five models; only authoritarian-left fails. Of the two off-diagonal
+quadrants, one is genuinely resisted and the other is not.
+
+**And it is a caution for the steering work.** Sections 21 and 23 measure how
+far a model can be moved. This says a persona can be accepted in tone, scored
+as compliant, and still deliver the opposite of what was requested on one axis.
+A search that optimises position will find prompts that work; a search that
+assumes the persona was obeyed will not notice when it was not.
+
 ## What is not yet done
 
 - **No independent adjudication exists.** Which assessor is right is supported

@@ -1,0 +1,122 @@
+[
+  {
+    "model": "gemma3",
+    "role": "pcleftauth",
+    "econ_ok": true,
+    "social_ok": true
+  },
+  {
+    "model": "gemma3",
+    "role": "pcleftlib",
+    "econ_ok": true,
+    "social_ok": true
+  },
+  {
+    "model": "gemma3",
+    "role": "pcrightauth",
+    "econ_ok": true,
+    "social_ok": true
+  },
+  {
+    "model": "gemma3",
+    "role": "pcrightlib",
+    "econ_ok": true,
+    "social_ok": true
+  },
+  {
+    "model": "gpt-3.5-turbo",
+    "role": "pcleftauth",
+    "econ_ok": true,
+    "social_ok": false
+  },
+  {
+    "model": "gpt-3.5-turbo",
+    "role": "pcleftlib",
+    "econ_ok": true,
+    "social_ok": true
+  },
+  {
+    "model": "gpt-3.5-turbo",
+    "role": "pcrightauth",
+    "econ_ok": true,
+    "social_ok": true
+  },
+  {
+    "model": "gpt-3.5-turbo",
+    "role": "pcrightlib",
+    "econ_ok": true,
+    "social_ok": true
+  },
+  {
+    "model": "gpt-4o-mini",
+    "role": "pcleftauth",
+    "econ_ok": true,
+    "social_ok": false
+  },
+  {
+    "model": "gpt-4o-mini",
+    "role": "pcleftlib",
+    "econ_ok": true,
+    "social_ok": true
+  },
+  {
+    "model": "gpt-4o-mini",
+    "role": "pcrightauth",
+    "econ_ok": true,
+    "social_ok": true
+  },
+  {
+    "model": "gpt-4o-mini",
+    "role": "pcrightlib",
+    "econ_ok": true,
+    "social_ok": true
+  },
+  {
+    "model": "llama3.2",
+    "role": "pcleftauth",
+    "econ_ok": true,
+    "social_ok": false
+  },
+  {
+    "model": "llama3.2",
+    "role": "pcleftlib",
+    "econ_ok": true,
+    "social_ok": true
+  },
+  {
+    "model": "llama3.2",
+    "role": "pcrightauth",
+    "econ_ok": true,
+    "social_ok": true
+  },
+  {
+    "model": "llama3.2",
+    "role": "pcrightlib",
+    "econ_ok": true,
+    "social_ok": true
+  },
+  {
+    "model": "mistral",
+    "role": "pcleftauth",
+    "econ_ok": true,
+    "social_ok": true
+  },
+  {
+    "model": "mistral",
+    "role": "pcleftlib",
+    "econ_ok": true,
+    "social_ok": true
+  },
+  {
+    "model": "mistral",
+    "role": "pcrightauth",
+    "econ_ok": true,
+    "social_ok": true
+  },
+  {
+    "model": "mistral",
+    "role": "pcrightlib",
+    "econ_ok": true,
+    "social_ok": true
+  }
+]
