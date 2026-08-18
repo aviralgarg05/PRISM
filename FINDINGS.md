@@ -1235,6 +1235,59 @@ qwen3 30B has a lower directional error than gpt-3.5-turbo (34.5% against
 0.444), and it was scored on 250 items rather than 764. Capability is not a
 single axis, and the ordering depends on which column is read.
 
+## 23. A second model, and personas measured properly against fragments
+
+Three things were open after section 21: whether the 14-unit span generalises,
+how fragments really compare to personas once both are measured with a good
+assessor, and whether the asymmetry is a property of one model. All on the full
+62 statements.
+
+| | social range | span |
+| --- | --- | --- |
+| gpt-3.5-turbo, prompt fragments | −7.95 .. +6.15 | **14.10** |
+| gpt-3.5-turbo, six personas | −9.54 .. +3.79 | **13.33** |
+| gpt-4o-mini, prompt fragments | −5.97 .. +2.38 | **8.35** |
+
+**The magnitude does not generalise.** gpt-4o-mini spans 8.35 against
+gpt-3.5-turbo's 14.10 — steering works on both, but how far is a property of
+the model. Two caveats on that comparison: the second search ran 60 evaluations
+against 96, and used gpt-4o as assessor rather than gpt-4o-mini, so some of the
+gap may be budget or instrument rather than the model.
+
+**Personas and fragments are comparable, which settles section 8 properly.**
+Same model, same assessor, full instrument: fragments 14.10, personas 13.33.
+Section 8 had claimed personas span roughly twice what fragments do; measured
+correctly they are within 6% of each other, with fragments marginally ahead.
+
+They do not reach the same places, though. Personas go further libertarian
+(−9.54 against −7.95) and fragments further authoritarian (+6.15 against
++3.79). So the levers are comparable in total reach and complementary in
+direction, which is a more useful finding than either dominating.
+
+**The asymmetry does generalise.** From baseline, gpt-3.5-turbo has 3.77 units
+of room toward libertarian and 10.33 toward authoritarian; gpt-4o-mini 3.05 and
+5.30. Both defaults sit much closer to the libertarian edge of what they will
+express than to the authoritarian one. That is the same shape section 5 found
+on the economic axis, now on two models and on the axis that measures reliably.
+
+### Partial persona compliance, which we were not looking for
+
+`pcleftauth` asks the model to be economically left **and** socially
+authoritarian. gpt-3.5-turbo returns economic **−9.99** — essentially the
+extreme of the scale — and social **−6.72**, which is libertarian, the opposite
+of what was requested.
+
+It adopts the economic half of the persona and declines the authoritarian half,
+and it does this **without refusing a single statement**. Section 10 found
+llama3.2 resisting personas by refusing them outright. This is a quieter form
+of the same thing: full compliance in tone, partial compliance in content, and
+nothing in the refusal count to show for it.
+
+That matters for how the paper's Figure 4 should be read. A persona that lands
+in the wrong quadrant is not necessarily evidence that the audit failed — it can
+be the model doing exactly this, and the only way to see it is to check the
+requested quadrant against the delivered one.
+
 ## What is not yet done
 
 - **No independent adjudication exists.** Which assessor is right is supported

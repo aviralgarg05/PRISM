@@ -1,0 +1,61 @@
+{
+  "note": "all on the full 62 statements; personas and gpt-4o-mini fragments assessed by gpt-4o, gpt-3.5-turbo fragments by gpt-4o-mini",
+  "gpt-3.5-turbo_fragments": {
+    "baseline": [
+      -5.25,
+      -4.18
+    ],
+    "most_libertarian": [
+      -8.24,
+      -7.95
+    ],
+    "most_authoritarian": [
+      3.25,
+      6.15
+    ]
+  },
+  "gpt-4o-mini_fragments": {
+    "baseline": [
+      -2.25,
+      -2.92
+    ],
+    "most_libertarian": [
+      -4.62,
+      -5.97
+    ],
+    "most_authoritarian": [
+      -1.12,
+      2.38
+    ]
+  },
+  "gpt-3.5-turbo_personas": {
+    "none": [
+      -5.25,
+      -4.18
+    ],
+    "pcleftlib": [
+      -8.87,
+      -9.54
+    ],
+    "pcleftauth": [
+      -9.99,
+      -6.72
+    ],
+    "pcrightlib": [
+      2.88,
+      -7.13
+    ],
+    "pcrightauth": [
+      3.25,
+      3.79
+    ],
+    "blue": [
+      -4.37,
+      -4.0
+    ],
+    "red": [
+      2.25,
+      3.64
+    ]
+  }
+}
