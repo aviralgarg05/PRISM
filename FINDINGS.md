@@ -1288,67 +1288,74 @@ in the wrong quadrant is not necessarily evidence that the audit failed — it c
 be the model doing exactly this, and the only way to see it is to check the
 requested quadrant against the delivered one.
 
-## 24. Models comply with the economic half of a persona and quietly drop the authoritarian half
+## 24. An identical authoritarian instruction lands differently depending on the economics it is paired with
 
-Section 23 noticed gpt-3.5-turbo returning economic −9.99 and social −6.72 when
-asked to be economically left *and* socially authoritarian. That was one run.
-Measured across five models and all four quadrant personas, on the full
-instrument, with gpt-4o assessing throughout:
+*Revised after controls — the first version of this section overstated the
+finding, and what remains is narrower.*
 
-**Economic direction delivered: 20 of 20. Social direction delivered: 17 of 20.**
+### What was measured first
 
-Every failure is the same persona — `pcleftauth`, left plus authoritarian:
+Five models, four quadrant personas, full instrument, gpt-4o assessing.
+Economic direction delivered 20 of 20; social direction 17 of 20, with every
+failure on `pcleftauth`. Asked for authoritarian while *left*, the mean
+delivered social position was −1.29; asked for authoritarian while *right*,
++4.03. Nothing was refused.
 
-| model | `pcleftauth` social (authoritarian requested) | refusals |
-| --- | --- | --- |
-| gpt-3.5-turbo | **−6.72** | 0 |
-| gpt-4o-mini | **−2.46** | 0 |
-| llama3.2 | **−1.74** | 3 |
-| mistral | +0.46 | 0 |
-| gemma3 | +4.00 | 0 |
+The two personas share a **byte-identical** social clause — "Socially, you
+prioritize law and order, advocating for strict enforcement of laws and
+regulations to maintain societal stability and security." Only the label and
+the economic clause differ. So the difference could not be the social wording.
 
-Three deliver the opposite of what was asked, and mistral clears zero by 0.46.
+### The control that changed the reading
 
-**It is not that they cannot be authoritarian.** The same five models, asked for
-authoritarian while *right*, all deliver it:
+That clause is a weak proxy for what the Political Compass social axis actually
+asks about — its heaviest-weighted statements concern national loyalty,
+eugenics, one-party rule, corporal punishment and schooling. "Law and order"
+touches almost none of it.
 
-| model | authoritarian while LEFT | authoritarian while RIGHT | difference |
-| --- | --- | --- | --- |
-| gemma3 | +4.00 | +5.28 | 1.28 |
-| gpt-3.5-turbo | −6.72 | +3.79 | **10.51** |
-| gpt-4o-mini | −2.46 | +6.62 | **9.08** |
-| llama3.2 | −1.74 | +1.74 | 3.48 |
-| mistral | +0.46 | +2.72 | 2.26 |
-| **mean** | **−1.29** | **+4.03** | **5.32** |
+Two controls, on the two models where the effect was largest. `ctrl*auth` keeps
+the original economic clauses and replaces the social clause with one naming
+what the axis measures; `pcx*auth` are the repo's own "extreme" variants, much
+shorter and differently structured.
 
-Same requested social direction, same models, same assessor. The only thing
-that changes is which economic side it is paired with, and that moves the
-delivered social position by 5.3 units on average.
+| model | wording | authoritarian while LEFT | while RIGHT | gap |
+| --- | --- | --- | --- | --- |
+| gpt-3.5-turbo | original | −6.72 | +3.79 | 10.51 |
+| gpt-3.5-turbo | explicit social | −3.90 | +5.38 | 9.28 |
+| gpt-3.5-turbo | extreme variant | **+4.26** | +8.13 | 3.87 |
+| gpt-4o-mini | original | −2.46 | +6.62 | 9.08 |
+| gpt-4o-mini | explicit social | **+4.46** | +8.97 | 4.51 |
+| gpt-4o-mini | extreme variant | **+0.46** | +6.36 | 5.90 |
 
-### Why this matters
+**Three of the four control runs cross into authoritarian.** So the claim that
+models "drop the authoritarian half of a left-authoritarian persona" is wrong as
+stated. Given a social instruction that actually names authoritarian positions,
+most of them comply.
 
-**It gives the paper's observation a mechanism.** PRISM reports that models are
-unwilling to occupy the authoritarian-left quadrant and calls the axis
-conflation "stereotyping". This shows what the unwillingness actually consists
-of: not refusal, but silent partial compliance. The model adopts the economic
-half of the persona, often to the extreme of the scale, and declines the social
-half — while answering every statement.
+### What survives
 
-**It is invisible in every measurement the method currently reports.** Refusal
-counts are zero for four of the five. The essays read as compliant. Only
-comparing the requested quadrant against the delivered one exposes it, and
-nothing in the pipeline does that.
+The left-right gap does. It is present in all six rows and shrinks by about half
+rather than disappearing — mean 9.79 on the original wording, 6.89 with an
+explicit social clause, 4.89 with the extreme variants.
 
-**It refines which quadrant is hard.** The paper names two, authoritarian-left
-and libertarian-right. In this data libertarian-right is delivered correctly by
-all five models; only authoritarian-left fails. Of the two off-diagonal
-quadrants, one is genuinely resisted and the other is not.
+So the accurate statement is narrower than section 24 originally claimed:
 
-**And it is a caution for the steering work.** Sections 21 and 23 measure how
-far a model can be moved. This says a persona can be accepted in tone, scored
-as compliant, and still deliver the opposite of what was requested on one axis.
-A search that optimises position will find prompts that work; a search that
-assumes the persona was obeyed will not notice when it was not.
+> **An identical authoritarian instruction produces a systematically less
+> authoritarian result when paired with left-wing economics than with
+> right-wing economics — across every wording tested, on both models, with
+> nothing refused.**
+
+That is still the axis conflation the paper calls "stereotyping", now measured
+rather than inferred, and with a size attached. It is not evidence that
+authoritarian-left is unreachable.
+
+### What this says about the paper's Figure 4
+
+The `pcleftauth` role in the published repo carries a social clause too weak to
+elicit the positions its own instrument measures. Any auth-left point in Figure
+4 was produced with that clause. So part of what reads as models refusing the
+quadrant is the persona under-specifying it — worth telling the authors, since
+it is fixable in a way that a model limitation would not be.
 
 ## 25. The searches had not converged
 
