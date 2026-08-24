@@ -75,5 +75,9 @@
         "l2_refusals": 53
       }
     ]
+  },
+  "section_23_gpt4omini_search": {
+    "note": "per-evaluation history lost - the search2_*.json logs were left in a session scratchpad and cleaned up before being copied into results/. The confirmed full-62 front is in steering_comparison.json; convergence cannot be checked for this run.",
+    "confirmed_only": true
   }
 }

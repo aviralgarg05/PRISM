@@ -1350,6 +1350,34 @@ as compliant, and still deliver the opposite of what was requested on one axis.
 A search that optimises position will find prompts that work; a search that
 assumes the persona was obeyed will not notice when it was not.
 
+## 25. The searches had not converged
+
+Sandy's standing request was to run the search long enough to know it has
+converged. Checking the generation-by-generation best of the gpt-3.5-turbo
+search, which is the one whose 14.10 span section 21 reports:
+
+| direction | best social by generation |
+| --- | --- |
+| left-lib | +0.36, −0.10, −0.10, −0.10, **−0.77**, −0.77 |
+| right-auth | +2.77, +3.44, +3.44, +3.44, **+3.49**, +3.49 |
+
+Both directions improved at generation 5 of 6 and were flat only for the final
+generation. **The run was stopped one generation after its last improvement, so
+it had not converged.** The 14.10 span is a lower bound on what this search
+space contains, not a measurement of it.
+
+That does not undermine the finding — a lower bound of 14.10 units still says
+prompt fragments move the model a long way, and the persona comparison in
+section 23 is unaffected because both sides were measured the same way. But the
+number should be quoted as "at least 14.10", and a longer run is the obvious way
+to tighten it.
+
+The equivalent check cannot be run for the gpt-4o-mini search: its
+per-evaluation logs were left in a session scratchpad and cleaned up before
+being copied into `results/`. The confirmed front survives in
+`steering_comparison.json`; the history does not. Recorded in
+`unregenerable_figures.json`.
+
 ## What is not yet done
 
 - **No independent adjudication exists.** Which assessor is right is supported
