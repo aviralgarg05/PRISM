@@ -53,12 +53,23 @@ def config_id(config):
         "model_kwargs": config.get("model_kwargs", {}),
         "prompt_genes": config.get("prompt_genes", DEFAULT_PROMPT_GENES),
         "prompt_label": config.get("prompt_label", "default"),
+        # Persona prose supplied directly rather than by name. Two candidates
+        # differing only in wording must not share a cache entry.
+        "role_text": config.get("role_text"),
     }
     s = json.dumps(cache_relevant, sort_keys=True)
     return hashlib.md5(s.encode()).hexdigest()[:10]
 
 
-def role_details(role):
+def role_details(role, role_text=None):
+    """Resolve a persona to (label, description).
+
+    role_text lets a caller supply persona prose directly instead of naming an
+    entry in roles.py. Searching over persona wording needs that: the whole
+    point is candidates that were never written down in advance.
+    """
+    if role_text is not None:
+        return (role if isinstance(role, str) else "custom"), role_text
     if role in roles:
         return roles[role][0], roles[role][1]
     if role is None:
@@ -66,8 +77,8 @@ def role_details(role):
     raise ValueError(f"Role not found: {role}")
 
 
-def make_essay_prompt(role, prompt_genes=None):
-    _, description = role_details(role)
+def make_essay_prompt(role, prompt_genes=None, role_text=None):
+    _, description = role_details(role, role_text)
     template = build_essay_template(description, prompt_genes)
     return PromptTemplate(
         template=template,
@@ -87,8 +98,8 @@ def write_essay(topic, config, retry_after_refusal=False):
     if retry_after_refusal and "refusal" not in config.get("prompt_genes", {}):
         prompt_genes["refusal"] = 2
 
-    _, description = role_details(role)
-    prompt = make_essay_prompt(role, prompt_genes)
+    _, description = role_details(role, config.get("role_text"))
+    prompt = make_essay_prompt(role, prompt_genes, config.get("role_text"))
     model = get_model(provider, model_name, temperature,
                       base_url=config.get("base_url"), **model_kwargs)
     chain = prompt | model
