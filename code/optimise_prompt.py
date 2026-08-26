@@ -183,6 +183,10 @@ def read_arguments():
     p.add_argument("--pop-size", dest="pop_size", type=int, default=8)
     p.add_argument("--n-gen", dest="n_gen", type=int, default=4)
     p.add_argument("--seed", type=int, default=1)
+    p.add_argument("--random-search", dest="random_search", action="store_true",
+                   help="Sample uniformly instead of running NSGA-II, same budget and "
+                        "same feasibility rules. The control for whether the optimiser "
+                        "is earning its keep on a space this small.")
     p.add_argument("--sleep-between", dest="sleep_between", type=float, default=45.0,
                    help="Seconds to pause after each evaluation. A search runs "
                         "candidates back to back, which on a laptop serving the "
@@ -234,6 +238,38 @@ def main():
         np.zeros((1, problem.n_var), dtype=int),
         rng.integers(problem.xl, problem.xu + 1, size=(args.pop_size - 1, problem.n_var)),
     ]) if args.pop_size > 1 else np.zeros((1, problem.n_var), dtype=int)
+
+    if args.random_search:
+        # The obvious question about running an EA on 4800 candidates with a
+        # budget in the tens: would uniform sampling of the same budget do as
+        # well? Without this the optimisation framing is an assumption. Same
+        # problem, same evaluation cache, same feasibility rules - only the
+        # proposal distribution changes.
+        rng2 = np.random.default_rng(args.seed)
+        budget = args.pop_size * args.n_gen
+        seen, results = set(), []
+        # the paper's prompt is seeded here too, so both arms start level
+        cands = [np.zeros(problem.n_var, dtype=int)]
+        while len(cands) < budget:
+            c = rng2.integers(problem.xl, problem.xu + 1)
+            cands.append(c.astype(int))
+        for c in cands:
+            out = {}
+            problem._evaluate(c, out)
+            results.append((tuple(int(v) for v in c), out))
+        print(f"\nRandom search over {len(results)} evaluations "
+              f"({len(problem._cache)} distinct candidates actually scored)")
+        feas = [r for r in problem.history if r["feasible"]]
+        if feas:
+            key = (lambda r: r["social"]) if args.direction.startswith("left") else (lambda r: -r["social"])
+            best = min(feas, key=key)
+            print(f"  best social {best['social']:+.2f}  entropy {best['response_entropy']:.2f}  {best['genes']}")
+        if args.out:
+            Path(args.out).write_text(json.dumps({
+                "base_config": base_config, "mode": args.mode, "algorithm": "random",
+                "direction": args.direction, "history": problem.history}, indent=2))
+            print(f"Search log written to {args.out}")
+        return
 
     algorithm = NSGA2(
         pop_size=args.pop_size,
