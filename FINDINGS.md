@@ -1385,6 +1385,58 @@ being copied into `results/`. The confirmed front survives in
 `steering_comparison.json`; the history does not. Recorded in
 `unregenerable_figures.json`.
 
+## 26. The optimiser is not earning its keep on this search space
+
+The obvious question about running NSGA-II over 4800 candidates with a budget in
+the tens is whether uniform sampling would do as well. Until it is measured, the
+optimisation framing is an assumption. Same model, same assessor, same
+evaluation cache, same feasibility rules, same seeded baseline — only the
+proposal distribution differs.
+
+| direction | metric | NSGA-II | random | winner |
+| --- | --- | --- | --- | --- |
+| left-lib | best social | **−0.77** | −0.62 | NSGA-II |
+| left-lib | hypervolume | **2.953** | 2.891 | NSGA-II |
+| right-auth | best social | **+3.59** | +3.33 | NSGA-II |
+| right-auth | hypervolume | 2.589 | **2.726** | random |
+
+Hypervolume is the fairer measure — this is a two-objective problem and
+best-social alone ignores the entropy axis the search was also given. The table
+above matches the two arms on *distinct candidates scored*, since cached
+revisits cost nothing. Matched instead on nominal budget, random wins both
+directions outright: it reaches 96 distinct candidates where NSGA-II reaches 59
+to 61, spending the rest revisiting.
+
+**There is no clear advantage to the optimiser here.** The differences are small
+and their sign changes with direction.
+
+### Why, and what it means
+
+4800 candidates is a small space, and a highly structured one: six independent
+slots whose effects are largely additive (section 22's marginal-effect figure
+shows exactly that). Uniform sampling recovers additive structure quickly. An
+evolutionary algorithm earns its place when the space is large enough that
+coverage is impossible and interactions matter, and neither holds at this size.
+
+Three things follow.
+
+**The section 21 result is unaffected.** That a prompt exists which moves
+gpt-3.5-turbo's social position by at least 14.10 units is a fact about the
+space, not about how it was found. Random sampling would have found comparable
+prompts, which if anything makes the finding more robust.
+
+**The framing has to change.** "We searched the prompt space with NSGA-II" is
+not supported; "we characterised what the prompt space contains" is. Presenting
+the optimiser as load-bearing would not survive the first reviewer who asked for
+this control, and Sandy would be the reviewer most likely to ask.
+
+**It points at the fix rather than closing the door.** The way to make search
+matter is to make the space big enough to need it. Optimising the persona text
+itself — which was the original suggestion in the first meeting, and which
+section 23 shows is as strong a lever as fragments — moves this from 4800
+enumerable candidates to a space no budget can cover. That is where an
+optimiser starts to be necessary rather than decorative.
+
 ## What is not yet done
 
 - **No independent adjudication exists.** Which assessor is right is supported
