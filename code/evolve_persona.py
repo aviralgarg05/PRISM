@@ -24,6 +24,7 @@ import argparse
 import json
 import random
 import re
+import time
 from pathlib import Path
 
 from prism_eval import evaluate_prism_config
@@ -141,6 +142,31 @@ def main():
 
     evaluated, history = {}, []
 
+    def save():
+        if args.out:
+            Path(args.out).write_text(json.dumps(
+                {"model": args.model, "assessor": args.assessor, "writer": args.writer,
+                 "direction": args.direction, "history": history}, indent=2))
+
+    def with_retry(fn, what):
+        """Transient network failures should not end a run that has already
+        paid for hundreds of evaluations. Essays and ratings are cached, so a
+        retry costs nothing for work already done."""
+        delay = 5
+        for attempt in range(6):
+            try:
+                return fn()
+            except Exception as e:
+                name = type(e).__name__
+                if name not in ("APIConnectionError", "APITimeoutError",
+                                "RateLimitError", "InternalServerError", "ConnectError"):
+                    raise
+                if attempt == 5:
+                    raise
+                print(f"  [{what} failed: {name}, retrying in {delay}s]", flush=True)
+                time.sleep(delay)
+                delay = min(delay * 2, 120)
+
     def evaluate(c):
         k = c.key()
         if k in evaluated:
@@ -148,7 +174,7 @@ def main():
             c.econ, c.social, c.entropy, c.refusals, c.feasible = (
                 cached.econ, cached.social, cached.entropy, cached.refusals, cached.feasible)
             return c
-        r = evaluate_prism_config(dict(base, role_text=c.text))
+        r = with_retry(lambda: evaluate_prism_config(dict(base, role_text=c.text)), "evaluation")
         c.econ, c.social = r["economic"], r["social"]
         c.entropy, c.refusals = r["response_entropy"], r["l2_refusals"]
         c.feasible = c.refusals <= args.max_refusals and c.entropy >= args.min_entropy
@@ -156,6 +182,7 @@ def main():
         history.append({"text": c.text, "origin": c.origin, "economic": c.econ,
                         "social": c.social, "response_entropy": c.entropy,
                         "l2_refusals": c.refusals, "feasible": c.feasible})
+        save()
         print(f"  eval {len(history):>3} [{c.origin:<9}] social {c.social:+6.2f} "
               f"econ {c.econ:+6.2f} entropy {c.entropy:.2f} refused {c.refusals:>2} "
               f"{'ok' if c.feasible else 'INFEASIBLE'}", flush=True)
@@ -168,7 +195,7 @@ def main():
     pop = [Candidate(roles[s][1].strip(), "seed") for s in SEEDS[:args.pop_size]]
     while len(pop) < args.pop_size:
         src = rng.choice(pop)
-        pop.append(Candidate(clean(writer.invoke(MUTATE.format(persona=src.text, target=target))),
+        pop.append(Candidate(clean(with_retry(lambda: writer.invoke(MUTATE.format(persona=src.text, target=target)), 'mutate')),
                              "seed-mut"))
     for c in pop:
         evaluate(c)
@@ -180,11 +207,11 @@ def main():
         while len(children) < args.pop_size:
             if len(parents) > 1 and rng.random() < 0.4:
                 a, b = rng.sample(parents, 2)
-                txt = clean(writer.invoke(CROSSOVER.format(a=a.text, b=b.text, target=target)))
+                txt = clean(with_retry(lambda: writer.invoke(CROSSOVER.format(a=a.text, b=b.text, target=target)), 'crossover'))
                 origin = "crossover"
             else:
                 src = rng.choice(parents)
-                txt = clean(writer.invoke(MUTATE.format(persona=src.text, target=target)))
+                txt = clean(with_retry(lambda: writer.invoke(MUTATE.format(persona=src.text, target=target)), 'mutate'))
                 origin = "mutation"
             if txt and len(txt) > 80:
                 children.append(Candidate(txt, origin))
