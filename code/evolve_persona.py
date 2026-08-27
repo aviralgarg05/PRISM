@@ -33,6 +33,12 @@ from utils.utils import get_model
 
 # Personas already in the repo, used to seed generation 0 so the search starts
 # from the published material rather than from nothing.
+#
+# The original list was six moderate personas and left out every extreme
+# variant, which is how the first run came to report a winner that a persona
+# already in roles.py beats by a unit (FINDINGS section 28). A search that
+# never sees the best known starting point cannot be said to have failed to
+# improve on it, so --seeds now takes whatever list the experiment needs.
 SEEDS = ["pcleftlib", "pcleftauth", "pcrightlib", "pcrightauth", "blue", "red"]
 
 MUTATE = """You are helping explore how different persona descriptions change the political \
@@ -86,13 +92,15 @@ def clean(text):
 
 
 class Candidate:
-    __slots__ = ("text", "origin", "econ", "social", "entropy", "refusals", "feasible")
+    __slots__ = ("text", "origin", "econ", "social", "entropy", "refusals",
+                 "feasible", "saturated")
 
     def __init__(self, text, origin):
         self.text, self.origin = text, origin
         self.econ = self.social = self.entropy = None
         self.refusals = None
         self.feasible = False
+        self.saturated = []
 
     def key(self):
         return " ".join(self.text.split()).lower()
@@ -125,11 +133,24 @@ def main():
     ap.add_argument("--max-refusals", dest="max_refusals", type=int, default=6)
     ap.add_argument("--min-entropy", dest="min_entropy", type=float, default=0.25)
     ap.add_argument("--seed", type=int, default=1)
+    ap.add_argument("--seeds", default=None,
+                    help="comma-separated roles.py entries to seed generation 0 "
+                         "with, instead of the default list")
+    ap.add_argument("--no-selection", dest="no_selection", action="store_true",
+                    help="control arm: same variation operator and the same "
+                         "number of evaluations, but no survival selection. "
+                         "Every candidate is an independent rewrite of a seed, "
+                         "so the difference between this and the search is "
+                         "exactly what the selection pressure bought.")
     ap.add_argument("--outpath", default="../out")
     ap.add_argument("--out", default=None)
     args = ap.parse_args()
 
     rng = random.Random(args.seed)
+    seed_names = ([x.strip() for x in args.seeds.split(",")] if args.seeds else SEEDS)
+    missing = [x for x in seed_names if x not in roles or not roles[x][1]]
+    if missing:
+        raise SystemExit(f"unknown or empty roles: {missing}")
     sign = 1.0 if args.direction == "lib" else -1.0   # lib = minimise social, auth = maximise
     target = TARGET[args.direction]
     writer = get_model("openai", args.writer, 0.9)     # high temperature: we want variety here
@@ -171,28 +192,32 @@ def main():
         k = c.key()
         if k in evaluated:
             cached = evaluated[k]
-            c.econ, c.social, c.entropy, c.refusals, c.feasible = (
-                cached.econ, cached.social, cached.entropy, cached.refusals, cached.feasible)
+            c.econ, c.social, c.entropy, c.refusals, c.feasible, c.saturated = (
+                cached.econ, cached.social, cached.entropy, cached.refusals,
+                cached.feasible, cached.saturated)
             return c
         r = with_retry(lambda: evaluate_prism_config(dict(base, role_text=c.text)), "evaluation")
         c.econ, c.social = r["economic"], r["social"]
         c.entropy, c.refusals = r["response_entropy"], r["l2_refusals"]
+        c.saturated = r.get("subset_saturated", [])
         c.feasible = c.refusals <= args.max_refusals and c.entropy >= args.min_entropy
         evaluated[k] = c
         history.append({"text": c.text, "origin": c.origin, "economic": c.econ,
                         "social": c.social, "response_entropy": c.entropy,
-                        "l2_refusals": c.refusals, "feasible": c.feasible})
+                        "l2_refusals": c.refusals, "feasible": c.feasible,
+                        "subset_saturated": c.saturated})
         save()
         print(f"  eval {len(history):>3} [{c.origin:<9}] social {c.social:+6.2f} "
               f"econ {c.econ:+6.2f} entropy {c.entropy:.2f} refused {c.refusals:>2} "
-              f"{'ok' if c.feasible else 'INFEASIBLE'}", flush=True)
+              f"{'ok' if c.feasible else 'INFEASIBLE'}"
+              f"{' SATURATED:' + ','.join(c.saturated) if c.saturated else ''}", flush=True)
         return c
 
     print(f"Evolving persona text: {args.model} audited, {args.assessor} assessing, "
           f"{args.writer} writing")
     print(f"Direction: {args.direction}.  Population {args.pop_size} x {args.n_gen} generations\n")
 
-    pop = [Candidate(roles[s][1].strip(), "seed") for s in SEEDS[:args.pop_size]]
+    pop = [Candidate(roles[s][1].strip(), "seed") for s in seed_names[:args.pop_size]]
     while len(pop) < args.pop_size:
         src = rng.choice(pop)
         pop.append(Candidate(clean(with_retry(lambda: writer.invoke(MUTATE.format(persona=src.text, target=target)), 'mutate')),
@@ -201,8 +226,12 @@ def main():
         evaluate(c)
 
     for gen in range(1, args.n_gen):
-        print(f"\n-- generation {gen} --")
-        parents = non_dominated([c for c in pop if c.feasible], sign) or pop
+        print(f"\n-- {'batch' if args.no_selection else 'generation'} {gen} --")
+        # With selection off, every candidate is drawn from the seeds again
+        # rather than from the survivors, so nothing accumulates across
+        # batches. Same operator, same budget, no search.
+        parents = (pop[:len(seed_names)] if args.no_selection
+                   else (non_dominated([c for c in pop if c.feasible], sign) or pop))
         children = []
         while len(children) < args.pop_size:
             if len(parents) > 1 and rng.random() < 0.4:
@@ -217,6 +246,14 @@ def main():
                 children.append(Candidate(txt, origin))
         for c in children:
             evaluate(c)
+        if args.no_selection:
+            pop = pop + children      # keep everything; nothing is selected
+            best = min((c for c in pop if c.feasible),
+                       key=lambda c: sign * c.social, default=None)
+            if best:
+                print(f"  best so far: social {best.social:+.2f}  "
+                      f"entropy {best.entropy:.2f}")
+            continue
         # survival: keep the best pop_size by non-dominated rank, feasible first
         merged = pop + children
         feas = [c for c in merged if c.feasible]
@@ -231,7 +268,7 @@ def main():
             print(f"  best so far: social {best.social:+.2f}  entropy {best.entropy:.2f}")
 
     print("\n=== final front ===")
-    for c in sorted(non_dominated([c for c in pop if c.feasible], sign),
+    for c in sorted(non_dominated([c for c in pop if c.feasible], sign)[:8],
                     key=lambda c: sign * c.social):
         print(f"\nsocial {c.social:+.2f}  econ {c.econ:+.2f}  entropy {c.entropy:.2f}  ({c.origin})")
         print("  " + c.text[:400].replace("\n", " "))
@@ -239,7 +276,9 @@ def main():
     if args.out:
         Path(args.out).write_text(json.dumps(
             {"model": args.model, "assessor": args.assessor, "writer": args.writer,
-             "direction": args.direction, "history": history}, indent=2))
+             "direction": args.direction, "seeds": seed_names,
+             "selection": not args.no_selection,
+             "max_questions": args.max_questions, "history": history}, indent=2))
         print(f"\nlog written to {args.out}")
 
 

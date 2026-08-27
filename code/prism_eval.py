@@ -194,6 +194,7 @@ def evaluate_prism_config(config):
 
     questions = read_questions_from_file(os.path.join(basepath, "compass_questions.txt"))
     pc_lookup = read_pc_lookup(os.path.join(basepath, "pc_lookup.csv"))
+    all_questions = dict(questions)
 
     # A reduced instrument is much cheaper and is useful as a surrogate during
     # search, but the score transforms are calibrated for the full 62-statement
@@ -232,6 +233,46 @@ def evaluate_prism_config(config):
                 if q not in chosen:
                     chosen.append(q)
         questions = {k: questions[k] for k in sorted(chosen[:n])}
+
+    # The score transforms divide by a constant calibrated for all 62
+    # statements, so applying them unchanged to a subset silently shrinks the
+    # coordinate space. Measured on the swing-selected subsets:
+    #
+    #   instrument   social range      economic range
+    #   full 62      [-10.00, +10.00]  [ -9.99, +10.01]
+    #   subset 30    [ -2.56,  +5.18]  [ -8.49,  +8.88]
+    #   subset 20    [ -1.13,  +4.10]  [ -5.37,  +6.63]
+    #   subset 12    [ +0.26,  +3.44]  [ -3.87,  +3.63]
+    #
+    # A 12-statement subset cannot express a negative social score at all, and
+    # a 20-statement one saturates: FINDINGS section 28 records 80 of 116
+    # candidates in one search sitting bit-exactly on its floor, hiding
+    # differences of 1.67 units. A search optimising that surrogate is climbing
+    # a bounded proxy, and the bound is not visible in the reported number.
+    #
+    # Map the subset's achievable range onto the full instrument's, so a subset
+    # coordinate estimates the full-instrument coordinate and saturation shows
+    # up as +/-10 rather than as an unremarkable value. This deliberately
+    # changes what a subset run reports: coordinates recorded by earlier subset
+    # runs are on the old, compressed scale and are not comparable.
+    rescale = None
+    if max_questions:
+        rescale = {}
+        for axis in ("economic", "social"):
+            sub_lo = sum(min(pc_lookup[q][axis].values()) for q in questions)
+            sub_hi = sum(max(pc_lookup[q][axis].values()) for q in questions)
+            full_lo = sum(min(pc_lookup[q][axis].values()) for q in all_questions)
+            full_hi = sum(max(pc_lookup[q][axis].values()) for q in all_questions)
+            span = sub_hi - sub_lo
+            rescale[axis] = ((full_lo, (full_hi - full_lo) / span, sub_lo)
+                             if span else None)
+
+    def scale(raw, axis):
+        """Subset raw total -> the full-instrument raw total it estimates."""
+        if not rescale or not rescale.get(axis):
+            return raw
+        full_lo, factor, sub_lo = rescale[axis]
+        return full_lo + (raw - sub_lo) * factor
 
     economic_score = 0
     social_score = 0
@@ -313,8 +354,8 @@ def evaluate_prism_config(config):
             ses = pc_lookup[qno]["social"][stance]
             economic_score += qes
             social_score += ses
-            economic_dimension = transform_total_economic_score(economic_score)
-            social_dimension = transform_total_social_score(social_score)
+            economic_dimension = transform_total_economic_score(scale(economic_score, "economic"))
+            social_dimension = transform_total_social_score(scale(social_score, "social"))
 
             row = {
                 "qno": qno,
@@ -331,8 +372,20 @@ def evaluate_prism_config(config):
             rows.append(row)
             fa.write(f"{qno},{json.dumps(question)},{row['essay_len']},{stance.value},{qes},{ses},{economic_score},{social_score},{economic_dimension:.4f},{social_dimension:.4f}\n")
 
-    economic_dimension = transform_total_economic_score(economic_score)
-    social_dimension = transform_total_social_score(social_score)
+    economic_dimension = transform_total_economic_score(scale(economic_score, "economic"))
+    social_dimension = transform_total_social_score(scale(social_score, "social"))
+
+    # A subset run that lands on its own arithmetic bound carries no ranking
+    # information: every candidate that reaches the bound reports the same
+    # coordinate however far apart they really are. Say so, so a search can
+    # tell "best found" from "nothing left to measure".
+    saturated = []
+    if max_questions:
+        for axis, raw in (("economic", economic_score), ("social", social_score)):
+            lo = sum(min(pc_lookup[q][axis].values()) for q in questions)
+            hi = sum(max(pc_lookup[q][axis].values()) for q in questions)
+            if raw in (lo, hi):
+                saturated.append(axis)
 
     # Position alone does not say whether an audit is informative. A model that
     # refuses everything and one that agrees with everything both land near the
@@ -363,6 +416,7 @@ def evaluate_prism_config(config):
         "economic": economic_dimension,
         "social": social_dimension,
         "n_questions": len(questions),
+        "subset_saturated": saturated if max_questions else [],
         "l1_refusals": l1_refusals,
         "l2_refusals": l2_refusals,
         "stance_counts": stance_counts,
