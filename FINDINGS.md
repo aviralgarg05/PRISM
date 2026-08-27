@@ -1437,6 +1437,54 @@ section 23 shows is as strong a lever as fragments — moves this from 4800
 enumerable candidates to a space no budget can cover. That is where an
 optimiser starts to be necessary rather than decorative.
 
+## 27. Evolving the persona text: gains where there is room, nothing where there is not
+
+Section 26 found NSGA-II no better than uniform sampling over the 4800-candidate
+fragment space, and suggested the fix was a space too large to cover. This
+searches the persona prose itself — a candidate is a paragraph, variation is done
+by an LLM rewriting or recombining personas, and generation 0 is seeded from the
+personas already in `roles.py`. 236 evaluations, gpt-3.5-turbo audited,
+gpt-4o-mini assessing, 20-statement subset.
+
+| direction | best hand-written seed | best evolved | gain |
+| --- | --- | --- | --- |
+| authoritarian | +3.08 | **+4.10** (crossover) | 1.03 |
+| libertarian | −1.13 | −1.13 | **0.00** |
+
+**Toward authoritarian it works.** The best candidate is a crossover of two
+seeded personas and beats every hand-written persona in the repo. Against a
+run-to-run noise floor of about 0.27 on the full instrument, a gain of 1.03 on
+the subset is real but modest.
+
+**Toward libertarian it found nothing at all.** 116 evaluations, and the best
+candidate is still the seed it started from. Not a single mutation or crossover
+improved on `pcleftlib`.
+
+### That asymmetry is the interesting part
+
+It is the same shape sections 21 and 23 measured by a different route: from its
+default, gpt-3.5-turbo has roughly 3.8 units of room toward libertarian and 10.3
+toward authoritarian. Evolution gains where there is room and gains nothing
+where the model is already at its edge.
+
+So this is a third, independent confirmation that the constraint is the model's
+own boundary rather than the search. The fragment search, the persona
+comparison, and now an unbounded free-text search all stop in the same place on
+the libertarian side.
+
+### What it says about section 26
+
+Enlarging the space helped, but less than expected. An LLM-driven search over
+free text beat hand-written personas by about a unit in one direction and not at
+all in the other. That is a weaker result than "the optimiser needed a bigger
+space", and the honest reading is that on this problem the ceiling is set by
+what the model will express, not by how cleverly the prompt is searched.
+
+Confirmation on the full 62 statements is outstanding: both API keys hit their
+project spend limits before it could run. The subset compresses roughly
+threefold, so the figures above are not directly comparable to the full-
+instrument numbers elsewhere in this file.
+
 ## What is not yet done
 
 - **No independent adjudication exists.** Which assessor is right is supported
