@@ -63,3 +63,21 @@ confirmed n=12 mean is admissible as a result.
 - If the result is **equivalent** or **unresolved**, the next spend goes to a
   second audited model, not to a larger search budget on this one. A ceiling
   measured on one legacy model is not a finding.
+
+---
+
+## Outcome (recorded after the run)
+
+| arm | n | social mean | sd |
+| --- | --- | --- | --- |
+| `pcxrightauth` (H\*) | 12 | +7.393 | 0.424 |
+| `pcaxuth` | 12 | +7.030 | 0.390 |
+| best search candidate | 12 | +6.562 | 0.666 |
+
+D = −0.831, se 0.228, Welch df 18.7. Two-sided 95% upper bound **−0.353**.
+
+**NEGATIVE**: the whole interval lies below zero. Search is measurably worse
+than the best hand-written persona, and worse than the second-best one too.
+
+Per the secondary rule above, the next spend goes to a second audited model,
+not to a larger search budget on this one.

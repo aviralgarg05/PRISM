@@ -1,0 +1,88 @@
+{
+ "runs": [
+  {
+   "persona": "pcxrightauth",
+   "rep": 7,
+   "config_id": "a8aa1940f2",
+   "economic": 4.755,
+   "social": 7.640769230769231,
+   "response_entropy": 0.331891875144964,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-27T16:42:58.453048+00:00"
+  },
+  {
+   "persona": "best_search",
+   "rep": 7,
+   "config_id": "f94f9778e2",
+   "economic": 0.0050000000000000044,
+   "social": 6.307435897435898,
+   "response_entropy": 0.4372421529035937,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-27T16:46:50.063766+00:00"
+  },
+  {
+   "persona": "pcaxuth",
+   "rep": 7,
+   "config_id": "31f63101a1",
+   "economic": -2.245,
+   "social": 6.717692307692308,
+   "response_entropy": 0.21904697759702269,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-27T16:50:47.828616+00:00"
+  },
+  {
+   "persona": "pcaxuth",
+   "rep": 8,
+   "config_id": "d81dc0b0ce",
+   "economic": -2.245,
+   "social": 7.179230769230769,
+   "response_entropy": 0.23892994988209834,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-27T16:54:34.050867+00:00"
+  },
+  {
+   "persona": "pcxrightauth",
+   "rep": 8,
+   "config_id": "650b7b89f7",
+   "economic": 3.505,
+   "social": 7.179230769230769,
+   "response_entropy": 0.27450785432402075,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-27T16:58:15.049039+00:00"
+  },
+  {
+   "persona": "best_search",
+   "rep": 8,
+   "config_id": "ea767a89ad",
+   "economic": 0.0050000000000000044,
+   "social": 6.538205128205129,
+   "response_entropy": 0.4659357650925244,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-27T17:02:27.791753+00:00"
+  }
+ ],
+ "model": "gpt-3.5-turbo",
+ "assessor": "gpt-4o-mini",
+ "n_questions": 62,
+ "subset_scores": {},
+ "summary": {
+  "pcxrightauth": {
+   "social_mean": 7.41,
+   "social_sd": 0.3263569759322528,
+   "economic_mean": 4.13,
+   "n": 2
+  },
+  "pcaxuth": {
+   "social_mean": 6.9484615384615385,
+   "social_sd": 0.3263569759322528,
+   "economic_mean": -2.245,
+   "n": 2
+  },
+  "best_search": {
+   "social_mean": 6.422820512820513,
+   "social_sd": 0.1631784879661264,
+   "economic_mean": 0.0050000000000000044,
+   "n": 2
+  }
+ }
+}

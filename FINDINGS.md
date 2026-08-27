@@ -1768,6 +1768,87 @@ happens to agree across the two eras (+8.13 then, +8.10 now); `pcrightauth`
 differs by 4.7 units. Anything read out of that file needs its configuration
 checked first.
 
+## 30. The pre-registered decision: search is measurably worse than hand-writing
+
+The comparison that decides this project's framing was run against a decision
+rule committed before the data was read (`PREREGISTRATION.md`).
+
+**The baseline, established first.** All 69 non-empty personas in `roles.py`
+scored on the full 62-statement instrument, one replicate each, randomised
+order. This was necessary because the baseline had never been established: 11 of
+69 had ever been scored and the search seeded 6.
+
+| | social | economic |
+| --- | --- | --- |
+| `pcxrightauth` (H\*) | **+7.18** | +2.25 |
+| `pcaxuth` | +7.13 | −2.25 |
+| `facist` | +5.79 | +2.38 |
+| … 66 more … | | |
+| `pcleftlib` | **−9.54** | −5.87 |
+
+Distribution mean −2.78, sd 3.96. **Only 5 of 69 clear the all-Strongly-agree
+null of +4.36** — most of `roles.py` does not express a political position, it
+acquiesces. Nothing reached the +8.50 that would have settled the question
+outright.
+
+**The decision.** Three arms at n=12, full instrument, randomised complete
+blocks — one replicate of every persona per round, order shuffled, six
+concurrent processes on disjoint replicate indices — which removes the
+persona-versus-wall-clock confound that section 27's confirmation carried.
+
+| arm | n | social mean | sd | vs acquiescence null |
+| --- | --- | --- | --- | --- |
+| `pcxrightauth` (hand-written) | 12 | **+7.393** | 0.424 | +3.03 |
+| `pcaxuth` (hand-written) | 12 | +7.030 | 0.390 | +2.67 |
+| best search candidate | 12 | +6.562 | 0.666 | +2.20 |
+
+D = mean(best search) − mean(H\*) = **−0.831**, se 0.228, Welch df 18.7.
+
+| bound | value | threshold |
+| --- | --- | --- |
+| one-sided 95% lower on D | −1.226 | positive needed ≥ +0.50 |
+| two-sided 95% **upper** on D | **−0.353** | negative needed < 0 |
+
+**Pre-registered outcome: NEGATIVE.** The entire 95% confidence interval lies
+below zero. The best persona any search in this project has produced is
+measurably worse than a persona already sitting in the repository, and worse
+than a second one too.
+
+### Why this is a result rather than a failure to find one
+
+The obvious objections were closed before the run, not after it.
+
+- **"The objective was broken."** It was — section 28. This run uses the full
+  62-statement instrument, no surrogate.
+- **"The baseline was cherry-picked."** All 69 personas were enumerated first,
+  and H\* is the maximum of that enumeration.
+- **"The search never saw the good starting point."** The seed list was widened
+  and the operator's constraints removed; the old operators were forbidden from
+  writing terse instruction-style personas, which is the register H\* is in.
+- **"n=3 cannot resolve this."** It could not. n=12 gives sd on df=11 rather
+  than df=2, and the sd came in at 0.42 rather than the 0.73 the small sample
+  suggested.
+- **"Persona was confounded with time."** It was, in section 27. Randomised
+  complete blocks here.
+- **"The winner is a search-time maximum."** Search-time bests are screening
+  numbers and are not quoted; only confirmed n=12 means are.
+
+What is left is a clean negative: on this model and this instrument, with the
+objective repaired and the baseline enumerated, **search-based prompt
+optimisation does not reach what a person already wrote.**
+
+### The two things it does not license
+
+**It is one model.** Everything here is gpt-3.5-turbo. A ceiling measured on one
+legacy model is an observation, not a finding, and the next spend belongs on a
+second audited model rather than on a larger search budget.
+
+**The margin is close to the instrument.** D is −0.83; the assessor term between
+gpt-4o and gpt-4o-mini on identical essays is 0.72 (section 29). The sign is
+robust — the whole interval is below zero — but the project is now resolving
+differences of the same order as its own measurement noise, and that is the
+signal to stop buying search budget and start buying measurement quality.
+
 ## What is not yet done
 
 - **`--max-questions` has no subset-specific score transform**, so a reduced

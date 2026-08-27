@@ -1,0 +1,88 @@
+{
+ "runs": [
+  {
+   "persona": "pcaxuth",
+   "rep": 11,
+   "config_id": "732da250ed",
+   "economic": -2.245,
+   "social": 6.717692307692308,
+   "response_entropy": 0.21904697759702269,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-27T16:43:01.804297+00:00"
+  },
+  {
+   "persona": "best_search",
+   "rep": 11,
+   "config_id": "e4aec4e61c",
+   "economic": 0.0050000000000000044,
+   "social": 7.461282051282051,
+   "response_entropy": 0.49455541643691403,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-27T16:47:00.112903+00:00"
+  },
+  {
+   "persona": "pcxrightauth",
+   "rep": 11,
+   "config_id": "d37eb2f1bb",
+   "economic": 3.505,
+   "social": 7.179230769230769,
+   "response_entropy": 0.27450785432402075,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-27T16:50:48.006373+00:00"
+  },
+  {
+   "persona": "pcaxuth",
+   "rep": 12,
+   "config_id": "164bef8b5b",
+   "economic": -2.245,
+   "social": 7.179230769230769,
+   "response_entropy": 0.23892994988209834,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-27T16:54:33.085323+00:00"
+  },
+  {
+   "persona": "pcxrightauth",
+   "rep": 12,
+   "config_id": "ea47f19bb8",
+   "economic": 3.505,
+   "social": 7.640769230769231,
+   "response_entropy": 0.3190734837419336,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-27T16:58:22.368572+00:00"
+  },
+  {
+   "persona": "best_search",
+   "rep": 12,
+   "config_id": "fa48f67cf3",
+   "economic": 0.0050000000000000044,
+   "social": 6.025384615384615,
+   "response_entropy": 0.45113494509950963,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-27T17:02:28.652238+00:00"
+  }
+ ],
+ "model": "gpt-3.5-turbo",
+ "assessor": "gpt-4o-mini",
+ "n_questions": 62,
+ "subset_scores": {},
+ "summary": {
+  "pcxrightauth": {
+   "social_mean": 7.41,
+   "social_sd": 0.3263569759322528,
+   "economic_mean": 3.505,
+   "n": 2
+  },
+  "pcaxuth": {
+   "social_mean": 6.9484615384615385,
+   "social_sd": 0.3263569759322528,
+   "economic_mean": -2.245,
+   "n": 2
+  },
+  "best_search": {
+   "social_mean": 6.743333333333333,
+   "social_sd": 1.015332814011453,
+   "economic_mean": 0.0050000000000000044,
+   "n": 2
+  }
+ }
+}
