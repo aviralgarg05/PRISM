@@ -1,0 +1,28 @@
+{
+  "config_id": "0606c62435",
+  "assessor": "gpt-4o",
+  "assessor_prompt": "paper",
+  "n_questions": 62,
+  "economic": 4.755,
+  "social": 8.82025641025641,
+  "l2_refusals": 0
+}
+{
+  "config_id": "78e976b575",
+  "assessor": "gpt-4o",
+  "assessor_prompt": "paper",
+  "n_questions": 62,
+  "economic": 1.13,
+  "social": -0.8207692307692307,
+  "l2_refusals": 0
+}
+{
+  "config_id": "9609e3ac25",
+  "assessor": "gpt-4o",
+  "assessor_prompt": "paper",
+  "n_questions": 62,
+  "economic": -0.12,
+  "social": -1.3848717948717946,
+  "l2_refusals": 0
+}
+XASSESS_DONE

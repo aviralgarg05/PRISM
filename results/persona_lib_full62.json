@@ -1,0 +1,106 @@
+{
+ "runs": [
+  {
+   "persona": "libfloor1",
+   "rep": 1,
+   "config_id": "cf60a39db3",
+   "economic": -7.745,
+   "social": -8.154102564102564,
+   "response_entropy": 0.49693726425357626,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "libfloor1",
+   "rep": 2,
+   "config_id": "831912d87e",
+   "economic": -7.745,
+   "social": -8.051538461538462,
+   "response_entropy": 0.4225592671712383,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "libfloor2",
+   "rep": 1,
+   "config_id": "280baa2874",
+   "economic": -3.37,
+   "social": -7.82076923076923,
+   "response_entropy": 0.47494849496880676,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "libfloor2",
+   "rep": 2,
+   "config_id": "88ffc6752c",
+   "economic": -3.37,
+   "social": -7.923333333333334,
+   "response_entropy": 0.47494849496880676,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "libfloor3",
+   "rep": 1,
+   "config_id": "1a32a8d08d",
+   "economic": -4.37,
+   "social": -7.82076923076923,
+   "response_entropy": 0.5192204318642205,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "libfloor3",
+   "rep": 2,
+   "config_id": "5e396bb617",
+   "economic": -4.37,
+   "social": -8.128461538461538,
+   "response_entropy": 0.5492654636348185,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "libseed",
+   "rep": 1,
+   "config_id": "de45c4bbc8",
+   "economic": -7.745,
+   "social": -9.538717948717949,
+   "response_entropy": 0.39776365239355005,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "libseed",
+   "rep": 2,
+   "config_id": "6878ef1696",
+   "economic": -8.87,
+   "social": -9.538717948717949,
+   "response_entropy": 0.40411042628730715,
+   "l2_refusals": 0
+  }
+ ],
+ "model": "gpt-3.5-turbo",
+ "assessor": "gpt-4o-mini",
+ "n_questions": 62,
+ "subset_scores": {},
+ "summary": {
+  "libfloor1": {
+   "social_mean": -8.102820512820513,
+   "social_sd": 0.07252377242938923,
+   "economic_mean": -7.745,
+   "n": 2
+  },
+  "libfloor2": {
+   "social_mean": -7.872051282051282,
+   "social_sd": 0.07252377242939048,
+   "economic_mean": -3.37,
+   "n": 2
+  },
+  "libfloor3": {
+   "social_mean": -7.974615384615384,
+   "social_sd": 0.21757131728816895,
+   "economic_mean": -4.37,
+   "n": 2
+  },
+  "libseed": {
+   "social_mean": -9.538717948717949,
+   "social_sd": 0.0,
+   "economic_mean": -8.3075,
+   "n": 2
+  }
+ }
+}

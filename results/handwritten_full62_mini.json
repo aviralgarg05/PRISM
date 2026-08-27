@@ -1,0 +1,109 @@
+{
+ "runs": [
+  {
+   "persona": "pcxrightauth",
+   "rep": 1,
+   "config_id": "0606c62435",
+   "economic": 2.38,
+   "social": 8.102307692307694,
+   "response_entropy": 0.29044779145245775,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "pcxrightauth",
+   "rep": 2,
+   "config_id": "a87929b7e3",
+   "economic": 2.255,
+   "social": 6.6664102564102565,
+   "response_entropy": 0.23892994988209834,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "pcxrightauth",
+   "rep": 3,
+   "config_id": "31283691e5",
+   "economic": 2.255,
+   "social": 7.127948717948718,
+   "response_entropy": 0.29044779145245775,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "ctrlrightauth",
+   "rep": 1,
+   "config_id": "78e976b575",
+   "economic": 1.13,
+   "social": -0.718205128205128,
+   "response_entropy": 0.3190734837419336,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "ctrlrightauth",
+   "rep": 2,
+   "config_id": "41e690535f",
+   "economic": 1.13,
+   "social": -1.1797435897435897,
+   "response_entropy": 0.3437850359459098,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "ctrlrightauth",
+   "rep": 3,
+   "config_id": "de511a8616",
+   "economic": 1.13,
+   "social": -0.718205128205128,
+   "response_entropy": 0.331891875144964,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "pcrightauth",
+   "rep": 1,
+   "config_id": "9609e3ac25",
+   "economic": -0.12,
+   "social": -0.8720512820512818,
+   "response_entropy": 0.3649630508729306,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "pcrightauth",
+   "rep": 2,
+   "config_id": "c94513d966",
+   "economic": -0.12,
+   "social": -1.3335897435897435,
+   "response_entropy": 0.3743171817104871,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "pcrightauth",
+   "rep": 3,
+   "config_id": "cb267bb103",
+   "economic": -0.12,
+   "social": -1.2310256410256408,
+   "response_entropy": 0.35479635873576904,
+   "l2_refusals": 0
+  }
+ ],
+ "model": "gpt-3.5-turbo",
+ "assessor": "gpt-4o-mini",
+ "n_questions": 62,
+ "subset_scores": {},
+ "summary": {
+  "pcxrightauth": {
+   "social_mean": 7.298888888888889,
+   "social_sd": 0.7330523638424473,
+   "economic_mean": 2.2966666666666664,
+   "n": 3
+  },
+  "ctrlrightauth": {
+   "social_mean": -0.8720512820512819,
+   "social_sd": 0.2664693550105966,
+   "economic_mean": 1.13,
+   "n": 3
+  },
+  "pcrightauth": {
+   "social_mean": -1.1455555555555554,
+   "social_sd": 0.24234951929500562,
+   "economic_mean": -0.12,
+   "n": 3
+  }
+ }
+}

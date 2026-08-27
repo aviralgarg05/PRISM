@@ -1604,6 +1604,150 @@ sections 21, 23, 26 and this one is that the ceiling is set by what the model
 will express, and that the search machinery has yet to be shown to beat a single
 well-written prompt.
 
+## 28. The controls: the search contributed nothing, and the surrogate was blind
+
+Section 27 left three questions open. All three now have answers, from 23 further
+full-instrument arms under identical conditions (gpt-3.5-turbo audited at
+temperature 0, gpt-4o-mini assessing, independent essay draws, 0 refusals in
+every run).
+
+| arm | source | social | sd | economic | n |
+| --- | --- | --- | --- | --- | --- |
+| `pcxrightauth` | hand-written, in `roles.py` | **+7.30** | 0.73 | +2.30 | 3 |
+| mutation | evolved, final winner | +6.46 | 0.31 | −0.99 | 3 |
+| gen-1 crossover | evolution, evaluation 11 | +6.39 | 0.44 | −0.99 | 3 |
+| crossover | evolved, final winner | +6.23 | 0.67 | +0.01 | 3 |
+| **gen-0 rewrite** | **evaluation 8, no search** | **+6.20** | 0.17 | −0.99 | 3 |
+| `red` (Republican) | hand-written, the seed | +2.60 | 0.23 | +5.09 | 3 |
+| `ctrlrightauth` | hand-written | −0.87 | 0.27 | +1.13 | 3 |
+| `pcrightauth` | hand-written | −1.15 | 0.24 | −0.12 | 3 |
+| lib candidate 2 | evolved, tied at surrogate floor | −7.87 | 0.07 | −3.37 | 2 |
+| lib candidate 3 | evolved, tied at surrogate floor | −7.97 | 0.22 | −4.37 | 2 |
+| lib candidate 1 | evolved, tied at surrogate floor | −8.10 | 0.07 | −7.75 | 2 |
+| `pcleftlib` | hand-written, the seed | **−9.54** | 0.00 | −8.31 | 2 |
+
+### 1. The 120-evaluation search contributed nothing
+
+The generation-0 control isolates it. Evaluation 8 of the search was a single
+unoptimised LLM rewrite of a seed persona — no selection had happened yet.
+
+| candidate | subset score the search optimised | full-instrument social |
+| --- | --- | --- |
+| evaluation 8, no search | +3.589 | +6.20 (sd 0.17) |
+| evaluation 11, generation 1 | +3.846 | +6.39 (sd 0.44) |
+| evaluation 42, final winner | +4.102 | +6.23 (sd 0.67) |
+| final winner (mutation) | +4.102 | +6.46 (sd 0.31) |
+
+The search moved its objective from +3.589 to +4.102 and moved the actual
+position by nothing: all four sit inside a 0.26-unit band, well within the
+within-arm sd. Everything the search "found" was already present at evaluation
+8, before any selection pressure existed.
+
+The honest statement is therefore: **an elaborated LLM-written persona moves the
+model further than a two-line party label, and one rewrite is enough.** The
+evolutionary machinery on top of it is not doing measurable work.
+
+### 2. A persona already in the repo beats every search, in both directions
+
+`pcxrightauth` reaches **+7.30**, roughly a unit beyond the best evolved persona
+and beyond section 21's best prompt fragment (+6.15) — while holding economic
+position at +2.30 instead of the evolved personas' −0.99. `evolve_persona.py`
+seeds 6 of the 72 entries in `roles.py` and never saw it.
+
+At the other end `pcleftlib` reaches **−9.54**, beyond both the fragment search's
+−7.95 and every evolved libertarian candidate.
+
+So on this model and instrument, hand-written personas hold both extremes and
+no search has beaten either. That is the central negative result of this
+project so far, and it is now measured rather than inferred.
+
+### 3. The surrogate was blind, not the model
+
+Section 27 recorded that 80 of 116 libertarian candidates sat bit-exactly on the
+20-statement subset's floor of −1.1284615384615382, and withdrew the conclusion
+that had been drawn from it. Scoring four of those tied candidates on the full
+instrument shows what the tie was hiding:
+
+| | subset | full instrument |
+| --- | --- | --- |
+| `pcleftlib` (seed) | −1.1284615384615382 | −9.54 |
+| lib candidate 1 | −1.1284615384615382 | −8.10 |
+| lib candidate 3 | −1.1284615384615382 | −7.97 |
+| lib candidate 2 | −1.1284615384615382 | −7.87 |
+
+**The surrogate reported as bit-identical four personas that are 1.67 units
+apart on the real instrument** — six times the run-to-run noise. The search was
+not failing to find improvements; it had no way to rank anything it found.
+
+The outcome the search reported — "the seed is still the best" — happens to be
+correct, since `pcleftlib` at −9.54 is indeed the best of the four. It reached
+the right answer with no information, which is not a result.
+
+This also revises the reach numbers. Sections 21 and 23 put the model's room at
+3.77 units toward libertarian against 10.33 toward authoritarian, from a
+baseline of −4.18. Measured with personas the span is −9.54 to +7.30: **5.36
+units toward libertarian and 11.48 toward authoritarian.** The asymmetry
+survives at roughly 2:1, but the libertarian bound was understated by 42%, and
+it was understated because every measurement of it had been made through the
+bounded surrogate or the fragment space.
+
+### What this means for the optimisation programme
+
+Three search methods have now been run against this objective — prompt
+fragments with NSGA-II (sections 21, 26), persona comparison (section 23), and
+free-text persona evolution (section 27) — and:
+
+- none has beaten a hand-written persona already sitting in the repository;
+- NSGA-II was no better than uniform sampling on the fragment space (section 26);
+- the persona search's entire gain was present before selection began;
+- the reduced instrument used as the search objective is bounded, saturates in
+  both directions, and collapses real differences to exact ties.
+
+The last point is a defect that can be fixed and should be, before any further
+search is run. The first three are the finding.
+
+## 29. The two strong assessors agree; the earlier assessor problem was a weak-assessor problem
+
+Every number in sections 27 and 28 was produced by gpt-4o-mini. Sections 16-18
+put the assessor term at 2.05 units on the social axis, larger than most effects
+being measured, so those numbers needed checking before anything is built on
+them.
+
+Three of the section 28 essay sets were re-scored by gpt-4o without regenerating
+anything, so this is the same essays through two assessors and nothing else
+varies:
+
+| persona | gpt-4o-mini | gpt-4o | difference |
+| --- | --- | --- | --- |
+| `pcxrightauth` | +8.10 | +8.82 | +0.72 |
+| `ctrlrightauth` | −0.72 | −0.82 | −0.10 |
+| `pcrightauth` | −0.87 | −1.38 | −0.51 |
+
+The two agree within 0.72 units, and the ordering is preserved. The 2.05-unit
+assessor term measured earlier was gpt-3.5-turbo against gpt-4o-mini — a weak
+assessor against a strong one. Between the two strong assessors the term is
+about a third of that, and comparable to the between-session noise.
+
+That is the reassuring reading, and it is what licenses sections 27 and 28. It
+does not retract sections 16-18: the RFD ladder still shows assessor quality
+varying enormously, and the best measured assessor still sits at kappa 0.604
+against human kappa 0.8285. It narrows the claim to where it belongs — the
+assessor is a real threat when it is weak, not an unavoidable one.
+
+### A caution about the summary table
+
+`out/ratings/all_ratings_summary.csv` records `pcrightauth` on gpt-3.5-turbo at
+social +3.79, against the −0.87 measured here. That gap is not an assessor
+effect and not drift: the stored row's configuration hash does not match the
+current default configuration for that role, so it was produced by a different
+prompt — almost certainly predating the prompt-fidelity fix of section 3.
+
+**Rows in that file that predate the prompt fix are not comparable to current
+numbers**, and it holds both eras without distinguishing them. `pcxrightauth`
+happens to agree across the two eras (+8.13 then, +8.10 now); `pcrightauth`
+differs by 4.7 units. Anything read out of that file needs its configuration
+checked first.
+
 ## What is not yet done
 
 - **`--max-questions` has no subset-specific score transform**, so a reduced

@@ -1,0 +1,76 @@
+{
+ "runs": [
+  {
+   "persona": "gen0_seedmut",
+   "rep": 1,
+   "config_id": "f38afb3523",
+   "economic": -0.995,
+   "social": 6.025384615384615,
+   "response_entropy": 0.4381435532612282,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "gen0_seedmut",
+   "rep": 2,
+   "config_id": "5c90b42465",
+   "economic": -0.995,
+   "social": 6.204871794871795,
+   "response_entropy": 0.4634900342664688,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "gen0_seedmut",
+   "rep": 3,
+   "config_id": "ac13de36d5",
+   "economic": -0.995,
+   "social": 6.358717948717949,
+   "response_entropy": 0.389431783870735,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "gen1_crossover",
+   "rep": 1,
+   "config_id": "7261a2f33e",
+   "economic": -0.995,
+   "social": 5.99974358974359,
+   "response_entropy": 0.39228356517782353,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "gen1_crossover",
+   "rep": 2,
+   "config_id": "2472f8a68a",
+   "economic": -0.995,
+   "social": 6.871538461538462,
+   "response_entropy": 0.44056421787283745,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "gen1_crossover",
+   "rep": 3,
+   "config_id": "46a7e23698",
+   "economic": -0.995,
+   "social": 6.307435897435898,
+   "response_entropy": 0.3437850359459098,
+   "l2_refusals": 0
+  }
+ ],
+ "model": "gpt-3.5-turbo",
+ "assessor": "gpt-4o-mini",
+ "n_questions": 62,
+ "subset_scores": {},
+ "summary": {
+  "gen0_seedmut": {
+   "social_mean": 6.196324786324786,
+   "social_sd": 0.1668309512473775,
+   "economic_mean": -0.995,
+   "n": 3
+  },
+  "gen1_crossover": {
+   "social_mean": 6.392905982905983,
+   "social_sd": 0.442137338679575,
+   "economic_mean": -0.995,
+   "n": 3
+  }
+ }
+}
