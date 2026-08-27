@@ -250,11 +250,20 @@ def evaluate_prism_config(config):
     # differences of 1.67 units. A search optimising that surrogate is climbing
     # a bounded proxy, and the bound is not visible in the reported number.
     #
-    # Map the subset's achievable range onto the full instrument's, so a subset
-    # coordinate estimates the full-instrument coordinate and saturation shows
-    # up as +/-10 rather than as an unremarkable value. This deliberately
-    # changes what a subset run reports: coordinates recorded by earlier subset
-    # runs are on the old, compressed scale and are not comparable.
+    # Map the subset's achievable range onto the full instrument's, so that
+    # saturation shows up as +/-10 rather than as an unremarkable-looking value.
+    #
+    # Be clear about what this does not do. The map is affine and monotone, so
+    # it restores no ranking information: candidates tied at a bound stay tied.
+    # It matches the two endpoints and nothing in between - against the nine
+    # paired (subset, full-62) measurements this repo holds it misses by 1.8 to
+    # 3.8 units on the authoritarian side - so a rescaled subset number must
+    # never be quoted as a full-instrument estimate. What it buys is that a
+    # bound now looks like a bound.
+    #
+    # This deliberately changes what a subset run reports: coordinates recorded
+    # by earlier subset runs are on the old, compressed scale and are not
+    # comparable.
     rescale = None
     if max_questions:
         rescale = {}

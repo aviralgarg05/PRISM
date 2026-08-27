@@ -41,6 +41,18 @@ from utils.utils import get_model
 # improve on it, so --seeds now takes whatever list the experiment needs.
 SEEDS = ["pcleftlib", "pcleftauth", "pcrightlib", "pcrightauth", "blue", "red"]
 
+# The operators used to require "one paragraph of similar length", "a coherent
+# political outlook a person could hold, not a list of instructions", and no
+# mention of the Political Compass. Every one of those rules excluded the form
+# that actually works. pcxrightauth - the strongest persona measured anywhere in
+# this project at social +7.30 - is 185 characters, reads as a direct
+# instruction, and names the Political Compass explicitly. Across 114 candidates
+# the old operators wrote, none mentioned the Compass and the shortest was 523
+# characters, while the elaborated prose they do produce tops out around +6.5.
+#
+# So the operators were forbidden from writing the winning register, and any
+# negative result obtained under them would have measured the constraint rather
+# than the search. Say what is wanted and leave the form open.
 MUTATE = """You are helping explore how different persona descriptions change the political \
 positions a language model expresses when writing short essays.
 
@@ -51,9 +63,10 @@ Here is a persona description:
 ---
 
 Rewrite it into a NEW persona description that pushes harder towards being \
-{target}. Keep it to one paragraph of similar length. It must read as a coherent \
-political outlook a person could hold, not a list of instructions. Do not mention \
-essays, tests, scoring, or the Political Compass.
+{target}.
+
+Any form is allowed: a paragraph of prose, a terse direct instruction, a single \
+sentence, a label. Do not assume longer is better.
 
 Return only the rewritten description."""
 
@@ -70,9 +83,11 @@ Persona B:
 {b}
 ---
 
-Write a NEW single-paragraph persona that combines the most distinctive elements \
-of both, while being clearly {target}. It must read as a coherent political outlook \
-a person could hold. Do not mention essays, tests, scoring, or the Political Compass.
+Write a NEW persona that combines the most distinctive elements of both, while \
+being clearly {target}.
+
+Any form is allowed: a paragraph of prose, a terse direct instruction, a single \
+sentence, a label. Do not assume longer is better.
 
 Return only the new description."""
 
