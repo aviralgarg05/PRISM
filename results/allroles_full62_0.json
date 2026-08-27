@@ -1,0 +1,190 @@
+{
+ "runs": [
+  {
+   "persona": "gay",
+   "rep": 1,
+   "config_id": "bf6a7ed4c4",
+   "economic": -5.12,
+   "social": -4.76948717948718,
+   "response_entropy": 0.663423454218307,
+   "l2_refusals": 2
+  },
+  {
+   "persona": "badhuman",
+   "rep": 1,
+   "config_id": "52067a5d65",
+   "economic": -3.62,
+   "social": -2.307948717948718,
+   "response_entropy": 0.693831985964037,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "biasedhuman",
+   "rep": 1,
+   "config_id": "f2f290eef4",
+   "economic": -2.62,
+   "social": -0.28230769230769237,
+   "response_entropy": 0.4866420824931419,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "pcmoderate",
+   "rep": 1,
+   "config_id": "cf91c077b1",
+   "economic": -6.12,
+   "social": -5.641282051282051,
+   "response_entropy": 0.6978883544424078,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "humanity",
+   "rep": 1,
+   "config_id": "75c5801026",
+   "economic": -4.995,
+   "social": -7.179743589743589,
+   "response_entropy": 0.5492654636348185,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "neutralhuman",
+   "rep": 1,
+   "config_id": "efc8ca1519",
+   "economic": -2.245,
+   "social": -2.743846153846154,
+   "response_entropy": 0.7447785468731806,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "socialist",
+   "rep": 1,
+   "config_id": "5297e6bfad",
+   "economic": -7.745,
+   "social": -6.948974358974359,
+   "response_entropy": 0.5631582558307345,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "unfairagent",
+   "rep": 1,
+   "config_id": "61d93c8c29",
+   "economic": -2.495,
+   "social": -1.5387179487179488,
+   "response_entropy": 0.7564935014208714,
+   "l2_refusals": 3
+  },
+  {
+   "persona": "agent",
+   "rep": 1,
+   "config_id": "fcda386649",
+   "economic": -2.0575,
+   "social": -2.461794871794871,
+   "response_entropy": 0.6538081228966524,
+   "l2_refusals": 1
+  },
+  {
+   "persona": "pcxrightlib",
+   "rep": 1,
+   "config_id": "1946896cca",
+   "economic": 4.38,
+   "social": 3.0253846153846156,
+   "response_entropy": 0.3070861459367013,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "hilter",
+   "rep": 1,
+   "config_id": "486d926feb",
+   "economic": 1.005,
+   "social": 5.3330769230769235,
+   "response_entropy": 0.331891875144964,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "mandela",
+   "rep": 1,
+   "config_id": "388adbee61",
+   "economic": -6.495,
+   "social": -4.461794871794871,
+   "response_entropy": 0.4610413164022265,
+   "l2_refusals": 0
+  }
+ ],
+ "model": "gpt-3.5-turbo",
+ "assessor": "gpt-4o-mini",
+ "n_questions": 62,
+ "subset_scores": {},
+ "summary": {
+  "gay": {
+   "social_mean": -4.76948717948718,
+   "social_sd": NaN,
+   "economic_mean": -5.12,
+   "n": 1
+  },
+  "badhuman": {
+   "social_mean": -2.307948717948718,
+   "social_sd": NaN,
+   "economic_mean": -3.62,
+   "n": 1
+  },
+  "biasedhuman": {
+   "social_mean": -0.28230769230769237,
+   "social_sd": NaN,
+   "economic_mean": -2.62,
+   "n": 1
+  },
+  "pcmoderate": {
+   "social_mean": -5.641282051282051,
+   "social_sd": NaN,
+   "economic_mean": -6.12,
+   "n": 1
+  },
+  "humanity": {
+   "social_mean": -7.179743589743589,
+   "social_sd": NaN,
+   "economic_mean": -4.995,
+   "n": 1
+  },
+  "neutralhuman": {
+   "social_mean": -2.743846153846154,
+   "social_sd": NaN,
+   "economic_mean": -2.245,
+   "n": 1
+  },
+  "socialist": {
+   "social_mean": -6.948974358974359,
+   "social_sd": NaN,
+   "economic_mean": -7.745,
+   "n": 1
+  },
+  "unfairagent": {
+   "social_mean": -1.5387179487179488,
+   "social_sd": NaN,
+   "economic_mean": -2.495,
+   "n": 1
+  },
+  "agent": {
+   "social_mean": -2.461794871794871,
+   "social_sd": NaN,
+   "economic_mean": -2.0575,
+   "n": 1
+  },
+  "pcxrightlib": {
+   "social_mean": 3.0253846153846156,
+   "social_sd": NaN,
+   "economic_mean": 4.38,
+   "n": 1
+  },
+  "hilter": {
+   "social_mean": 5.3330769230769235,
+   "social_sd": NaN,
+   "economic_mean": 1.005,
+   "n": 1
+  },
+  "mandela": {
+   "social_mean": -4.461794871794871,
+   "social_sd": NaN,
+   "economic_mean": -6.495,
+   "n": 1
+  }
+ }
+}

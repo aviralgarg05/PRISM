@@ -20,8 +20,10 @@ configuration without altering a single word of the prompt.
 
 import argparse
 import json
+import random
 import statistics
 import time
+from datetime import datetime, timezone
 from pathlib import Path
 
 from prism_eval import evaluate_prism_config
@@ -59,6 +61,11 @@ def main():
     ap.add_argument("--assessor-provider", dest="assessor_provider", default="openai")
     ap.add_argument("--out", default="../results/persona_confirm_full62.json")
     ap.add_argument("--sleep-between", dest="sleep_between", type=float, default=10.0)
+    ap.add_argument("--block-seed", dest="block_seed", type=int, default=1,
+                    help="seed for the randomised block ordering")
+    ap.add_argument("--rep-offset", dest="rep_offset", type=int, default=0,
+                    help="shift replicate numbers, so concurrent processes "
+                         "cover disjoint replicates of the same personas")
     args = ap.parse_args()
 
     spec = json.loads(Path(args.personas).read_text())
@@ -75,8 +82,21 @@ def main():
     print(f"Confirming {len(personas)} personas x {args.reps} reps on the full "
           f"instrument: {args.model} audited, {args.assessor} assessing.\n")
 
-    for name, text in personas.items():
-        for rep in range(1, args.reps + 1):
+    # Randomised complete blocks: one replicate of every persona per round, in a
+    # shuffled order. Running each persona's replicates as a contiguous block
+    # aliases persona with wall-clock position, and section 27's nine-run
+    # confirmation did exactly that - all three arms inside one 44-minute
+    # window, never interleaved - so its sds are a floor rather than an
+    # estimate. Blocking costs nothing and removes the confound.
+    rng = random.Random(args.block_seed)
+    plan = []
+    for rep in range(1, args.reps + 1):
+        order = list(personas)
+        rng.shuffle(order)
+        plan.extend((n, rep + args.rep_offset) for n in order)
+
+    for name, rep in plan:
+            text = personas[name]
             if (name, rep) in done:
                 print(f"{name} rep{rep}: already done")
                 continue
@@ -96,7 +116,8 @@ def main():
             row = {"persona": name, "rep": rep, "config_id": res["config_id"],
                    "economic": res["economic"], "social": res["social"],
                    "response_entropy": res["response_entropy"],
-                   "l2_refusals": res["l2_refusals"]}
+                   "l2_refusals": res["l2_refusals"],
+                   "t_iso": datetime.now(timezone.utc).isoformat()}
             log["runs"].append(row)
             # Written after every arm so an interrupted run keeps what it paid for.
             out_path.write_text(json.dumps(log, indent=1))

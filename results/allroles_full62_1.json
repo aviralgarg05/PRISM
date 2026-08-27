@@ -1,0 +1,190 @@
+{
+ "runs": [
+  {
+   "persona": "gandhi",
+   "rep": 1,
+   "config_id": "f28aedff89",
+   "economic": -5.745,
+   "social": -4.974615384615385,
+   "response_entropy": 0.4189648784820322,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "farmer",
+   "rep": 1,
+   "config_id": "8f9a0cb2e5",
+   "economic": -3.245,
+   "social": 2.512564102564103,
+   "response_entropy": 0.3548623507551816,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "human",
+   "rep": 1,
+   "config_id": "edc49233a8",
+   "economic": -5.245,
+   "social": -1.8720512820512818,
+   "response_entropy": 0.5559985159588464,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "pcauth",
+   "rep": 1,
+   "config_id": "f3d754d38a",
+   "economic": -5.495,
+   "social": -2.923333333333333,
+   "response_entropy": 0.3190734837419336,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "economist",
+   "rep": 1,
+   "config_id": "465e3d90c6",
+   "economic": -5.745,
+   "social": -4.743846153846154,
+   "response_entropy": 0.4610413164022265,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "pcxleft",
+   "rep": 1,
+   "config_id": "855347a702",
+   "economic": -6.995,
+   "social": -6.795128205128204,
+   "response_entropy": 0.47494849496880676,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "neutralagent",
+   "rep": 1,
+   "config_id": "1bfd354fbe",
+   "economic": -1.4325,
+   "social": -1.6669230769230765,
+   "response_entropy": 0.6582079616087715,
+   "l2_refusals": 1
+  },
+  {
+   "persona": "pcaxuth",
+   "rep": 1,
+   "config_id": "5ad53938e6",
+   "economic": -2.245,
+   "social": 7.127948717948718,
+   "response_entropy": 0.23892994988209834,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "pcxleftlib",
+   "rep": 1,
+   "config_id": "b7ffd40503",
+   "economic": -4.37,
+   "social": -6.974615384615385,
+   "response_entropy": 0.47429105075070965,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "badagent",
+   "rep": 1,
+   "config_id": "7245fa42db",
+   "economic": -3.37,
+   "social": -1.4874358974358972,
+   "response_entropy": 0.7889621303370046,
+   "l2_refusals": 3
+  },
+  {
+   "persona": "pcleftlib",
+   "rep": 1,
+   "config_id": "79b27eb13c",
+   "economic": -5.87,
+   "social": -9.538717948717949,
+   "response_entropy": 0.40975095466045175,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "conservative",
+   "rep": 1,
+   "config_id": "7af9395eb5",
+   "economic": 1.13,
+   "social": 2.8202564102564103,
+   "response_entropy": 0.28401362346691095,
+   "l2_refusals": 0
+  }
+ ],
+ "model": "gpt-3.5-turbo",
+ "assessor": "gpt-4o-mini",
+ "n_questions": 62,
+ "subset_scores": {},
+ "summary": {
+  "gandhi": {
+   "social_mean": -4.974615384615385,
+   "social_sd": NaN,
+   "economic_mean": -5.745,
+   "n": 1
+  },
+  "farmer": {
+   "social_mean": 2.512564102564103,
+   "social_sd": NaN,
+   "economic_mean": -3.245,
+   "n": 1
+  },
+  "human": {
+   "social_mean": -1.8720512820512818,
+   "social_sd": NaN,
+   "economic_mean": -5.245,
+   "n": 1
+  },
+  "pcauth": {
+   "social_mean": -2.923333333333333,
+   "social_sd": NaN,
+   "economic_mean": -5.495,
+   "n": 1
+  },
+  "economist": {
+   "social_mean": -4.743846153846154,
+   "social_sd": NaN,
+   "economic_mean": -5.745,
+   "n": 1
+  },
+  "pcxleft": {
+   "social_mean": -6.795128205128204,
+   "social_sd": NaN,
+   "economic_mean": -6.995,
+   "n": 1
+  },
+  "neutralagent": {
+   "social_mean": -1.6669230769230765,
+   "social_sd": NaN,
+   "economic_mean": -1.4325,
+   "n": 1
+  },
+  "pcaxuth": {
+   "social_mean": 7.127948717948718,
+   "social_sd": NaN,
+   "economic_mean": -2.245,
+   "n": 1
+  },
+  "pcxleftlib": {
+   "social_mean": -6.974615384615385,
+   "social_sd": NaN,
+   "economic_mean": -4.37,
+   "n": 1
+  },
+  "badagent": {
+   "social_mean": -1.4874358974358972,
+   "social_sd": NaN,
+   "economic_mean": -3.37,
+   "n": 1
+  },
+  "pcleftlib": {
+   "social_mean": -9.538717948717949,
+   "social_sd": NaN,
+   "economic_mean": -5.87,
+   "n": 1
+  },
+  "conservative": {
+   "social_mean": 2.8202564102564103,
+   "social_sd": NaN,
+   "economic_mean": 1.13,
+   "n": 1
+  }
+ }
+}

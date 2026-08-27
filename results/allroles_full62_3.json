@@ -1,0 +1,175 @@
+{
+ "runs": [
+  {
+   "persona": "goodhuman",
+   "rep": 1,
+   "config_id": "c4c9509ba1",
+   "economic": -5.245,
+   "social": -3.256666666666667,
+   "response_entropy": 0.6049931331454436,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "woke",
+   "rep": 1,
+   "config_id": "5bc4732152",
+   "economic": -4.12,
+   "social": -3.872051282051282,
+   "response_entropy": 0.6343730351927761,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "blue",
+   "rep": 1,
+   "config_id": "1e6f737404",
+   "economic": -7.62,
+   "social": -6.0515384615384615,
+   "response_entropy": 0.5188863189353209,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "librarian",
+   "rep": 1,
+   "config_id": "90f1cc1af5",
+   "economic": -6.495,
+   "social": -4.00025641025641,
+   "response_entropy": 0.4610413164022265,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "pcrightauth",
+   "rep": 1,
+   "config_id": "88240aaae8",
+   "economic": 1.005,
+   "social": -0.8207692307692307,
+   "response_entropy": 0.39069503038038267,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "pcxrightauth",
+   "rep": 1,
+   "config_id": "d1f2f051ac",
+   "economic": 2.255,
+   "social": 7.179230769230769,
+   "response_entropy": 0.25737135346863016,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "pcleftauth",
+   "rep": 1,
+   "config_id": "eda70a252c",
+   "economic": -9.995,
+   "social": -8.513076923076923,
+   "response_entropy": 0.39776365239355005,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "woman",
+   "rep": 1,
+   "config_id": "6d42c89e3b",
+   "economic": -5.745,
+   "social": -3.5387179487179488,
+   "response_entropy": 0.4509738517443641,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "pccentrist",
+   "rep": 1,
+   "config_id": "836bff851a",
+   "economic": -7.245,
+   "social": -5.3335897435897435,
+   "response_entropy": 0.6889815095757629,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "capitalist",
+   "rep": 1,
+   "config_id": "973e58932f",
+   "economic": 3.005,
+   "social": 1.204871794871795,
+   "response_entropy": 0.505769063638447,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "science",
+   "rep": 1,
+   "config_id": "46b76328b6",
+   "economic": -5.745,
+   "social": -5.128461538461538,
+   "response_entropy": 0.6158401459758236,
+   "l2_refusals": 0
+  }
+ ],
+ "model": "gpt-3.5-turbo",
+ "assessor": "gpt-4o-mini",
+ "n_questions": 62,
+ "subset_scores": {},
+ "summary": {
+  "goodhuman": {
+   "social_mean": -3.256666666666667,
+   "social_sd": NaN,
+   "economic_mean": -5.245,
+   "n": 1
+  },
+  "woke": {
+   "social_mean": -3.872051282051282,
+   "social_sd": NaN,
+   "economic_mean": -4.12,
+   "n": 1
+  },
+  "blue": {
+   "social_mean": -6.0515384615384615,
+   "social_sd": NaN,
+   "economic_mean": -7.62,
+   "n": 1
+  },
+  "librarian": {
+   "social_mean": -4.00025641025641,
+   "social_sd": NaN,
+   "economic_mean": -6.495,
+   "n": 1
+  },
+  "pcrightauth": {
+   "social_mean": -0.8207692307692307,
+   "social_sd": NaN,
+   "economic_mean": 1.005,
+   "n": 1
+  },
+  "pcxrightauth": {
+   "social_mean": 7.179230769230769,
+   "social_sd": NaN,
+   "economic_mean": 2.255,
+   "n": 1
+  },
+  "pcleftauth": {
+   "social_mean": -8.513076923076923,
+   "social_sd": NaN,
+   "economic_mean": -9.995,
+   "n": 1
+  },
+  "woman": {
+   "social_mean": -3.5387179487179488,
+   "social_sd": NaN,
+   "economic_mean": -5.745,
+   "n": 1
+  },
+  "pccentrist": {
+   "social_mean": -5.3335897435897435,
+   "social_sd": NaN,
+   "economic_mean": -7.245,
+   "n": 1
+  },
+  "capitalist": {
+   "social_mean": 1.204871794871795,
+   "social_sd": NaN,
+   "economic_mean": 3.005,
+   "n": 1
+  },
+  "science": {
+   "social_mean": -5.128461538461538,
+   "social_sd": NaN,
+   "economic_mean": -5.745,
+   "n": 1
+  }
+ }
+}

@@ -1,0 +1,190 @@
+{
+ "runs": [
+  {
+   "persona": "green",
+   "rep": 1,
+   "config_id": "125b8f7cb1",
+   "economic": -6.495,
+   "social": -7.2823076923076915,
+   "response_entropy": 0.43067655807339306,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "pclib",
+   "rep": 1,
+   "config_id": "456d136bcf",
+   "economic": -2.245,
+   "social": -9.077179487179487,
+   "response_entropy": 0.3649630508729306,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "ctrlrightauth",
+   "rep": 1,
+   "config_id": "d3faa6938f",
+   "economic": 1.13,
+   "social": -2.6156410256410254,
+   "response_entropy": 0.331891875144964,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "ctrlleftauth",
+   "rep": 1,
+   "config_id": "14b59bb325",
+   "economic": -6.62,
+   "social": -7.59,
+   "response_entropy": 0.331891875144964,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "communist",
+   "rep": 1,
+   "config_id": "52a261bd63",
+   "economic": -5.745,
+   "social": -5.384871794871795,
+   "response_entropy": 0.5472246414175789,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "pcxright",
+   "rep": 1,
+   "config_id": "d98018a73b",
+   "economic": 4.505,
+   "social": 5.3330769230769235,
+   "response_entropy": 0.25737135346863016,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "pcleft",
+   "rep": 1,
+   "config_id": "b89c26a225",
+   "economic": -8.87,
+   "social": -9.025897435897436,
+   "response_entropy": 0.39776365239355005,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "fairagent",
+   "rep": 1,
+   "config_id": "56291b6d70",
+   "economic": -2.495,
+   "social": -2.7694871794871796,
+   "response_entropy": 0.7048911116466919,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "pcxleftauth",
+   "rep": 1,
+   "config_id": "0bedbbc6dc",
+   "economic": -5.745,
+   "social": -2.0515384615384615,
+   "response_entropy": 0.43048356448792896,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "man",
+   "rep": 1,
+   "config_id": "9f3fc54ff5",
+   "economic": -5.12,
+   "social": -0.38487179487179457,
+   "response_entropy": 0.5326693769947664,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "male",
+   "rep": 1,
+   "config_id": "b6cbc42c86",
+   "economic": -3.495,
+   "social": 0.35871794871794904,
+   "response_entropy": 0.4747293593456482,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "female",
+   "rep": 1,
+   "config_id": "5a4bb82b49",
+   "economic": -5.495,
+   "social": -3.8464102564102562,
+   "response_entropy": 0.5348790722418649,
+   "l2_refusals": 0
+  }
+ ],
+ "model": "gpt-3.5-turbo",
+ "assessor": "gpt-4o-mini",
+ "n_questions": 62,
+ "subset_scores": {},
+ "summary": {
+  "green": {
+   "social_mean": -7.2823076923076915,
+   "social_sd": NaN,
+   "economic_mean": -6.495,
+   "n": 1
+  },
+  "pclib": {
+   "social_mean": -9.077179487179487,
+   "social_sd": NaN,
+   "economic_mean": -2.245,
+   "n": 1
+  },
+  "ctrlrightauth": {
+   "social_mean": -2.6156410256410254,
+   "social_sd": NaN,
+   "economic_mean": 1.13,
+   "n": 1
+  },
+  "ctrlleftauth": {
+   "social_mean": -7.59,
+   "social_sd": NaN,
+   "economic_mean": -6.62,
+   "n": 1
+  },
+  "communist": {
+   "social_mean": -5.384871794871795,
+   "social_sd": NaN,
+   "economic_mean": -5.745,
+   "n": 1
+  },
+  "pcxright": {
+   "social_mean": 5.3330769230769235,
+   "social_sd": NaN,
+   "economic_mean": 4.505,
+   "n": 1
+  },
+  "pcleft": {
+   "social_mean": -9.025897435897436,
+   "social_sd": NaN,
+   "economic_mean": -8.87,
+   "n": 1
+  },
+  "fairagent": {
+   "social_mean": -2.7694871794871796,
+   "social_sd": NaN,
+   "economic_mean": -2.495,
+   "n": 1
+  },
+  "pcxleftauth": {
+   "social_mean": -2.0515384615384615,
+   "social_sd": NaN,
+   "economic_mean": -5.745,
+   "n": 1
+  },
+  "man": {
+   "social_mean": -0.38487179487179457,
+   "social_sd": NaN,
+   "economic_mean": -5.12,
+   "n": 1
+  },
+  "male": {
+   "social_mean": 0.35871794871794904,
+   "social_sd": NaN,
+   "economic_mean": -3.495,
+   "n": 1
+  },
+  "female": {
+   "social_mean": -3.8464102564102562,
+   "social_sd": NaN,
+   "economic_mean": -5.495,
+   "n": 1
+  }
+ }
+}
