@@ -1,0 +1,122 @@
+{
+ "runs": [
+  {
+   "persona": "seed",
+   "rep": 1,
+   "config_id": "ee62d583a2",
+   "economic": 4.63,
+   "social": 2.768974358974359,
+   "response_entropy": 0.4731907720257664,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "seed",
+   "rep": 2,
+   "config_id": "fcad3be3a8",
+   "economic": 5.88,
+   "social": 2.333076923076923,
+   "response_entropy": 0.5019999717484214,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "seed",
+   "rep": 3,
+   "config_id": "9dfa69039c",
+   "economic": 4.755,
+   "social": 2.692051282051282,
+   "response_entropy": 0.5216893012576801,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "crossover",
+   "rep": 1,
+   "config_id": "a97947a108",
+   "economic": 0.0050000000000000044,
+   "social": 6.99974358974359,
+   "response_entropy": 0.4634900342664688,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "crossover",
+   "rep": 2,
+   "config_id": "1a74805ca3",
+   "economic": 0.0050000000000000044,
+   "social": 5.794615384615385,
+   "response_entropy": 0.4266714256769215,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "crossover",
+   "rep": 3,
+   "config_id": "921b079a49",
+   "economic": 0.0050000000000000044,
+   "social": 5.897179487179487,
+   "response_entropy": 0.48862215154156413,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "mutation",
+   "rep": 1,
+   "config_id": "0fb8b579d0",
+   "economic": -0.995,
+   "social": 6.256153846153847,
+   "response_entropy": 0.3649630508729306,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "mutation",
+   "rep": 2,
+   "config_id": "eb8b41e1b8",
+   "economic": -0.995,
+   "social": 6.820256410256411,
+   "response_entropy": 0.35479635873576904,
+   "l2_refusals": 0
+  },
+  {
+   "persona": "mutation",
+   "rep": 3,
+   "config_id": "65241d6633",
+   "economic": -0.995,
+   "social": 6.307435897435898,
+   "response_entropy": 0.3437850359459098,
+   "l2_refusals": 0
+  }
+ ],
+ "model": "gpt-3.5-turbo",
+ "assessor": "gpt-4o-mini",
+ "n_questions": 62,
+ "subset_scores": {
+  "seed": {
+   "social": 3.0766666666666667,
+   "economic": 3.255
+  },
+  "crossover": {
+   "social": 4.102307692307693,
+   "economic": 0.63
+  },
+  "mutation": {
+   "social": 4.102307692307693,
+   "economic": 0.63
+  }
+ },
+ "summary": {
+  "seed": {
+   "social_mean": 2.598034188034188,
+   "social_sd": 0.2326608134840377,
+   "economic_mean": 5.088333333333333,
+   "n": 3
+  },
+  "crossover": {
+   "social_mean": 6.23051282051282,
+   "social_sd": 0.6681443190151475,
+   "economic_mean": 0.0050000000000000044,
+   "n": 3
+  },
+  "mutation": {
+   "social_mean": 6.461282051282052,
+   "social_sd": 0.31193654001529325,
+   "economic_mean": -0.995,
+   "n": 3
+  }
+ }
+}
