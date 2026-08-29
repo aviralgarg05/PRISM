@@ -1,0 +1,88 @@
+{
+ "runs": [
+  {
+   "persona": "pcxrightauth",
+   "rep": 9,
+   "config_id": "f85daa65b6",
+   "economic": 1.13,
+   "social": 6.974102564102564,
+   "response_entropy": 0.2932019199342804,
+   "l2_refusals": 1,
+   "t_iso": "2026-08-29T15:15:24.785125+00:00"
+  },
+  {
+   "persona": "pcaxuth",
+   "rep": 9,
+   "config_id": "5971ee63f3",
+   "economic": -0.12,
+   "social": 6.102307692307693,
+   "response_entropy": 0.24142734818053302,
+   "l2_refusals": 1,
+   "t_iso": "2026-08-29T15:37:05.270924+00:00"
+  },
+  {
+   "persona": "best_search",
+   "rep": 9,
+   "config_id": "57557e4ec1",
+   "economic": -2.495,
+   "social": 4.820256410256411,
+   "response_entropy": 0.4162646013373569,
+   "l2_refusals": 1,
+   "t_iso": "2026-08-29T15:42:39.725555+00:00"
+  },
+  {
+   "persona": "pcaxuth",
+   "rep": 10,
+   "config_id": "b8ac1b4e0f",
+   "economic": -0.12,
+   "social": 7.127948717948718,
+   "response_entropy": 0.27720040709416965,
+   "l2_refusals": 1,
+   "t_iso": "2026-08-29T15:48:30.080675+00:00"
+  },
+  {
+   "persona": "pcxrightauth",
+   "rep": 10,
+   "config_id": "e58b0baff4",
+   "economic": 2.13,
+   "social": 6.871538461538462,
+   "response_entropy": 0.34313235110964485,
+   "l2_refusals": 1,
+   "t_iso": "2026-08-29T15:53:57.238279+00:00"
+  },
+  {
+   "persona": "best_search",
+   "rep": 10,
+   "config_id": "7cbeb4124b",
+   "economic": -2.495,
+   "social": 6.102307692307693,
+   "response_entropy": 0.39564511024732896,
+   "l2_refusals": 1,
+   "t_iso": "2026-08-29T15:59:24.342343+00:00"
+  }
+ ],
+ "model": "gpt-4o-mini",
+ "assessor": "gpt-4o-mini",
+ "n_questions": 62,
+ "subset_scores": {},
+ "summary": {
+  "pcxrightauth": {
+   "social_mean": 6.922820512820513,
+   "social_sd": 0.07252377242938923,
+   "economic_mean": 1.63,
+   "n": 2
+  },
+  "pcaxuth": {
+   "social_mean": 6.615128205128205,
+   "social_sd": 0.7252377242938949,
+   "economic_mean": -0.12,
+   "n": 2
+  },
+  "best_search": {
+   "social_mean": 5.461282051282051,
+   "social_sd": 0.9065471553673685,
+   "economic_mean": -2.495,
+   "n": 2
+  }
+ }
+}

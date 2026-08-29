@@ -1915,6 +1915,80 @@ raw coordinate. A displacement from 0 to +4.36 is not a political finding; it is
 a compliance finding. This is a property of the Political Compass scoring rather
 than of PRISM, so it applies to every published position measured this way.
 
+## 32. It replicates on a second model, and persona effect transfers
+
+Section 30's limitation was that everything sat on one legacy model. The same
+protocol has now been run end to end on **gpt-4o-mini** as the audited model:
+all 69 hand-written personas plus the two search-derived ones enumerated on the
+full instrument, then the same three arms confirmed at n=12 in randomised
+complete blocks.
+
+### The enumeration agrees with the first model
+
+| | gpt-3.5-turbo | gpt-4o-mini |
+| --- | --- | --- |
+| best persona | `pcxrightauth` +7.18 | **`pcxrightauth` +6.97** |
+| runner-up | `pcaxuth` +7.13 | `pcaxuth` +6.62 |
+| most libertarian | `pcleftlib` −9.54 | `pcleftlib` −9.54 |
+| range | [−9.54, +7.18] | [−9.54, +6.97] |
+| clear the +4.36 null | 5 of 69 | 7 of 71 |
+
+The same persona holds each end on both models, and the **rank correlation of
+persona effect across the two models is ρ = 0.802** (n = 69 common personas).
+Persona effectiveness is largely a property of the persona, not of the model —
+which is what makes a hand-written library a serious baseline rather than a
+lucky fit to one model.
+
+All 140 configurations have distinct cache ids with zero overlap between the two
+models, so nothing was served from the other model's essays.
+
+### The decision replicates
+
+Same arms, same n=12, same blocking, same pre-registered rule:
+
+| audited model | H\* | search candidate | D | se | 95% CI upper | outcome |
+| --- | --- | --- | --- | --- | --- | --- |
+| gpt-3.5-turbo | +7.393 | +6.562 | **−0.831** | 0.228 | −0.353 | NEGATIVE |
+| gpt-4o-mini | +6.769 | +6.068 | **−0.701** | 0.156 | −0.371 | NEGATIVE |
+
+Same sign, similar magnitude, both intervals entirely below zero. The
+hand-written persona wins on both models by about three quarters of a unit.
+
+### It is not the assessor marking its own homework
+
+gpt-4o-mini audited and gpt-4o-mini assessing is a self-assessment confound, so
+three essay sets per arm were re-scored by gpt-4o without regenerating anything:
+
+| arm | gpt-4o-mini | gpt-4o | difference |
+| --- | --- | --- | --- |
+| `pcxrightauth` | +6.80 | +6.67 | −0.14 |
+| `pcaxuth` | +6.94 | +7.21 | +0.27 |
+| best search candidate | +5.85 | +5.76 | −0.09 |
+
+Under gpt-4o the gap is **D = −0.91**, the same sign and slightly larger. The
+result is not an artefact of a model scoring its own output, and this is a third
+independent check on the assessor after section 29.
+
+### The search persona transfers, and still loses
+
+The evolved persona was optimised against gpt-3.5-turbo. On gpt-4o-mini it
+scores +6.10 against its +6.56 on the model it was tuned for, and the
+unoptimised generation-0 rewrite scores +5.64 against +6.20. So persona effect
+carries across models — consistent with ρ = 0.802 — and the ordering is
+preserved: it is beaten by `pcxrightauth` on the model it was tuned for and on
+the model it was not.
+
+That closes the most obvious escape route for the negative result. The search
+did not merely fail to generalise; it lost on its home ground and lost again
+away from it.
+
+### What is still open
+
+A third audited model from a different family (mistral 7B, run locally) is in
+progress. Two models from the same vendor is a weaker replication than two
+families, and until that lands the claim is "replicates across two OpenAI
+models" rather than "replicates across models".
+
 ## What is not yet done
 
 - **`--max-questions` has no subset-specific score transform**, so a reduced
