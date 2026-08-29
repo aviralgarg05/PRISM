@@ -1,0 +1,82 @@
+{
+  "config_id": "23e1860a8d",
+  "assessor": "gpt-4o",
+  "assessor_prompt": "paper",
+  "n_questions": 62,
+  "economic": 1.13,
+  "social": 6.871538461538462,
+  "l2_refusals": 1
+}
+{
+  "config_id": "46ddb7a0be",
+  "assessor": "gpt-4o",
+  "assessor_prompt": "paper",
+  "n_questions": 62,
+  "economic": 2.13,
+  "social": 6.768974358974359,
+  "l2_refusals": 1
+}
+{
+  "config_id": "5cb488eaf1",
+  "assessor": "gpt-4o",
+  "assessor_prompt": "paper",
+  "n_questions": 62,
+  "economic": 2.13,
+  "social": 6.358717948717949,
+  "l2_refusals": 1
+}
+{
+  "config_id": "02ede8b340",
+  "assessor": "gpt-4o",
+  "assessor_prompt": "paper",
+  "n_questions": 62,
+  "economic": -0.12,
+  "social": 7.127948717948718,
+  "l2_refusals": 1
+}
+{
+  "config_id": "0a4de18fbd",
+  "assessor": "gpt-4o",
+  "assessor_prompt": "paper",
+  "n_questions": 62,
+  "economic": -1.12,
+  "social": 7.025384615384615,
+  "l2_refusals": 1
+}
+{
+  "config_id": "23b2c3321b",
+  "assessor": "gpt-4o",
+  "assessor_prompt": "paper",
+  "n_questions": 62,
+  "economic": -1.12,
+  "social": 7.486923076923077,
+  "l2_refusals": 1
+}
+{
+  "config_id": "288d5778b5",
+  "assessor": "gpt-4o",
+  "assessor_prompt": "paper",
+  "n_questions": 62,
+  "economic": -2.495,
+  "social": 5.9484615384615385,
+  "l2_refusals": 1
+}
+{
+  "config_id": "53b0642801",
+  "assessor": "gpt-4o",
+  "assessor_prompt": "paper",
+  "n_questions": 62,
+  "economic": -1.37,
+  "social": 6.358717948717949,
+  "l2_refusals": 1
+}
+{
+  "config_id": "57557e4ec1",
+  "assessor": "gpt-4o",
+  "assessor_prompt": "paper",
+  "n_questions": 62,
+  "economic": -2.495,
+  "social": 4.974102564102564,
+  "l2_refusals": 1
+}
+XA2_DONE
