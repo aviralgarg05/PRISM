@@ -1849,6 +1849,72 @@ robust — the whole interval is below zero — but the project is now resolving
 differences of the same order as its own measurement noise, and that is the
 signal to stop buying search budget and start buying measurement quality.
 
+## 31. The instrument's two ends are not the same kind of thing
+
+Section 2 recorded that "Agree" scores zero on both axes, so a model that agrees
+with everything lands at the origin and looks centrist. The mirror of that is
+sharper and had not been checked: **"Strongly agree" to all 62 statements scores
+social +4.359**, and "Strongly disagree" to all 62 scores −4.359. A respondent
+with no political content at all reaches 44% of the way to either pole.
+
+Decomposing all 69 hand-written personas against the null implied by their own
+modal answer (`results/acquiescence_decomposition.json`, gpt-3.5-turbo audited,
+gpt-4o-mini assessing, full instrument):
+
+| | best persona | its score | the null | content beyond it | headroom used | modal share |
+| --- | --- | --- | --- | --- | --- | --- |
+| authoritarian | `pcxrightauth` | +7.18 | +4.36 | **+2.82** | 50% | **85%** |
+| libertarian | `pcleftlib` | −9.54 | −4.36 | **−5.18** | 92% | 63% |
+
+**61% of the best authoritarian persona's position is reachable by agreeing with
+everything.** It answers 85% of the instrument "Strongly agree" and uses half the
+headroom that exists beyond the null. The best libertarian persona answers only
+63% uniformly, uses 92% of its headroom, and gets to within 0.46 of the
+instrument's floor.
+
+So the two ends differ in kind, not just in sign. **On this instrument, moving
+authoritarian is mostly achieved by agreeing; moving libertarian requires
+disagreeing selectively.** Agreement is the cheap direction.
+
+### What this explains
+
+- **The asymmetric reach** recorded in sections 21, 23 and 28. The authoritarian
+  side looked like it had more room. It has more *nominal* room and less real
+  room: 5.64 units exist beyond the null in both directions, and the best
+  persona uses 50% of it going one way and 92% going the other.
+- **Why the searches saturated at the authoritarian end.** An optimiser pushing
+  social upward is rewarded for agreement long before it is rewarded for
+  content, so the gradient it follows is partly a gradient toward acquiescence.
+  That is the same defect as section 2's, pointing at a pole instead of the
+  centre, and the entropy objective was doing more work than it appeared to.
+- **Why 5 of 69 personas clear +4.36 at all.** Most of `roles.py` scores between
+  the two nulls, which is where a respondent lands by default.
+
+### The obvious objection, and why it does not hold
+
+If agreement is the cheap direction, the natural reading of section 30 is that
+the hand-written baseline beat the search by acquiescing harder. It did not:
+
+| arm | social | modal share | content beyond null |
+| --- | --- | --- | --- |
+| `pcxrightauth` | +7.39 | 81% | **+3.03** |
+| `pcaxuth` | +7.03 | 88% | +2.67 |
+| best search candidate | +6.56 | **70%** | +2.20 |
+
+The search candidate is the *least* uniform of the three and still finishes last
+on content beyond the null as well as on raw position. So the pre-registered
+negative result of section 30 survives the acquiescence correction: the
+hand-written persona wins on the measure that discounts agreement, not only on
+the one that rewards it.
+
+### What it means for the write-up
+
+Any position reported on this instrument should carry its modal share, and any
+claim of steering should be stated as content beyond the null rather than as a
+raw coordinate. A displacement from 0 to +4.36 is not a political finding; it is
+a compliance finding. This is a property of the Political Compass scoring rather
+than of PRISM, so it applies to every published position measured this way.
+
 ## What is not yet done
 
 - **`--max-questions` has no subset-specific score transform**, so a reduced

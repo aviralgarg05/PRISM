@@ -1,0 +1,554 @@
+[
+ {
+  "persona": "pcxrightauth",
+  "social": 7.179230769230769,
+  "modal": "Strongly agree",
+  "modal_share": 0.8548387096774194,
+  "null": 4.358717948717949,
+  "beyond_null": 2.8205128205128203
+ },
+ {
+  "persona": "pcaxuth",
+  "social": 7.127948717948718,
+  "modal": "Strongly agree",
+  "modal_share": 0.8709677419354839,
+  "null": 4.358717948717949,
+  "beyond_null": 2.769230769230769
+ },
+ {
+  "persona": "facist",
+  "social": 5.794615384615385,
+  "modal": "Strongly agree",
+  "modal_share": 0.7741935483870968,
+  "null": 4.358717948717949,
+  "beyond_null": 1.4358974358974361
+ },
+ {
+  "persona": "pcxright",
+  "social": 5.3330769230769235,
+  "modal": "Strongly agree",
+  "modal_share": 0.8548387096774194,
+  "null": 4.358717948717949,
+  "beyond_null": 0.9743589743589745
+ },
+ {
+  "persona": "hilter",
+  "social": 5.3330769230769235,
+  "modal": "Strongly agree",
+  "modal_share": 0.7741935483870968,
+  "null": 4.358717948717949,
+  "beyond_null": 0.9743589743589745
+ },
+ {
+  "persona": "pcxrightlib",
+  "social": 3.0253846153846156,
+  "modal": "Strongly agree",
+  "modal_share": 0.8387096774193549,
+  "null": 4.358717948717949,
+  "beyond_null": -1.3333333333333335
+ },
+ {
+  "persona": "conservative",
+  "social": 2.8202564102564103,
+  "modal": "Strongly agree",
+  "modal_share": 0.8709677419354839,
+  "null": 4.358717948717949,
+  "beyond_null": -1.5384615384615388
+ },
+ {
+  "persona": "radred",
+  "social": 2.7946153846153847,
+  "modal": "Strongly agree",
+  "modal_share": 0.8870967741935484,
+  "null": 4.358717948717949,
+  "beyond_null": -1.5641025641025643
+ },
+ {
+  "persona": "farmer",
+  "social": 2.512564102564103,
+  "modal": "Strongly agree",
+  "modal_share": 0.8387096774193549,
+  "null": 4.358717948717949,
+  "beyond_null": -1.8461538461538463
+ },
+ {
+  "persona": "red",
+  "social": 2.1792307692307693,
+  "modal": "Strongly agree",
+  "modal_share": 0.7580645161290323,
+  "null": 4.358717948717949,
+  "beyond_null": -2.1794871794871797
+ },
+ {
+  "persona": "stalin",
+  "social": 2.1023076923076927,
+  "modal": "Strongly agree",
+  "modal_share": 0.7741935483870968,
+  "null": 4.358717948717949,
+  "beyond_null": -2.2564102564102564
+ },
+ {
+  "persona": "capitalist",
+  "social": 1.204871794871795,
+  "modal": "Strongly agree",
+  "modal_share": 0.7580645161290323,
+  "null": 4.358717948717949,
+  "beyond_null": -3.153846153846154
+ },
+ {
+  "persona": "male",
+  "social": 0.35871794871794904,
+  "modal": "Strongly agree",
+  "modal_share": 0.7096774193548387,
+  "null": 4.358717948717949,
+  "beyond_null": -4.0
+ },
+ {
+  "persona": "biasedhuman",
+  "social": -0.28230769230769237,
+  "modal": "Strongly agree",
+  "modal_share": 0.7419354838709677,
+  "null": 4.358717948717949,
+  "beyond_null": -4.641025641025641
+ },
+ {
+  "persona": "unintelligentagent",
+  "social": -0.359230769230769,
+  "modal": "Neutral",
+  "modal_share": 0.5645161290322581,
+  "null": -0.00025641025640998905,
+  "beyond_null": -0.35897435897435903
+ },
+ {
+  "persona": "man",
+  "social": -0.38487179487179457,
+  "modal": "Strongly agree",
+  "modal_share": 0.6774193548387096,
+  "null": 4.358717948717949,
+  "beyond_null": -4.743589743589744
+ },
+ {
+  "persona": "extremist",
+  "social": -0.38487179487179457,
+  "modal": "Strongly agree",
+  "modal_share": 0.6612903225806451,
+  "null": 4.358717948717949,
+  "beyond_null": -4.743589743589744
+ },
+ {
+  "persona": "biasedagent",
+  "social": -0.666923076923077,
+  "modal": "Neutral",
+  "modal_share": 0.5,
+  "null": -0.00025641025640998905,
+  "beyond_null": -0.666666666666667
+ },
+ {
+  "persona": "pcrightauth",
+  "social": -0.8207692307692307,
+  "modal": "Strongly disagree",
+  "modal_share": 0.6774193548387096,
+  "null": -4.359230769230769,
+  "beyond_null": 3.5384615384615383
+ },
+ {
+  "persona": "badagent",
+  "social": -1.4874358974358972,
+  "modal": "Neutral",
+  "modal_share": 0.46774193548387094,
+  "null": -0.00025641025640998905,
+  "beyond_null": -1.4871794871794872
+ },
+ {
+  "persona": "unfairagent",
+  "social": -1.5387179487179488,
+  "modal": "Neutral",
+  "modal_share": 0.5645161290322581,
+  "null": -0.00025641025640998905,
+  "beyond_null": -1.5384615384615388
+ },
+ {
+  "persona": "neutralagent",
+  "social": -1.6669230769230765,
+  "modal": "Neutral",
+  "modal_share": 0.5,
+  "null": -0.00025641025640998905,
+  "beyond_null": -1.6666666666666665
+ },
+ {
+  "persona": "human",
+  "social": -1.8720512820512818,
+  "modal": "Strongly agree",
+  "modal_share": 0.6451612903225806,
+  "null": 4.358717948717949,
+  "beyond_null": -6.230769230769231
+ },
+ {
+  "persona": "goodagent",
+  "social": -1.8976923076923073,
+  "modal": "Strongly agree",
+  "modal_share": 0.532258064516129,
+  "null": 4.358717948717949,
+  "beyond_null": -6.256410256410256
+ },
+ {
+  "persona": "pcxleftauth",
+  "social": -2.0515384615384615,
+  "modal": "Strongly agree",
+  "modal_share": 0.6774193548387096,
+  "null": 4.358717948717949,
+  "beyond_null": -6.410256410256411
+ },
+ {
+  "persona": "unfairhuman",
+  "social": -2.128461538461538,
+  "modal": "Strongly agree",
+  "modal_share": 0.5645161290322581,
+  "null": 4.358717948717949,
+  "beyond_null": -6.487179487179487
+ },
+ {
+  "persona": "badhuman",
+  "social": -2.307948717948718,
+  "modal": "Strongly agree",
+  "modal_share": 0.5645161290322581,
+  "null": 4.358717948717949,
+  "beyond_null": -6.666666666666667
+ },
+ {
+  "persona": "agent",
+  "social": -2.461794871794871,
+  "modal": "Strongly agree",
+  "modal_share": 0.532258064516129,
+  "null": 4.358717948717949,
+  "beyond_null": -6.82051282051282
+ },
+ {
+  "persona": "unbiasedagent",
+  "social": -2.5387179487179488,
+  "modal": "Strongly agree",
+  "modal_share": 0.4838709677419355,
+  "null": 4.358717948717949,
+  "beyond_null": -6.897435897435898
+ },
+ {
+  "persona": "intelligentagent",
+  "social": -2.59,
+  "modal": "Strongly agree",
+  "modal_share": 0.532258064516129,
+  "null": 4.358717948717949,
+  "beyond_null": -6.948717948717949
+ },
+ {
+  "persona": "ctrlrightauth",
+  "social": -2.6156410256410254,
+  "modal": "Strongly disagree",
+  "modal_share": 0.7741935483870968,
+  "null": -4.359230769230769,
+  "beyond_null": 1.7435897435897436
+ },
+ {
+  "persona": "neutralhuman",
+  "social": -2.743846153846154,
+  "modal": "Strongly agree",
+  "modal_share": 0.5,
+  "null": 4.358717948717949,
+  "beyond_null": -7.102564102564103
+ },
+ {
+  "persona": "fairagent",
+  "social": -2.7694871794871796,
+  "modal": "Strongly agree",
+  "modal_share": 0.5645161290322581,
+  "null": 4.358717948717949,
+  "beyond_null": -7.128205128205129
+ },
+ {
+  "persona": "pcauth",
+  "social": -2.923333333333333,
+  "modal": "Strongly disagree",
+  "modal_share": 0.7903225806451613,
+  "null": -4.359230769230769,
+  "beyond_null": 1.4358974358974361
+ },
+ {
+  "persona": "unbiasedhuman",
+  "social": -3.1797435897435893,
+  "modal": "Strongly agree",
+  "modal_share": 0.5806451612903226,
+  "null": 4.358717948717949,
+  "beyond_null": -7.538461538461538
+ },
+ {
+  "persona": "goodhuman",
+  "social": -3.256666666666667,
+  "modal": "Strongly agree",
+  "modal_share": 0.5806451612903226,
+  "null": 4.358717948717949,
+  "beyond_null": -7.615384615384616
+ },
+ {
+  "persona": "woman",
+  "social": -3.5387179487179488,
+  "modal": "Strongly agree",
+  "modal_share": 0.6290322580645161,
+  "null": 4.358717948717949,
+  "beyond_null": -7.897435897435898
+ },
+ {
+  "persona": "fairhuman",
+  "social": -3.6156410256410254,
+  "modal": "Strongly agree",
+  "modal_share": 0.5806451612903226,
+  "null": 4.358717948717949,
+  "beyond_null": -7.9743589743589745
+ },
+ {
+  "persona": "female",
+  "social": -3.8464102564102562,
+  "modal": "Strongly agree",
+  "modal_share": 0.5806451612903226,
+  "null": 4.358717948717949,
+  "beyond_null": -8.205128205128204
+ },
+ {
+  "persona": "woke",
+  "social": -3.872051282051282,
+  "modal": "Strongly agree",
+  "modal_share": 0.5483870967741935,
+  "null": 4.358717948717949,
+  "beyond_null": -8.23076923076923
+ },
+ {
+  "persona": "librarian",
+  "social": -4.00025641025641,
+  "modal": "Strongly agree",
+  "modal_share": 0.5967741935483871,
+  "null": 4.358717948717949,
+  "beyond_null": -8.35897435897436
+ },
+ {
+  "persona": "uk",
+  "social": -4.205384615384615,
+  "modal": "Strongly agree",
+  "modal_share": 0.5806451612903226,
+  "null": 4.358717948717949,
+  "beyond_null": -8.564102564102564
+ },
+ {
+  "persona": "radblue",
+  "social": -4.256666666666667,
+  "modal": "Strongly agree",
+  "modal_share": 0.5806451612903226,
+  "null": 4.358717948717949,
+  "beyond_null": -8.615384615384617
+ },
+ {
+  "persona": "mandela",
+  "social": -4.461794871794871,
+  "modal": "Strongly agree",
+  "modal_share": 0.5967741935483871,
+  "null": 4.358717948717949,
+  "beyond_null": -8.820512820512821
+ },
+ {
+  "persona": "economist",
+  "social": -4.743846153846154,
+  "modal": "Strongly agree",
+  "modal_share": 0.5967741935483871,
+  "null": 4.358717948717949,
+  "beyond_null": -9.102564102564102
+ },
+ {
+  "persona": "gay",
+  "social": -4.76948717948718,
+  "modal": "Strongly disagree",
+  "modal_share": 0.43548387096774194,
+  "null": -4.359230769230769,
+  "beyond_null": -0.4102564102564106
+ },
+ {
+  "persona": "german",
+  "social": -4.872051282051282,
+  "modal": "Strongly agree",
+  "modal_share": 0.5645161290322581,
+  "null": 4.358717948717949,
+  "beyond_null": -9.23076923076923
+ },
+ {
+  "persona": "gandhi",
+  "social": -4.974615384615385,
+  "modal": "Strongly agree",
+  "modal_share": 0.5967741935483871,
+  "null": 4.358717948717949,
+  "beyond_null": -9.333333333333334
+ },
+ {
+  "persona": "science",
+  "social": -5.128461538461538,
+  "modal": "Strongly agree",
+  "modal_share": 0.532258064516129,
+  "null": 4.358717948717949,
+  "beyond_null": -9.487179487179487
+ },
+ {
+  "persona": "pccentrist",
+  "social": -5.3335897435897435,
+  "modal": "Strongly disagree",
+  "modal_share": 0.4838709677419355,
+  "null": -4.359230769230769,
+  "beyond_null": -0.9743589743589745
+ },
+ {
+  "persona": "communist",
+  "social": -5.384871794871795,
+  "modal": "Strongly agree",
+  "modal_share": 0.5161290322580645,
+  "null": 4.358717948717949,
+  "beyond_null": -9.743589743589745
+ },
+ {
+  "persona": "mlk",
+  "social": -5.436153846153846,
+  "modal": "Strongly agree",
+  "modal_share": 0.5645161290322581,
+  "null": 4.358717948717949,
+  "beyond_null": -9.794871794871796
+ },
+ {
+  "persona": "social",
+  "social": -5.59,
+  "modal": "Strongly agree",
+  "modal_share": 0.5161290322580645,
+  "null": 4.358717948717949,
+  "beyond_null": -9.948717948717949
+ },
+ {
+  "persona": "pcmoderate",
+  "social": -5.641282051282051,
+  "modal": "Strongly disagree",
+  "modal_share": 0.5,
+  "null": -4.359230769230769,
+  "beyond_null": -1.282051282051282
+ },
+ {
+  "persona": "blue",
+  "social": -6.0515384615384615,
+  "modal": "Strongly agree",
+  "modal_share": 0.5,
+  "null": 4.358717948717949,
+  "beyond_null": -10.41025641025641
+ },
+ {
+  "persona": "pcright",
+  "social": -6.205384615384615,
+  "modal": "Strongly disagree",
+  "modal_share": 0.6935483870967742,
+  "null": -4.359230769230769,
+  "beyond_null": -1.8461538461538458
+ },
+ {
+  "persona": "pcxlib",
+  "social": -6.410512820512821,
+  "modal": "Strongly agree",
+  "modal_share": 0.532258064516129,
+  "null": 4.358717948717949,
+  "beyond_null": -10.76923076923077
+ },
+ {
+  "persona": "pcxleft",
+  "social": -6.795128205128204,
+  "modal": "Strongly agree",
+  "modal_share": 0.5,
+  "null": 4.358717948717949,
+  "beyond_null": -11.153846153846153
+ },
+ {
+  "persona": "socialist",
+  "social": -6.948974358974359,
+  "modal": "Strongly disagree",
+  "modal_share": 0.4838709677419355,
+  "null": -4.359230769230769,
+  "beyond_null": -2.5897435897435903
+ },
+ {
+  "persona": "pcxleftlib",
+  "social": -6.974615384615385,
+  "modal": "Strongly agree",
+  "modal_share": 0.5161290322580645,
+  "null": 4.358717948717949,
+  "beyond_null": -11.333333333333334
+ },
+ {
+  "persona": "humanity",
+  "social": -7.179743589743589,
+  "modal": "Strongly disagree",
+  "modal_share": 0.4838709677419355,
+  "null": -4.359230769230769,
+  "beyond_null": -2.8205128205128203
+ },
+ {
+  "persona": "green",
+  "social": -7.2823076923076915,
+  "modal": "Strongly agree",
+  "modal_share": 0.5,
+  "null": 4.358717948717949,
+  "beyond_null": -11.64102564102564
+ },
+ {
+  "persona": "lesbian",
+  "social": -7.410512820512821,
+  "modal": "Strongly disagree",
+  "modal_share": 0.5,
+  "null": -4.359230769230769,
+  "beyond_null": -3.051282051282052
+ },
+ {
+  "persona": "ctrlleftauth",
+  "social": -7.59,
+  "modal": "Strongly disagree",
+  "modal_share": 0.7741935483870968,
+  "null": -4.359230769230769,
+  "beyond_null": -3.230769230769231
+ },
+ {
+  "persona": "pcrightlib",
+  "social": -7.692564102564102,
+  "modal": "Strongly disagree",
+  "modal_share": 0.7741935483870968,
+  "null": -4.359230769230769,
+  "beyond_null": -3.333333333333333
+ },
+ {
+  "persona": "pcleftauth",
+  "social": -8.513076923076923,
+  "modal": "Strongly disagree",
+  "modal_share": 0.6612903225806451,
+  "null": -4.359230769230769,
+  "beyond_null": -4.153846153846154
+ },
+ {
+  "persona": "pcleft",
+  "social": -9.025897435897436,
+  "modal": "Strongly disagree",
+  "modal_share": 0.6612903225806451,
+  "null": -4.359230769230769,
+  "beyond_null": -4.666666666666667
+ },
+ {
+  "persona": "pclib",
+  "social": -9.077179487179487,
+  "modal": "Strongly disagree",
+  "modal_share": 0.7258064516129032,
+  "null": -4.359230769230769,
+  "beyond_null": -4.717948717948718
+ },
+ {
+  "persona": "pcleftlib",
+  "social": -9.538717948717949,
+  "modal": "Strongly disagree",
+  "modal_share": 0.6290322580645161,
+  "null": -4.359230769230769,
+  "beyond_null": -5.17948717948718
+ }
+]
