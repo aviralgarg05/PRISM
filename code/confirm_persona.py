@@ -59,6 +59,11 @@ def main():
     ap.add_argument("--model", default="gpt-3.5-turbo", help="the audited model")
     ap.add_argument("--assessor", default="gpt-4o-mini")
     ap.add_argument("--assessor-provider", dest="assessor_provider", default="openai")
+    ap.add_argument("--base-url", dest="base_url", default=None,
+                    help="OpenAI-compatible endpoint, or an ollama server")
+    ap.add_argument("--num-predict", dest="num_predict", type=int, default=None,
+                    help="ollama output cap; ignored for hosted providers, "
+                         "which take max_tokens instead")
     ap.add_argument("--out", default="../results/persona_confirm_full62.json")
     ap.add_argument("--sleep-between", dest="sleep_between", type=float, default=10.0)
     ap.add_argument("--block-seed", dest="block_seed", type=int, default=1,
@@ -102,6 +107,9 @@ def main():
                 continue
             config = {
                 "provider": args.provider, "model": args.model,
+                "base_url": args.base_url,
+                "model_kwargs": ({"num_predict": args.num_predict}
+                                 if args.num_predict else {}),
                 "role": "evolved", "role_text": text, "temperature": 0.0,
                 # Independent essay draw, identical prompt.
                 "prompt_label": f"confirm-{name}-r{rep}",
