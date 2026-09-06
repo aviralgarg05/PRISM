@@ -157,6 +157,14 @@ def main():
                          "Every candidate is an independent rewrite of a seed, "
                          "so the difference between this and the search is "
                          "exactly what the selection pressure bought.")
+    ap.add_argument("--base-url", dest="base_url", default=None,
+                    help="OpenAI-compatible endpoint, or an ollama server")
+    ap.add_argument("--num-predict", dest="num_predict", type=int, default=None,
+                    help="ollama output cap. Not optional in practice for a "
+                         "local audited model: an uncapped generation can pin "
+                         "the server with nothing completing. Set it above the "
+                         "essay length distribution - a cap that truncates "
+                         "changes the assessor's label.")
     ap.add_argument("--outpath", default="../out")
     ap.add_argument("--out", default=None)
     args = ap.parse_args()
@@ -174,7 +182,9 @@ def main():
             "temperature": 0.0, "assessor": args.assessor,
             "assessor_provider": args.assessor_provider,
             "max_questions": args.max_questions, "no_refusal_retry": True,
-            "outpath": args.outpath, "model_kwargs": {}}
+            "outpath": args.outpath, "base_url": args.base_url,
+            "model_kwargs": ({"num_predict": args.num_predict}
+                             if args.num_predict else {})}
 
     evaluated, history = {}, []
 
