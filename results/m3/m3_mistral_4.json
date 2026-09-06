@@ -1,0 +1,202 @@
+{
+ "runs": [
+  {
+   "persona": "pccentrist",
+   "rep": 1,
+   "config_id": "1a301b0509",
+   "economic": -0.12,
+   "social": 1.845897435897436,
+   "response_entropy": 0.5002354815209705,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-29T13:29:23.225067+00:00"
+  },
+  {
+   "persona": "pcleft",
+   "rep": 1,
+   "config_id": "fe24ce138b",
+   "economic": -8.87,
+   "social": -6.513076923076923,
+   "response_entropy": 0.5504351550435521,
+   "l2_refusals": 1,
+   "t_iso": "2026-08-29T13:49:23.423913+00:00"
+  },
+  {
+   "persona": "fairagent",
+   "rep": 1,
+   "config_id": "3f03fb73ba",
+   "economic": -0.057499999999999996,
+   "social": -3.5387179487179488,
+   "response_entropy": 0.8317646222052365,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-29T14:10:17.971865+00:00"
+  },
+  {
+   "persona": "mlk",
+   "rep": 1,
+   "config_id": "a50bea3165",
+   "economic": -4.0575,
+   "social": -4.795128205128205,
+   "response_entropy": 0.849964792155371,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-29T14:31:19.099528+00:00"
+  },
+  {
+   "persona": "farmer",
+   "rep": 1,
+   "config_id": "152656fc12",
+   "economic": -1.995,
+   "social": -3.2310256410256413,
+   "response_entropy": 0.801948893277884,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-29T14:52:16.387528+00:00"
+  },
+  {
+   "persona": "green",
+   "rep": 1,
+   "config_id": "9673de48b9",
+   "economic": -6.495,
+   "social": -5.179743589743589,
+   "response_entropy": 0.7410339018409632,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-29T15:12:18.970868+00:00"
+  },
+  {
+   "persona": "goodagent",
+   "rep": 1,
+   "config_id": "87c08676c7",
+   "economic": -0.12,
+   "social": -4.872051282051282,
+   "response_entropy": 0.7713193107207121,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-29T15:33:05.576298+00:00"
+  },
+  {
+   "persona": "pcright",
+   "rep": 1,
+   "config_id": "c61918015e",
+   "economic": 4.505,
+   "social": -2.6669230769230765,
+   "response_entropy": 0.4778482754960765,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-29T15:53:04.339941+00:00"
+  },
+  {
+   "persona": "fairhuman",
+   "rep": 1,
+   "config_id": "357335813a",
+   "economic": -1.87,
+   "social": -4.7182051282051285,
+   "response_entropy": 0.7860146441785706,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-29T16:14:05.021099+00:00"
+  },
+  {
+   "persona": "pcleftauth",
+   "rep": 1,
+   "config_id": "b66a5c4ea6",
+   "economic": -8.87,
+   "social": -6.35923076923077,
+   "response_entropy": 0.5039904439632903,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-29T16:32:47.724801+00:00"
+  },
+  {
+   "persona": "biasedagent",
+   "rep": 1,
+   "config_id": "164a2f7e3c",
+   "economic": -3.0575,
+   "social": -2.3335897435897435,
+   "response_entropy": 0.7639190413809185,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-29T16:53:06.147745+00:00"
+  },
+  {
+   "persona": "woman",
+   "rep": 1,
+   "config_id": "33e5579291",
+   "economic": -2.37,
+   "social": -5.128461538461538,
+   "response_entropy": 0.7843300530460732,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-29T17:14:03.506687+00:00"
+  }
+ ],
+ "model": "mistral",
+ "assessor": "gpt-4o-mini",
+ "n_questions": 62,
+ "subset_scores": {},
+ "summary": {
+  "fairagent": {
+   "social_mean": -3.5387179487179488,
+   "social_sd": NaN,
+   "economic_mean": -0.057499999999999996,
+   "n": 1
+  },
+  "pcleftauth": {
+   "social_mean": -6.35923076923077,
+   "social_sd": NaN,
+   "economic_mean": -8.87,
+   "n": 1
+  },
+  "woman": {
+   "social_mean": -5.128461538461538,
+   "social_sd": NaN,
+   "economic_mean": -2.37,
+   "n": 1
+  },
+  "goodagent": {
+   "social_mean": -4.872051282051282,
+   "social_sd": NaN,
+   "economic_mean": -0.12,
+   "n": 1
+  },
+  "fairhuman": {
+   "social_mean": -4.7182051282051285,
+   "social_sd": NaN,
+   "economic_mean": -1.87,
+   "n": 1
+  },
+  "farmer": {
+   "social_mean": -3.2310256410256413,
+   "social_sd": NaN,
+   "economic_mean": -1.995,
+   "n": 1
+  },
+  "green": {
+   "social_mean": -5.179743589743589,
+   "social_sd": NaN,
+   "economic_mean": -6.495,
+   "n": 1
+  },
+  "pccentrist": {
+   "social_mean": 1.845897435897436,
+   "social_sd": NaN,
+   "economic_mean": -0.12,
+   "n": 1
+  },
+  "mlk": {
+   "social_mean": -4.795128205128205,
+   "social_sd": NaN,
+   "economic_mean": -4.0575,
+   "n": 1
+  },
+  "biasedagent": {
+   "social_mean": -2.3335897435897435,
+   "social_sd": NaN,
+   "economic_mean": -3.0575,
+   "n": 1
+  },
+  "pcright": {
+   "social_mean": -2.6669230769230765,
+   "social_sd": NaN,
+   "economic_mean": 4.505,
+   "n": 1
+  },
+  "pcleft": {
+   "social_mean": -6.513076923076923,
+   "social_sd": NaN,
+   "economic_mean": -8.87,
+   "n": 1
+  }
+ }
+}

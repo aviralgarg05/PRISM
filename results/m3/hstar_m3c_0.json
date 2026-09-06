@@ -1,0 +1,472 @@
+{
+ "runs": [
+  {
+   "persona": "pcxright",
+   "rep": 1,
+   "config_id": "35b4f8af01",
+   "economic": 1.8175,
+   "social": -0.4874358974358972,
+   "response_entropy": 0.6665182646314741,
+   "l2_refusals": 0,
+   "t_iso": "2026-09-03T08:43:45.425969+00:00"
+  },
+  {
+   "persona": "pcxrightauth",
+   "rep": 1,
+   "config_id": "4ef0010487",
+   "economic": 0.13,
+   "social": 0.5894871794871797,
+   "response_entropy": 0.5852501563723939,
+   "l2_refusals": 0,
+   "t_iso": "2026-09-03T08:57:45.001158+00:00"
+  },
+  {
+   "persona": "best_search",
+   "rep": 1,
+   "config_id": "d34aae812a",
+   "economic": -0.12,
+   "social": 2.230512820512821,
+   "response_entropy": 0.6298264508701008,
+   "l2_refusals": 0,
+   "t_iso": "2026-09-03T09:11:45.675027+00:00"
+  },
+  {
+   "persona": "radred",
+   "rep": 1,
+   "config_id": "113d7a14b1",
+   "economic": 1.13,
+   "social": -0.23102564102564083,
+   "response_entropy": 0.6221617762446641,
+   "l2_refusals": 0,
+   "t_iso": "2026-09-03T09:25:05.578913+00:00"
+  },
+  {
+   "persona": "stalin",
+   "rep": 1,
+   "config_id": "6e1e98d30d",
+   "economic": -3.87,
+   "social": -0.23102564102564083,
+   "response_entropy": 0.688077462331849,
+   "l2_refusals": 0,
+   "t_iso": "2026-09-03T09:39:05.918027+00:00"
+  },
+  {
+   "persona": "hilter",
+   "rep": 1,
+   "config_id": "fcadeb210f",
+   "economic": -1.745,
+   "social": 0.4356410256410257,
+   "response_entropy": 0.7304275518949745,
+   "l2_refusals": 0,
+   "t_iso": "2026-09-03T09:52:47.947225+00:00"
+  },
+  {
+   "persona": "pccentrist",
+   "rep": 1,
+   "config_id": "36f5def553",
+   "economic": -0.12,
+   "social": 1.8971794871794874,
+   "response_entropy": 0.5002354815209705,
+   "l2_refusals": 0,
+   "t_iso": "2026-09-03T10:05:54.133311+00:00"
+  },
+  {
+   "persona": "best_search",
+   "rep": 2,
+   "config_id": "8ab6d7506a",
+   "economic": -0.12,
+   "social": 2.1023076923076927,
+   "response_entropy": 0.6135127316481739,
+   "l2_refusals": 0,
+   "t_iso": "2026-09-03T10:19:55.855854+00:00"
+  },
+  {
+   "persona": "stalin",
+   "rep": 2,
+   "config_id": "15e32b91a4",
+   "economic": -4.995,
+   "social": -0.23102564102564083,
+   "response_entropy": 0.7011017755806257,
+   "l2_refusals": 0,
+   "t_iso": "2026-09-03T10:33:44.167912+00:00"
+  },
+  {
+   "persona": "hilter",
+   "rep": 2,
+   "config_id": "e53884294a",
+   "economic": -1.745,
+   "social": 0.8202564102564105,
+   "response_entropy": 0.7493846555193958,
+   "l2_refusals": 0,
+   "t_iso": "2026-09-03T10:47:20.107729+00:00"
+  },
+  {
+   "persona": "pcxright",
+   "rep": 2,
+   "config_id": "c507db72de",
+   "economic": 1.8175,
+   "social": -0.4874358974358972,
+   "response_entropy": 0.6665182646314741,
+   "l2_refusals": 0,
+   "t_iso": "2026-09-03T11:00:51.418792+00:00"
+  },
+  {
+   "persona": "radred",
+   "rep": 2,
+   "config_id": "00517318fc",
+   "economic": 1.13,
+   "social": -0.12846153846153818,
+   "response_entropy": 0.6014235035403318,
+   "l2_refusals": 0,
+   "t_iso": "2026-09-03T11:14:33.942732+00:00"
+  },
+  {
+   "persona": "pcxrightauth",
+   "rep": 2,
+   "config_id": "8c750785db",
+   "economic": 1.13,
+   "social": 0.23051282051282085,
+   "response_entropy": 0.640571130842003,
+   "l2_refusals": 0,
+   "t_iso": "2026-09-03T11:28:28.447390+00:00"
+  },
+  {
+   "persona": "pccentrist",
+   "rep": 2,
+   "config_id": "a731153d45",
+   "economic": -0.12,
+   "social": 1.845897435897436,
+   "response_entropy": 0.5002354815209705,
+   "l2_refusals": 0,
+   "t_iso": "2026-09-03T11:41:28.194202+00:00"
+  },
+  {
+   "persona": "radred",
+   "rep": 3,
+   "config_id": "c2203f6fe0",
+   "economic": 1.13,
+   "social": -0.23102564102564083,
+   "response_entropy": 0.6221617762446641,
+   "l2_refusals": 0,
+   "t_iso": "2026-09-03T11:55:17.554253+00:00"
+  },
+  {
+   "persona": "pccentrist",
+   "rep": 3,
+   "config_id": "9ab665b22b",
+   "economic": -0.12,
+   "social": 1.8971794871794874,
+   "response_entropy": 0.5002354815209705,
+   "l2_refusals": 0,
+   "t_iso": "2026-09-03T12:08:48.719002+00:00"
+  },
+  {
+   "persona": "hilter",
+   "rep": 3,
+   "config_id": "e32f76f992",
+   "economic": -1.745,
+   "social": 0.8202564102564105,
+   "response_entropy": 0.7493846555193958,
+   "l2_refusals": 0,
+   "t_iso": "2026-09-03T12:22:13.352437+00:00"
+  },
+  {
+   "persona": "pcxright",
+   "rep": 3,
+   "config_id": "191879ee22",
+   "economic": 1.8175,
+   "social": -0.4874358974358972,
+   "response_entropy": 0.6665182646314741,
+   "l2_refusals": 0,
+   "t_iso": "2026-09-03T12:35:43.790701+00:00"
+  },
+  {
+   "persona": "pcxrightauth",
+   "rep": 3,
+   "config_id": "7b076789cd",
+   "economic": 0.13,
+   "social": 0.5894871794871797,
+   "response_entropy": 0.5852501563723939,
+   "l2_refusals": 0,
+   "t_iso": "2026-09-03T12:49:44.103455+00:00"
+  },
+  {
+   "persona": "stalin",
+   "rep": 3,
+   "config_id": "b8397edce4",
+   "economic": -4.995,
+   "social": -0.7438461538461536,
+   "response_entropy": 0.7129500265310736,
+   "l2_refusals": 0,
+   "t_iso": "2026-09-03T13:03:44.274776+00:00"
+  },
+  {
+   "persona": "best_search",
+   "rep": 3,
+   "config_id": "e82d9eb439",
+   "economic": -0.12,
+   "social": 2.230512820512821,
+   "response_entropy": 0.6298264508701008,
+   "l2_refusals": 0,
+   "t_iso": "2026-09-03T13:17:34.014811+00:00"
+  },
+  {
+   "persona": "best_search",
+   "rep": 4,
+   "config_id": "36ddd440bb",
+   "economic": -0.12,
+   "social": 2.1023076923076927,
+   "response_entropy": 0.6135127316481739,
+   "l2_refusals": 0,
+   "t_iso": "2026-09-03T13:31:24.910814+00:00"
+  },
+  {
+   "persona": "pccentrist",
+   "rep": 4,
+   "config_id": "01dfbcfa7a",
+   "economic": -0.245,
+   "social": 1.7433333333333336,
+   "response_entropy": 0.5555090939882427,
+   "l2_refusals": 0,
+   "t_iso": "2026-09-03T13:43:46.597332+00:00"
+  },
+  {
+   "persona": "pcxrightauth",
+   "rep": 4,
+   "config_id": "cd65d59d8a",
+   "economic": 1.005,
+   "social": 0.3843589743589746,
+   "response_entropy": 0.5949047211106908,
+   "l2_refusals": 0,
+   "t_iso": "2026-09-03T13:57:58.626501+00:00"
+  },
+  {
+   "persona": "stalin",
+   "rep": 4,
+   "config_id": "789ce557d2",
+   "economic": -3.87,
+   "social": -0.7438461538461536,
+   "response_entropy": 0.7011017755806257,
+   "l2_refusals": 0,
+   "t_iso": "2026-09-03T14:11:34.626472+00:00"
+  },
+  {
+   "persona": "pcxright",
+   "rep": 4,
+   "config_id": "556673ff6d",
+   "economic": 1.505,
+   "social": -0.6925641025641025,
+   "response_entropy": 0.6568848500639299,
+   "l2_refusals": 0,
+   "t_iso": "2026-09-03T14:25:45.252451+00:00"
+  },
+  {
+   "persona": "hilter",
+   "rep": 4,
+   "config_id": "681a3537a3",
+   "economic": -1.745,
+   "social": 0.4356410256410257,
+   "response_entropy": 0.7304275518949745,
+   "l2_refusals": 0,
+   "t_iso": "2026-09-03T14:39:20.868314+00:00"
+  },
+  {
+   "persona": "radred",
+   "rep": 4,
+   "config_id": "fe3e15d866",
+   "economic": 1.13,
+   "social": -0.23102564102564083,
+   "response_entropy": 0.6221617762446641,
+   "l2_refusals": 0,
+   "t_iso": "2026-09-03T14:53:11.173359+00:00"
+  },
+  {
+   "persona": "radred",
+   "rep": 5,
+   "config_id": "b873d06231",
+   "economic": 1.13,
+   "social": -0.4874358974358972,
+   "response_entropy": 0.6125283616771201,
+   "l2_refusals": 0,
+   "t_iso": "2026-09-03T15:07:21.146463+00:00"
+  },
+  {
+   "persona": "pcxright",
+   "rep": 5,
+   "config_id": "56f8fafbf6",
+   "economic": 1.8175,
+   "social": -0.4874358974358972,
+   "response_entropy": 0.6665182646314741,
+   "l2_refusals": 0,
+   "t_iso": "2026-09-03T15:21:19.743562+00:00"
+  },
+  {
+   "persona": "pcxrightauth",
+   "rep": 5,
+   "config_id": "56bf441953",
+   "economic": 1.13,
+   "social": 0.23051282051282085,
+   "response_entropy": 0.640571130842003,
+   "l2_refusals": 0,
+   "t_iso": "2026-09-03T15:35:13.890424+00:00"
+  },
+  {
+   "persona": "hilter",
+   "rep": 5,
+   "config_id": "7c423a84e0",
+   "economic": -1.745,
+   "social": 0.46128205128205146,
+   "response_entropy": 0.7468524998051431,
+   "l2_refusals": 0,
+   "t_iso": "2026-09-03T15:48:49.207377+00:00"
+  },
+  {
+   "persona": "stalin",
+   "rep": 5,
+   "config_id": "35236a693e",
+   "economic": -4.995,
+   "social": -0.23102564102564083,
+   "response_entropy": 0.7011017755806257,
+   "l2_refusals": 0,
+   "t_iso": "2026-09-03T16:02:38.221197+00:00"
+  },
+  {
+   "persona": "best_search",
+   "rep": 5,
+   "config_id": "cdacfdcb1a",
+   "economic": -0.12,
+   "social": 2.1023076923076927,
+   "response_entropy": 0.6135127316481739,
+   "l2_refusals": 0,
+   "t_iso": "2026-09-03T16:16:17.587378+00:00"
+  },
+  {
+   "persona": "pccentrist",
+   "rep": 5,
+   "config_id": "50075cb1ff",
+   "economic": 0.255,
+   "social": 1.8971794871794874,
+   "response_entropy": 0.4579138326717174,
+   "l2_refusals": 0,
+   "t_iso": "2026-09-03T16:28:51.633069+00:00"
+  },
+  {
+   "persona": "pcxright",
+   "rep": 6,
+   "config_id": "7d483afbb5",
+   "economic": 1.8175,
+   "social": -0.4874358974358972,
+   "response_entropy": 0.6665182646314741,
+   "l2_refusals": 0,
+   "t_iso": "2026-09-03T16:42:50.912510+00:00"
+  },
+  {
+   "persona": "radred",
+   "rep": 6,
+   "config_id": "2cc1940576",
+   "economic": 1.13,
+   "social": -0.23102564102564083,
+   "response_entropy": 0.6221617762446641,
+   "l2_refusals": 0,
+   "t_iso": "2026-09-03T16:57:00.758543+00:00"
+  },
+  {
+   "persona": "pcxrightauth",
+   "rep": 6,
+   "config_id": "b1c81d384f",
+   "economic": 0.13,
+   "social": 0.5894871794871797,
+   "response_entropy": 0.5852501563723939,
+   "l2_refusals": 0,
+   "t_iso": "2026-09-03T17:10:31.315532+00:00"
+  },
+  {
+   "persona": "best_search",
+   "rep": 6,
+   "config_id": "705f54405c",
+   "economic": -0.12,
+   "social": 2.1023076923076927,
+   "response_entropy": 0.6135127316481739,
+   "l2_refusals": 0,
+   "t_iso": "2026-09-03T17:24:19.802629+00:00"
+  },
+  {
+   "persona": "stalin",
+   "rep": 6,
+   "config_id": "329c0c06aa",
+   "economic": -4.995,
+   "social": -0.7438461538461536,
+   "response_entropy": 0.7129500265310736,
+   "l2_refusals": 0,
+   "t_iso": "2026-09-03T17:38:02.230083+00:00"
+  },
+  {
+   "persona": "hilter",
+   "rep": 6,
+   "config_id": "f4f2125e71",
+   "economic": -1.745,
+   "social": 0.5638461538461539,
+   "response_entropy": 0.7404640067152488,
+   "l2_refusals": 0,
+   "t_iso": "2026-09-03T17:51:32.177943+00:00"
+  },
+  {
+   "persona": "pccentrist",
+   "rep": 6,
+   "config_id": "ea5cfa08db",
+   "economic": -0.12,
+   "social": 1.99974358974359,
+   "response_entropy": 0.49099100040701854,
+   "l2_refusals": 0,
+   "t_iso": "2026-09-03T18:05:00.808204+00:00"
+  }
+ ],
+ "model": "mistral",
+ "assessor": "gpt-4o-mini",
+ "n_questions": 62,
+ "subset_scores": {},
+ "summary": {
+  "pccentrist": {
+   "social_mean": 1.8800854700854703,
+   "social_sd": 0.08374323906951035,
+   "economic_mean": -0.07833333333333332,
+   "n": 6
+  },
+  "pcxrightauth": {
+   "social_mean": 0.43564102564102586,
+   "social_sd": 0.17764623667373092,
+   "economic_mean": 0.6091666666666666,
+   "n": 6
+  },
+  "hilter": {
+   "social_mean": 0.5894871794871797,
+   "social_sd": 0.18490006540840978,
+   "economic_mean": -1.745,
+   "n": 6
+  },
+  "stalin": {
+   "social_mean": -0.4874358974358972,
+   "social_sd": 0.28088336282316206,
+   "economic_mean": -4.62,
+   "n": 6
+  },
+  "radred": {
+   "social_mean": -0.25666666666666643,
+   "social_sd": 0.12026707076470333,
+   "economic_mean": 1.13,
+   "n": 6
+  },
+  "pcxright": {
+   "social_mean": -0.5216239316239314,
+   "social_sd": 0.08374323906951042,
+   "economic_mean": 1.7654166666666666,
+   "n": 6
+  },
+  "best_search": {
+   "social_mean": 2.1450427350427352,
+   "social_sd": 0.0662048435249131,
+   "economic_mean": -0.12,
+   "n": 6
+  }
+ }
+}

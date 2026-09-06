@@ -1,0 +1,202 @@
+{
+ "runs": [
+  {
+   "persona": "neutralhuman",
+   "rep": 1,
+   "config_id": "3b6ff7ddba",
+   "economic": -1.8075,
+   "social": -4.436153846153846,
+   "response_entropy": 0.8035279974348278,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-29T13:29:35.278074+00:00"
+  },
+  {
+   "persona": "pcxleftauth",
+   "rep": 1,
+   "config_id": "e151c4f487",
+   "economic": -2.87,
+   "social": -1.2053846153846153,
+   "response_entropy": 0.7847901413336498,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-29T13:49:51.026341+00:00"
+  },
+  {
+   "persona": "_search_best",
+   "rep": 1,
+   "config_id": "ffece2981f",
+   "economic": -0.37,
+   "social": 1.5894871794871797,
+   "response_entropy": 0.5958890910817446,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-29T14:10:44.419902+00:00"
+  },
+  {
+   "persona": "badagent",
+   "rep": 1,
+   "config_id": "8daca45063",
+   "economic": -1.8075,
+   "social": -3.872051282051282,
+   "response_entropy": 0.7893445403797502,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-29T14:31:45.374200+00:00"
+  },
+  {
+   "persona": "unfairagent",
+   "rep": 1,
+   "config_id": "6b0431f115",
+   "economic": -2.5575,
+   "social": -4.128461538461538,
+   "response_entropy": 0.8037792845043951,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-29T14:52:49.470662+00:00"
+  },
+  {
+   "persona": "pcrightauth",
+   "rep": 1,
+   "config_id": "fe99504a64",
+   "economic": 6.005,
+   "social": -1.3848717948717946,
+   "response_entropy": 0.49693726425357626,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-29T15:12:41.890164+00:00"
+  },
+  {
+   "persona": "unfairhuman",
+   "rep": 1,
+   "config_id": "c07f24f4f3",
+   "economic": -2.6825,
+   "social": -3.1541025641025637,
+   "response_entropy": 0.8382152397296959,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-29T15:33:30.696662+00:00"
+  },
+  {
+   "persona": "red",
+   "rep": 1,
+   "config_id": "300c64f45b",
+   "economic": 1.255,
+   "social": -2.307948717948718,
+   "response_entropy": 0.7395119280150437,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-29T15:53:29.510071+00:00"
+  },
+  {
+   "persona": "gay",
+   "rep": 1,
+   "config_id": "bcf5a8ecef",
+   "economic": -2.995,
+   "social": -5.538717948717949,
+   "response_entropy": 0.8367668517766739,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-29T16:14:32.141858+00:00"
+  },
+  {
+   "persona": "pcmoderate",
+   "rep": 1,
+   "config_id": "6a37404e88",
+   "economic": -1.12,
+   "social": -1.641282051282051,
+   "response_entropy": 0.758800510682226,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-29T16:33:14.597580+00:00"
+  },
+  {
+   "persona": "hilter",
+   "rep": 1,
+   "config_id": "deab11e36a",
+   "economic": -1.745,
+   "social": 0.4356410256410257,
+   "response_entropy": 0.7304275518949745,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-29T16:53:31.282642+00:00"
+  },
+  {
+   "persona": "intelligentagent",
+   "rep": 1,
+   "config_id": "f2fab6a949",
+   "economic": -1.0575,
+   "social": -5.128461538461538,
+   "response_entropy": 0.8351422816044182,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-29T17:14:29.664002+00:00"
+  }
+ ],
+ "model": "mistral",
+ "assessor": "gpt-4o-mini",
+ "n_questions": 62,
+ "subset_scores": {},
+ "summary": {
+  "_search_best": {
+   "social_mean": 1.5894871794871797,
+   "social_sd": NaN,
+   "economic_mean": -0.37,
+   "n": 1
+  },
+  "pcmoderate": {
+   "social_mean": -1.641282051282051,
+   "social_sd": NaN,
+   "economic_mean": -1.12,
+   "n": 1
+  },
+  "intelligentagent": {
+   "social_mean": -5.128461538461538,
+   "social_sd": NaN,
+   "economic_mean": -1.0575,
+   "n": 1
+  },
+  "unfairhuman": {
+   "social_mean": -3.1541025641025637,
+   "social_sd": NaN,
+   "economic_mean": -2.6825,
+   "n": 1
+  },
+  "gay": {
+   "social_mean": -5.538717948717949,
+   "social_sd": NaN,
+   "economic_mean": -2.995,
+   "n": 1
+  },
+  "unfairagent": {
+   "social_mean": -4.128461538461538,
+   "social_sd": NaN,
+   "economic_mean": -2.5575,
+   "n": 1
+  },
+  "pcrightauth": {
+   "social_mean": -1.3848717948717946,
+   "social_sd": NaN,
+   "economic_mean": 6.005,
+   "n": 1
+  },
+  "neutralhuman": {
+   "social_mean": -4.436153846153846,
+   "social_sd": NaN,
+   "economic_mean": -1.8075,
+   "n": 1
+  },
+  "badagent": {
+   "social_mean": -3.872051282051282,
+   "social_sd": NaN,
+   "economic_mean": -1.8075,
+   "n": 1
+  },
+  "hilter": {
+   "social_mean": 0.4356410256410257,
+   "social_sd": NaN,
+   "economic_mean": -1.745,
+   "n": 1
+  },
+  "red": {
+   "social_mean": -2.307948717948718,
+   "social_sd": NaN,
+   "economic_mean": 1.255,
+   "n": 1
+  },
+  "pcxleftauth": {
+   "social_mean": -1.2053846153846153,
+   "social_sd": NaN,
+   "economic_mean": -2.87,
+   "n": 1
+  }
+ }
+}

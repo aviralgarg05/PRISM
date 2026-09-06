@@ -1989,6 +1989,81 @@ progress. Two models from the same vendor is a weaker replication than two
 families, and until that lands the claim is "replicates across two OpenAI
 models" rather than "replicates across models".
 
+## 33. A third model, from a different family: search draws rather than wins
+
+Sections 30 and 32 settled two OpenAI models. **mistral 7B**, run locally,
+is the first audited model outside that family. All 69 hand-written personas
+plus the two search-derived ones were enumerated on the full instrument, then
+the top six hand-written personas and the search candidate confirmed at n=12 in
+randomised complete blocks.
+
+| arm | n | social | sd |
+| --- | --- | --- | --- |
+| **best search candidate** | 12 | **+2.149** | 0.102 |
+| `pccentrist` | 12 | +1.863 | 0.103 |
+| `hilter` | 12 | +0.600 | 0.156 |
+| `pcxrightauth` | 12 | +0.468 | 0.135 |
+| `radred` | 12 | −0.257 | 0.115 |
+| `stalin` | 12 | −0.513 | 0.252 |
+| `pcxright` | 12 | −0.522 | 0.080 |
+
+D = +0.286, se 0.042, 95% CI **[+0.199, +0.373]**. Above zero, but below the
++0.50 the pre-registration required for a positive claim and inside the ±0.75
+equivalence bound.
+
+**Pre-registered outcome: EQUIVALENT.**
+
+### The three models together
+
+| audited model | H\* | search | D | outcome |
+| --- | --- | --- | --- | --- |
+| gpt-3.5-turbo | +7.393 | +6.562 | −0.831 | NEGATIVE |
+| gpt-4o-mini | +6.769 | +6.068 | −0.701 | NEGATIVE |
+| mistral 7B | +1.863 | +2.149 | +0.286 | EQUIVALENT |
+
+**Search never wins.** It loses on the two models the hand-written library suits
+and draws on the one it does not. The claim that survives all three is the
+negative one, with a boundary condition rather than an exception.
+
+The mechanism is visible in the library's own transfer. `pcxrightauth` scores
++7.18 on gpt-3.5-turbo and +0.468 on mistral; `roles.py` came out of work on
+OpenAI models and its terse "according to the Political Compass Test" register
+does not carry. The searched persona, being free text that does not depend on
+that register, loses less in transfer — enough to finish first on mistral, not
+enough to finish first by a margin worth claiming.
+
+Note also that mistral's whole range is compressed: [−7.33, +1.85] against
+[−9.54, +7.18], and **not one of its 71 personas reaches the +4.36 acquiescence
+null** (section 31). The differences being resolved here are real but small, on
+a model that barely moves.
+
+### A superseded measurement, recorded
+
+An earlier n=12 run on mistral gave D = **+0.808**, CI [+0.513, +1.099] — a
+pre-registered POSITIVE. It is superseded by the table above, and the reason
+matters:
+
+| | earlier run | the run reported here |
+| --- | --- | --- |
+| concurrent clients | 3 | 2 |
+| generation cap | none | `num_predict` 1200 |
+| hand-written arms | 2 | 6 |
+| within-arm sd | 0.15 – 0.37 | 0.08 – 0.25 |
+| D | +0.808 | +0.286 |
+
+The three-client run wedged the ollama server — GPU pinned at 94% with nothing
+completing and new requests timing out — and its within-arm variance is two to
+three times higher. The capped run is the controlled one: the cap is
+non-binding (longest essay 1014 tokens against a 1200 cap, so nothing was
+truncated), it carries every plausible H\* candidate rather than two, and it is
+three times more precise.
+
+Two things follow. **A local model's generation settings are part of the
+measurement**, not an implementation detail: the same comparison moved half a
+unit between configurations, more than the effect being measured. And the
+pre-registration earned its place — without a threshold fixed in advance, the
+noisier run would have been written up as a positive result.
+
 ## What is not yet done
 
 - **`--max-questions` has no subset-specific score transform**, so a reduced

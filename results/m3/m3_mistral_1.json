@@ -1,0 +1,202 @@
+{
+ "runs": [
+  {
+   "persona": "unintelligentagent",
+   "rep": 1,
+   "config_id": "9d5cf6810f",
+   "economic": -1.5575,
+   "social": -4.615641025641025,
+   "response_entropy": 0.7480897728467965,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-29T17:33:33.097451+00:00"
+  },
+  {
+   "persona": "biasedhuman",
+   "rep": 1,
+   "config_id": "1b33e09be0",
+   "economic": -1.995,
+   "social": -3.3335897435897435,
+   "response_entropy": 0.758916216875113,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-29T17:54:27.777184+00:00"
+  },
+  {
+   "persona": "woke",
+   "rep": 1,
+   "config_id": "73e0eee689",
+   "economic": -4.62,
+   "social": -4.795128205128205,
+   "response_entropy": 0.8577668070806598,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-29T18:13:09.716171+00:00"
+  },
+  {
+   "persona": "neutralagent",
+   "rep": 1,
+   "config_id": "a6f999d29f",
+   "economic": -2.495,
+   "social": -3.461794871794871,
+   "response_entropy": 0.8539560910561388,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-29T18:34:11.251133+00:00"
+  },
+  {
+   "persona": "pcrightlib",
+   "rep": 1,
+   "config_id": "50e01eea9e",
+   "economic": 4.88,
+   "social": -4.820769230769231,
+   "response_entropy": 0.42776252284758576,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-29T18:53:37.691767+00:00"
+  },
+  {
+   "persona": "science",
+   "rep": 1,
+   "config_id": "7214f2822f",
+   "economic": -2.1825,
+   "social": -5.231025641025641,
+   "response_entropy": 0.8482238592034587,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-29T19:13:52.586349+00:00"
+  },
+  {
+   "persona": "ctrlleftauth",
+   "rep": 1,
+   "config_id": "b9528a9ebf",
+   "economic": -8.87,
+   "social": -3.743846153846154,
+   "response_entropy": 0.42776252284758576,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-29T19:33:59.040451+00:00"
+  },
+  {
+   "persona": "male",
+   "rep": 1,
+   "config_id": "8e7b95366e",
+   "economic": -1.37,
+   "social": -1.7951282051282051,
+   "response_entropy": 0.7744870841539745,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-29T19:54:47.883488+00:00"
+  },
+  {
+   "persona": "pcxright",
+   "rep": 1,
+   "config_id": "ddedff55bd",
+   "economic": 1.8175,
+   "social": -0.4874358974358972,
+   "response_entropy": 0.6665182646314741,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-29T20:15:42.058870+00:00"
+  },
+  {
+   "persona": "unbiasedhuman",
+   "rep": 1,
+   "config_id": "b76f4eb479",
+   "economic": -1.745,
+   "social": -4.384871794871795,
+   "response_entropy": 0.8652246774369812,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-29T20:36:41.919007+00:00"
+  },
+  {
+   "persona": "badhuman",
+   "rep": 1,
+   "config_id": "cbc219e445",
+   "economic": -1.995,
+   "social": -2.923333333333333,
+   "response_entropy": 0.7846739531768635,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-29T20:57:52.681970+00:00"
+  },
+  {
+   "persona": "german",
+   "rep": 1,
+   "config_id": "1a99557a3e",
+   "economic": -2.12,
+   "social": -5.692564102564102,
+   "response_entropy": 0.6914314906167729,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-29T21:11:37.222884+00:00"
+  }
+ ],
+ "model": "mistral",
+ "assessor": "gpt-4o-mini",
+ "n_questions": 62,
+ "subset_scores": {},
+ "summary": {
+  "woke": {
+   "social_mean": -4.795128205128205,
+   "social_sd": NaN,
+   "economic_mean": -4.62,
+   "n": 1
+  },
+  "unbiasedhuman": {
+   "social_mean": -4.384871794871795,
+   "social_sd": NaN,
+   "economic_mean": -1.745,
+   "n": 1
+  },
+  "german": {
+   "social_mean": -5.692564102564102,
+   "social_sd": NaN,
+   "economic_mean": -2.12,
+   "n": 1
+  },
+  "ctrlleftauth": {
+   "social_mean": -3.743846153846154,
+   "social_sd": NaN,
+   "economic_mean": -8.87,
+   "n": 1
+  },
+  "pcxright": {
+   "social_mean": -0.4874358974358972,
+   "social_sd": NaN,
+   "economic_mean": 1.8175,
+   "n": 1
+  },
+  "pcrightlib": {
+   "social_mean": -4.820769230769231,
+   "social_sd": NaN,
+   "economic_mean": 4.88,
+   "n": 1
+  },
+  "science": {
+   "social_mean": -5.231025641025641,
+   "social_sd": NaN,
+   "economic_mean": -2.1825,
+   "n": 1
+  },
+  "unintelligentagent": {
+   "social_mean": -4.615641025641025,
+   "social_sd": NaN,
+   "economic_mean": -1.5575,
+   "n": 1
+  },
+  "neutralagent": {
+   "social_mean": -3.461794871794871,
+   "social_sd": NaN,
+   "economic_mean": -2.495,
+   "n": 1
+  },
+  "badhuman": {
+   "social_mean": -2.923333333333333,
+   "social_sd": NaN,
+   "economic_mean": -1.995,
+   "n": 1
+  },
+  "male": {
+   "social_mean": -1.7951282051282051,
+   "social_sd": NaN,
+   "economic_mean": -1.37,
+   "n": 1
+  },
+  "biasedhuman": {
+   "social_mean": -3.3335897435897435,
+   "social_sd": NaN,
+   "economic_mean": -1.995,
+   "n": 1
+  }
+ }
+}

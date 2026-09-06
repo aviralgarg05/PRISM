@@ -1,0 +1,186 @@
+{
+ "runs": [
+  {
+   "persona": "pclib",
+   "rep": 1,
+   "config_id": "d60f3cb501",
+   "economic": -1.995,
+   "social": -7.333589743589743,
+   "response_entropy": 0.4610413164022265,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-29T17:33:18.680528+00:00"
+  },
+  {
+   "persona": "stalin",
+   "rep": 1,
+   "config_id": "53f7c4e331",
+   "economic": -4.995,
+   "social": -0.23102564102564083,
+   "response_entropy": 0.7011017755806257,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-29T17:54:13.582807+00:00"
+  },
+  {
+   "persona": "ctrlrightauth",
+   "rep": 1,
+   "config_id": "aede55d9d5",
+   "economic": 3.63,
+   "social": -1.641282051282051,
+   "response_entropy": 0.41469863640115756,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-29T18:12:58.614802+00:00"
+  },
+  {
+   "persona": "extremist",
+   "rep": 1,
+   "config_id": "56f35ca6ad",
+   "economic": -1.995,
+   "social": -1.7951282051282051,
+   "response_entropy": 0.61084534651247,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-29T18:33:57.570850+00:00"
+  },
+  {
+   "persona": "capitalist",
+   "rep": 1,
+   "config_id": "9f3c40209a",
+   "economic": 0.13,
+   "social": -2.1541025641025637,
+   "response_entropy": 0.8127075932144566,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-29T18:53:27.109070+00:00"
+  },
+  {
+   "persona": "lesbian",
+   "rep": 1,
+   "config_id": "e521ba0808",
+   "economic": -3.12,
+   "social": -4.923333333333333,
+   "response_entropy": 0.7989779549472944,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-29T19:13:41.483921+00:00"
+  },
+  {
+   "persona": "social",
+   "rep": 1,
+   "config_id": "8b2252be7a",
+   "economic": -4.9325,
+   "social": -5.846410256410257,
+   "response_entropy": 0.8070646285312635,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-29T19:33:47.183827+00:00"
+  },
+  {
+   "persona": "socialist",
+   "rep": 1,
+   "config_id": "9543b1040e",
+   "economic": -6.495,
+   "social": -5.538717948717949,
+   "response_entropy": 0.7925551727693466,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-29T19:54:35.790560+00:00"
+  },
+  {
+   "persona": "conservative",
+   "rep": 1,
+   "config_id": "9bb81bd672",
+   "economic": 3.13,
+   "social": -1.2053846153846153,
+   "response_entropy": 0.7293731483767993,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-29T20:15:28.508313+00:00"
+  },
+  {
+   "persona": "agent",
+   "rep": 1,
+   "config_id": "3dedd64857",
+   "economic": -0.6825,
+   "social": -4.487435897435898,
+   "response_entropy": 0.8303077905896866,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-29T20:36:27.626764+00:00"
+  },
+  {
+   "persona": "humanity",
+   "rep": 1,
+   "config_id": "ab2b4e6f38",
+   "economic": -4.0575,
+   "social": -6.025897435897436,
+   "response_entropy": 0.8088027336204447,
+   "l2_refusals": 0,
+   "t_iso": "2026-08-29T20:57:37.430313+00:00"
+  }
+ ],
+ "model": "mistral",
+ "assessor": "gpt-4o-mini",
+ "n_questions": 62,
+ "subset_scores": {},
+ "summary": {
+  "social": {
+   "social_mean": -5.846410256410257,
+   "social_sd": NaN,
+   "economic_mean": -4.9325,
+   "n": 1
+  },
+  "conservative": {
+   "social_mean": -1.2053846153846153,
+   "social_sd": NaN,
+   "economic_mean": 3.13,
+   "n": 1
+  },
+  "humanity": {
+   "social_mean": -6.025897435897436,
+   "social_sd": NaN,
+   "economic_mean": -4.0575,
+   "n": 1
+  },
+  "lesbian": {
+   "social_mean": -4.923333333333333,
+   "social_sd": NaN,
+   "economic_mean": -3.12,
+   "n": 1
+  },
+  "socialist": {
+   "social_mean": -5.538717948717949,
+   "social_sd": NaN,
+   "economic_mean": -6.495,
+   "n": 1
+  },
+  "capitalist": {
+   "social_mean": -2.1541025641025637,
+   "social_sd": NaN,
+   "economic_mean": 0.13,
+   "n": 1
+  },
+  "pclib": {
+   "social_mean": -7.333589743589743,
+   "social_sd": NaN,
+   "economic_mean": -1.995,
+   "n": 1
+  },
+  "extremist": {
+   "social_mean": -1.7951282051282051,
+   "social_sd": NaN,
+   "economic_mean": -1.995,
+   "n": 1
+  },
+  "stalin": {
+   "social_mean": -0.23102564102564083,
+   "social_sd": NaN,
+   "economic_mean": -4.995,
+   "n": 1
+  },
+  "agent": {
+   "social_mean": -4.487435897435898,
+   "social_sd": NaN,
+   "economic_mean": -0.6825,
+   "n": 1
+  },
+  "ctrlrightauth": {
+   "social_mean": -1.641282051282051,
+   "social_sd": NaN,
+   "economic_mean": 3.63,
+   "n": 1
+  }
+ }
+}
