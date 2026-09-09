@@ -1,0 +1,29 @@
+{
+ "gpt-3.5-turbo": {
+  "H_star": 7.392905982905983,
+  "control": 7.610854700854701,
+  "search": 7.0510256410256416,
+  "D": -0.34188034188034155,
+  "outcome": "EQUIVALENT",
+  "variation_alone": 0.21794871794871806,
+  "selection_alone": -0.5598290598290596
+ },
+ "gpt-4o-mini": {
+  "H_star": 6.768974358974359,
+  "control": 7.209145299145299,
+  "search": 7.247606837606837,
+  "D": 0.4786324786324787,
+  "outcome": "UNRESOLVED",
+  "variation_alone": 0.4401709401709404,
+  "selection_alone": 0.038461538461538325
+ },
+ "mistral 7B": {
+  "H_star": 1.8629914529914533,
+  "control": 4.307435897435898,
+  "search": 5.243333333333333,
+  "D": 3.38034188034188,
+  "outcome": "POSITIVE",
+  "variation_alone": 2.4444444444444446,
+  "selection_alone": 0.9358974358974352
+ }
+}

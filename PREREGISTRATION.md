@@ -81,3 +81,25 @@ than the best hand-written persona, and worse than the second-best one too.
 
 Per the secondary rule above, the next spend goes to a second audited model,
 not to a larger search budget on this one.
+
+---
+
+## Outcome, second and final round (all three models, one protocol)
+
+The first round is superseded: its search arm had been run on a bounded
+surrogate with the variation operator barred from the register that wins, and
+on two of the three models no search had been run at all. Re-run under one
+protocol — full instrument, freed operators, each model's own top-six seeds, a
+matched no-selection control, n=12 randomised complete blocks:
+
+| model | H\* | control | search | D | 95% CI | outcome |
+| --- | --- | --- | --- | --- | --- | --- |
+| gpt-3.5-turbo | +7.393 | +7.611 | +7.051 | −0.342 | [−0.809, +0.126] | EQUIVALENT |
+| gpt-4o-mini | +6.769 | +7.209 | +7.248 | +0.479 | [+0.098, +0.859] | UNRESOLVED |
+| mistral 7B | +1.863 | +4.307 | +5.243 | +3.380 | [+3.194, +3.567] | POSITIVE |
+
+The rule held under pressure three separate times. It stopped a noisy
+three-client mistral run being written up as POSITIVE; it stopped search-time
+maxima of +1.17 and +1.33 being written up as wins when confirmation put them at
+−0.34 and +0.48; and it forced the withdrawal of a negative result that turned
+out to be an artefact of how the search had been configured.

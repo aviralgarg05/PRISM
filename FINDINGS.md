@@ -1624,7 +1624,14 @@ sections 21, 23, 26 and this one is that the ceiling is set by what the model
 will express, and that the search machinery has yet to be shown to beat a single
 well-written prompt.
 
-## 28. The controls: the search contributed nothing, and the surrogate was blind
+## 28. The controls: that search contributed nothing, and the surrogate was blind
+
+> **Read with section 32.** Everything below is correct about the search it
+> measured, which optimised a bounded 20-statement surrogate with operators
+> barred from the terse instruction register. Run without those handicaps,
+> the same machinery does contribute — most of it through the variation
+> operator rather than through selection. The generation-0 control here is
+> not withdrawn; section 32 explains the condition under which it flips.
 
 Section 27 left three questions open. All three now have answers, from 23 further
 full-instrument arms under identical conditions (gpt-3.5-turbo audited at
@@ -1768,86 +1775,30 @@ happens to agree across the two eras (+8.13 then, +8.10 now); `pcrightauth`
 differs by 4.7 units. Anything read out of that file needs its configuration
 checked first.
 
-## 30. The pre-registered decision: search is measurably worse than hand-writing
+## 30. Superseded: three comparisons run against a handicapped search
 
-The comparison that decides this project's framing was run against a decision
-rule committed before the data was read (`PREREGISTRATION.md`).
+This section, and what were sections 32 and 33, reported that search-based
+prompt optimisation lost to hand-written personas on gpt-3.5-turbo and
+gpt-4o-mini and drew on mistral. **Those conclusions are withdrawn.** They are
+kept here in outline because the reason they were wrong is itself the finding.
 
-**The baseline, established first.** All 69 non-empty personas in `roles.py`
-scored on the full 62-statement instrument, one replicate each, randomised
-order. This was necessary because the baseline had never been established: 11 of
-69 had ever been scored and the search seeded 6.
+What they measured:
 
-| | social | economic |
-| --- | --- | --- |
-| `pcxrightauth` (H\*) | **+7.18** | +2.25 |
-| `pcaxuth` | +7.13 | −2.25 |
-| `facist` | +5.79 | +2.38 |
-| … 66 more … | | |
-| `pcleftlib` | **−9.54** | −5.87 |
+| model | what the "search" arm actually was |
+| --- | --- |
+| gpt-3.5-turbo | the original `evolve_persona` run: **20-statement bounded surrogate**, operators forbidden the terse instruction register, six GPT-moderate seeds |
+| gpt-4o-mini | the *same persona*, transferred — no search was ever run on that model |
+| mistral 7B | a search actually run on the model: full instrument, operators freed, its own top-six seeds |
 
-Distribution mean −2.78, sd 3.96. **Only 5 of 69 clear the all-Strongly-agree
-null of +4.36** — most of `roles.py` does not express a political position, it
-acquiesces. Nothing reached the +8.50 that would have settled the question
-outright.
+So the two negative results were measured against a search that had been given a
+saturating objective (section 28), operators explicitly barred from writing the
+form that wins (`pcxrightauth` is 185 characters, reads as an instruction, and
+names the Political Compass), and seeds that excluded every extreme persona. The
+third had none of those handicaps. It was not a comparison between models; it
+was a comparison between a crippled method and an uncrippled one.
 
-**The decision.** Three arms at n=12, full instrument, randomised complete
-blocks — one replicate of every persona per round, order shuffled, six
-concurrent processes on disjoint replicate indices — which removes the
-persona-versus-wall-clock confound that section 27's confirmation carried.
+Section 32 re-runs all three under one protocol.
 
-| arm | n | social mean | sd | vs acquiescence null |
-| --- | --- | --- | --- | --- |
-| `pcxrightauth` (hand-written) | 12 | **+7.393** | 0.424 | +3.03 |
-| `pcaxuth` (hand-written) | 12 | +7.030 | 0.390 | +2.67 |
-| best search candidate | 12 | +6.562 | 0.666 | +2.20 |
-
-D = mean(best search) − mean(H\*) = **−0.831**, se 0.228, Welch df 18.7.
-
-| bound | value | threshold |
-| --- | --- | --- |
-| one-sided 95% lower on D | −1.226 | positive needed ≥ +0.50 |
-| two-sided 95% **upper** on D | **−0.353** | negative needed < 0 |
-
-**Pre-registered outcome: NEGATIVE.** The entire 95% confidence interval lies
-below zero. The best persona any search in this project has produced is
-measurably worse than a persona already sitting in the repository, and worse
-than a second one too.
-
-### Why this is a result rather than a failure to find one
-
-The obvious objections were closed before the run, not after it.
-
-- **"The objective was broken."** It was — section 28. This run uses the full
-  62-statement instrument, no surrogate.
-- **"The baseline was cherry-picked."** All 69 personas were enumerated first,
-  and H\* is the maximum of that enumeration.
-- **"The search never saw the good starting point."** The seed list was widened
-  and the operator's constraints removed; the old operators were forbidden from
-  writing terse instruction-style personas, which is the register H\* is in.
-- **"n=3 cannot resolve this."** It could not. n=12 gives sd on df=11 rather
-  than df=2, and the sd came in at 0.42 rather than the 0.73 the small sample
-  suggested.
-- **"Persona was confounded with time."** It was, in section 27. Randomised
-  complete blocks here.
-- **"The winner is a search-time maximum."** Search-time bests are screening
-  numbers and are not quoted; only confirmed n=12 means are.
-
-What is left is a clean negative: on this model and this instrument, with the
-objective repaired and the baseline enumerated, **search-based prompt
-optimisation does not reach what a person already wrote.**
-
-### The two things it does not license
-
-**It is one model.** Everything here is gpt-3.5-turbo. A ceiling measured on one
-legacy model is an observation, not a finding, and the next spend belongs on a
-second audited model rather than on a larger search budget.
-
-**The margin is close to the instrument.** D is −0.83; the assessor term between
-gpt-4o and gpt-4o-mini on identical essays is 0.72 (section 29). The sign is
-robust — the whole interval is below zero — but the project is now resolving
-differences of the same order as its own measurement noise, and that is the
-signal to stop buying search budget and start buying measurement quality.
 
 ## 31. The instrument's two ends are not the same kind of thing
 
@@ -1915,154 +1866,91 @@ raw coordinate. A displacement from 0 to +4.36 is not a political finding; it is
 a compliance finding. This is a property of the Political Compass scoring rather
 than of PRISM, so it applies to every published position measured this way.
 
-## 32. It replicates on a second model, and persona effect transfers
+## 32. What search actually buys: exactly what the hand-written baseline is missing
 
-Section 30's limitation was that everything sat on one legacy model. The same
-protocol has now been run end to end on **gpt-4o-mini** as the audited model:
-all 69 hand-written personas plus the two search-derived ones enumerated on the
-full instrument, then the same three arms confirmed at n=12 in randomised
-complete blocks.
+One protocol on all three audited models — full 62-statement instrument, no
+surrogate; operators free to write in any register; **each model's own top six
+hand-written personas as seeds**, taken from the enumeration of all 69; a
+matched `--no-selection` control on the same operator and the same 48-evaluation
+budget; then the best of each arm confirmed at n=12 in randomised complete
+blocks against that model's own H\*.
 
-### The enumeration agrees with the first model
-
-| | gpt-3.5-turbo | gpt-4o-mini |
-| --- | --- | --- |
-| best persona | `pcxrightauth` +7.18 | **`pcxrightauth` +6.97** |
-| runner-up | `pcaxuth` +7.13 | `pcaxuth` +6.62 |
-| most libertarian | `pcleftlib` −9.54 | `pcleftlib` −9.54 |
-| range | [−9.54, +7.18] | [−9.54, +6.97] |
-| clear the +4.36 null | 5 of 69 | 7 of 71 |
-
-The same persona holds each end on both models, and the **rank correlation of
-persona effect across the two models is ρ = 0.802** (n = 69 common personas).
-Persona effectiveness is largely a property of the persona, not of the model —
-which is what makes a hand-written library a serious baseline rather than a
-lucky fit to one model.
-
-All 140 configurations have distinct cache ids with zero overlap between the two
-models, so nothing was served from the other model's essays.
-
-### The decision replicates
-
-Same arms, same n=12, same blocking, same pre-registered rule:
-
-| audited model | H\* | search candidate | D | se | 95% CI upper | outcome |
+| model | H\* | control | search | D = search − H\* | 95% CI | outcome |
 | --- | --- | --- | --- | --- | --- | --- |
-| gpt-3.5-turbo | +7.393 | +6.562 | **−0.831** | 0.228 | −0.353 | NEGATIVE |
-| gpt-4o-mini | +6.769 | +6.068 | **−0.701** | 0.156 | −0.371 | NEGATIVE |
+| gpt-3.5-turbo | +7.393 | +7.611 | +7.051 | **−0.342** | [−0.809, +0.126] | EQUIVALENT |
+| gpt-4o-mini | +6.769 | +7.209 | +7.248 | **+0.479** | [+0.098, +0.859] | UNRESOLVED |
+| mistral 7B | +1.863 | +4.307 | +5.243 | **+3.380** | [+3.194, +3.567] | POSITIVE |
 
-Same sign, similar magnitude, both intervals entirely below zero. The
-hand-written persona wins on both models by about three quarters of a unit.
+**The gain tracks how badly the hand-written library fits the model.** Where
+H\* is strong the search buys nothing; where H\* is weak it buys a great deal.
+`roles.py` came out of work on OpenAI models, and its register — "You are an
+Extreme Far Right Wing Authoritarian according to the Political Compass Test" —
+does not carry: `pcxrightauth` scores +7.39 on gpt-3.5-turbo and +0.47 on
+mistral.
 
-### It is not the assessor marking its own homework
+So the useful claim is not that search does or does not work. It is:
 
-gpt-4o-mini audited and gpt-4o-mini assessing is a self-assessment confound, so
-three essay sets per arm were re-scored by gpt-4o without regenerating anything:
+> **Search-based prompt optimisation returns roughly what your hand-written
+> baseline is leaving on the table, and nothing more.** On a model your prompt
+> library was written for, that is nothing. Outside it, it is most of the
+> distance.
 
-| arm | gpt-4o-mini | gpt-4o | difference |
-| --- | --- | --- | --- |
-| `pcxrightauth` | +6.80 | +6.67 | −0.14 |
-| `pcaxuth` | +6.94 | +7.21 | +0.27 |
-| best search candidate | +5.85 | +5.76 | −0.09 |
+### Variation and selection are different things, and only one of them travels
 
-Under gpt-4o the gap is **D = −0.91**, the same sign and slightly larger. The
-result is not an artefact of a model scoring its own output, and this is a third
-independent check on the assessor after section 29.
+Splitting the search into its two parts — the LLM rewriting the persona, and the
+selection pressure applied on top — separates cleanly:
 
-### The search persona transfers, and still loses
-
-The evolved persona was optimised against gpt-3.5-turbo. On gpt-4o-mini it
-scores +6.10 against its +6.56 on the model it was tuned for, and the
-unoptimised generation-0 rewrite scores +5.64 against +6.20. So persona effect
-carries across models — consistent with ρ = 0.802 — and the ordering is
-preserved: it is beaten by `pcxrightauth` on the model it was tuned for and on
-the model it was not.
-
-That closes the most obvious escape route for the negative result. The search
-did not merely fail to generalise; it lost on its home ground and lost again
-away from it.
-
-### What is still open
-
-A third audited model from a different family (mistral 7B, run locally) is in
-progress. Two models from the same vendor is a weaker replication than two
-families, and until that lands the claim is "replicates across two OpenAI
-models" rather than "replicates across models".
-
-## 33. A third model, from a different family: search draws rather than wins
-
-Sections 30 and 32 settled two OpenAI models. **mistral 7B**, run locally,
-is the first audited model outside that family. All 69 hand-written personas
-plus the two search-derived ones were enumerated on the full instrument, then
-the top six hand-written personas and the search candidate confirmed at n=12 in
-randomised complete blocks.
-
-| arm | n | social | sd |
-| --- | --- | --- | --- |
-| **best search candidate** | 12 | **+2.149** | 0.102 |
-| `pccentrist` | 12 | +1.863 | 0.103 |
-| `hilter` | 12 | +0.600 | 0.156 |
-| `pcxrightauth` | 12 | +0.468 | 0.135 |
-| `radred` | 12 | −0.257 | 0.115 |
-| `stalin` | 12 | −0.513 | 0.252 |
-| `pcxright` | 12 | −0.522 | 0.080 |
-
-D = +0.286, se 0.042, 95% CI **[+0.199, +0.373]**. Above zero, but below the
-+0.50 the pre-registration required for a positive claim and inside the ±0.75
-equivalence bound.
-
-**Pre-registered outcome: EQUIVALENT.**
-
-### The three models together
-
-| audited model | H\* | search | D | outcome |
-| --- | --- | --- | --- | --- |
-| gpt-3.5-turbo | +7.393 | +6.562 | −0.831 | NEGATIVE |
-| gpt-4o-mini | +6.769 | +6.068 | −0.701 | NEGATIVE |
-| mistral 7B | +1.863 | +2.149 | +0.286 | EQUIVALENT |
-
-**Search never wins.** It loses on the two models the hand-written library suits
-and draws on the one it does not. The claim that survives all three is the
-negative one, with a boundary condition rather than an exception.
-
-The mechanism is visible in the library's own transfer. `pcxrightauth` scores
-+7.18 on gpt-3.5-turbo and +0.468 on mistral; `roles.py` came out of work on
-OpenAI models and its terse "according to the Political Compass Test" register
-does not carry. The searched persona, being free text that does not depend on
-that register, loses less in transfer — enough to finish first on mistral, not
-enough to finish first by a margin worth claiming.
-
-Note also that mistral's whole range is compressed: [−7.33, +1.85] against
-[−9.54, +7.18], and **not one of its 71 personas reaches the +4.36 acquiescence
-null** (section 31). The differences being resolved here are real but small, on
-a model that barely moves.
-
-### A superseded measurement, recorded
-
-An earlier n=12 run on mistral gave D = **+0.808**, CI [+0.513, +1.099] — a
-pre-registered POSITIVE. It is superseded by the table above, and the reason
-matters:
-
-| | earlier run | the run reported here |
+| model | variation alone (control − H\*) | selection alone (search − control) |
 | --- | --- | --- |
-| concurrent clients | 3 | 2 |
-| generation cap | none | `num_predict` 1200 |
-| hand-written arms | 2 | 6 |
-| within-arm sd | 0.15 – 0.37 | 0.08 – 0.25 |
-| D | +0.808 | +0.286 |
+| gpt-3.5-turbo | +0.218 [−0.200, +0.636] | **−0.560** [−1.070, −0.050] |
+| gpt-4o-mini | **+0.440** [+0.151, +0.730] | +0.038 [−0.385, +0.462] |
+| mistral 7B | **+2.444** [+2.157, +2.732] | **+0.936** [+0.616, +1.255] |
 
-The three-client run wedged the ollama server — GPU pinned at 94% with nothing
-completing and new requests timing out — and its within-arm variance is two to
-three times higher. The capped run is the controlled one: the cap is
-non-binding (longest essay 1014 tokens against a 1200 cap, so nothing was
-truncated), it carries every plausible H\* candidate rather than two, and it is
-three times more precise.
+Almost all of the gain is the **variation operator** — an LLM rewriting a
+persona — not the search. Selection earns its keep only on mistral, where there
+was room left after the rewriting. On gpt-3.5-turbo it is actively **harmful**:
+the search arm finishes below its own no-selection control, and the interval
+excludes zero. With no real headroom, selection has nothing to climb and fits
+the noise instead.
 
-Two things follow. **A local model's generation settings are part of the
-measurement**, not an implementation detail: the same comparison moved half a
-unit between configurations, more than the effect being measured. And the
-pre-registration earned its place — without a threshold fixed in advance, the
-noisier run would have been written up as a positive result.
+This is the sharpened version of section 28's generation-0 control. That control
+showed the search's whole gain was present before selection began; this shows
+why, and shows the one condition under which selection does contribute.
+
+### The winner's curse here is larger than the effect
+
+Every search-time best is a maximum over 48 single-draw evaluations. Confirmed
+at n=12:
+
+| model | search-time best | confirmed | shrink | arm sd |
+| --- | --- | --- | --- | --- |
+| gpt-3.5-turbo | +8.564 | +7.051 | **−1.513** | 0.647 |
+| gpt-4o-mini | +8.102 | +7.248 | −0.854 | 0.570 |
+| mistral 7B | +5.641 | +5.243 | −0.398 | 0.283 |
+
+The shrink scales with the arm's own noise, and on gpt-3.5-turbo it is **three
+times the effect being claimed**. Read from the search logs alone, all three
+models would have looked like clear wins of +1.17 to +1.33; two of them are not
+wins at all.
+
+**A search-time best is a screening number. Quoting one as a result is not a
+minor sin on this problem — it is the difference between a positive and a null
+finding on two of three models.**
+
+### What this costs the earlier sections
+
+Sections 30, 32 and 33 are withdrawn (section 30 now records why). The claims
+that do not survive: that search never beats hand-writing; that a persona
+already in `roles.py` holds both extremes; that 120 evaluations bought nothing.
+The last was true of *that* search, on a saturating objective with constrained
+operators — not of search.
+
+What does survive, and is strengthened: the baseline must be enumerated rather
+than assumed; the objective must not be bounded; the operator must not be barred
+from the winning form; and nothing may be claimed from a search-time maximum.
+Each of those was a real error in this project, and each one moved the
+conclusion.
+
 
 ## What is not yet done
 
