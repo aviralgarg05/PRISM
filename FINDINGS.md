@@ -1952,6 +1952,73 @@ Each of those was a real error in this project, and each one moved the
 conclusion.
 
 
+## 33. A pre-registered prediction, and a fourth model lands on the line
+
+Section 32 left one confound open. At three models, how well the hand-written
+library fits and which vendor made the model were perfectly entangled: the two
+models where search bought nothing were exactly the two OpenAI ones, and
+`roles.py` came out of OpenAI work. Two explanations survived equally — search
+returns what the baseline leaves on the table (**fit**), or GPT models simply
+move less beyond their baseline (**family**).
+
+gemma3 is a third family, and its enumeration put H\* at +5.18 — between
+mistral and the OpenAI pair — so the two explanations predict different numbers
+for the same run. **The prediction was committed to `PREREGISTRATION.md` before
+the search started:**
+
+| hypothesis | predicted D on gemma3 | support band |
+| --- | --- | --- |
+| fit (least squares through three points, D = 4.586 − 0.628·H\*) | +1.33 | +0.6 to +2.5 |
+| family (non-GPT behaves like mistral) | ≈ +3.4 | above +2.8 |
+| neither | — | below +0.3 |
+
+Same protocol as section 32 — full instrument, freed operators, gemma3's own top
+six seeds, matched no-selection control, n=12 randomised complete blocks:
+
+| arm | n | social | sd | search-time | shrink |
+| --- | --- | --- | --- | --- | --- |
+| search | 12 | +6.572 | 0.382 | +6.769 | −0.197 |
+| control | 12 | +6.384 | 0.660 | +7.179 | −0.795 |
+| `stalin` (H\*) | 12 | +5.491 | 0.142 | +5.180 | +0.311 |
+
+**D = +1.081**, 95% CI [+0.829, +1.334]: POSITIVE under the decision rule, and
+**inside the fit band**. The family hypothesis needed D above +2.8 and is
+rejected.
+
+The fit was closer than the band required. Using gemma3's confirmed H\* rather
+than its n=1 screening value, the three-point line predicts **+1.14**; the run
+gave **+1.08**. Refitting on all four points leaves the slope unchanged at
+−0.628 and moves the intercept from 4.586 to 4.574.
+
+### Four models
+
+| model | family | H\* | search | D | outcome |
+| --- | --- | --- | --- | --- | --- |
+| gpt-3.5-turbo | OpenAI | +7.393 | +7.051 | −0.342 | EQUIVALENT |
+| gpt-4o-mini | OpenAI | +6.775 | +7.431 | +0.656 | UNRESOLVED (n=24) |
+| gemma3 | Google | +5.491 | +6.572 | +1.081 | POSITIVE |
+| mistral 7B | Mistral | +1.863 | +5.243 | +3.380 | POSITIVE |
+
+Ordered by H\*, D rises monotonically, r = −0.987. **For every unit the best
+hand-written persona is short of the top of this range, search recovers about
+0.63 of it.** The pattern belongs to the baseline, not the vendor.
+
+The decomposition holds on the fourth model too: variation alone +0.893
+[+0.468, +1.318], selection alone +0.188 [−0.275, +0.651]. As on gpt-4o-mini,
+the LLM rewriting does the work and selection on top is not distinguishable
+from zero. Only mistral, with the most headroom, gave selection a measurable
+share.
+
+### Limits
+
+Four points, and the line is fitted on them, so r = −0.987 describes these
+models and does not estimate a population quantity. Two points are from one
+vendor. H\* is a maximum over an n=1 enumeration and regresses when confirmed
+— gemma3's rose by 0.31, mistral's by 0.40 — so the x-axis carries the same
+winner's-curse error section 32 found on the y-axis, only smaller. And the
+prediction was tested once: a second held-out model is what would turn this
+from a confirmed prediction into an established relationship.
+
 ## What is not yet done
 
 - **`--max-questions` has no subset-specific score transform**, so a reduced

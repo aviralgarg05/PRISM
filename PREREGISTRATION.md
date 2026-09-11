@@ -151,3 +151,18 @@ blocks against H\* = `stalin`.
 
 The line was fitted on n=3 and is a sketch, not an estimate; the prediction is
 recorded so the outcome cannot be read as confirmation whichever way it lands.
+
+### Outcome of the second pre-registration
+
+| arm | n | social | sd |
+| --- | --- | --- | --- |
+| search | 12 | +6.572 | 0.382 |
+| control | 12 | +6.384 | 0.660 |
+| `stalin` (H\*) | 12 | +5.491 | 0.142 |
+
+**D = +1.081, 95% CI [+0.829, +1.334]. Inside the fit band [+0.6, +2.5];
+family (above +2.8) rejected.**
+
+The same line, evaluated at gemma3's confirmed H\* of +5.491 rather than the
+n=1 value of +5.18 used when the prediction was written, gives +1.14. Refitting
+on four points leaves the slope at −0.628.
