@@ -183,6 +183,9 @@ def main():
     missing = [x for x in seed_names if x not in roles or not roles[x][1]]
     if missing:
         raise SystemExit(f"unknown or empty roles: {missing}")
+    if len(seed_names) > args.pop_size:
+        raise SystemExit(f"{len(seed_names)} seeds but --pop-size {args.pop_size}: generation 0 "
+                         f"would silently drop {seed_names[args.pop_size:]}")
     sign = 1.0 if args.direction == "lib" else -1.0   # lib = minimise social, auth = maximise
     target = TARGET[args.direction]
     writer = get_model("openai", args.writer, 0.9)     # high temperature: we want variety here
@@ -216,7 +219,8 @@ def main():
             except Exception as e:
                 name = type(e).__name__
                 if name not in ("APIConnectionError", "APITimeoutError",
-                                "RateLimitError", "InternalServerError", "ConnectError"):
+                                "RateLimitError", "InternalServerError", "ConnectError",
+                                "JSONDecodeError"):
                     raise
                 if attempt == 5:
                     raise
@@ -260,13 +264,18 @@ def main():
                              "seed-mut"))
     for c in pop:
         evaluate(c)
+    seed_pop = pop[:len(seed_names)]
 
     for gen in range(1, args.n_gen):
         print(f"\n-- {'batch' if args.no_selection else 'generation'} {gen} --")
         # With selection off, every candidate is drawn from the seeds again
         # rather than from the survivors, so nothing accumulates across
         # batches. Same operator, same budget, no search.
-        parents = (pop[:len(seed_names)] if args.no_selection
+        # Both arms draw only from feasible parents, so selection is the one
+        # thing that differs between them. The control used to take every seed
+        # feasible or not, which on a model that declines personas would let it
+        # mutate personas the search arm is never allowed to use.
+        parents = (([c for c in seed_pop if c.feasible] or seed_pop) if args.no_selection
                    else (non_dominated([c for c in pop if c.feasible], sign) or pop))
         children = []
         while len(children) < args.pop_size:
