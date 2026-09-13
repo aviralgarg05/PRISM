@@ -2150,42 +2150,65 @@ authoritarian.
 
 ## What is not yet done
 
-- **`--max-questions` has no subset-specific score transform**, so a reduced
-  instrument is bounded far inside the real range: on the 20-statement subset
-  the social axis can only express [-1.13, +4.10]. Section 27 shows both
-  directions of a search running into those bounds, and one conclusion was
-  drawn from the floor before this was noticed. Every past result that used
-  `--max-questions` as a search objective needs re-reading with that in mind,
-  and the fix - rescaling by the swing actually present in the chosen subset -
-  is small and not yet done.
-- **No uniform-answer null is quoted alongside positions.** Answering "Strongly
-  agree" to all 62 statements scores social +4.359, which beats several
-  hand-written personas. Section 4 records the centre-seeking version of this
-  degeneracy; the extreme version was only noticed in section 27.
-- **No independent adjudication exists.** Which assessor is right is supported
-  only by six essays the author read by hand (section 6). A gpt-4o adjudication
-  was written into section 9 and removed because it had never been run. Human
-  labels, even on a sample, are the single thing most needed — every claim
-  about the *direction* of the assessor error rests on that gap being filled.
+- **No human labels.** Every position rests on gpt-4o-mini as assessor, and the
+  best assessor measured reaches κ 0.604 against gold where two humans reach
+  0.8285 (section 20). Strong assessors agree with each other within 0.72 units
+  on identical essays (section 29), which bounds how far assessors disagree,
+  not how far they are from the truth. A human-labelled sample is still the
+  single thing most needed.
+- **The relationship in section 33 has been tested once.** D = 4.574 − 0.628·H\*
+  is fitted on the four points it describes, two of them share a vendor, and H\*
+  carries its own winner's-curse error. gemma3 was a genuine held-out
+  prediction. A second held-out model, gpt-5.4-mini with the refusal gate on,
+  is in progress.
+- **Only the authoritarian direction on the social axis.** Every search in
+  sections 32 and 33 pushed social upward. The libertarian direction behaves
+  differently on this instrument (section 31: the best libertarian persona
+  already uses 92% of its headroom), and the economic axis has not been searched
+  under this protocol.
+- **gpt-4o-mini stays UNRESOLVED** at n=24: D = +0.656, 95% CI [+0.400, +0.912].
+  Clearly positive and short of the pre-registered +0.50 lower bound. Not topped
+  up further, by design.
+- **The refusal gate has one ambiguous category.** In-voice "I cannot in good
+  conscience argue that…" was called REFUSED in 6 of 15 cases (section 34). The
+  gemma3 enumeration was scored ungated; its authoritarian H\* is unaffected, and
+  a gated rescore is in progress.
+- **The stance-flip finding (section 27) is not claimable yet.** It needs a frame
+  ablation separating the persona from PRISM's own essay instruction, and a
+  transfer test. gpt-5.4-mini declined `pcxrightauth`, `facist` and `hilter` on
+  statements 4 and 27 in the pilot (section 34), but the evolved persona behind
+  the flip has not been tried on it.
+- **The `--max-questions` rescale restores no ranking information.** It makes a
+  bound look like a bound, but candidates tied at a bound stay tied. A search
+  objective should use the full instrument, as sections 32 and 33 do.
+- **No search has formally converged.** Search-arm trajectories in section 32
+  plateau by generation 2 to 5 of 8; two control arms (gpt-4o-mini, mistral)
+  were still improving at generation 8. A plateau on a noisy single-draw
+  objective is not convergence.
 - The fragment search had no valid economic signal: the subset it used carried
-  economic weight on only 3 of 12 statements. `--max-questions` now selects by
-  scoring weight, but the mistral fragment search predates that fix, so the
-  fragment-versus-role comparison in section 8 is sound on the social axis and
-  a lower bound on the economic one.
-- Budgets are small — 12 to 18 evaluations against 4800 candidates. No search
-  here has converged, and every window is a lower bound rather than a boundary.
-- Only two of the four window directions were run on gpt-3.5-turbo. Role
-  scenarios covered all four quadrants, but only on mistral and llama3.2.
+  economic weight on only 3 of 12 statements, so the fragment-versus-role
+  comparison in section 8 is sound on the social axis and a lower bound on the
+  economic one.
 - llama3.2's role positions (section 10) were scored by a local assessor and
-  are provisional. Its refusal counts do not depend on the assessor and are
-  not provisional.
-- Repeat variance (section 7) was measured on one configuration only, n=4, and
-  the underlying ratings were overwritten before `--run-tag` existed, so it
-  cannot be recomputed from this repository.
+  are provisional. Its refusal counts do not depend on the assessor.
+- Repeat variance in section 7 was measured on one configuration at n=4 and its
+  ratings were later overwritten. Sections 32 and 33 supersede it with n=12
+  randomised-block replicates on every confirmed arm.
 - The `results/` figures marked in `unregenerable_figures.json` came from
   terminal output rather than from artefacts here, and cannot be re-derived.
 
 ## Practical notes
+
+- Pass `--refusal-gate` when auditing any safety-trained model (section 34).
+  gpt-5.x models reject `max_tokens`; gpt-5-mini also rejects temperature 0,
+  while gpt-5.4-mini accepts it.
+- Against a local Ollama server run at most two concurrent clients - three
+  pinned the GPU with nothing completing - and set `--num-predict` above the
+  essay length distribution. mistral's essays ran to a median of about 651 tokens
+  and a maximum of about 1047, so a cap of 800 truncated roughly 4% of them and
+  1200 truncated none. A truncated essay gets a different label.
+- Never glob result files with a pattern that a derived file can also match.
+  `m4_gemma_*.json` silently picked up `m4_gemma_refusal_per_persona.json`.
 
 - Essays and assessor ratings are both cached by configuration hash, so
   re-evaluating a candidate costs nothing — measured 7.35s → 0.001s. This
