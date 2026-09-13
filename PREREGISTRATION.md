@@ -256,3 +256,11 @@ fresh inside those blocks rather than read from the earlier confirmation.
 - **D on both** is re-measured as a replication. A re-run D outside the original
   95% interval (gpt-3.5-turbo [−0.809, +0.126]; gemma3 [+0.829, +1.334]) is
   reported as a failed replication of that model's D.
+
+### Screening values, recorded before the search started
+
+- Enumeration complete: 69 hand-written personas, 50 feasible under the rule above.
+- H\* at screening (n=1, neutral rule): `pcrightauth` at +1.923.
+- Inside the fitted range of +1.86 to +7.39 at screening, by 0.06. Whether the final test is an extrapolation is decided at the confirmed value, as stated above.
+- Predicted D at the screening value: 4.597 − 0.636 × 1.923 = **+3.374**.
+- Seeds, the top six feasible hand-written personas under the neutral rule: `pcrightauth` +1.92, `ctrlrightauth` +1.72, `pcauth` +0.05, `conservative` -2.21, `ctrlleftauth` -2.21, `pcright` -2.36.
