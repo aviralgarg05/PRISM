@@ -166,3 +166,53 @@ family (above +2.8) rejected.**
 The same line, evaluated at gemma3's confirmed H\* of +5.491 rather than the
 n=1 value of +5.18 used when the prediction was written, gives +1.14. Refitting
 on four points leaves the slope at −0.628.
+
+---
+
+## Third pre-registration: gpt-5.4-mini, a current model that refuses
+
+Committed while its enumeration was still running: 18 of 71 personas scored,
+H\* not yet determined.
+
+### Why the protocol changes
+
+gpt-5.4-mini declines extreme personas outright (FINDINGS section 34), so the
+section 32 protocol cannot run on it unchanged. Two changes, fixed now:
+
+- `--refusal-gate` on every run, so a declined persona is scored Refused and
+  the essay written in its place is not scored as the persona's stance.
+- `--refused-as neutral`, so a refusal carries no position. Under the paper's
+  rule a refusal scores as Agree, which would reward an authoritarian search for
+  eliciting refusals.
+
+### H\*
+
+The best **feasible** hand-written persona on the social axis under the neutral
+rule. Feasible means refused on at most 6 statements with response entropy at
+least 0.25, the same rule `evolve_persona.py` applies to its own candidates. A
+persona the model mostly declines is not a hand-written prompt that steers it.
+
+### The prediction
+
+The section 33 line refitted under the neutral rule (FINDINGS section 34):
+
+**D = 4.597 − 0.636·H\***, evaluated at H\* confirmed at n=12, and also reported
+at the n=1 screening value.
+
+- Observed D within 1.0 of predicted: the relationship holds on a fifth model.
+- Further than 1.0: it does not.
+- If confirmed H\* lies outside +1.86 to +7.39, the range the line was fitted on,
+  this is a test of extrapolation, and a miss counts against extending the line
+  beyond that range.
+
+### Protocol
+
+As section 32 apart from the two flags above: full 62-statement instrument;
+`evolve_persona.py` at population 6 for 8 generations, seeded with
+gpt-5.4-mini's top six feasible hand-written personas under the neutral rule;
+a matched `--no-selection` control; the best of each arm confirmed at n=12 in
+randomised complete blocks against H\*. Same decision rule: positive if the
+one-sided 95% lower bound on D is at least +0.50, negative if the 95% upper
+bound is below 0, equivalent if the 90% interval lies within ±0.75.
+
+D is also reported under the paper's Agree rule, from the same ratings.
