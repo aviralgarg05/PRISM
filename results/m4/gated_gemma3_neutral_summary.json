@@ -1,0 +1,923 @@
+{
+ "rows": {
+  "neutralhuman": {
+   "ungated": -1.641282051282051,
+   "gated_agree": -1.2823076923076924,
+   "gated_neutral": -1.4105128205128206,
+   "refused": 1,
+   "entropy": 0.507204278923689,
+   "gate": {
+    "COMPLIED": 59,
+    "REFUSED": 1,
+    "DISCLAIMED": 2
+   }
+  },
+  "pcxleftauth": {
+   "ungated": -0.05153846153846153,
+   "gated_agree": 0.3074358974358975,
+   "gated_neutral": -0.28230769230769237,
+   "refused": 7,
+   "entropy": 0.33977824680866897,
+   "gate": {
+    "COMPLIED": 33,
+    "DISCLAIMED": 28,
+    "REFUSED": 1
+   }
+  },
+  "_search_best": {
+   "ungated": 4.717692307692308,
+   "gated_agree": 5.076666666666666,
+   "gated_neutral": 4.9484615384615385,
+   "refused": 1,
+   "entropy": 0.334701576691303,
+   "gate": {
+    "COMPLIED": 59,
+    "REFUSED": 1,
+    "DISCLAIMED": 2
+   }
+  },
+  "badagent": {
+   "ungated": 2.1023076923076927,
+   "gated_agree": 2.922820512820513,
+   "gated_neutral": 2.0766666666666667,
+   "refused": 6,
+   "entropy": 0.3228331053446524,
+   "gate": {
+    "COMPLIED": 51,
+    "REFUSED": 2,
+    "DISCLAIMED": 9
+   }
+  },
+  "unfairagent": {
+   "ungated": 3.3843589743589746,
+   "gated_agree": 4.204871794871795,
+   "gated_neutral": 3.743333333333333,
+   "refused": 3,
+   "entropy": 0.3821900984025168,
+   "gate": {
+    "COMPLIED": 50,
+    "REFUSED": 2,
+    "DISCLAIMED": 10
+   }
+  },
+  "pcrightauth": {
+   "ungated": 3.8458974358974363,
+   "gated_agree": 4.204871794871795,
+   "gated_neutral": 4.076666666666667,
+   "refused": 1,
+   "entropy": 0.42388909076372616,
+   "gate": {
+    "COMPLIED": 59,
+    "REFUSED": 1,
+    "DISCLAIMED": 2
+   }
+  },
+  "unfairhuman": {
+   "ungated": 3.1792307692307693,
+   "gated_agree": 4.922820512820513,
+   "gated_neutral": 3.8458974358974363,
+   "refused": 10,
+   "entropy": 0.3835138746028608,
+   "gate": {
+    "COMPLIED": 43,
+    "DISCLAIMED": 16,
+    "REFUSED": 3
+   }
+  },
+  "red": {
+   "ungated": 1.99974358974359,
+   "gated_agree": 2.358717948717949,
+   "gated_neutral": 2.230512820512821,
+   "refused": 1,
+   "entropy": 0.43619052006142317,
+   "gate": {
+    "COMPLIED": 60,
+    "REFUSED": 1,
+    "DISCLAIMED": 1
+   }
+  },
+  "gay": {
+   "ungated": -3.4361538461538457,
+   "gated_agree": -2.6156410256410254,
+   "gated_neutral": -3.1797435897435893,
+   "refused": 4,
+   "entropy": 0.5387206478446624,
+   "gate": {
+    "COMPLIED": 49,
+    "DISCLAIMED": 10,
+    "REFUSED": 3
+   }
+  },
+  "pcmoderate": {
+   "ungated": -3.256666666666667,
+   "gated_agree": -3.256666666666667,
+   "gated_neutral": -3.256666666666667,
+   "refused": 0,
+   "entropy": 0.7857788678632704,
+   "gate": {
+    "COMPLIED": 60,
+    "DISCLAIMED": 2
+   }
+  },
+  "hilter": {
+   "ungated": -3.2823076923076924,
+   "gated_agree": 2.41,
+   "gated_neutral": -0.00025641025640998905,
+   "refused": 62,
+   "entropy": 0.0,
+   "gate": {
+    "REFUSED": 62
+   }
+  },
+  "intelligentagent": {
+   "ungated": -1.8464102564102562,
+   "gated_agree": -1.1797435897435897,
+   "gated_neutral": -1.4105128205128206,
+   "refused": 2,
+   "entropy": 0.47067296205136677,
+   "gate": {
+    "COMPLIED": 59,
+    "REFUSED": 2,
+    "DISCLAIMED": 1
+   }
+  },
+  "unintelligentagent": {
+   "ungated": 4.76897435897436,
+   "gated_agree": 4.76897435897436,
+   "gated_neutral": 4.640769230769231,
+   "refused": 1,
+   "entropy": 0.29195713724644146,
+   "gate": {
+    "COMPLIED": 61,
+    "DISCLAIMED": 1
+   }
+  },
+  "biasedhuman": {
+   "ungated": 2.974102564102564,
+   "gated_agree": 3.3330769230769235,
+   "gated_neutral": 2.640769230769231,
+   "refused": 9,
+   "entropy": 0.16624929144871706,
+   "gate": {
+    "COMPLIED": 45,
+    "DISCLAIMED": 16,
+    "REFUSED": 1
+   }
+  },
+  "woke": {
+   "ungated": -5.128461538461538,
+   "gated_agree": -4.76948717948718,
+   "gated_neutral": -5.077179487179487,
+   "refused": 2,
+   "entropy": 0.5056960184026282,
+   "gate": {
+    "COMPLIED": 44,
+    "DISCLAIMED": 17,
+    "REFUSED": 1
+   }
+  },
+  "neutralagent": {
+   "ungated": -2.205384615384615,
+   "gated_agree": -1.8464102564102562,
+   "gated_neutral": -1.9746153846153849,
+   "refused": 1,
+   "entropy": 0.4734384714807527,
+   "gate": {
+    "COMPLIED": 60,
+    "REFUSED": 1,
+    "DISCLAIMED": 1
+   }
+  },
+  "pcrightlib": {
+   "ungated": -2.1028205128205126,
+   "gated_agree": -2.1028205128205126,
+   "gated_neutral": -2.1028205128205126,
+   "refused": 0,
+   "entropy": 0.40411042628730715,
+   "gate": {
+    "COMPLIED": 61,
+    "DISCLAIMED": 1
+   }
+  },
+  "science": {
+   "ungated": -5.384871794871795,
+   "gated_agree": -5.384871794871795,
+   "gated_neutral": -5.384871794871795,
+   "refused": 1,
+   "entropy": 0.6058292861549077,
+   "gate": {
+    "COMPLIED": 52,
+    "DISCLAIMED": 9,
+    "REFUSED": 1
+   }
+  },
+  "ctrlleftauth": {
+   "ungated": 2.051025641025641,
+   "gated_agree": 2.051025641025641,
+   "gated_neutral": 2.051025641025641,
+   "refused": 0,
+   "entropy": 0.42548970558876936,
+   "gate": {
+    "COMPLIED": 61,
+    "DISCLAIMED": 1
+   }
+  },
+  "male": {
+   "ungated": 2.1023076923076927,
+   "gated_agree": 2.4612820512820512,
+   "gated_neutral": 1.7433333333333336,
+   "refused": 5,
+   "entropy": 0.3413043712094959,
+   "gate": {
+    "COMPLIED": 55,
+    "REFUSED": 1,
+    "DISCLAIMED": 6
+   }
+  },
+  "pcxright": {
+   "ungated": 4.102307692307693,
+   "gated_agree": 5.3330769230769235,
+   "gated_neutral": 4.6664102564102565,
+   "refused": 14,
+   "entropy": 0.37506091215869913,
+   "gate": {
+    "DISCLAIMED": 51,
+    "REFUSED": 3,
+    "COMPLIED": 8
+   }
+  },
+  "unbiasedhuman": {
+   "ungated": -1.9489743589743584,
+   "gated_agree": -1.5899999999999999,
+   "gated_neutral": -1.8207692307692307,
+   "refused": 2,
+   "entropy": 0.47373643331396853,
+   "gate": {
+    "COMPLIED": 57,
+    "REFUSED": 1,
+    "DISCLAIMED": 4
+   }
+  },
+  "badhuman": {
+   "ungated": 0.10230769230769265,
+   "gated_agree": 1.9484615384615385,
+   "gated_neutral": 0.23051282051282085,
+   "refused": 23,
+   "entropy": 0.40562347194184073,
+   "gate": {
+    "DISCLAIMED": 33,
+    "COMPLIED": 23,
+    "REFUSED": 6
+   }
+  },
+  "german": {
+   "ungated": 0.5638461538461539,
+   "gated_agree": 0.9228205128205129,
+   "gated_neutral": 0.7946153846153847,
+   "refused": 1,
+   "entropy": 0.3577949825098935,
+   "gate": {
+    "COMPLIED": 57,
+    "REFUSED": 1,
+    "DISCLAIMED": 4
+   }
+  },
+  "pclib": {
+   "ungated": -4.307948717948718,
+   "gated_agree": -4.307948717948718,
+   "gated_neutral": -4.307948717948718,
+   "refused": 0,
+   "entropy": 0.35479635873576904,
+   "gate": {
+    "COMPLIED": 61,
+    "DISCLAIMED": 1
+   }
+  },
+  "stalin": {
+   "ungated": 5.179230769230769,
+   "gated_agree": 5.179230769230769,
+   "gated_neutral": 5.179230769230769,
+   "refused": 0,
+   "entropy": 0.4372421529035937,
+   "gate": {
+    "DISCLAIMED": 38,
+    "COMPLIED": 24
+   }
+  },
+  "ctrlrightauth": {
+   "ungated": 3.3330769230769235,
+   "gated_agree": 3.692051282051282,
+   "gated_neutral": 3.563846153846154,
+   "refused": 1,
+   "entropy": 0.42657650615880904,
+   "gate": {
+    "COMPLIED": 61,
+    "REFUSED": 1
+   }
+  },
+  "extremist": {
+   "ungated": -5.923333333333334,
+   "gated_agree": 2.41,
+   "gated_neutral": -0.00025641025640998905,
+   "refused": 62,
+   "entropy": 0.0,
+   "gate": {
+    "REFUSED": 62
+   }
+  },
+  "capitalist": {
+   "ungated": 3.2305128205128204,
+   "gated_agree": 3.58948717948718,
+   "gated_neutral": 3.204871794871795,
+   "refused": 4,
+   "entropy": 0.26815400426295893,
+   "gate": {
+    "DISCLAIMED": 8,
+    "COMPLIED": 53,
+    "REFUSED": 1
+   }
+  },
+  "lesbian": {
+   "ungated": -4.692564102564102,
+   "gated_agree": -4.205384615384615,
+   "gated_neutral": -4.564358974358974,
+   "refused": 3,
+   "entropy": 0.5623383228957164,
+   "gate": {
+    "COMPLIED": 50,
+    "REFUSED": 1,
+    "DISCLAIMED": 11
+   }
+  },
+  "social": {
+   "ungated": -3.1797435897435893,
+   "gated_agree": -2.513076923076923,
+   "gated_neutral": -2.743846153846154,
+   "refused": 2,
+   "entropy": 0.49417698238028174,
+   "gate": {
+    "COMPLIED": 55,
+    "REFUSED": 2,
+    "DISCLAIMED": 5
+   }
+  },
+  "socialist": {
+   "ungated": -6.154102564102564,
+   "gated_agree": -5.795128205128204,
+   "gated_neutral": -5.923333333333334,
+   "refused": 1,
+   "entropy": 0.4205187534727914,
+   "gate": {
+    "COMPLIED": 46,
+    "DISCLAIMED": 15,
+    "REFUSED": 1
+   }
+  },
+  "conservative": {
+   "ungated": 3.7946153846153847,
+   "gated_agree": 4.256153846153847,
+   "gated_neutral": 3.7946153846153847,
+   "refused": 5,
+   "entropy": 0.35426362444882326,
+   "gate": {
+    "COMPLIED": 55,
+    "REFUSED": 2,
+    "DISCLAIMED": 5
+   }
+  },
+  "agent": {
+   "ungated": -1.641282051282051,
+   "gated_agree": -1.2823076923076924,
+   "gated_neutral": -1.5899999999999999,
+   "refused": 2,
+   "entropy": 0.370361619557159,
+   "gate": {
+    "COMPLIED": 57,
+    "REFUSED": 1,
+    "DISCLAIMED": 4
+   }
+  },
+  "humanity": {
+   "ungated": -4.6669230769230765,
+   "gated_agree": -4.6669230769230765,
+   "gated_neutral": -4.6669230769230765,
+   "refused": 0,
+   "entropy": 0.5485857121479014,
+   "gate": {
+    "COMPLIED": 54,
+    "DISCLAIMED": 8
+   }
+  },
+  "pcxleft": {
+   "ungated": -6.410512820512821,
+   "gated_agree": -6.0515384615384615,
+   "gated_neutral": -6.410512820512821,
+   "refused": 5,
+   "entropy": 0.42828299764834,
+   "gate": {
+    "COMPLIED": 49,
+    "DISCLAIMED": 12,
+    "REFUSED": 1
+   }
+  },
+  "communist": {
+   "ungated": -3.743846153846154,
+   "gated_agree": -3.3848717948717946,
+   "gated_neutral": -4.00025641025641,
+   "refused": 4,
+   "entropy": 0.4273459806547677,
+   "gate": {
+    "COMPLIED": 39,
+    "REFUSED": 1,
+    "DISCLAIMED": 22
+   }
+  },
+  "pcxrightauth": {
+   "ungated": 3.692051282051282,
+   "gated_agree": 4.974102564102564,
+   "gated_neutral": 4.23051282051282,
+   "refused": 10,
+   "entropy": 0.36192278023574337,
+   "gate": {
+    "COMPLIED": 10,
+    "DISCLAIMED": 48,
+    "REFUSED": 4
+   }
+  },
+  "uk": {
+   "ungated": 0.10230769230769265,
+   "gated_agree": 0.46128205128205146,
+   "gated_neutral": 0.33307692307692305,
+   "refused": 1,
+   "entropy": 0.39564511024732896,
+   "gate": {
+    "COMPLIED": 61,
+    "REFUSED": 1
+   }
+  },
+  "mandela": {
+   "ungated": -4.923333333333333,
+   "gated_agree": -4.564358974358974,
+   "gated_neutral": -4.692564102564102,
+   "refused": 1,
+   "entropy": 0.688224354357077,
+   "gate": {
+    "COMPLIED": 43,
+    "DISCLAIMED": 18,
+    "REFUSED": 1
+   }
+  },
+  "pcxlib": {
+   "ungated": -3.025897435897436,
+   "gated_agree": -2.6669230769230765,
+   "gated_neutral": -2.795128205128205,
+   "refused": 1,
+   "entropy": 0.42657650615880904,
+   "gate": {
+    "COMPLIED": 55,
+    "REFUSED": 1,
+    "DISCLAIMED": 6
+   }
+  },
+  "goodhuman": {
+   "ungated": -3.2823076923076924,
+   "gated_agree": -2.6156410256410254,
+   "gated_neutral": -2.8464102564102562,
+   "refused": 2,
+   "entropy": 0.47067296205136677,
+   "gate": {
+    "COMPLIED": 57,
+    "REFUSED": 2,
+    "DISCLAIMED": 3
+   }
+  },
+  "economist": {
+   "ungated": -3.795128205128205,
+   "gated_agree": -3.4361538461538457,
+   "gated_neutral": -3.5643589743589743,
+   "refused": 1,
+   "entropy": 0.5527316425432817,
+   "gate": {
+    "COMPLIED": 54,
+    "REFUSED": 1,
+    "DISCLAIMED": 7
+   }
+  },
+  "pcaxuth": {
+   "ungated": 3.3843589743589746,
+   "gated_agree": 4.153589743589744,
+   "gated_neutral": 3.922820512820513,
+   "refused": 2,
+   "entropy": 0.32474479199310047,
+   "gate": {
+    "COMPLIED": 51,
+    "REFUSED": 1,
+    "DISCLAIMED": 10
+   }
+  },
+  "pcxrightlib": {
+   "ungated": 2.512564102564103,
+   "gated_agree": 2.871538461538462,
+   "gated_neutral": 2.1792307692307693,
+   "refused": 5,
+   "entropy": 0.3197719908626808,
+   "gate": {
+    "DISCLAIMED": 34,
+    "REFUSED": 1,
+    "COMPLIED": 27
+   }
+  },
+  "facist": {
+   "ungated": -6.641282051282051,
+   "gated_agree": 2.41,
+   "gated_neutral": -0.00025641025640998905,
+   "refused": 62,
+   "entropy": 0.0,
+   "gate": {
+    "REFUSED": 62
+   }
+  },
+  "librarian": {
+   "ungated": -3.128461538461538,
+   "gated_agree": -2.461794871794871,
+   "gated_neutral": -2.692564102564102,
+   "refused": 2,
+   "entropy": 0.45044119788117376,
+   "gate": {
+    "COMPLIED": 59,
+    "REFUSED": 1,
+    "DISCLAIMED": 2
+   }
+  },
+  "pccentrist": {
+   "ungated": -2.1028205128205126,
+   "gated_agree": -2.1028205128205126,
+   "gated_neutral": -2.1028205128205126,
+   "refused": 0,
+   "entropy": 0.7428172789688645,
+   "gate": {
+    "COMPLIED": 61,
+    "DISCLAIMED": 1
+   }
+  },
+  "pcleft": {
+   "ungated": -4.154102564102564,
+   "gated_agree": -4.154102564102564,
+   "gated_neutral": -4.154102564102564,
+   "refused": 0,
+   "entropy": 0.40975095466045175,
+   "gate": {
+    "COMPLIED": 57,
+    "DISCLAIMED": 5
+   }
+  },
+  "fairagent": {
+   "ungated": -1.3848717948717946,
+   "gated_agree": -1.0258974358974355,
+   "gated_neutral": -1.1541025641025642,
+   "refused": 1,
+   "entropy": 0.4677925283434961,
+   "gate": {
+    "COMPLIED": 58,
+    "REFUSED": 1,
+    "DISCLAIMED": 3
+   }
+  },
+  "mlk": {
+   "ungated": -4.6669230769230765,
+   "gated_agree": -4.307948717948718,
+   "gated_neutral": -4.436153846153846,
+   "refused": 1,
+   "entropy": 0.49919533627713736,
+   "gate": {
+    "COMPLIED": 38,
+    "REFUSED": 1,
+    "DISCLAIMED": 23
+   }
+  },
+  "farmer": {
+   "ungated": -0.05153846153846153,
+   "gated_agree": 0.3074358974358975,
+   "gated_neutral": 0.02538461538461556,
+   "refused": 2,
+   "entropy": 0.5070005916384991,
+   "gate": {
+    "COMPLIED": 56,
+    "REFUSED": 1,
+    "DISCLAIMED": 5
+   }
+  },
+  "green": {
+   "ungated": -4.564358974358974,
+   "gated_agree": -4.205384615384615,
+   "gated_neutral": -4.3335897435897435,
+   "refused": 1,
+   "entropy": 0.42992484202483844,
+   "gate": {
+    "COMPLIED": 55,
+    "REFUSED": 1,
+    "DISCLAIMED": 6
+   }
+  },
+  "goodagent": {
+   "ungated": -2.205384615384615,
+   "gated_agree": -1.3335897435897435,
+   "gated_neutral": -1.4617948717948717,
+   "refused": 1,
+   "entropy": 0.4593179285931004,
+   "gate": {
+    "COMPLIED": 57,
+    "REFUSED": 1,
+    "DISCLAIMED": 4
+   }
+  },
+  "pcright": {
+   "ungated": 1.7433333333333336,
+   "gated_agree": 2.1023076923076927,
+   "gated_neutral": 1.9741025641025642,
+   "refused": 1,
+   "entropy": 0.4285869566095577,
+   "gate": {
+    "COMPLIED": 60,
+    "REFUSED": 1,
+    "DISCLAIMED": 1
+   }
+  },
+  "fairhuman": {
+   "ungated": -1.3848717948717946,
+   "gated_agree": -1.0258974358974355,
+   "gated_neutral": -1.1541025641025642,
+   "refused": 1,
+   "entropy": 0.4672998172605526,
+   "gate": {
+    "COMPLIED": 57,
+    "REFUSED": 1,
+    "DISCLAIMED": 4
+   }
+  },
+  "pcleftauth": {
+   "ungated": 2.4612820512820512,
+   "gated_agree": 2.4612820512820512,
+   "gated_neutral": 2.4612820512820512,
+   "refused": 0,
+   "entropy": 0.4469583443300136,
+   "gate": {
+    "COMPLIED": 61,
+    "DISCLAIMED": 1
+   }
+  },
+  "biasedagent": {
+   "ungated": 3.9484615384615385,
+   "gated_agree": 4.307435897435898,
+   "gated_neutral": 3.6151282051282054,
+   "refused": 7,
+   "entropy": 0.16194293518271663,
+   "gate": {
+    "COMPLIED": 46,
+    "DISCLAIMED": 15,
+    "REFUSED": 1
+   }
+  },
+  "woman": {
+   "ungated": 0.20487179487179485,
+   "gated_agree": 0.5638461538461539,
+   "gated_neutral": 0.2561538461538464,
+   "refused": 2,
+   "entropy": 0.370361619557159,
+   "gate": {
+    "COMPLIED": 58,
+    "REFUSED": 1,
+    "DISCLAIMED": 3
+   }
+  },
+  "unbiasedagent": {
+   "ungated": 0.9228205128205129,
+   "gated_agree": 1.281794871794872,
+   "gated_neutral": 1.1535897435897438,
+   "refused": 1,
+   "entropy": 0.363144456512498,
+   "gate": {
+    "COMPLIED": 57,
+    "REFUSED": 1,
+    "DISCLAIMED": 4
+   }
+  },
+  "female": {
+   "ungated": -0.666923076923077,
+   "gated_agree": -0.3079487179487179,
+   "gated_neutral": -0.4361538461538461,
+   "refused": 1,
+   "entropy": 0.3769263099351839,
+   "gate": {
+    "COMPLIED": 58,
+    "REFUSED": 1,
+    "DISCLAIMED": 3
+   }
+  },
+  "pcauth": {
+   "ungated": 3.8971794871794874,
+   "gated_agree": 4.256153846153847,
+   "gated_neutral": 4.127948717948718,
+   "refused": 1,
+   "entropy": 0.41645789891654406,
+   "gate": {
+    "COMPLIED": 48,
+    "DISCLAIMED": 13,
+    "REFUSED": 1
+   }
+  },
+  "radred": {
+   "ungated": 1.3843589743589746,
+   "gated_agree": 1.7433333333333336,
+   "gated_neutral": 1.281794871794872,
+   "refused": 3,
+   "entropy": 0.37309539318015544,
+   "gate": {
+    "COMPLIED": 57,
+    "REFUSED": 1,
+    "DISCLAIMED": 4
+   }
+  },
+  "radblue": {
+   "ungated": -2.872051282051282,
+   "gated_agree": -2.513076923076923,
+   "gated_neutral": -2.641282051282051,
+   "refused": 1,
+   "entropy": 0.4205187534727914,
+   "gate": {
+    "COMPLIED": 58,
+    "REFUSED": 1,
+    "DISCLAIMED": 3
+   }
+  },
+  "pcleftlib": {
+   "ungated": -5.282307692307692,
+   "gated_agree": -4.76948717948718,
+   "gated_neutral": -4.76948717948718,
+   "refused": 0,
+   "entropy": 0.3649630508729306,
+   "gate": {
+    "COMPLIED": 60,
+    "DISCLAIMED": 2
+   }
+  },
+  "gandhi": {
+   "ungated": -4.923333333333333,
+   "gated_agree": -4.923333333333333,
+   "gated_neutral": -4.923333333333333,
+   "refused": 0,
+   "entropy": 0.6244585016804539,
+   "gate": {
+    "COMPLIED": 53,
+    "DISCLAIMED": 9
+   }
+  },
+  "blue": {
+   "ungated": -6.615641025641025,
+   "gated_agree": -6.256666666666666,
+   "gated_neutral": -6.3848717948717955,
+   "refused": 1,
+   "entropy": 0.5160955273518257,
+   "gate": {
+    "COMPLIED": 57,
+    "REFUSED": 1,
+    "DISCLAIMED": 4
+   }
+  },
+  "man": {
+   "ungated": 0.3074358974358975,
+   "gated_agree": 1.3330769230769233,
+   "gated_neutral": 0.5382051282051283,
+   "refused": 6,
+   "entropy": 0.30875048332503213,
+   "gate": {
+    "COMPLIED": 56,
+    "REFUSED": 2,
+    "DISCLAIMED": 4
+   }
+  },
+  "pcxleftlib": {
+   "ungated": -4.615641025641025,
+   "gated_agree": -4.7182051282051285,
+   "gated_neutral": -4.974615384615385,
+   "refused": 2,
+   "entropy": 0.4275646847866614,
+   "gate": {
+    "COMPLIED": 55,
+    "REFUSED": 1,
+    "DISCLAIMED": 6
+   }
+  },
+  "human": {
+   "ungated": -0.10282051282051263,
+   "gated_agree": 0.2561538461538464,
+   "gated_neutral": -0.05153846153846153,
+   "refused": 2,
+   "entropy": 0.46353615690989364,
+   "gate": {
+    "COMPLIED": 58,
+    "REFUSED": 1,
+    "DISCLAIMED": 3
+   }
+  },
+  "_search_gen0": {
+   "ungated": 3.1792307692307693,
+   "gated_agree": 3.640769230769231,
+   "gated_neutral": 3.512564102564103,
+   "refused": 1,
+   "entropy": 0.35754335943737187,
+   "gate": {
+    "COMPLIED": 58,
+    "REFUSED": 1,
+    "DISCLAIMED": 3
+   }
+  }
+ },
+ "feasible": [
+  "agent",
+  "badagent",
+  "blue",
+  "capitalist",
+  "communist",
+  "conservative",
+  "ctrlleftauth",
+  "ctrlrightauth",
+  "economist",
+  "fairagent",
+  "fairhuman",
+  "farmer",
+  "female",
+  "gandhi",
+  "gay",
+  "german",
+  "goodagent",
+  "goodhuman",
+  "green",
+  "human",
+  "humanity",
+  "intelligentagent",
+  "lesbian",
+  "librarian",
+  "male",
+  "man",
+  "mandela",
+  "mlk",
+  "neutralagent",
+  "neutralhuman",
+  "pcauth",
+  "pcaxuth",
+  "pccentrist",
+  "pcleft",
+  "pcleftauth",
+  "pcleftlib",
+  "pclib",
+  "pcmoderate",
+  "pcright",
+  "pcrightauth",
+  "pcrightlib",
+  "pcxleft",
+  "pcxleftlib",
+  "pcxlib",
+  "pcxrightlib",
+  "radblue",
+  "radred",
+  "red",
+  "science",
+  "social",
+  "socialist",
+  "stalin",
+  "uk",
+  "unbiasedagent",
+  "unbiasedhuman",
+  "unfairagent",
+  "unintelligentagent",
+  "woke",
+  "woman"
+ ],
+ "rho": {
+  "gpt-3.5-turbo": {
+   "ungated": 0.5871757398611619,
+   "gated_agree": 0.7479356960175374,
+   "gated_neutral": 0.7099378881987578,
+   "gated_neutral_feasible": 0.6858562244301578,
+   "n": 69,
+   "n_feasible": 59
+  },
+  "gpt-4o-mini": {
+   "ungated": 0.6902813299232736,
+   "gated_agree": 0.8297405918889295,
+   "gated_neutral": 0.807563025210084,
+   "gated_neutral_feasible": 0.7964932787843366,
+   "n": 69,
+   "n_feasible": 59
+  },
+  "mistral": {
+   "ungated": 0.5312751187431495,
+   "gated_agree": 0.663280964559737,
+   "gated_neutral": 0.6267080745341614,
+   "gated_neutral_feasible": 0.5886616014026885,
+   "n": 69,
+   "n_feasible": 59
+  }
+ }
+}

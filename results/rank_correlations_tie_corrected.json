@@ -1,0 +1,59 @@
+{
+ "gpt-3.5-turbo vs gpt-4o-mini": {
+  "all": 0.8019495415575789,
+  "excl_declined": 0.7975781714772389,
+  "n": 69,
+  "n_excl": 66
+ },
+ "gpt-3.5-turbo vs mistral": {
+  "all": 0.7225927356567082,
+  "excl_declined": 0.6988610968881305,
+  "n": 69,
+  "n_excl": 66
+ },
+ "gpt-3.5-turbo vs gemma3": {
+  "all": 0.5854458441046164,
+  "excl_declined": 0.7252609642852681,
+  "n": 69,
+  "n_excl": 66
+ },
+ "gpt-4o-mini vs mistral": {
+  "all": 0.6843283446860124,
+  "excl_declined": 0.6620622691413992,
+  "n": 69,
+  "n_excl": 66
+ },
+ "gpt-4o-mini vs gemma3": {
+  "all": 0.6917032888910809,
+  "excl_declined": 0.8052095850611299,
+  "n": 69,
+  "n_excl": 66
+ },
+ "mistral vs gemma3": {
+  "all": 0.5333893716767892,
+  "excl_declined": 0.6590835552090109,
+  "n": 69,
+  "n_excl": 66
+ },
+ "gemma3 gated vs gpt-3.5-turbo": {
+  "gated_agree": 0.7484972014956831,
+  "gated_neutral": 0.7090645018403493,
+  "gated_neutral_feasible": 0.6855356027452495,
+  "n": 69,
+  "n_feasible": 59
+ },
+ "gemma3 gated vs gpt-4o-mini": {
+  "gated_agree": 0.8313080184197061,
+  "gated_neutral": 0.8081255680222661,
+  "gated_neutral_feasible": 0.7955542000079138,
+  "n": 69,
+  "n_feasible": 59
+ },
+ "gemma3 gated vs mistral": {
+  "gated_agree": 0.6646839538415871,
+  "gated_neutral": 0.6279475615283983,
+  "gated_neutral_feasible": 0.5908127728278503,
+  "n": 69,
+  "n_feasible": 59
+ }
+}

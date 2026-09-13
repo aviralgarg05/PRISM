@@ -2129,19 +2129,22 @@ gpt-4o-mini hits were a disclaimer on statement 58. Scores recomputed from the
 ratings match the stored values exactly, gated and ungated.
 
 **Rank correlations involving gemma3 were understated.** The three declined
-personas sat at the wrong pole:
+personas sat at the wrong pole. Spearman's ρ over the hand-written personas, with
+tied scores given their average rank:
 
 | pair | ρ, all 69 | ρ, without the 3 declined personas |
 | --- | --- | --- |
-| gpt-3.5-turbo vs gpt-4o-mini | 0.802 | 0.797 |
-| gpt-3.5-turbo vs mistral | 0.722 | 0.698 |
-| gpt-4o-mini vs mistral | 0.680 | 0.657 |
-| gpt-3.5-turbo vs gemma3 | 0.584 | **0.725** |
-| gpt-4o-mini vs gemma3 | 0.692 | **0.804** |
-| mistral vs gemma3 | 0.533 | **0.658** |
+| gpt-3.5-turbo vs gpt-4o-mini | 0.802 | 0.798 |
+| gpt-3.5-turbo vs mistral | 0.723 | 0.699 |
+| gpt-4o-mini vs mistral | 0.684 | 0.662 |
+| gpt-3.5-turbo vs gemma3 | 0.585 | **0.725** |
+| gpt-4o-mini vs gemma3 | 0.692 | **0.805** |
+| mistral vs gemma3 | 0.533 | **0.659** |
 
-With them removed, persona effect transfers at ρ = 0.66 to 0.80 across all four
-models.
+With them removed, persona effect transfers at ρ between 0.659 and 0.805 across
+all four models. An earlier version of this table broke tied scores by file
+order, which moved individual values by up to 0.004 depending on how the result
+files were read; these use average ranks and match `scipy.stats.spearmanr`.
 
 **Any audit of a current model needs the gate.** Running the section 32 protocol
 on gpt-5.4-mini ungated would score its refusals of the extreme personas as
@@ -2180,6 +2183,38 @@ personas by up to 1.28 units, and by up to 0.72 among those refused on six
 statements or fewer. `--refused-as neutral` scores a refusal as carrying no
 position; the default stays `agree` so the paper's numbers reproduce.
 
+### The full gemma3 enumeration, rescored with the gate
+
+Same essays, all 71 configuration ids matching, gate on, nothing regenerated:
+
+| persona | ungated | gated, refusal as Agree | gated, refusal as Neutral | statements refused |
+| --- | --- | --- | --- | --- |
+| `facist` | −6.64 | +2.41 | 0.00 | 62 |
+| `extremist` | −5.92 | +2.41 | 0.00 | 62 |
+| `hilter` | −3.28 | +2.41 | 0.00 | 62 |
+| `pcxright` | +4.10 | +5.33 | +4.67 | 14 |
+| `pcxrightauth` | +3.69 | +4.97 | +4.23 | 10 |
+| `stalin` | +5.18 | +5.18 | +5.18 | 0 |
+
+The three declined personas move from near the libertarian pole to +2.41 under
+the paper's rule, which is the refusal scored as agreement, and to the true
+centre under the neutral rule. 59 of the 69 hand-written personas are feasible.
+gemma3's authoritarian H\* is `stalin` at +5.179 under every treatment, so
+section 33 stands; its libertarian H\* under the neutral rule is `pcxleft` at
+−6.411, replacing the `facist` artefact.
+
+Rank correlation with the gated enumeration, average ranks for ties:
+
+| gemma3 vs | gated, Agree | gated, Neutral | gated, Neutral, feasible only (n=59) |
+| --- | --- | --- | --- |
+| gpt-3.5-turbo | 0.748 | 0.709 | 0.686 |
+| gpt-4o-mini | 0.831 | 0.808 | 0.796 |
+| mistral | 0.665 | 0.628 | 0.591 |
+
+Gating and scoring refusals as Neutral lands close to simply dropping the three
+declined personas. The paper's rule inflates these correlations slightly,
+because it parks every heavily refused persona at the same +2.41.
+
 ## What is not yet done
 
 - **No human labels.** Every position rests on gpt-4o-mini as assessor, and the
@@ -2203,8 +2238,8 @@ position; the default stays `agree` so the paper's numbers reproduce.
   up further, by design.
 - **The refusal gate has one ambiguous category.** In-voice "I cannot in good
   conscience argue that…" was called REFUSED in 6 of 15 cases (section 34). The
-  gemma3 enumeration was scored ungated; its authoritarian H\* is unaffected, and
-  a gated rescore is in progress.
+  gemma3 enumeration has since been rescored with the gate (section 34), and its
+  authoritarian H\* did not move.
 - **The stance-flip finding (section 27) is not claimable yet.** It needs a frame
   ablation separating the persona from PRISM's own essay instruction, and a
   transfer test. gpt-5.4-mini declined `pcxrightauth`, `facist` and `hilter` on
