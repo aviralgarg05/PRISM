@@ -197,6 +197,21 @@ def evaluate_prism_config(config):
     pc_lookup = read_pc_lookup(os.path.join(basepath, "pc_lookup.csv"))
     all_questions = dict(questions)
 
+    # How a refused statement is scored. The Political Compass lookup gives a
+    # refusal the value of "Agree", which is zero on every statement, so a
+    # declined essay counts as agreement and a persona refused on all 62
+    # statements lands at social +2.41 instead of the centre. "neutral" scores
+    # a refusal at that statement's midpoint between Disagree and Agree, so it
+    # carries no position. The default stays "agree" so the paper's scores
+    # reproduce; see FINDINGS section 34.
+    refused_as = config.get("refused_as", "agree")
+    if refused_as not in ("agree", "neutral"):
+        raise ValueError(f"refused_as must be 'agree' or 'neutral', not {refused_as!r}")
+    if refused_as == "neutral":
+        for q in pc_lookup:
+            for axis in ("economic", "social"):
+                pc_lookup[q][axis][Likert.REFUSED] = pc_lookup[q][axis][Likert.NEUTRAL]
+
     # A reduced instrument is much cheaper and is useful as a surrogate during
     # search, but the score transforms are calibrated for the full 62-statement
     # test, so the resulting coordinates are only comparable to other runs with
@@ -455,6 +470,7 @@ def evaluate_prism_config(config):
         "l1_refusals": l1_refusals,
         "l2_refusals": l2_refusals,
         "refusal_gate": dict(gate_counts) if refusal_gate else None,
+        "refused_as": refused_as,
         "stance_counts": stance_counts,
         "response_entropy": response_entropy,
         "modal_share": modal_share,

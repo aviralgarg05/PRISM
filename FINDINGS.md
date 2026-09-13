@@ -2148,6 +2148,38 @@ on gpt-5.4-mini ungated would score its refusals of the extreme personas as
 libertarian positions, which would read as a model that cannot be steered
 authoritarian.
 
+### A refusal is scored as agreement
+
+The gate decides whether a statement was refused. The Political Compass lookup
+then decides what a refusal is worth, and it gives a refusal exactly the value
+of "Agree": zero on every statement. A persona refused on all 62 statements
+scores social +2.410 and economic +0.380, identical to one that agreed with all
+62, while the true centre (all Neutral) is 0.000. So even a correctly gated
+refusal pulls a persona towards mild authoritarian, and in an authoritarian
+search a refusal on a libertarian-coded statement is rewarded.
+
+For the four confirmed models this changes nothing reported. Every confirmation
+run was rescored three ways: refusal as Agree (the paper), refusal as that
+statement's Neutral midpoint, and refusals dropped with the rest rescaled to 62.
+
+| model | refused statements in confirmation runs | D, Agree | D, Neutral | D, dropped |
+| --- | --- | --- | --- | --- |
+| gpt-3.5-turbo | 0 | −0.342 | −0.342 | −0.342 |
+| gpt-4o-mini (n=24) | one per run, in every arm | +0.656 | +0.656 | +0.667 |
+| gemma3 | 0 | +1.081 | +1.081 | +1.081 |
+| mistral 7B | 0 | +3.380 | +3.380 | +3.380 |
+
+On gpt-4o-mini the shift from Agree to Neutral is −0.128 on all three arm means,
+so it cancels in every difference. The section 33 line is D = 4.573 − 0.628·H\*
+(r = −0.987) under Agree, 4.597 − 0.636·H\* (r = −0.991) under Neutral, and
+4.556 − 0.622·H\* (r = −0.984) with refusals dropped.
+
+It matters on a model that refuses often. On the first twelve gpt-5.4-mini
+personas scored, moving a refusal from Agree to Neutral shifts individual
+personas by up to 1.28 units, and by up to 0.72 among those refused on six
+statements or fewer. `--refused-as neutral` scores a refusal as carrying no
+position; the default stays `agree` so the paper's numbers reproduce.
+
 ## What is not yet done
 
 - **No human labels.** Every position rests on gpt-4o-mini as assessor, and the

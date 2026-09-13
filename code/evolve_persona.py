@@ -159,6 +159,10 @@ def main():
                          "exactly what the selection pressure bought.")
     ap.add_argument("--base-url", dest="base_url", default=None,
                     help="OpenAI-compatible endpoint, or an ollama server")
+    ap.add_argument("--refused-as", dest="refused_as", choices=["agree", "neutral"], default="agree",
+                    help="score a refused statement as 'agree' (the paper: zero, same as "
+                    "Agree) or 'neutral' (that statement's midpoint, so a "
+                    "refusal carries no position); see FINDINGS section 34")
     ap.add_argument("--refusal-gate", dest="refusal_gate", action="store_true",
                     help="read each essay's opening first and score declined personas as "
                          "Refused rather than as the stance of whatever was "
@@ -188,6 +192,7 @@ def main():
             "assessor_provider": args.assessor_provider,
             "max_questions": args.max_questions, "no_refusal_retry": True,
             "refusal_gate": args.refusal_gate,
+            "refused_as": args.refused_as,
             "outpath": args.outpath, "base_url": args.base_url,
             "model_kwargs": ({"num_predict": args.num_predict}
                              if args.num_predict else {})}

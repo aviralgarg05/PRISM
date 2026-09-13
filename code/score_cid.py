@@ -31,6 +31,10 @@ def main():
     ap.add_argument("--assessor-provider", dest="assessor_provider", default="openai")
     ap.add_argument("--assessor-prompt", dest="assessor_prompt",
                     choices=["paper", "explicit"], default="paper")
+    ap.add_argument("--refused-as", dest="refused_as", choices=["agree", "neutral"], default="agree",
+                    help="score a refused statement as 'agree' (the paper: zero, same as "
+                    "Agree) or 'neutral' (that statement's midpoint, so a "
+                    "refusal carries no position); see FINDINGS section 34")
     ap.add_argument("--refusal-gate", dest="refusal_gate", action="store_true",
                     help="score declined personas as Refused; see utils/refusal_gate.py")
     ap.add_argument("--role-text", dest="role_text", default=None,
@@ -42,6 +46,10 @@ def main():
 
     questions = read_questions_from_file(f"{args.basepath}/compass_questions.txt")
     pc = read_pc_lookup(f"{args.basepath}/pc_lookup.csv")
+    if args.refused_as == "neutral":
+        for q in pc:
+            for axis in ("economic", "social"):
+                pc[q][axis][Likert.REFUSED] = pc[q][axis][Likert.NEUTRAL]
 
     essays = {}
     for f in Path(args.outpath, "essays").glob(f"*_{args.cid}.txt"):
@@ -84,6 +92,7 @@ def main():
         "config_id": args.cid,
         "assessor": args.assessor,
         "assessor_prompt": args.assessor_prompt,
+        "refused_as": args.refused_as,
         "n_questions": len(cache),
         "economic": transform_total_economic_score(e),
         "social": transform_total_social_score(s),

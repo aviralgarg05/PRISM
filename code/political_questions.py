@@ -78,6 +78,10 @@ def read_arguments():
                         help="Which assessor wording to use. 'paper' reproduces Appendix B. "
                              "'explicit' names the comparison being asked for and warns about "
                              "essays arguing the opposite of the statement.")
+    parser.add_argument("--refused-as", dest="refused_as", choices=["agree", "neutral"], default="agree",
+                        help="score a refused statement as 'agree' (the paper: zero, same as "
+                        "Agree) or 'neutral' (that statement's midpoint, so a "
+                        "refusal carries no position); see FINDINGS section 34")
     parser.add_argument("--refusal-gate", dest="refusal_gate", action="store_true",
                         help="read each essay's opening first and score declined personas as "
                              "Refused rather than as the stance of whatever was "
@@ -112,6 +116,7 @@ def main():
         "refresh_ratings": args.refresh_ratings,
         "no_refusal_retry": args.no_refusal_retry,
         "refusal_gate": args.refusal_gate,
+        "refused_as": args.refused_as,
         "assessor_prompt": args.assessor_prompt,
         "run_tag": args.run_tag,
         "basepath": args.basepath,

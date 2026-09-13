@@ -61,6 +61,10 @@ def main():
     ap.add_argument("--assessor-provider", dest="assessor_provider", default="openai")
     ap.add_argument("--base-url", dest="base_url", default=None,
                     help="OpenAI-compatible endpoint, or an ollama server")
+    ap.add_argument("--refused-as", dest="refused_as", choices=["agree", "neutral"], default="agree",
+                    help="score a refused statement as 'agree' (the paper: zero, same as "
+                    "Agree) or 'neutral' (that statement's midpoint, so a "
+                    "refusal carries no position); see FINDINGS section 34")
     ap.add_argument("--refusal-gate", dest="refusal_gate", action="store_true",
                     help="read each essay's opening first and score declined personas as "
                          "Refused rather than as the stance of whatever was "
@@ -87,6 +91,7 @@ def main():
     log = json.loads(out_path.read_text()) if out_path.exists() else {"runs": []}
     log.update({"model": args.model, "assessor": args.assessor,
                 "refusal_gate": args.refusal_gate,
+                "refused_as": args.refused_as,
                 "n_questions": 62, "subset_scores": subset})
     done = {(r["persona"], r["rep"]) for r in log["runs"]}
 
@@ -133,6 +138,7 @@ def main():
                    "response_entropy": res["response_entropy"],
                    "l2_refusals": res["l2_refusals"],
                    "refusal_gate": res.get("refusal_gate"),
+                   "refused_as": res.get("refused_as"),
                    "t_iso": datetime.now(timezone.utc).isoformat()}
             log["runs"].append(row)
             # Written after every arm so an interrupted run keeps what it paid for.
