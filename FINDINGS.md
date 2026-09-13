@@ -2368,6 +2368,57 @@ re-registered under gate v3.
 | gpt-4o-mini | 0.794 | 0.691 |
 | mistral 7B | 0.771 | 0.716 |
 
+### The pre-registered test: the prediction fails
+
+Search, matched control and H\* were confirmed at n=12 in randomised complete
+blocks with gate v3 on. One pipeline fault had to be corrected first:
+`confirm_persona.py` passed `--refused-as` to its log header but not to each
+run, so the confirmation was stored with refusals scored as Agree rather than
+under the pre-registered Neutral rule. The stances are cached, so every run was
+rescored from them. The search arms ran through `evolve_persona.py` and scored
+with the Neutral rule throughout, which their cached ratings confirm.
+
+| arm | n | social, Neutral rule | sd | refused per run | answers at an extreme of the scale |
+| --- | --- | --- | --- | --- | --- |
+| control best | 12 | +5.047 | 0.697 | 0.0 | 100% |
+| search best | 12 | +3.525 | 0.836 | 5.5 | 96% |
+| H\* `pcrightauth` | 12 | +2.160 | 0.421 | 0.1 | 100% |
+
+The confirmed H\* is +2.160, back inside the fitted range, so this is an
+in-range test.
+
+| | Neutral rule (pre-registered) | Agree rule |
+| --- | --- | --- |
+| D = search − H\* | **+1.365** [+0.793, +1.937] | +2.030 [+1.451, +2.609] |
+| predicted by the section 33 line at confirmed H\* | +3.223 | +3.214 |
+| observed minus predicted | **−1.858** | −1.184 |
+| variation alone | +2.887 [+2.393, +3.380] | +2.872 [+2.382, +3.361] |
+| selection alone | **−1.521** [−2.174, −0.869] | −0.842 [−1.503, −0.181] |
+
+**The relationship does not hold on gpt-5.4-mini.** Search beats the best
+hand-written persona, but by 1.86 units less than the line predicts, outside the
+pre-registered tolerance of 1.0, and it misses under either refusal rule.
+
+The decomposition shows where the shortfall sits. The LLM rewriting alone
+recovers 2.9 units, within 0.4 of what the line predicts for search as a whole.
+Selection on top of it then loses 1.5, with an interval well clear of zero. The
+search arm pushed its candidates into the refusal boundary: 18 of its 48
+candidates were feasible against 40 of 48 for the control, and its best
+candidate was refused on 5.5 statements per run, over the feasibility limit of 6
+in 3 of the 12 confirmation runs. The control's best was never refused. Scoring
+refusals as Agree shrinks the selection loss to −0.84 but does not remove it.
+
+A reading that fits: on a model that declines what it will not argue, selection
+pressure towards an extreme drives the search into refusals, and the rewriting
+without that pressure stays inside what the model will play. That is a
+hypothesis formed after seeing the result; this run was not designed to test it.
+
+One caution. All three arms answer at an extreme of the scale on 96 to 100% of
+statements. Against the all-Strongly-agree null of +4.36 (section 31), the
+control best sits 0.69 beyond it, the search best 0.83 short of it, and H\* 2.20
+short of it. On gpt-5.4-mini these personas produce polarised answering more
+than graded agreement.
+
 ## What is not yet done
 
 - **No human labels.** Every position rests on gpt-4o-mini as assessor, and the
@@ -2380,8 +2431,9 @@ re-registered under gate v3.
   is fitted on the four points it describes, two of them share a vendor, and H\*
   carries its own winner's-curse error. gemma3 was a genuine held-out
   prediction. A second held-out model, gpt-5.4-mini with the refusal gate on,
-  has been enumerated (section 35). Its search was stopped when a gate
-  false-positive mode was found, and is being re-registered under gate v3.
+  was the second held-out model: under gate v3 its pre-registered prediction
+  failed (section 35), so the relationship holds on four models and not on the
+  current one.
 - **Only the authoritarian direction on the social axis.** Every search in
   sections 32 and 33 pushed social upward. The libertarian direction behaves
   differently on this instrument (section 31: the best libertarian persona

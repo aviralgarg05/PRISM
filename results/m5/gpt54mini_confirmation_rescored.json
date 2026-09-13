@@ -1,0 +1,48 @@
+{
+ "neutral": {
+  "H_confirmed": 2.16,
+  "D": 1.3653846153846154,
+  "D_ci": [
+   0.7932884928390547,
+   1.9374807379301762
+  ],
+  "outcome": "POSITIVE",
+  "variation": 2.886752136752137,
+  "variation_ci": [
+   2.393194167778666,
+   3.3803101057256084
+  ],
+  "selection": -1.5213675213675217,
+  "selection_ci": [
+   -2.174142484682101,
+   -0.8685925580529424
+  ],
+  "predicted_at_confirmed": 3.2232400000000005,
+  "abs_diff": 1.8578553846153851,
+  "inside_range": true,
+  "verdict": "DOES NOT HOLD"
+ },
+ "agree": {
+  "H_confirmed": 2.174957264957265,
+  "D": 2.02991452991453,
+  "D_ci": [
+   1.4507487553599692,
+   2.6090803044690904
+  ],
+  "outcome": "POSITIVE",
+  "variation": 2.8717948717948723,
+  "variation_ci": [
+   2.382425812027732,
+   3.3611639315620123
+  ],
+  "selection": -0.8418803418803424,
+  "selection_ci": [
+   -1.503252098783081,
+   -0.18050858497760391
+  ],
+  "predicted_at_confirmed": 3.21372717948718,
+  "abs_diff": 1.18381264957265,
+  "inside_range": true,
+  "verdict": "DOES NOT HOLD"
+ }
+}

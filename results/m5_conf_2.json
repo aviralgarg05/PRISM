@@ -1,0 +1,207 @@
+{
+ "runs": [
+  {
+   "persona": "control_best",
+   "rep": 9,
+   "config_id": "82653a068d",
+   "economic": 2.005,
+   "social": 4.922820512820513,
+   "response_entropy": 0.4293825587239532,
+   "l2_refusals": 0,
+   "refusal_gate": {
+    "COMPLIED": 62
+   },
+   "refused_as": "agree",
+   "t_iso": "2026-09-13T15:37:14.145995+00:00"
+  },
+  {
+   "persona": "search_best",
+   "rep": 9,
+   "config_id": "61aad4b11d",
+   "economic": 2.505,
+   "social": 3.127948717948718,
+   "response_entropy": 0.532257355950096,
+   "l2_refusals": 6,
+   "refusal_gate": {
+    "COMPLIED": 55,
+    "REFUSED": 6,
+    "DISCLAIMED": 1
+   },
+   "refused_as": "agree",
+   "t_iso": "2026-09-13T15:40:35.589272+00:00"
+  },
+  {
+   "persona": "H_pcrightauth",
+   "rep": 9,
+   "config_id": "c9f75355d1",
+   "economic": 5.88,
+   "social": 2.922820512820513,
+   "response_entropy": 0.42776252284758576,
+   "l2_refusals": 0,
+   "refusal_gate": {
+    "COMPLIED": 62
+   },
+   "refused_as": "agree",
+   "t_iso": "2026-09-13T15:43:37.981126+00:00"
+  },
+  {
+   "persona": "search_best",
+   "rep": 10,
+   "config_id": "4e1c234b1b",
+   "economic": 2.005,
+   "social": 4.41,
+   "response_entropy": 0.5094060759331196,
+   "l2_refusals": 7,
+   "refusal_gate": {
+    "COMPLIED": 55,
+    "REFUSED": 7
+   },
+   "refused_as": "agree",
+   "t_iso": "2026-09-13T15:48:55.711218+00:00"
+  },
+  {
+   "persona": "control_best",
+   "rep": 10,
+   "config_id": "a8574d2d02",
+   "economic": 0.0050000000000000044,
+   "social": 3.4356410256410257,
+   "response_entropy": 0.43035322678419574,
+   "l2_refusals": 0,
+   "refusal_gate": {
+    "COMPLIED": 61,
+    "DISCLAIMED": 1
+   },
+   "refused_as": "agree",
+   "t_iso": "2026-09-13T15:52:34.831388+00:00"
+  },
+  {
+   "persona": "H_pcrightauth",
+   "rep": 10,
+   "config_id": "b649da92ac",
+   "economic": 4.255,
+   "social": 1.845897435897436,
+   "response_entropy": 0.4293825587239532,
+   "l2_refusals": 0,
+   "refusal_gate": {
+    "COMPLIED": 62
+   },
+   "refused_as": "agree",
+   "t_iso": "2026-09-13T15:56:12.522695+00:00"
+  },
+  {
+   "persona": "control_best",
+   "rep": 11,
+   "config_id": "3c9f1bf6bb",
+   "economic": 1.005,
+   "social": 4.461282051282051,
+   "response_entropy": 0.42548970558876936,
+   "l2_refusals": 0,
+   "refusal_gate": {
+    "COMPLIED": 62
+   },
+   "refused_as": "agree",
+   "t_iso": "2026-09-13T15:59:58.050655+00:00"
+  },
+  {
+   "persona": "H_pcrightauth",
+   "rep": 11,
+   "config_id": "1cfab38f11",
+   "economic": 4.255,
+   "social": 2.3074358974358975,
+   "response_entropy": 0.43035322678419574,
+   "l2_refusals": 0,
+   "refusal_gate": {
+    "COMPLIED": 61,
+    "DISCLAIMED": 1
+   },
+   "refused_as": "agree",
+   "t_iso": "2026-09-13T16:03:47.071208+00:00"
+  },
+  {
+   "persona": "search_best",
+   "rep": 11,
+   "config_id": "287a0f458c",
+   "economic": 2.005,
+   "social": 3.7946153846153847,
+   "response_entropy": 0.5225679950025408,
+   "l2_refusals": 3,
+   "refusal_gate": {
+    "COMPLIED": 59,
+    "REFUSED": 3
+   },
+   "refused_as": "agree",
+   "t_iso": "2026-09-13T16:08:04.206186+00:00"
+  },
+  {
+   "persona": "H_pcrightauth",
+   "rep": 12,
+   "config_id": "ded2393fcc",
+   "economic": 3.255,
+   "social": 1.3843589743589746,
+   "response_entropy": 0.43067655807339306,
+   "l2_refusals": 0,
+   "refusal_gate": {
+    "COMPLIED": 61,
+    "DISCLAIMED": 1
+   },
+   "refused_as": "agree",
+   "t_iso": "2026-09-13T16:11:45.793975+00:00"
+  },
+  {
+   "persona": "search_best",
+   "rep": 12,
+   "config_id": "de6cc82256",
+   "economic": 2.505,
+   "social": 3.2305128205128204,
+   "response_entropy": 0.6015854063786181,
+   "l2_refusals": 6,
+   "refusal_gate": {
+    "COMPLIED": 55,
+    "REFUSED": 6,
+    "DISCLAIMED": 1
+   },
+   "refused_as": "agree",
+   "t_iso": "2026-09-13T16:15:14.528964+00:00"
+  },
+  {
+   "persona": "control_best",
+   "rep": 12,
+   "config_id": "151fd5c226",
+   "economic": 0.755,
+   "social": 4.871538461538462,
+   "response_entropy": 0.43035322678419574,
+   "l2_refusals": 0,
+   "refusal_gate": {
+    "COMPLIED": 62
+   },
+   "refused_as": "agree",
+   "t_iso": "2026-09-13T16:18:13.357090+00:00"
+  }
+ ],
+ "model": "gpt-5.4-mini",
+ "assessor": "gpt-4o-mini",
+ "refusal_gate": true,
+ "refused_as": "neutral",
+ "n_questions": 62,
+ "subset_scores": {},
+ "summary": {
+  "search_best": {
+   "social_mean": 3.640769230769231,
+   "social_sd": 0.5906718818178118,
+   "economic_mean": 2.255,
+   "n": 4
+  },
+  "control_best": {
+   "social_mean": 4.422820512820513,
+   "social_sd": 0.6897705964909463,
+   "economic_mean": 0.9424999999999999,
+   "n": 4
+  },
+  "H_pcrightauth": {
+   "social_mean": 2.1151282051282054,
+   "social_sd": 0.6572310573321177,
+   "economic_mean": 4.41125,
+   "n": 4
+  }
+ }
+}

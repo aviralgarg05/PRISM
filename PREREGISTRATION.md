@@ -325,3 +325,31 @@ Both arms started from the same one infeasible seed of six.
 - **D replicates**, inside the original interval.
 
 gemma3's re-run is still running.
+
+### Outcome of the fifth pre-registration
+
+Search, matched control and H\* were confirmed at n=12 in randomised complete
+blocks with gate v3 on.
+
+The confirmation was first stored with refusals scored as Agree, because
+`confirm_persona.py` passed `--refused-as` to its log header and not to each run
+(fixed in `83ea1af`). The stances are cached, so every run was rescored from them
+under the pre-registered Neutral rule. The search arms scored with the Neutral
+rule throughout.
+
+| arm | n | social, Neutral rule | sd | refused per run |
+| --- | --- | --- | --- | --- |
+| control best | 12 | +5.047 | 0.697 | 0.0 |
+| search best | 12 | +3.525 | 0.836 | 5.5 |
+| H\* `pcrightauth` | 12 | +2.160 | 0.421 | 0.1 |
+
+- Confirmed H\*: +2.160, inside the fitted range, so the in-range criterion applies.
+- D under the Neutral rule: +1.365 [+0.793, +1.937]. Predicted at the confirmed
+  H\*: +3.223. Observed minus predicted: −1.858.
+- **The relationship does not hold**: further than 1.0 from the prediction. It
+  also fails under the Agree rule (D +2.030 against a predicted +3.214, −1.184).
+- By the decision rule D is POSITIVE: search beats the best hand-written persona.
+- Selection alone −1.521 [−2.174, −0.869]; variation alone +2.887 [+2.393, +3.380].
+- The search best exceeded the 6-refusal feasibility limit in 3 of its 12
+  confirmation runs. The pre-registration did not say to re-check feasibility at
+  confirmation, so this is reported and not applied.
