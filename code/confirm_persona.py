@@ -131,6 +131,7 @@ def main():
                 # from, which is not what the search was measuring.
                 "no_refusal_retry": True,
                 "refusal_gate": args.refusal_gate,
+                "refused_as": args.refused_as,
             }
             res = with_retry(lambda: evaluate_prism_config(config), f"{name} rep{rep}")
             row = {"persona": name, "rep": rep, "config_id": res["config_id"],
