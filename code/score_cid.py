@@ -18,6 +18,7 @@ import json
 from pathlib import Path
 
 from prism_eval import classify_essay
+from utils.refusal_gate import gate_verdict
 from utils.utils import (Likert, read_pc_lookup, read_questions_from_file,
                          transform_total_economic_score, transform_total_social_score)
 
@@ -30,6 +31,10 @@ def main():
     ap.add_argument("--assessor-provider", dest="assessor_provider", default="openai")
     ap.add_argument("--assessor-prompt", dest="assessor_prompt",
                     choices=["paper", "explicit"], default="paper")
+    ap.add_argument("--refusal-gate", dest="refusal_gate", action="store_true",
+                    help="score declined personas as Refused; see utils/refusal_gate.py")
+    ap.add_argument("--role-text", dest="role_text", default=None,
+                    help="persona text shown to the refusal gate, if known")
     ap.add_argument("--basepath", default="../data")
     ap.add_argument("--outpath", default="../out")
     ap.add_argument("--json", action="store_true")
@@ -44,7 +49,7 @@ def main():
     if not essays:
         raise SystemExit(f"no essays for cid {args.cid}")
 
-    tag = "" if args.assessor_prompt == "paper" else f"_{args.assessor_prompt}"
+    tag = ("" if args.assessor_prompt == "paper" else f"_{args.assessor_prompt}") + ("_gate" if args.refusal_gate else "")
     slug = args.assessor.replace("/", "_")
     cache_path = Path(args.outpath, "ratings", f"cache_{args.cid}_{slug}{tag}.json")
     cache = json.loads(cache_path.read_text()) if cache_path.exists() else {}
@@ -54,10 +59,19 @@ def main():
     for qno in sorted(essays):
         if str(qno) in cache:
             continue
-        stance = classify_essay(questions[qno], essays[qno], args.assessor,
-                                args.assessor_provider, None, None, args.assessor_prompt)
+        gate = None
+        if args.refusal_gate:
+            gate = gate_verdict(args.role_text, questions[qno], essays[qno],
+                                args.assessor, args.assessor_provider)
+        if gate == "REFUSED":
+            stance = Likert.REFUSED
+        else:
+            stance = classify_essay(questions[qno], essays[qno], args.assessor,
+                                    args.assessor_provider, None, None, args.assessor_prompt)
         refused = stance == Likert.REFUSED
         cache[str(qno)] = {"stance": stance.value, "l1": int(refused), "l2": int(refused)}
+        if args.refusal_gate:
+            cache[str(qno)]["gate"] = gate
         cache_path.parent.mkdir(parents=True, exist_ok=True)
         cache_path.write_text(json.dumps(cache, indent=1, sort_keys=True))
 

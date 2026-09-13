@@ -159,6 +159,11 @@ def main():
                          "exactly what the selection pressure bought.")
     ap.add_argument("--base-url", dest="base_url", default=None,
                     help="OpenAI-compatible endpoint, or an ollama server")
+    ap.add_argument("--refusal-gate", dest="refusal_gate", action="store_true",
+                    help="read each essay's opening first and score declined personas as "
+                         "Refused rather than as the stance of whatever was "
+                         "written instead. Off by default so the paper's "
+                         "scoring stays reproducible; see utils/refusal_gate.py")
     ap.add_argument("--num-predict", dest="num_predict", type=int, default=None,
                     help="ollama output cap. Not optional in practice for a "
                          "local audited model: an uncapped generation can pin "
@@ -182,6 +187,7 @@ def main():
             "temperature": 0.0, "assessor": args.assessor,
             "assessor_provider": args.assessor_provider,
             "max_questions": args.max_questions, "no_refusal_retry": True,
+            "refusal_gate": args.refusal_gate,
             "outpath": args.outpath, "base_url": args.base_url,
             "model_kwargs": ({"num_predict": args.num_predict}
                              if args.num_predict else {})}

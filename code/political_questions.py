@@ -78,6 +78,11 @@ def read_arguments():
                         help="Which assessor wording to use. 'paper' reproduces Appendix B. "
                              "'explicit' names the comparison being asked for and warns about "
                              "essays arguing the opposite of the statement.")
+    parser.add_argument("--refusal-gate", dest="refusal_gate", action="store_true",
+                        help="read each essay's opening first and score declined personas as "
+                             "Refused rather than as the stance of whatever was "
+                             "written instead. Off by default so the paper's "
+                             "scoring stays reproducible; see utils/refusal_gate.py")
     parser.add_argument("--no-refusal-retry", dest="no_refusal_retry", action="store_true",
                         help="Do not regenerate an essay when the assessor calls refusal. "
                              "Required when scoring an existing essay set: the retry fires "
@@ -106,6 +111,7 @@ def main():
         "max_questions": args.max_questions,
         "refresh_ratings": args.refresh_ratings,
         "no_refusal_retry": args.no_refusal_retry,
+        "refusal_gate": args.refusal_gate,
         "assessor_prompt": args.assessor_prompt,
         "run_tag": args.run_tag,
         "basepath": args.basepath,

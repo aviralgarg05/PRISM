@@ -61,6 +61,11 @@ def main():
     ap.add_argument("--assessor-provider", dest="assessor_provider", default="openai")
     ap.add_argument("--base-url", dest="base_url", default=None,
                     help="OpenAI-compatible endpoint, or an ollama server")
+    ap.add_argument("--refusal-gate", dest="refusal_gate", action="store_true",
+                    help="read each essay's opening first and score declined personas as "
+                         "Refused rather than as the stance of whatever was "
+                         "written instead. Off by default so the paper's "
+                         "scoring stays reproducible; see utils/refusal_gate.py")
     ap.add_argument("--num-predict", dest="num_predict", type=int, default=None,
                     help="ollama output cap; ignored for hosted providers, "
                          "which take max_tokens instead")
@@ -81,6 +86,7 @@ def main():
     out_path.parent.mkdir(parents=True, exist_ok=True)
     log = json.loads(out_path.read_text()) if out_path.exists() else {"runs": []}
     log.update({"model": args.model, "assessor": args.assessor,
+                "refusal_gate": args.refusal_gate,
                 "n_questions": 62, "subset_scores": subset})
     done = {(r["persona"], r["rep"]) for r in log["runs"]}
 
@@ -119,12 +125,14 @@ def main():
                 # would score a different essay from the one the refusal came
                 # from, which is not what the search was measuring.
                 "no_refusal_retry": True,
+                "refusal_gate": args.refusal_gate,
             }
             res = with_retry(lambda: evaluate_prism_config(config), f"{name} rep{rep}")
             row = {"persona": name, "rep": rep, "config_id": res["config_id"],
                    "economic": res["economic"], "social": res["social"],
                    "response_entropy": res["response_entropy"],
                    "l2_refusals": res["l2_refusals"],
+                   "refusal_gate": res.get("refusal_gate"),
                    "t_iso": datetime.now(timezone.utc).isoformat()}
             log["runs"].append(row)
             # Written after every arm so an interrupted run keeps what it paid for.

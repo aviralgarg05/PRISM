@@ -21,6 +21,7 @@ except ImportError:  # pragma: no cover - older langchain 0.2.x layout
 from tenacity import retry, wait_exponential, stop_after_attempt
 
 from utils.roles import roles
+from utils.refusal_gate import gate_verdict
 from utils.prompt_variants import build_essay_template, DEFAULT_PROMPT_GENES
 from utils.utils import (
     Likert,
@@ -287,6 +288,7 @@ def evaluate_prism_config(config):
     social_score = 0
     l1_refusals = 0
     l2_refusals = 0
+    gate_counts = Counter()
     rows = []
 
     # Ratings are cached alongside essays. A rating depends only on the essay
@@ -295,7 +297,13 @@ def evaluate_prism_config(config):
     # through the instrument in small batches, and to re-evaluate a candidate
     # during search without paying for it twice.
     prompt_tag = "" if (assessor_prompt or "paper") == "paper" else f"_{assessor_prompt}"
-    cache_path = Path(outpath) / "ratings" / f"cache_{cid}_{assessor.replace('/', '_')}{prompt_tag}{tag}.json"
+    # A refusal gate decides which essays get a stance at all, so gated ratings
+    # are a different measurement and must never share a cache with ungated
+    # ones. See utils/refusal_gate.py for why the gate exists.
+    refusal_gate = bool(config.get("refusal_gate"))
+    gate_tag = "_gate" if refusal_gate else ""
+    persona_text = role_details(config.get("role"), config.get("role_text"))[1] if refusal_gate else None
+    cache_path = Path(outpath) / "ratings" / f"cache_{cid}_{assessor.replace('/', '_')}{prompt_tag}{gate_tag}{tag}.json"
     # Note the assessor is already part of this filename, so switching assessor
     # never reads another assessor's cached ratings.
     if cache_path.exists() and not config.get("refresh_ratings"):
@@ -317,7 +325,7 @@ def evaluate_prism_config(config):
     # overwrite each other.
     assessor_slug = assessor.replace("/", "_")
     suffix = f"_q{len(questions)}" if max_questions else ""
-    rating_filepath = Path(outpath) / "ratings" / f"ratings_{cid}_{assessor_slug}{suffix}{tag}.csv"
+    rating_filepath = Path(outpath) / "ratings" / f"ratings_{cid}_{assessor_slug}{suffix}{gate_tag}{tag}.csv"
     with rating_filepath.open("w") as fa:
         fa.write("qno,question,essay_len,stance,q_econ,q_social,total_econ,total_social,economic_dim,social_dim\n")
         for qno, question in questions.items():
@@ -328,9 +336,18 @@ def evaluate_prism_config(config):
                 stance = Likert(cached["stance"])
                 l1_refusals += cached.get("l1", 0)
                 l2_refusals += cached.get("l2", 0)
+                if refusal_gate:
+                    gate_counts[cached.get("gate")] += 1
             else:
-                stance = classify_essay(question, essay_text, assessor, assessor_provider,
-                                        assessor_kwargs, assessor_base_url, assessor_prompt)
+                gate = None
+                if refusal_gate:
+                    gate = gate_verdict(persona_text, question, essay_text, assessor,
+                                        assessor_provider, assessor_kwargs, assessor_base_url)
+                if gate == "REFUSED":
+                    stance = Likert.REFUSED
+                else:
+                    stance = classify_essay(question, essay_text, assessor, assessor_provider,
+                                            assessor_kwargs, assessor_base_url, assessor_prompt)
                 l1 = l2 = 0
 
                 if stance == Likert.REFUSED:
@@ -347,14 +364,23 @@ def evaluate_prism_config(config):
                     else:
                         retry_essay = write_essay(question, config, retry_after_refusal=True)
                         essay_text = retry_essay.content if hasattr(retry_essay, "content") else str(retry_essay)
-                        stance = classify_essay(question, essay_text, assessor, assessor_provider,
-                                                assessor_kwargs, assessor_base_url, assessor_prompt)
+                        if refusal_gate:
+                            gate = gate_verdict(persona_text, question, essay_text, assessor,
+                                                assessor_provider, assessor_kwargs, assessor_base_url)
+                        if gate == "REFUSED":
+                            stance = Likert.REFUSED
+                        else:
+                            stance = classify_essay(question, essay_text, assessor, assessor_provider,
+                                                    assessor_kwargs, assessor_base_url, assessor_prompt)
                         if stance == Likert.REFUSED:
                             l2 = 1
 
                 l1_refusals += l1
                 l2_refusals += l2
                 rating_cache[str(qno)] = {"stance": stance.value, "l1": l1, "l2": l2}
+                if refusal_gate:
+                    rating_cache[str(qno)]["gate"] = gate
+                    gate_counts[gate] += 1
                 # Written after every statement so an interrupted batch keeps
                 # the work it has already paid for.
                 cache_path.write_text(json.dumps(rating_cache, indent=1, sort_keys=True))
@@ -428,6 +454,7 @@ def evaluate_prism_config(config):
         "subset_saturated": saturated if max_questions else [],
         "l1_refusals": l1_refusals,
         "l2_refusals": l2_refusals,
+        "refusal_gate": dict(gate_counts) if refusal_gate else None,
         "stance_counts": stance_counts,
         "response_entropy": response_entropy,
         "modal_share": modal_share,
