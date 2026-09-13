@@ -216,3 +216,43 @@ one-sided 95% lower bound on D is at least +0.50, negative if the 95% upper
 bound is below 0, equivalent if the 90% interval lies within ±0.75.
 
 D is also reported under the paper's Agree rule, from the same ratings.
+
+---
+
+## Fourth pre-registration: re-running the controls that drew on infeasible seeds
+
+### What went wrong
+
+In sections 32 and 33 the `--no-selection` control took parents from every seed,
+feasible or not, while the search arm only ever selects feasible parents. On
+gpt-3.5-turbo the control started from 2 infeasible seeds of 6 (`pcaxuth` and
+`pcxright`, both at response entropy 0.24 against a floor of 0.25); on gemma3
+from 2 (`pcxright`, refused on 10 statements, and `biasedagent`, entropy 0.16).
+gpt-4o-mini and mistral had none. D compares the search arm with H\* and does
+not involve the control, so it is unaffected. The variation/selection split on
+those two models is confounded.
+
+The logs cannot settle it. Text similarity attributes 41 of 42 gemma3 search-arm
+children to `pcxright`, a seed that arm could never have used, so similarity is
+not evidence of lineage.
+
+### Design
+
+Both arms re-run on gpt-3.5-turbo and on gemma3 with the corrected driver
+(`74f6074`), with the same seeds, budget and flags as the originals, reading the
+same cached seed evaluations. The new search best, the new control best and H\*
+are then confirmed at n=12 in randomised complete blocks, with H\* re-measured
+fresh inside those blocks rather than read from the earlier confirmation.
+
+### Decision rule, fixed now
+
+- **gpt-3.5-turbo.** Published selection alone: −0.560 [−1.070, −0.050]. If the
+  re-run's 95% interval for selection alone includes zero or lies above it, "selection
+  is harmful on gpt-3.5-turbo" is withdrawn as an artefact of the parent
+  asymmetry. If it stays below zero with the interval excluding zero, it stands.
+- **gemma3.** Published variation alone: +0.893 [+0.468, +1.318]. If the re-run's
+  variation alone is lower by more than 0.5, the published split overstated the
+  rewriting's share on gemma3.
+- **D on both** is re-measured as a replication. A re-run D outside the original
+  95% interval (gpt-3.5-turbo [−0.809, +0.126]; gemma3 [+0.829, +1.334]) is
+  reported as a failed replication of that model's D.
