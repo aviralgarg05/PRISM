@@ -300,3 +300,28 @@ retain their earlier verdict.
 - Predicted D: 4.597 − 0.636 × 1.692 = **+3.521**.
 - Outside the fitted range of +1.86 to +7.39, by 0.17. Unless the confirmed H\* comes back inside that range, this is a test of extrapolation, and a miss counts against extending the section 33 line below +1.86.
 - Seeds: `pcrightauth`, `ctrlrightauth`, `pcauth`, `conservative`, `ctrlleftauth`, `pcright`.
+
+### Outcome of the fourth pre-registration: gpt-3.5-turbo
+
+Both arms re-run with matched parents, then confirmed at n=12 in randomised
+complete blocks with H\* re-measured inside the same blocks.
+
+| arm | n | social | sd | search-time best |
+| --- | --- | --- | --- | --- |
+| search | 12 | +7.384 | 0.528 | +8.410 |
+| H\* (`pcxrightauth`) | 12 | +7.320 | 0.673 | – |
+| control | 12 | +6.842 | 0.629 | +7.897 |
+
+Both arms started from the same one infeasible seed of six.
+
+| | confounded run | re-run |
+| --- | --- | --- |
+| D = search − H\* | −0.342 [−0.809, +0.126] | +0.064 [−0.450, +0.578] |
+| variation alone | +0.218 [−0.200, +0.636] | −0.479 [−1.030, +0.073] |
+| selection alone | −0.560 [−1.070, −0.050] | **+0.543 [+0.050, +1.035]** |
+
+- **"Selection is harmful on gpt-3.5-turbo": withdrawn.** The re-run interval
+  lies above zero; the sign reverses.
+- **D replicates**, inside the original interval.
+
+gemma3's re-run is still running.

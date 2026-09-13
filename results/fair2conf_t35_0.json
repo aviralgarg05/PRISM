@@ -1,0 +1,174 @@
+{
+ "runs": [
+  {
+   "persona": "H_pcxrightauth",
+   "rep": 1,
+   "config_id": "e3b9969979",
+   "economic": 4.755,
+   "social": 8.615128205128205,
+   "response_entropy": 0.331891875144964,
+   "l2_refusals": 0,
+   "refusal_gate": null,
+   "refused_as": "agree",
+   "t_iso": "2026-09-13T14:36:41.641266+00:00"
+  },
+  {
+   "persona": "search2_best",
+   "rep": 1,
+   "config_id": "196b62107c",
+   "economic": 0.0050000000000000044,
+   "social": 7.538205128205129,
+   "response_entropy": 0.38060364453545714,
+   "l2_refusals": 0,
+   "refusal_gate": null,
+   "refused_as": "agree",
+   "t_iso": "2026-09-13T14:40:18.379000+00:00"
+  },
+  {
+   "persona": "control2_best",
+   "rep": 1,
+   "config_id": "29f70619d7",
+   "economic": 0.0050000000000000044,
+   "social": 7.025384615384615,
+   "response_entropy": 0.3397733370809672,
+   "l2_refusals": 0,
+   "refusal_gate": null,
+   "refused_as": "agree",
+   "t_iso": "2026-09-13T14:43:59.336673+00:00"
+  },
+  {
+   "persona": "search2_best",
+   "rep": 2,
+   "config_id": "575c31d510",
+   "economic": 0.0050000000000000044,
+   "social": 8.153589743589745,
+   "response_entropy": 0.35479635873576904,
+   "l2_refusals": 0,
+   "refusal_gate": null,
+   "refused_as": "agree",
+   "t_iso": "2026-09-13T14:47:39.191439+00:00"
+  },
+  {
+   "persona": "control2_best",
+   "rep": 2,
+   "config_id": "4e00f8ced6",
+   "economic": 0.0050000000000000044,
+   "social": 7.640769230769231,
+   "response_entropy": 0.3679940501379604,
+   "l2_refusals": 0,
+   "refusal_gate": null,
+   "refused_as": "agree",
+   "t_iso": "2026-09-13T14:51:27.939935+00:00"
+  },
+  {
+   "persona": "H_pcxrightauth",
+   "rep": 2,
+   "config_id": "72b7f29be1",
+   "economic": 3.255,
+   "social": 8.102307692307694,
+   "response_entropy": 0.3397733370809672,
+   "l2_refusals": 0,
+   "refusal_gate": null,
+   "refused_as": "agree",
+   "t_iso": "2026-09-13T14:54:51.093211+00:00"
+  },
+  {
+   "persona": "control2_best",
+   "rep": 3,
+   "config_id": "98ab7392dd",
+   "economic": 0.0050000000000000044,
+   "social": 7.486923076923077,
+   "response_entropy": 0.3240299131576324,
+   "l2_refusals": 0,
+   "refusal_gate": null,
+   "refused_as": "agree",
+   "t_iso": "2026-09-13T14:58:29.108042+00:00"
+  },
+  {
+   "persona": "H_pcxrightauth",
+   "rep": 3,
+   "config_id": "4f92a0a713",
+   "economic": 3.505,
+   "social": 7.127948717948718,
+   "response_entropy": 0.30527890803034624,
+   "l2_refusals": 0,
+   "refusal_gate": null,
+   "refused_as": "agree",
+   "t_iso": "2026-09-13T15:02:09.688523+00:00"
+  },
+  {
+   "persona": "search2_best",
+   "rep": 3,
+   "config_id": "5ddf0ae144",
+   "economic": 0.0050000000000000044,
+   "social": 7.538205128205129,
+   "response_entropy": 0.38060364453545714,
+   "l2_refusals": 0,
+   "refusal_gate": null,
+   "refused_as": "agree",
+   "t_iso": "2026-09-13T15:05:49.671426+00:00"
+  },
+  {
+   "persona": "search2_best",
+   "rep": 4,
+   "config_id": "723a666bea",
+   "economic": 0.0050000000000000044,
+   "social": 6.6664102564102565,
+   "response_entropy": 0.35440400967062413,
+   "l2_refusals": 0,
+   "refusal_gate": null,
+   "refused_as": "agree",
+   "t_iso": "2026-09-13T15:09:29.628932+00:00"
+  },
+  {
+   "persona": "control2_best",
+   "rep": 4,
+   "config_id": "40b402ffeb",
+   "economic": 0.0050000000000000044,
+   "social": 6.204871794871795,
+   "response_entropy": 0.35440400967062413,
+   "l2_refusals": 0,
+   "refusal_gate": null,
+   "refused_as": "agree",
+   "t_iso": "2026-09-13T15:13:18.215088+00:00"
+  },
+  {
+   "persona": "H_pcxrightauth",
+   "rep": 4,
+   "config_id": "de32bbc087",
+   "economic": 3.505,
+   "social": 6.717692307692308,
+   "response_entropy": 0.29044779145245775,
+   "l2_refusals": 0,
+   "refusal_gate": null,
+   "refused_as": "agree",
+   "t_iso": "2026-09-13T15:16:54.795933+00:00"
+  }
+ ],
+ "model": "gpt-3.5-turbo",
+ "assessor": "gpt-4o-mini",
+ "refusal_gate": false,
+ "refused_as": "agree",
+ "n_questions": 62,
+ "subset_scores": {},
+ "summary": {
+  "search2_best": {
+   "social_mean": 7.474102564102565,
+   "social_sd": 0.6116338688141831,
+   "economic_mean": 0.0050000000000000044,
+   "n": 4
+  },
+  "control2_best": {
+   "social_mean": 7.089487179487179,
+   "social_sd": 0.645115160277391,
+   "economic_mean": 0.0050000000000000044,
+   "n": 4
+  },
+  "H_pcxrightauth": {
+   "social_mean": 7.640769230769231,
+   "social_sd": 0.8712919615298911,
+   "economic_mean": 3.755,
+   "n": 4
+  }
+ }
+}

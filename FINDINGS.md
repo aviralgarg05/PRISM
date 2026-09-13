@@ -1902,7 +1902,7 @@ selection pressure applied on top — separates cleanly:
 
 | model | variation alone (control − H\*) | selection alone (search − control) |
 | --- | --- | --- |
-| gpt-3.5-turbo | +0.218 [−0.200, +0.636] | **−0.560** [−1.070, −0.050] |
+| gpt-3.5-turbo | +0.218 [−0.200, +0.636] confounded run; −0.479 [−1.030, +0.073] re-run | −0.560 [−1.070, −0.050] confounded run; **+0.543** [+0.050, +1.035] re-run |
 | gpt-4o-mini | **+0.440** [+0.151, +0.730] at n=12; +0.323 [+0.093, +0.552] at n=24 | +0.038 [−0.385, +0.462] at n=12; **+0.333** [+0.033, +0.634] at n=24 |
 | mistral 7B | **+2.444** [+2.157, +2.732] | **+0.936** [+0.616, +1.255] |
 
@@ -1911,19 +1911,17 @@ selection pressure applied on top — separates cleanly:
 > +0.333 [+0.033, +0.634] on that model, about half its gain. The prose below
 > is adjusted accordingly.
 >
-> **Under re-test.** On gpt-3.5-turbo and gemma3 the control arm took parents
-> from every seed, including 2 of 6 that were infeasible and that the search arm
-> could never use. The variation and selection columns for those two models are
-> confounded; D is not. Both arms are being re-run with the corrected driver
-> under a pre-registered rule, and "selection is harmful on gpt-3.5-turbo" is
-> not to be quoted until that lands.
+> **Re-tested on gpt-3.5-turbo.** Its control arm had drawn parents from
+> infeasible seeds the search arm could not use. Re-run with matched parents,
+> D replicates at +0.064 [−0.450, +0.578] and selection alone reverses sign,
+> to +0.543 [+0.050, +1.035]. gemma3's re-run is still running.
 
 Most of the gain is the **variation operator** — an LLM rewriting a
 persona — not the search. Selection's share is less consistent: it is clearly positive on mistral and,
-at n=24, on gpt-4o-mini. On gpt-3.5-turbo it is actively **harmful**:
-the search arm finishes below its own no-selection control, and the interval
-excludes zero. With no real headroom, selection has nothing to climb and fits
-the noise instead.
+at n=24, on gpt-4o-mini. On gpt-3.5-turbo an earlier run made selection look actively harmful (−0.560),
+but that run's control drew parents from infeasible seeds the search arm could
+not use. Re-run with matched parents, selection adds +0.543 [+0.050, +1.035],
+and the "harmful" reading is withdrawn under the fourth pre-registration.
 
 This is the sharpened version of section 28's generation-0 control. That control
 showed the search's whole gain was present before selection began; this shows
@@ -2018,7 +2016,8 @@ hand-written persona is short of the top of this range, search recovers about
 On the fourth model, variation alone is +0.893 [+0.468, +1.318] and selection
 alone +0.188 [−0.275, +0.651], so the rewriting does most of the work and
 selection on top is not distinguishable from zero. Across all four models, with
-gpt-4o-mini at n=24, selection is harmful on gpt-3.5-turbo (−0.560), about half
+gpt-4o-mini at n=24, selection was reported harmful on gpt-3.5-turbo (−0.560) but reverses to +0.543
+with matched parents, about half
 the gain on gpt-4o-mini (+0.333), not distinguishable from zero on gemma3, and
 positive on mistral (+0.936). Variation alone is positive on all three models
 where search helped. An earlier version of this paragraph said only mistral gave
@@ -2388,10 +2387,10 @@ re-registered under gate v3.
   differently on this instrument (section 31: the best libertarian persona
   already uses 92% of its headroom), and the economic axis has not been searched
   under this protocol.
-- **The variation/selection split is confounded on gpt-3.5-turbo and gemma3.**
-  The control arm in sections 32 and 33 drew parents from infeasible seeds the
-  search arm could not use (2 of 6 on each). D is unaffected. Both arms are being
-  re-run with the corrected driver under a pre-registered rule.
+- **The variation/selection split on gemma3 is still under re-test.** Its
+  control arm drew parents from infeasible seeds the search arm could not use.
+  The same fault on gpt-3.5-turbo has been re-run: D replicated, and selection
+  reversed from −0.560 to +0.543.
 - **gpt-4o-mini stays UNRESOLVED** at n=24: D = +0.656, 95% CI [+0.400, +0.912].
   Clearly positive and short of the pre-registered +0.50 lower bound. Not topped
   up further, by design.
