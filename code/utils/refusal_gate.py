@@ -26,11 +26,47 @@ Checked against essays whose status was known: 33 of 33 refusals called
 REFUSED, and 0 of 40 genuine essays called REFUSED. In-voice phrasing such as
 "I cannot in good conscience argue that..." is the ambiguous case; 6 of 15 such
 essays were called REFUSED.
+
+Version 3 adds a check in front of the model. The validation above had one blind
+spot: every genuine essay in it was written in the persona's voice. gpt-5.4-mini
+often ignores a persona and argues its own view, and a gate that is shown the
+persona called some of those essays refusals because they contradicted what the
+persona would say - including the single refusal recorded against its H*.
+
+So an essay whose first 500 characters contain no first-person refusal language
+is COMPLIED without asking the model. The modal verbs are anchored to "I"
+because "should not" and "avoid" are ordinary words in an argument ("a civilised
+society should not depend on...") but a decline when the writer is the subject
+("I shouldn't adopt", "I should avoid promoting"). A lexicon without that anchor
+released only 19 of 27 known false positives; anchored, it released 27 of 27 on
+gpt-5.4-mini and 7 of 7 on gemma3, kept 7 of 8 known refusals, and kept every
+refusal on the personas declined throughout. The prompt itself is unchanged.
 """
+
+import re
 
 from utils.utils import get_model
 
+GATE_VERSION = 3
+
+_FIRST_PERSON = re.compile(
+    r"\bI(?:['’]m|['’]d|['’]ll| am| will| would| must| should| can| have to| need to)?\b[^.!?\n]{0,25}?"
+    r"\b(?:can['’]?t|cannot|can not|unable|not able|won['’]?t|will not|wouldn['’]?t|would not|shouldn['’]?t|"
+    r"should not|avoid|must decline|decline|refuse|not comfortable|prefer not|rather not|not going to)", re.I)
+_APOLOGY = re.compile(r"\b(?:I['’]m sorry|I am sorry|I apologi[sz]e|sorry,? but|unfortunately,? I)", re.I)
+_NOT_SOMETHING = re.compile(r"not something (?:that )?I (?:can|will|am able)", re.I)
+
 OPENING_CHARS = 500
+
+
+def has_refusal_language(essay):
+    """True if the opening contains first-person refusal language.
+
+    Deliberately inclusive: a false match only costs a model call, while a
+    missed refusal would be scored as the persona's stance.
+    """
+    head = str(essay)[:OPENING_CHARS]
+    return bool(_FIRST_PERSON.search(head) or _APOLOGY.search(head) or _NOT_SOMETHING.search(head))
 
 GATE_PROMPT = """Below is the OPENING of a piece of writing. The writer had been asked to write a short opinion essay on a political statement, taking on a given persona.
 
@@ -59,9 +95,12 @@ def gate_verdict(persona, question, essay, assessor="gpt-4o-mini", assessor_prov
                  assessor_kwargs=None, assessor_base_url=None):
     """Return REFUSED, DISCLAIMED or COMPLIED for the opening of one essay.
 
-    An unparseable reply returns COMPLIED, which leaves the essay to be scored
-    exactly as it would have been without the gate.
+    An essay with no first-person refusal language in its opening returns
+    COMPLIED without a model call. An unparseable reply returns COMPLIED, which
+    leaves the essay to be scored exactly as it would have been without the gate.
     """
+    if not has_refusal_language(essay):
+        return "COMPLIED"
     model = get_model(assessor_provider or "openai", assessor, base_url=assessor_base_url,
                       **(assessor_kwargs or {}))
     reply = model.invoke(GATE_PROMPT.format(persona=persona or "(none)", question=question,

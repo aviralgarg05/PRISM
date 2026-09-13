@@ -21,7 +21,7 @@ except ImportError:  # pragma: no cover - older langchain 0.2.x layout
 from tenacity import retry, wait_exponential, stop_after_attempt
 
 from utils.roles import roles
-from utils.refusal_gate import gate_verdict
+from utils.refusal_gate import gate_verdict, GATE_VERSION
 from utils.prompt_variants import build_essay_template, DEFAULT_PROMPT_GENES
 from utils.utils import (
     Likert,
@@ -316,7 +316,9 @@ def evaluate_prism_config(config):
     # are a different measurement and must never share a cache with ungated
     # ones. See utils/refusal_gate.py for why the gate exists.
     refusal_gate = bool(config.get("refusal_gate"))
-    gate_tag = "_gate" if refusal_gate else ""
+    # Versioned, so ratings produced by an earlier gate are never read back as
+    # though the current gate had produced them.
+    gate_tag = f"_gate{GATE_VERSION}" if refusal_gate else ""
     persona_text = role_details(config.get("role"), config.get("role_text"))[1] if refusal_gate else None
     cache_path = Path(outpath) / "ratings" / f"cache_{cid}_{assessor.replace('/', '_')}{prompt_tag}{gate_tag}{tag}.json"
     # Note the assessor is already part of this filename, so switching assessor

@@ -1,0 +1,92 @@
+{
+ "P0 current gate": {
+  "feasible": 50,
+  "hstar": "pcrightauth",
+  "hstar_value": 1.922820512820513,
+  "hstar_refused": 1,
+  "predicted_D": 3.374086153846154,
+  "seeds": [
+   "pcrightauth",
+   "ctrlrightauth",
+   "pcauth",
+   "conservative",
+   "ctrlleftauth",
+   "pcright"
+  ],
+  "rho_all": {
+   "gpt-3.5-turbo": 0.681,
+   "gpt-4o-mini": 0.798,
+   "mistral": 0.771
+  },
+  "search_gen0": {
+   "social": 3.8458974358974363,
+   "refused": 14,
+   "entropy": 0.44390946409137694
+  },
+  "search_best": {
+   "social": 1.2305128205128206,
+   "refused": 41,
+   "entropy": 0.4299718302182153
+  }
+ },
+ "P1 no-refusal-language -> stance": {
+  "feasible": 52,
+  "hstar": "pcrightauth",
+  "hstar_value": 1.692051282051282,
+  "hstar_refused": 0,
+  "predicted_D": 3.520855384615385,
+  "seeds": [
+   "pcrightauth",
+   "ctrlrightauth",
+   "pcauth",
+   "conservative",
+   "ctrlleftauth",
+   "pcright"
+  ],
+  "rho_all": {
+   "gpt-3.5-turbo": 0.673,
+   "gpt-4o-mini": 0.791,
+   "mistral": 0.767
+  },
+  "search_gen0": {
+   "social": 3.58948717948718,
+   "refused": 13,
+   "entropy": 0.4493167876231098
+  },
+  "search_best": {
+   "social": 0.7946153846153847,
+   "refused": 38,
+   "entropy": 0.42851664113837995
+  }
+ },
+ "P2 P1 + identity-framing -> stance": {
+  "feasible": 55,
+  "hstar": "pcrightauth",
+  "hstar_value": 1.692051282051282,
+  "hstar_refused": 0,
+  "predicted_D": 3.520855384615385,
+  "seeds": [
+   "pcrightauth",
+   "ctrlrightauth",
+   "pcauth",
+   "red",
+   "conservative",
+   "ctrlleftauth"
+  ],
+  "rho_all": {
+   "gpt-3.5-turbo": 0.683,
+   "gpt-4o-mini": 0.801,
+   "mistral": 0.771
+  },
+  "search_gen0": {
+   "social": 3.58948717948718,
+   "refused": 12,
+   "entropy": 0.4539842668128553
+  },
+  "search_best": {
+   "social": 1.051025641025641,
+   "refused": 22,
+   "entropy": 0.4907538695054852
+  }
+ }
+}

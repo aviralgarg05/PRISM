@@ -2,6 +2,7 @@ import sys, json, glob, shutil, os, hashlib
 sys.path.insert(0, ".")
 T = sys.argv[1]
 import prism_eval
+from utils.refusal_gate import GATE_VERSION
 from utils.utils import Likert, read_questions_from_file
 from utils.roles import roles
 run = next(r for r in json.load(open("../results/fairconf_t35_0.json"))["runs"] if r["persona"] == "pcxrightauth")
@@ -35,7 +36,7 @@ check("ungated result reports refusal_gate=None", r1["refusal_gate"] is None)
 r2 = prism_eval.evaluate_prism_config(dict(base, refusal_gate=True))
 check(f"gated run calls the gate 62 times (got {calls['gate']})", calls["gate"] == 62)
 check(f"gated run skips classify for the 2 REFUSED statements (got {calls['classify']})", calls["classify"] == 60)
-gated = f"{T}/ratings/cache_{cid}_gpt-4o-mini_gate.json"
+gated = f"{T}/ratings/cache_{cid}_gpt-4o-mini_gate{GATE_VERSION}.json"
 check("gated ratings go to a separate _gate cache", os.path.exists(gated))
 gc = json.load(open(gated))
 check("q4 and q27 scored Refused under the gate", gc["4"]["stance"] == "Refused" and gc["27"]["stance"] == "Refused")

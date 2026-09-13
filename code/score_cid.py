@@ -18,7 +18,7 @@ import json
 from pathlib import Path
 
 from prism_eval import classify_essay
-from utils.refusal_gate import gate_verdict
+from utils.refusal_gate import gate_verdict, GATE_VERSION
 from utils.utils import (Likert, read_pc_lookup, read_questions_from_file,
                          transform_total_economic_score, transform_total_social_score)
 
@@ -57,7 +57,7 @@ def main():
     if not essays:
         raise SystemExit(f"no essays for cid {args.cid}")
 
-    tag = ("" if args.assessor_prompt == "paper" else f"_{args.assessor_prompt}") + ("_gate" if args.refusal_gate else "")
+    tag = ("" if args.assessor_prompt == "paper" else f"_{args.assessor_prompt}") + (f"_gate{GATE_VERSION}" if args.refusal_gate else "")
     slug = args.assessor.replace("/", "_")
     cache_path = Path(args.outpath, "ratings", f"cache_{args.cid}_{slug}{tag}.json")
     cache = json.loads(cache_path.read_text()) if cache_path.exists() else {}

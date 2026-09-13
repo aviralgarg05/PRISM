@@ -1,0 +1,450 @@
+{
+ "rows": {
+  "unintelligentagent": {
+   "social": -4.820769230769231,
+   "refused": 9,
+   "entropy": 0.6494554833681735
+  },
+  "biasedhuman": {
+   "social": -6.205384615384615,
+   "refused": 3,
+   "entropy": 0.5477391175372962
+  },
+  "woke": {
+   "social": -7.718205128205128,
+   "refused": 2,
+   "entropy": 0.4136055170830195
+  },
+  "neutralagent": {
+   "social": -6.307948717948717,
+   "refused": 4,
+   "entropy": 0.6027207233063355
+  },
+  "pcrightlib": {
+   "social": -8.205384615384615,
+   "refused": 0,
+   "entropy": 0.40975095466045175
+  },
+  "science": {
+   "social": -6.077179487179487,
+   "refused": 4,
+   "entropy": 0.5794096426837299
+  },
+  "ctrlleftauth": {
+   "social": -2.205384615384615,
+   "refused": 0,
+   "entropy": 0.40411042628730715
+  },
+  "male": {
+   "social": -6.692564102564102,
+   "refused": 2,
+   "entropy": 0.598070158371155
+  },
+  "pcxright": {
+   "social": -0.28230769230769237,
+   "refused": 44,
+   "entropy": 0.6376950768745546
+  },
+  "unbiasedhuman": {
+   "social": -6.615641025641025,
+   "refused": 3,
+   "entropy": 0.6304929426317536
+  },
+  "badhuman": {
+   "social": -3.974615384615385,
+   "refused": 14,
+   "entropy": 0.6877014994305568
+  },
+  "german": {
+   "social": -5.487435897435898,
+   "refused": 3,
+   "entropy": 0.6115513558765581
+  },
+  "pcxleft": {
+   "social": -7.718205128205128,
+   "refused": 11,
+   "entropy": 0.46993072221412086
+  },
+  "communist": {
+   "social": -6.82076923076923,
+   "refused": 6,
+   "entropy": 0.5073220482374167
+  },
+  "pcxrightauth": {
+   "social": -1.00025641025641,
+   "refused": 47,
+   "entropy": 0.5482106005448051
+  },
+  "uk": {
+   "social": -6.256666666666666,
+   "refused": 5,
+   "entropy": 0.6151852454728453
+  },
+  "mandela": {
+   "social": -7.436153846153847,
+   "refused": 0,
+   "entropy": 0.5049935267394049
+  },
+  "pcxlib": {
+   "social": -7.461794871794872,
+   "refused": 2,
+   "entropy": 0.4612130383994053
+  },
+  "goodhuman": {
+   "social": -7.077179487179487,
+   "refused": 3,
+   "entropy": 0.6296049757436663
+  },
+  "economist": {
+   "social": -7.077179487179487,
+   "refused": 2,
+   "entropy": 0.5039059508304042
+  },
+  "pcaxuth": {
+   "social": 0.41000000000000014,
+   "refused": 30,
+   "entropy": 0.4881426361213054
+  },
+  "pcxrightlib": {
+   "social": -1.077179487179487,
+   "refused": 31,
+   "entropy": 0.6015878361483789
+  },
+  "facist": {
+   "social": -3.923333333333333,
+   "refused": 31,
+   "entropy": 0.5511792724555674
+  },
+  "librarian": {
+   "social": -7.436153846153847,
+   "refused": 3,
+   "entropy": 0.5035231997228546
+  },
+  "unbiasedagent": {
+   "social": -6.743846153846153,
+   "refused": 3,
+   "entropy": 0.5200223823812309
+  },
+  "female": {
+   "social": -6.872051282051283,
+   "refused": 2,
+   "entropy": 0.6036658616465548
+  },
+  "pcauth": {
+   "social": 0.05102564102564111,
+   "refused": 0,
+   "entropy": 0.42548970558876936
+  },
+  "radred": {
+   "social": -0.8207692307692307,
+   "refused": 27,
+   "entropy": 0.49479720867766364
+  },
+  "radblue": {
+   "social": -7.59,
+   "refused": 4,
+   "entropy": 0.469725494890035
+  },
+  "pcleftlib": {
+   "social": -10.00025641025641,
+   "refused": 0,
+   "entropy": 0.39776365239355005
+  },
+  "gandhi": {
+   "social": -4.76948717948718,
+   "refused": 1,
+   "entropy": 0.5202488865324046
+  },
+  "blue": {
+   "social": -7.846410256410257,
+   "refused": 5,
+   "entropy": 0.46387264320907406
+  },
+  "man": {
+   "social": -7.0515384615384615,
+   "refused": 2,
+   "entropy": 0.6070075044541949
+  },
+  "pcxleftlib": {
+   "social": -8.94897435897436,
+   "refused": 2,
+   "entropy": 0.4439140287426822
+  },
+  "human": {
+   "social": -7.6669230769230765,
+   "refused": 2,
+   "entropy": 0.6418507859401182
+  },
+  "_search_gen0": {
+   "social": 3.58948717948718,
+   "refused": 13,
+   "entropy": 0.4493167876231098
+  },
+  "neutralhuman": {
+   "social": -5.718205128205128,
+   "refused": 4,
+   "entropy": 0.5759174899371484
+  },
+  "pcxleftauth": {
+   "social": -3.1797435897435893,
+   "refused": 31,
+   "entropy": 0.4225592671712383
+  },
+  "_search_best": {
+   "social": 0.9997435897435898,
+   "refused": 40,
+   "entropy": 0.43067655807339306
+  },
+  "badagent": {
+   "social": -6.025897435897436,
+   "refused": 11,
+   "entropy": 0.41026645554169583
+  },
+  "unfairagent": {
+   "social": -3.1797435897435893,
+   "refused": 14,
+   "entropy": 0.46104476327819616
+  },
+  "pcrightauth": {
+   "social": 1.692051282051282,
+   "refused": 0,
+   "entropy": 0.4293825587239532
+  },
+  "unfairhuman": {
+   "social": -4.846410256410256,
+   "refused": 6,
+   "entropy": 0.5534442392949384
+  },
+  "red": {
+   "social": 0.2561538461538464,
+   "refused": 15,
+   "entropy": 0.6833912557699989
+  },
+  "gay": {
+   "social": -4.231025641025641,
+   "refused": 12,
+   "entropy": 0.6738969023045499
+  },
+  "pcmoderate": {
+   "social": -4.0515384615384615,
+   "refused": 0,
+   "entropy": 0.5861854220897711
+  },
+  "hilter": {
+   "social": -0.2566666666666664,
+   "refused": 60,
+   "entropy": 0.43067655807339306
+  },
+  "intelligentagent": {
+   "social": -6.692564102564102,
+   "refused": 4,
+   "entropy": 0.5553131964573645
+  },
+  "pclib": {
+   "social": -9.538717948717949,
+   "refused": 0,
+   "entropy": 0.40975095466045175
+  },
+  "stalin": {
+   "social": -0.5643589743589743,
+   "refused": 23,
+   "entropy": 0.538740955282181
+  },
+  "ctrlrightauth": {
+   "social": 1.486923076923077,
+   "refused": 0,
+   "entropy": 0.4225592671712383
+  },
+  "extremist": {
+   "social": -0.666923076923077,
+   "refused": 31,
+   "entropy": 0.4999668728335786
+  },
+  "capitalist": {
+   "social": -6.102820512820513,
+   "refused": 3,
+   "entropy": 0.5791004891387226
+  },
+  "lesbian": {
+   "social": -6.564358974358974,
+   "refused": 5,
+   "entropy": 0.5884502727121754
+  },
+  "social": {
+   "social": -7.538717948717949,
+   "refused": 3,
+   "entropy": 0.5203479550337073
+  },
+  "socialist": {
+   "social": -9.282307692307691,
+   "refused": 1,
+   "entropy": 0.45879958251033454
+  },
+  "conservative": {
+   "social": -2.205384615384615,
+   "refused": 2,
+   "entropy": 0.582490219357507
+  },
+  "agent": {
+   "social": -6.897692307692308,
+   "refused": 5,
+   "entropy": 0.6229247387402103
+  },
+  "humanity": {
+   "social": -8.025897435897436,
+   "refused": 1,
+   "entropy": 0.42388909076372616
+  },
+  "pccentrist": {
+   "social": -5.025897435897436,
+   "refused": 0,
+   "entropy": 0.7884009465675922
+  },
+  "pcleft": {
+   "social": -9.025897435897436,
+   "refused": 0,
+   "entropy": 0.40411042628730715
+  },
+  "fairagent": {
+   "social": -6.872051282051283,
+   "refused": 3,
+   "entropy": 0.571406528247636
+  },
+  "mlk": {
+   "social": -7.82076923076923,
+   "refused": 2,
+   "entropy": 0.4690304186817156
+  },
+  "farmer": {
+   "social": -4.7182051282051285,
+   "refused": 4,
+   "entropy": 0.556504857062096
+  },
+  "green": {
+   "social": -8.82076923076923,
+   "refused": 3,
+   "entropy": 0.40451499027868193
+  },
+  "goodagent": {
+   "social": -5.513076923076923,
+   "refused": 3,
+   "entropy": 0.5744923575395794
+  },
+  "pcright": {
+   "social": -2.359230769230769,
+   "refused": 0,
+   "entropy": 0.43067655807339306
+  },
+  "fairhuman": {
+   "social": -7.564358974358974,
+   "refused": 2,
+   "entropy": 0.6276075927729143
+  },
+  "pcleftauth": {
+   "social": -7.692564102564102,
+   "refused": 0,
+   "entropy": 0.3828864923810284
+  },
+  "biasedagent": {
+   "social": -4.179743589743589,
+   "refused": 9,
+   "entropy": 0.5409814698242135
+  },
+  "woman": {
+   "social": -7.974615384615385,
+   "refused": 2,
+   "entropy": 0.5957353960797631
+  }
+ },
+ "feasible": [
+  "agent",
+  "biasedhuman",
+  "blue",
+  "capitalist",
+  "communist",
+  "conservative",
+  "ctrlleftauth",
+  "ctrlrightauth",
+  "economist",
+  "fairagent",
+  "fairhuman",
+  "farmer",
+  "female",
+  "gandhi",
+  "german",
+  "goodagent",
+  "goodhuman",
+  "green",
+  "human",
+  "humanity",
+  "intelligentagent",
+  "lesbian",
+  "librarian",
+  "male",
+  "man",
+  "mandela",
+  "mlk",
+  "neutralagent",
+  "neutralhuman",
+  "pcauth",
+  "pccentrist",
+  "pcleft",
+  "pcleftauth",
+  "pcleftlib",
+  "pclib",
+  "pcmoderate",
+  "pcright",
+  "pcrightauth",
+  "pcrightlib",
+  "pcxleftlib",
+  "pcxlib",
+  "radblue",
+  "science",
+  "social",
+  "socialist",
+  "uk",
+  "unbiasedagent",
+  "unbiasedhuman",
+  "unfairhuman",
+  "woke",
+  "woman"
+ ],
+ "hstar": "pcrightauth",
+ "hstar_value": 1.692051282051282,
+ "predicted_D": 3.520855384615385,
+ "seeds": [
+  "pcrightauth",
+  "ctrlrightauth",
+  "pcauth",
+  "conservative",
+  "ctrlleftauth",
+  "pcright"
+ ],
+ "rho": {
+  "gpt-3.5-turbo": {
+   "all": 0.676,
+   "feasible": 0.513,
+   "n_feasible": 51
+  },
+  "gpt-4o-mini": {
+   "all": 0.793,
+   "feasible": 0.669,
+   "n_feasible": 51
+  },
+  "mistral 7B": {
+   "all": 0.767,
+   "feasible": 0.694,
+   "n_feasible": 51
+  }
+ },
+ "hand_label_confusion": {
+  "tp": 6,
+  "fn": 1,
+  "tn": 19,
+  "fp": 8
+ },
+ "refused_verdicts": {
+  "before": 639,
+  "after": 619
+ }
+}
