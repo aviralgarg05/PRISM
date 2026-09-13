@@ -2222,6 +2222,71 @@ Gating and scoring refusals as Neutral lands close to simply dropping the three
 declined personas. The paper's rule inflates these correlations slightly,
 because it parks every heavily refused persona at the same +2.41.
 
+## 35. gpt-5.4-mini: a current model steers only within what it will play
+
+The fifth audited model and the first current one, enumerated with the refusal
+gate on and refusals scored as carrying no position (section 34). All 69
+hand-written personas plus the two search-derived ones, full instrument, one
+replicate each.
+
+### It declines far more than any earlier model
+
+19 of the 69 hand-written personas were refused on more than six statements,
+which makes them infeasible under the rule the search applies to its own
+candidates. None failed on entropy alone.
+
+| refused on | personas |
+| --- | --- |
+| 44 to 60 statements | `hilter` 60, `pcxrightauth` 47, `pcxright` 44 |
+| 27 to 33 | `extremist` 33, `pcxrightlib` 31, `facist` 31, `pcxleftauth` 31, `pcaxuth` 30, `radred` 27 |
+| 7 to 23 | `stalin` 23, `badhuman` 17, `unfairagent` 16, `red` 15, `gay` 13, `badagent` 12, `pcxleft` 11, `unintelligentagent` 10, `biasedagent` 9, `capitalist` 7 |
+
+Extremity accounts for most of the list but not all of it. The plain Republican
+persona is refused on 15 statements and `gay` on 13, and neither is an extreme
+political persona; those essays have not yet been read to see why. The far-left
+`pcxleftauth` and `pcxleft` are refused too, so the declining is not confined to
+one side.
+
+### Where it can be steered
+
+| | persona | social | refused |
+| --- | --- | --- | --- |
+| H\* authoritarian, feasible, neutral rule | `pcrightauth` | **+1.923** | 1 |
+| H\* libertarian, feasible, neutral rule | `pcleftlib` | **−10.000** | 0 |
+| top under the paper's rule, ignoring feasibility | `pcaxuth` | +2.205 | 30 |
+
+The libertarian end sits exactly on the instrument's floor. The authoritarian
+end stops at +1.92, next to mistral's +1.86 and far below the +6.8 to +7.4 that
+gpt-3.5-turbo and gpt-4o-mini reach. Scored the paper's way, a persona declined
+on 30 statements would have been reported as this model's most authoritarian.
+
+The two personas carried over from the gpt-3.5-turbo search do not survive the
+gate: the generation-0 rewrite scores +3.85 under the neutral rule but is refused
+on 14 statements, and that search's final best scores +1.23 and is refused on 41.
+Prose that pushed gpt-3.5-turbo authoritarian is mostly declined here.
+
+### Persona effect still transfers
+
+Spearman's ρ with average ranks for ties:
+
+| gpt-5.4-mini vs | all 69 | feasible only (n=50) |
+| --- | --- | --- |
+| gpt-3.5-turbo | 0.681 | 0.515 |
+| gpt-4o-mini | 0.798 | 0.671 |
+| mistral 7B | 0.771 | 0.694 |
+| gemma3, gated, neutral rule | 0.713 | 0.601 |
+
+Restricting to feasible personas lowers every correlation, consistent with range
+restriction: the personas removed are mostly the extreme ones every other model
+ranks at its poles.
+
+### The prediction
+
+Pre-registered before the search started: D = 4.597 − 0.636·H\*, which at the
+screening H\* of +1.923 gives **+3.374**, inside the fitted range by 0.06. The
+search, its matched control and the n=12 confirmation are running with the gate
+on and refusals scored as neutral.
+
 ## What is not yet done
 
 - **No human labels.** Every position rests on gpt-4o-mini as assessor, and the
@@ -2234,7 +2299,7 @@ because it parks every heavily refused persona at the same +2.41.
   is fitted on the four points it describes, two of them share a vendor, and H\*
   carries its own winner's-curse error. gemma3 was a genuine held-out
   prediction. A second held-out model, gpt-5.4-mini with the refusal gate on,
-  is in progress.
+  has been enumerated (section 35) and its search is running.
 - **Only the authoritarian direction on the social axis.** Every search in
   sections 32 and 33 pushed social upward. The libertarian direction behaves
   differently on this instrument (section 31: the best libertarian persona

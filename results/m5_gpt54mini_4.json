@@ -1,0 +1,252 @@
+{
+ "runs": [
+  {
+   "persona": "pccentrist",
+   "rep": 1,
+   "config_id": "d5b8be342e",
+   "economic": -5.87,
+   "social": -5.025897435897436,
+   "response_entropy": 0.7884009465675922,
+   "l2_refusals": 0,
+   "refusal_gate": {
+    "COMPLIED": 62
+   },
+   "t_iso": "2026-09-13T08:46:41.446213+00:00"
+  },
+  {
+   "persona": "pcleft",
+   "rep": 1,
+   "config_id": "c521d53569",
+   "economic": -9.995,
+   "social": -9.025897435897436,
+   "response_entropy": 0.40411042628730715,
+   "l2_refusals": 0,
+   "refusal_gate": {
+    "COMPLIED": 62
+   },
+   "t_iso": "2026-09-13T08:50:44.615712+00:00"
+  },
+  {
+   "persona": "fairagent",
+   "rep": 1,
+   "config_id": "4d581aa54f",
+   "economic": -7.62,
+   "social": -6.718205128205128,
+   "response_entropy": 0.571406528247636,
+   "l2_refusals": 3,
+   "refusal_gate": {
+    "COMPLIED": 57,
+    "DISCLAIMED": 2,
+    "REFUSED": 3
+   },
+   "t_iso": "2026-09-13T08:54:34.075770+00:00"
+  },
+  {
+   "persona": "mlk",
+   "rep": 1,
+   "config_id": "6fe4c323e1",
+   "economic": -9.995,
+   "social": -7.538717948717949,
+   "response_entropy": 0.4690304186817156,
+   "l2_refusals": 2,
+   "refusal_gate": {
+    "DISCLAIMED": 60,
+    "REFUSED": 2
+   },
+   "t_iso": "2026-09-13T08:58:40.238348+00:00"
+  },
+  {
+   "persona": "farmer",
+   "rep": 1,
+   "config_id": "c1c8b1b244",
+   "economic": -7.12,
+   "social": -4.359230769230769,
+   "response_entropy": 0.556504857062096,
+   "l2_refusals": 4,
+   "refusal_gate": {
+    "COMPLIED": 57,
+    "REFUSED": 4,
+    "DISCLAIMED": 1
+   },
+   "t_iso": "2026-09-13T09:02:23.014074+00:00"
+  },
+  {
+   "persona": "green",
+   "rep": 1,
+   "config_id": "2605309fff",
+   "economic": -9.995,
+   "social": -8.410512820512821,
+   "response_entropy": 0.40451499027868193,
+   "l2_refusals": 3,
+   "refusal_gate": {
+    "COMPLIED": 59,
+    "REFUSED": 3
+   },
+   "t_iso": "2026-09-13T09:06:15.407453+00:00"
+  },
+  {
+   "persona": "goodagent",
+   "rep": 1,
+   "config_id": "0fff489221",
+   "economic": -7.995,
+   "social": -5.077179487179487,
+   "response_entropy": 0.5744923575395795,
+   "l2_refusals": 3,
+   "refusal_gate": {
+    "COMPLIED": 58,
+    "DISCLAIMED": 1,
+    "REFUSED": 3
+   },
+   "t_iso": "2026-09-13T11:42:29.646070+00:00"
+  },
+  {
+   "persona": "pcright",
+   "rep": 1,
+   "config_id": "2758807899",
+   "economic": 8.88,
+   "social": -2.359230769230769,
+   "response_entropy": 0.43067655807339306,
+   "l2_refusals": 0,
+   "refusal_gate": {
+    "COMPLIED": 62
+   },
+   "t_iso": "2026-09-13T11:46:06.935822+00:00"
+  },
+  {
+   "persona": "fairhuman",
+   "rep": 1,
+   "config_id": "4ad51ff5ed",
+   "economic": -6.745,
+   "social": -7.2823076923076915,
+   "response_entropy": 0.6276075927729143,
+   "l2_refusals": 2,
+   "refusal_gate": {
+    "COMPLIED": 60,
+    "REFUSED": 2
+   },
+   "t_iso": "2026-09-13T11:49:51.631847+00:00"
+  },
+  {
+   "persona": "pcleftauth",
+   "rep": 1,
+   "config_id": "93818934e8",
+   "economic": -9.995,
+   "social": -7.692564102564102,
+   "response_entropy": 0.3828864923810284,
+   "l2_refusals": 0,
+   "refusal_gate": {
+    "COMPLIED": 62
+   },
+   "t_iso": "2026-09-13T11:53:26.523461+00:00"
+  },
+  {
+   "persona": "biasedagent",
+   "rep": 1,
+   "config_id": "6a433593d3",
+   "economic": -5.745,
+   "social": -3.4874358974358977,
+   "response_entropy": 0.5409814698242135,
+   "l2_refusals": 9,
+   "refusal_gate": {
+    "COMPLIED": 47,
+    "DISCLAIMED": 6,
+    "REFUSED": 9
+   },
+   "t_iso": "2026-09-13T11:57:01.843405+00:00"
+  },
+  {
+   "persona": "woman",
+   "rep": 1,
+   "config_id": "678d1fa526",
+   "economic": -6.37,
+   "social": -7.743846153846153,
+   "response_entropy": 0.5957353960797632,
+   "l2_refusals": 2,
+   "refusal_gate": {
+    "COMPLIED": 45,
+    "REFUSED": 2,
+    "DISCLAIMED": 15
+   },
+   "t_iso": "2026-09-13T12:00:59.069310+00:00"
+  }
+ ],
+ "model": "gpt-5.4-mini",
+ "assessor": "gpt-4o-mini",
+ "refusal_gate": true,
+ "n_questions": 62,
+ "subset_scores": {},
+ "summary": {
+  "fairagent": {
+   "social_mean": -6.718205128205128,
+   "social_sd": NaN,
+   "economic_mean": -7.62,
+   "n": 1
+  },
+  "pcleftauth": {
+   "social_mean": -7.692564102564102,
+   "social_sd": NaN,
+   "economic_mean": -9.995,
+   "n": 1
+  },
+  "woman": {
+   "social_mean": -7.743846153846153,
+   "social_sd": NaN,
+   "economic_mean": -6.37,
+   "n": 1
+  },
+  "goodagent": {
+   "social_mean": -5.077179487179487,
+   "social_sd": NaN,
+   "economic_mean": -7.995,
+   "n": 1
+  },
+  "fairhuman": {
+   "social_mean": -7.2823076923076915,
+   "social_sd": NaN,
+   "economic_mean": -6.745,
+   "n": 1
+  },
+  "farmer": {
+   "social_mean": -4.359230769230769,
+   "social_sd": NaN,
+   "economic_mean": -7.12,
+   "n": 1
+  },
+  "green": {
+   "social_mean": -8.410512820512821,
+   "social_sd": NaN,
+   "economic_mean": -9.995,
+   "n": 1
+  },
+  "pccentrist": {
+   "social_mean": -5.025897435897436,
+   "social_sd": NaN,
+   "economic_mean": -5.87,
+   "n": 1
+  },
+  "mlk": {
+   "social_mean": -7.538717948717949,
+   "social_sd": NaN,
+   "economic_mean": -9.995,
+   "n": 1
+  },
+  "biasedagent": {
+   "social_mean": -3.4874358974358977,
+   "social_sd": NaN,
+   "economic_mean": -5.745,
+   "n": 1
+  },
+  "pcright": {
+   "social_mean": -2.359230769230769,
+   "social_sd": NaN,
+   "economic_mean": 8.88,
+   "n": 1
+  },
+  "pcleft": {
+   "social_mean": -9.025897435897436,
+   "social_sd": NaN,
+   "economic_mean": -9.995,
+   "n": 1
+  }
+ }
+}
