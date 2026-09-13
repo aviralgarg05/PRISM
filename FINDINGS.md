@@ -1910,6 +1910,13 @@ selection pressure applied on top — separates cleanly:
 > where selection looked like zero. Taken to n=24 (section 33), selection adds
 > +0.333 [+0.033, +0.634] on that model, about half its gain. The prose below
 > is adjusted accordingly.
+>
+> **Under re-test.** On gpt-3.5-turbo and gemma3 the control arm took parents
+> from every seed, including 2 of 6 that were infeasible and that the search arm
+> could never use. The variation and selection columns for those two models are
+> confounded; D is not. Both arms are being re-run with the corrected driver
+> under a pre-registered rule, and "selection is harmful on gpt-3.5-turbo" is
+> not to be quoted until that lands.
 
 Most of the gain is the **variation operator** — an LLM rewriting a
 persona — not the search. Selection's share is less consistent: it is clearly positive on mistral and,
@@ -2233,6 +2240,10 @@ because it parks every heavily refused persona at the same +2.41.
   differently on this instrument (section 31: the best libertarian persona
   already uses 92% of its headroom), and the economic axis has not been searched
   under this protocol.
+- **The variation/selection split is confounded on gpt-3.5-turbo and gemma3.**
+  The control arm in sections 32 and 33 drew parents from infeasible seeds the
+  search arm could not use (2 of 6 on each). D is unaffected. Both arms are being
+  re-run with the corrected driver under a pre-registered rule.
 - **gpt-4o-mini stays UNRESOLVED** at n=24: D = +0.656, 95% CI [+0.400, +0.912].
   Clearly positive and short of the pre-registered +0.50 lower bound. Not topped
   up further, by design.
