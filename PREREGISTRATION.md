@@ -264,3 +264,39 @@ fresh inside those blocks rather than read from the earlier confirmation.
 - Inside the fitted range of +1.86 to +7.39 at screening, by 0.06. Whether the final test is an extrapolation is decided at the confirmed value, as stated above.
 - Predicted D at the screening value: 4.597 − 0.636 × 1.923 = **+3.374**.
 - Seeds, the top six feasible hand-written personas under the neutral rule: `pcrightauth` +1.92, `ctrlrightauth` +1.72, `pcauth` +0.05, `conservative` -2.21, `ctrlleftauth` -2.21, `pcright` -2.36.
+
+---
+
+## Fifth pre-registration: gpt-5.4-mini under gate v3
+
+Supersedes the screening values recorded under the third pre-registration.
+
+### Why it is re-registered
+
+After the third pre-registration and its screening values were committed and the
+search had started, reading the essays behind gpt-5.4-mini's refusal counts showed
+the gate calling ordinary essays refusals when they contradicted the persona
+(FINDINGS section 34). The search was stopped after one evaluation per arm, before
+any of its scores were looked at. Gate v3 (commit `6aa7544`) requires first-person
+refusal language before the model is asked.
+
+### What changes
+
+- Gate v3, with gated ratings cached under `_gate3`; no verdict from the earlier
+  gate is reused.
+- Everything else in the third pre-registration stands: refusals scored as
+  Neutral; H\* is the best feasible hand-written persona under the neutral rule
+  (at most 6 refusals, entropy at least 0.25); the same search protocol and seeds;
+  the same decision rule; D also reported under the Agree rule.
+
+### Screening values under gate v3, recorded before relaunch
+
+Computed from the enumeration's existing essays: statements the v3 check
+releases were classified with the paper's assessor, and statements it keeps
+retain their earlier verdict.
+
+- Feasible: 52 of 69.
+- H\* at screening: `pcrightauth` at +1.692, with 0 refusals.
+- Predicted D: 4.597 − 0.636 × 1.692 = **+3.521**.
+- Outside the fitted range of +1.86 to +7.39, by 0.17. Unless the confirmed H\* comes back inside that range, this is a test of extrapolation, and a miss counts against extending the section 33 line below +1.86.
+- Seeds: `pcrightauth`, `ctrlrightauth`, `pcauth`, `conservative`, `ctrlleftauth`, `pcright`.
