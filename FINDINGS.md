@@ -1868,6 +1868,13 @@ than of PRISM, so it applies to every published position measured this way.
 
 ## 32. What search actually buys: exactly what the hand-written baseline is missing
 
+> **Qualified by section 35.** The relationship below held on the four models it
+> was fitted and first tested on. On gpt-5.4-mini, the fifth model and the first
+> with current safety training, the pre-registered prediction failed: search
+> recovered 1.37 units where the line predicted 3.22, and selection lost ground
+> against its own control. Read "search returns what the baseline leaves" as a
+> result about those four models, not a general law.
+
 One protocol on all three audited models — full 62-statement instrument, no
 surrogate; operators free to write in any register; **each model's own top six
 hand-written personas as seeds**, taken from the enumeration of all 69; a
@@ -1963,6 +1970,9 @@ conclusion.
 
 
 ## 33. A pre-registered prediction, and a fourth model lands on the line
+
+> **Qualified by section 35.** gemma3 landed on the line; gpt-5.4-mini, the next
+> held-out model, did not. The fitted line is a description of four models.
 
 Section 32 left one confound open. At three models, how well the hand-written
 library fits and which vendor made the model were perfectly entangled: the two
