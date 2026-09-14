@@ -1,0 +1,21 @@
+indexed 40245 essays
+confirmation                             arm                  n scores      sd  cids essays/stmt  all-same
+mistral, 3-client run (superseded)       best_search         12      9   0.368    12         5.9      0/62
+mistral, 3-client run (superseded)       pccentrist          12      8   0.318    12         5.1      0/62
+mistral, 3-client run (superseded)       pcxrightauth        12      5   0.147    12         3.9      0/62
+mistral, H* candidates, capped           best_search         12      3   0.102    12         2.0      0/62
+mistral, H* candidates, capped           hilter              12      7   0.156    12         2.0      2/62
+mistral, H* candidates, capped           pccentrist          12      5   0.103    12         3.7      0/62
+mistral, H* candidates, capped           pcxright            12      2   0.080    12         1.5     34/62
+mistral, H* candidates, capped           pcxrightauth        12      5   0.135    12         3.3      0/62
+mistral, H* candidates, capped           radred              12      3   0.115    12         1.0     62/62
+mistral, H* candidates, capped           stalin              12      3   0.252    12         1.0     62/62
+mistral, search confirmation             control_best        12      9   0.446    12         4.7      0/62
+mistral, search confirmation             pccentrist          12      5   0.103    12         3.7      0/62
+mistral, search confirmation             search_best         12      6   0.283    12         4.6      0/62
+gemma3, first confirmation               control_best        12      5   0.660    12         4.9      0/62
+gemma3, first confirmation               search_best         12      4   0.382    12         3.4      0/62
+gemma3, first confirmation               stalin              12      3   0.142    12         3.0      0/62
+gemma3, matched re-run                   H_stalin            12      1   0.000    12         1.0     62/62
+gemma3, matched re-run                   control2_best       12      2   0.020    12         3.0      0/62
+gemma3, matched re-run                   search2_best        12      2   0.232    12         2.0      0/62
