@@ -1,0 +1,21 @@
+confirmation                             arm                  n scores      sd     cids essays/stmt   all-same
+gpt-3.5-turbo, first decision            best_search         12     10   0.666       12        11.0       0/62
+gpt-3.5-turbo, first decision            pcaxuth             12      6   0.390       12        10.4       0/62
+gpt-3.5-turbo, first decision            pcxrightauth        12      6   0.424       12        10.5       0/62
+gpt-3.5-turbo, fair confirmation         control_best        12      6   0.552       12        10.5       0/62
+gpt-3.5-turbo, fair confirmation         pcxrightauth        12      6   0.424       12        10.5       0/62
+gpt-3.5-turbo, fair confirmation         search_best         12     10   0.647       12        11.0       0/62
+gpt-3.5-turbo, matched re-run            H_pcxrightauth      12      8   0.673       12         9.3       0/62
+gpt-3.5-turbo, matched re-run            control2_best       12     11   0.629       12         9.9       0/62
+gpt-3.5-turbo, matched re-run            search2_best        12      7   0.528       12        10.2       0/62
+gpt-4o-mini, first decision              best_search         12      7   0.484       12        11.8       1/62
+gpt-4o-mini, first decision              pcaxuth             12      7   0.524       12        11.8       1/62
+gpt-4o-mini, first decision              pcxrightauth        12      4   0.238       12        11.8       0/62
+gpt-4o-mini, fair confirmation n=24      control_best        24     10   0.481       24        23.6       1/62
+gpt-4o-mini, fair confirmation n=24      pcxrightauth        24      7   0.279       24        23.6       0/62
+gpt-4o-mini, fair confirmation n=24      search_best         24     10   0.551       24        23.6       1/62
+gpt-5.4-mini, gate v3                    H_pcrightauth       12      8   0.405       12        12.0       0/62
+gpt-5.4-mini, gate v3                    control_best        12      9   0.697       12        12.0       0/62
+gpt-5.4-mini, gate v3                    search_best         12     10   0.854       12        12.0       0/62
+
+[exited with code 0]

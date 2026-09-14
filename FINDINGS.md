@@ -2429,6 +2429,82 @@ control best sits 0.69 beyond it, the search best 0.83 short of it, and H\* 2.20
 short of it. On gpt-5.4-mini these personas produce polarised answering more
 than graded agreement.
 
+## 36. How many independent measurements a replicate really is
+
+Every confirmation in sections 30 to 35 treats its 12 or 24 replicates as
+independent essays and builds a Welch interval on that assumption. Counting
+distinct essays per statement across the replicates shows the assumption holds
+for the hosted models and not for the local ones
+(`results/replicate_independence/`).
+
+| model | confirmation | distinct essays per statement, of 12 | statements with every essay identical |
+| --- | --- | --- | --- |
+| gpt-3.5-turbo | three confirmations | 9.3 to 11.0 | 0 of 62 |
+| gpt-4o-mini | n=12, and n=24 | 11.8, and 23.6 of 24 | 0 to 1 |
+| gpt-5.4-mini | gate v3 | 12.0 | 0 |
+| mistral 7B | search confirmation | 3.7 to 4.7 | 0 |
+| mistral 7B | H\* candidates | 1.0 to 3.7 | 62 for `radred` and `stalin` |
+| gemma3 | first confirmation | 3.0 to 4.9 | 0 |
+| gemma3 | matched re-run | 1.0 to 3.0 | 62 for `stalin` |
+
+A hosted model varies from call to call even at temperature 0, so its replicates
+are close to independent and its intervals stand. A local model at temperature 0
+varies only when the server happens to batch requests differently: mistral and
+gemma3 give between one and five distinct essays per statement across twelve
+runs, and for some personas the same essay every time.
+
+Identical essays still produce different scores. On mistral, `stalin` wrote one
+essay per statement in all twelve runs and returned three distinct scores with
+sd 0.252; that residual spread is the assessor's nondeterminism alone.
+
+What follows from it:
+
+- **Intervals on mistral and gemma3 overstate precision.** They were computed as
+  though twelve draws were independent when the effective number is nearer one to
+  five. mistral's D of +3.38 is large enough to survive any plausible widening.
+  gemma3's is not: its two search runs gave +1.08 and +0.39.
+- **The spread between independent search runs is the better measure of
+  uncertainty**, and only gpt-3.5-turbo and gemma3 have two runs. gpt-3.5-turbo's
+  two D values, −0.34 and +0.06, agree; gemma3's differ by 0.70.
+- **No model's split between rewriting and selection is established.** On both
+  models with two runs the selection term changed sign: gpt-3.5-turbo from −0.56
+  to +0.54, after the parent-set fault was fixed, and gemma3 from +0.19 to −1.76.
+
+### Personas that tell the model how to answer
+
+"State whether you Strongly Agree or Strongly Disagree" appears in the search and
+control winners of both gemma3 runs, and in the control winners on mistral and
+gpt-5.4-mini. No winner on gpt-3.5-turbo or gpt-4o-mini carries it. The wording is
+inherited from hand-written seeds in `roles.py` ("state whether you either Agree
+or Disagree with them") and escalated by the rewriting model. Among mistral's
+control candidates, those with it scored +2.67 against +1.18 without; in gemma3's
+first control arm, +5.40 against +4.42.
+
+With 96 to 100% of answers at an extreme of the scale on gemma3 and gpt-5.4-mini,
+part of the rewriting gain on those models may come from pushing the model into
+polarised answers rather than from moving its position. The candidates were not
+randomised, so this is a correlation. The direct test, confirming the winners
+with that sentence removed, has not been run.
+
+### Where this leaves the optimisation result
+
+Robust:
+
+- On gpt-3.5-turbo, the model the hand-written library was written for, search
+  does not beat the best hand-written persona. Two search runs, independent
+  replicates.
+- On mistral, search beats it by a wide margin.
+- On gpt-5.4-mini, search beats it, by less than the section 33 line predicts.
+  Independent replicates.
+
+Not established:
+
+- The linear relationship of section 33. gemma3's point moved between runs, and
+  gpt-5.4-mini missed its pre-registered prediction.
+- Any model's split of the gain between rewriting and selection.
+- How much of the rewriting gain on the local models and gpt-5.4-mini is an
+  answer-format effect.
+
 ## What is not yet done
 
 - **No human labels.** Every position rests on gpt-4o-mini as assessor, and the
@@ -2453,6 +2529,13 @@ than graded agreement.
   control arm drew parents from infeasible seeds the search arm could not use.
   The same fault on gpt-3.5-turbo has been re-run: D replicated, and selection
   reversed from −0.560 to +0.543.
+- **Intervals on the local models overstate precision.** mistral and gemma3
+  replicates are one to five distinct essays per statement, not twelve (section
+  36). Only gpt-3.5-turbo and gemma3 have a second independent search run.
+- **The answer-format test has not been run.** Winners on gemma3, mistral and
+  gpt-5.4-mini tell the model to answer Strongly Agree or Strongly Disagree;
+  confirming them with that sentence removed would show how much of the gain it
+  carries (section 36).
 - **gpt-4o-mini stays UNRESOLVED** at n=24: D = +0.656, 95% CI [+0.400, +0.912].
   Clearly positive and short of the pre-registered +0.50 lower bound. Not topped
   up further, by design.

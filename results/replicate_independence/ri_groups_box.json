@@ -1,0 +1,5 @@
+[["mistral, 3-client run (superseded)", "results/decide_m3_[0-9].json"],
+ ["mistral, H* candidates, capped", "results/hstar_m3c_[0-9].json"],
+ ["mistral, search confirmation", "results/decide_m3b_[0-9].json"],
+ ["gemma3, first confirmation", "results/m4_conf_[0-9].json"],
+ ["gemma3, matched re-run", "results/m4b_conf_[0-9].json"]]

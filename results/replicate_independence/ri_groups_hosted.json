@@ -1,0 +1,6 @@
+[["gpt-3.5-turbo, first decision", "results/decide_[0-9].json"],
+ ["gpt-3.5-turbo, fair confirmation", "results/fairconf_t35_[0-9].json"],
+ ["gpt-3.5-turbo, matched re-run", "results/fair2conf_t35_[0-9].json"],
+ ["gpt-4o-mini, first decision", "results/decide_m2_[0-9].json"],
+ ["gpt-4o-mini, fair confirmation n=24", "results/fairconf_t4o_[0-9].json"],
+ ["gpt-5.4-mini, gate v3", "results/m5_conf_[0-9].json"]]
