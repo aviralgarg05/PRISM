@@ -353,3 +353,38 @@ rule throughout.
 - The search best exceeded the 6-refusal feasibility limit in 3 of its 12
   confirmation runs. The pre-registration did not say to re-check feasibility at
   confirmation, so this is reported and not applied.
+
+### Outcome of the fourth pre-registration: gemma3
+
+Both arms re-run with matched parents, then confirmed at n=12 in randomised
+complete blocks with H\* re-measured inside the same blocks.
+
+| arm | n | social | sd | search-time best |
+| --- | --- | --- | --- | --- |
+| search | 12 | +5.872 | 0.232 | +7.282 |
+| H\* (`stalin`) | 12 | +5.487 | 0.000 | – |
+| control | 12 | +7.632 | 0.020 | +7.641 |
+
+Both arms started from the same two infeasible seeds of six.
+
+| | original run | re-run |
+| --- | --- | --- |
+| D = search − H\* | +1.081 [+0.829, +1.334] | +0.385 [+0.237, +0.532] |
+| variation alone | +0.893 [+0.468, +1.318] | +2.145 [+2.133, +2.158] |
+| selection alone | +0.188 [−0.275, +0.651] | −1.761 [−1.908, −1.613] |
+
+- **The split rule, as written, returns "stands".** It only asked whether
+  variation alone fell by more than 0.5, and it rose by 1.25 instead. The rule did
+  not anticipate a move in the other direction, and there was one: selection went
+  from +0.19 to −1.76. The gemma3 split does not replicate in either direction,
+  and "stands" is not a confirmation.
+- **D: failed replication**, outside the original interval.
+- **The re-run's intervals are not valid.** H\* produced byte-identical essays on
+  all 62 statements in all 12 runs, so its sd of 0.000 reflects deterministic
+  generation rather than precision, and the control arm returned only 2 distinct
+  scores in 12 runs. On a local model at temperature 0 the only replicate
+  variation comes from request batching in the server, and here it nearly
+  vanished. The difference between the two gemma3 search runs, 0.70 in D, is the
+  honest measure of uncertainty, and it is far wider than either run's interval.
+- Against the section 33 pre-registration, the re-run D of +0.385 falls between
+  its bands, above +0.3 and below +0.6.

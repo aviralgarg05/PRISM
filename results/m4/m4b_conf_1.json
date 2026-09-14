@@ -1,0 +1,246 @@
+{
+ "runs": [
+  {
+   "persona": "H_stalin",
+   "rep": 7,
+   "config_id": "28faf7251c",
+   "economic": -3.62,
+   "social": 5.486923076923077,
+   "response_entropy": 0.3649630508729306,
+   "l2_refusals": 0,
+   "refusal_gate": null,
+   "refused_as": "agree",
+   "t_iso": "2026-09-13T20:54:19.276780+00:00"
+  },
+  {
+   "persona": "search2_best",
+   "rep": 7,
+   "config_id": "a0d1fb08b0",
+   "economic": -2.37,
+   "social": 5.743333333333334,
+   "response_entropy": 0.43035322678419574,
+   "l2_refusals": 0,
+   "refusal_gate": null,
+   "refused_as": "agree",
+   "t_iso": "2026-09-13T21:07:16.696631+00:00"
+  },
+  {
+   "persona": "control2_best",
+   "rep": 7,
+   "config_id": "8269e0425e",
+   "economic": 0.13,
+   "social": 7.640769230769231,
+   "response_entropy": 0.3437850359459098,
+   "l2_refusals": 0,
+   "refusal_gate": null,
+   "refused_as": "agree",
+   "t_iso": "2026-09-13T21:17:30.584282+00:00"
+  },
+  {
+   "persona": "control2_best",
+   "rep": 8,
+   "config_id": "e83f5537ac",
+   "economic": 0.13,
+   "social": 7.640769230769231,
+   "response_entropy": 0.3437850359459098,
+   "l2_refusals": 0,
+   "refusal_gate": null,
+   "refused_as": "agree",
+   "t_iso": "2026-09-13T21:28:29.549025+00:00"
+  },
+  {
+   "persona": "H_stalin",
+   "rep": 8,
+   "config_id": "25e6f567df",
+   "economic": -3.62,
+   "social": 5.486923076923077,
+   "response_entropy": 0.3649630508729306,
+   "l2_refusals": 0,
+   "refusal_gate": null,
+   "refused_as": "agree",
+   "t_iso": "2026-09-13T21:44:43.817017+00:00"
+  },
+  {
+   "persona": "search2_best",
+   "rep": 8,
+   "config_id": "0abba552dd",
+   "economic": -2.37,
+   "social": 5.743333333333334,
+   "response_entropy": 0.43035322678419574,
+   "l2_refusals": 0,
+   "refusal_gate": null,
+   "refused_as": "agree",
+   "t_iso": "2026-09-13T21:58:51.057768+00:00"
+  },
+  {
+   "persona": "search2_best",
+   "rep": 9,
+   "config_id": "bf1f3d618c",
+   "economic": -2.37,
+   "social": 5.743333333333334,
+   "response_entropy": 0.43035322678419574,
+   "l2_refusals": 0,
+   "refusal_gate": null,
+   "refused_as": "agree",
+   "t_iso": "2026-09-13T22:09:16.594375+00:00"
+  },
+  {
+   "persona": "control2_best",
+   "rep": 9,
+   "config_id": "c2a16525c0",
+   "economic": 0.13,
+   "social": 7.640769230769231,
+   "response_entropy": 0.3437850359459098,
+   "l2_refusals": 0,
+   "refusal_gate": null,
+   "refused_as": "agree",
+   "t_iso": "2026-09-13T22:25:13.998462+00:00"
+  },
+  {
+   "persona": "H_stalin",
+   "rep": 9,
+   "config_id": "044c6fa938",
+   "economic": -3.62,
+   "social": 5.486923076923077,
+   "response_entropy": 0.3649630508729306,
+   "l2_refusals": 0,
+   "refusal_gate": null,
+   "refused_as": "agree",
+   "t_iso": "2026-09-13T22:37:33.810426+00:00"
+  },
+  {
+   "persona": "H_stalin",
+   "rep": 10,
+   "config_id": "e3b1251bb8",
+   "economic": -3.62,
+   "social": 5.486923076923077,
+   "response_entropy": 0.3649630508729306,
+   "l2_refusals": 0,
+   "refusal_gate": null,
+   "refused_as": "agree",
+   "t_iso": "2026-09-13T22:51:10.352894+00:00"
+  },
+  {
+   "persona": "control2_best",
+   "rep": 10,
+   "config_id": "5857634196",
+   "economic": 0.13,
+   "social": 7.640769230769231,
+   "response_entropy": 0.3437850359459098,
+   "l2_refusals": 0,
+   "refusal_gate": null,
+   "refused_as": "agree",
+   "t_iso": "2026-09-13T23:01:21.597609+00:00"
+  },
+  {
+   "persona": "search2_best",
+   "rep": 10,
+   "config_id": "0b803dacfd",
+   "economic": -2.37,
+   "social": 5.743333333333334,
+   "response_entropy": 0.43035322678419574,
+   "l2_refusals": 0,
+   "refusal_gate": null,
+   "refused_as": "agree",
+   "t_iso": "2026-09-13T23:14:55.811096+00:00"
+  },
+  {
+   "persona": "search2_best",
+   "rep": 11,
+   "config_id": "69ada87634",
+   "economic": -0.995,
+   "social": 6.256153846153847,
+   "response_entropy": 0.43035322678419574,
+   "l2_refusals": 0,
+   "refusal_gate": null,
+   "refused_as": "agree",
+   "t_iso": "2026-09-13T23:26:44.996656+00:00"
+  },
+  {
+   "persona": "H_stalin",
+   "rep": 11,
+   "config_id": "c5716a0d6e",
+   "economic": -3.62,
+   "social": 5.486923076923077,
+   "response_entropy": 0.3649630508729306,
+   "l2_refusals": 0,
+   "refusal_gate": null,
+   "refused_as": "agree",
+   "t_iso": "2026-09-13T23:40:44.341562+00:00"
+  },
+  {
+   "persona": "control2_best",
+   "rep": 11,
+   "config_id": "7adfc428ff",
+   "economic": 0.13,
+   "social": 7.640769230769231,
+   "response_entropy": 0.3437850359459098,
+   "l2_refusals": 0,
+   "refusal_gate": null,
+   "refused_as": "agree",
+   "t_iso": "2026-09-13T23:53:29.026755+00:00"
+  },
+  {
+   "persona": "H_stalin",
+   "rep": 12,
+   "config_id": "6573e13427",
+   "economic": -3.62,
+   "social": 5.486923076923077,
+   "response_entropy": 0.3649630508729306,
+   "l2_refusals": 0,
+   "refusal_gate": null,
+   "refused_as": "agree",
+   "t_iso": "2026-09-14T00:09:25.928250+00:00"
+  },
+  {
+   "persona": "search2_best",
+   "rep": 12,
+   "config_id": "3083b3c3d6",
+   "economic": -0.995,
+   "social": 6.256153846153847,
+   "response_entropy": 0.43035322678419574,
+   "l2_refusals": 0,
+   "refusal_gate": null,
+   "refused_as": "agree",
+   "t_iso": "2026-09-14T00:22:51.345748+00:00"
+  },
+  {
+   "persona": "control2_best",
+   "rep": 12,
+   "config_id": "6acef21292",
+   "economic": 0.13,
+   "social": 7.58948717948718,
+   "response_entropy": 0.3190734837419336,
+   "l2_refusals": 0,
+   "refusal_gate": null,
+   "refused_as": "agree",
+   "t_iso": "2026-09-14T00:32:06.272216+00:00"
+  }
+ ],
+ "model": "gemma3",
+ "assessor": "gpt-4o-mini",
+ "refusal_gate": false,
+ "refused_as": "agree",
+ "n_questions": 62,
+ "subset_scores": {},
+ "summary": {
+  "search2_best": {
+   "social_mean": 5.914273504273505,
+   "social_sd": 0.2648193740996524,
+   "economic_mean": -1.9116666666666666,
+   "n": 6
+  },
+  "control2_best": {
+   "social_mean": 7.6322222222222225,
+   "social_sd": 0.020935809767377515,
+   "economic_mean": 0.13,
+   "n": 6
+  },
+  "H_stalin": {
+   "social_mean": 5.486923076923077,
+   "social_sd": 0.0,
+   "economic_mean": -3.62,
+   "n": 6
+  }
+ }
+}
