@@ -324,7 +324,8 @@ Both arms started from the same one infeasible seed of six.
   lies above zero; the sign reverses.
 - **D replicates**, inside the original interval.
 
-gemma3's re-run is still running.
+gemma3's re-run landed after the fifth pre-registration's outcome and is
+reported below it.
 
 ### Outcome of the fifth pre-registration
 

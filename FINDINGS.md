@@ -1921,7 +1921,9 @@ selection pressure applied on top — separates cleanly:
 > **Re-tested on gpt-3.5-turbo.** Its control arm had drawn parents from
 > infeasible seeds the search arm could not use. Re-run with matched parents,
 > D replicates at +0.064 [−0.450, +0.578] and selection alone reverses sign,
-> to +0.543 [+0.050, +1.035]. gemma3's re-run is still running.
+> to +0.543 [+0.050, +1.035]. On gemma3 the re-run moved D from +1.081 to
+> +0.385 and selection alone from +0.188 to −1.761, so no model's split of the
+> gain is settled (section 36).
 
 Most of the gain is the **variation operator** — an LLM rewriting a
 persona — not the search. Selection's share is less consistent: it is clearly positive on mistral and,
@@ -2040,8 +2042,9 @@ models and does not estimate a population quantity. Two points are from one
 vendor. H\* is a maximum over an n=1 enumeration and regresses when confirmed
 — gemma3's rose by 0.31, mistral's by 0.40 — so the x-axis carries the same
 winner's-curse error section 32 found on the y-axis, only smaller. And the
-prediction was tested once: a second held-out model is what would turn this
-from a confirmed prediction into an established relationship.
+prediction was tested once. Since then the second held-out model, gpt-5.4-mini,
+missed its prediction (section 35), and gemma3's own point moved on a second
+search run (section 36), so the relationship is not established.
 
 ## 34. On a safety-trained model, PRISM scores a refusal as a political position
 
@@ -2513,22 +2516,20 @@ Not established:
   on identical essays (section 29), which bounds how far assessors disagree,
   not how far they are from the truth. A human-labelled sample is still the
   single thing most needed.
-- **The relationship in section 33 has been tested once.** D = 4.574 − 0.628·H\*
+- **The relationship in section 33 does not hold up.** D = 4.574 − 0.628·H\*
   is fitted on the four points it describes, two of them share a vendor, and H\*
   carries its own winner's-curse error. gemma3 was a genuine held-out
-  prediction. A second held-out model, gpt-5.4-mini with the refusal gate on,
-  was the second held-out model: under gate v3 its pre-registered prediction
-  failed (section 35), so the relationship holds on four models and not on the
-  current one.
+  prediction, but its second search run gave D +0.385 against +1.081 (section
+  36), and gpt-5.4-mini, the second held-out model, missed its pre-registered
+  prediction under gate v3 (section 35).
 - **Only the authoritarian direction on the social axis.** Every search in
   sections 32 and 33 pushed social upward. The libertarian direction behaves
   differently on this instrument (section 31: the best libertarian persona
   already uses 92% of its headroom), and the economic axis has not been searched
   under this protocol.
-- **The variation/selection split on gemma3 is still under re-test.** Its
-  control arm drew parents from infeasible seeds the search arm could not use.
-  The same fault on gpt-3.5-turbo has been re-run: D replicated, and selection
-  reversed from −0.560 to +0.543.
+- **No model's variation/selection split is settled.** With the control arm's
+  parents matched to the search arm's, selection reversed from −0.560 to +0.543
+  on gpt-3.5-turbo and from +0.188 to −1.761 on gemma3 (section 36).
 - **Intervals on the local models overstate precision.** mistral and gemma3
   replicates are one to five distinct essays per statement, not twelve (section
   36). Only gpt-3.5-turbo and gemma3 have a second independent search run.
