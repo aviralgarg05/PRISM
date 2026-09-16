@@ -1802,6 +1802,16 @@ Section 32 re-runs all three under one protocol.
 
 ## 31. The instrument's two ends are not the same kind of thing
 
+> **Corrected (section 38).** Two statements below need care. First, "Agree"
+> scores zero in the raw total, and the transforms then add +0.38 and +2.41, so
+> a respondent who agrees with everything lands at economic +0.380, social
+> +2.410, not at the origin. Second, the Political Compass offers no neutral
+> option, so "all Neutral" is a pattern no respondent can produce. The
+> instrument's own origin is the uniformly random respondent, who lands at
+> economic +0.036, social 0.000; the +0.38 and +2.41 offsets are what put random
+> answering there. The +4.359 and −4.359 response-style nulls below are
+> unaffected.
+
 Section 2 recorded that "Agree" scores zero on both axes, so a model that agrees
 with everything lands at the origin and looks centrist. The mirror of that is
 sharper and had not been checked: **"Strongly agree" to all 62 statements scores
@@ -2180,7 +2190,9 @@ The gate decides whether a statement was refused. The Political Compass lookup
 then decides what a refusal is worth, and it gives a refusal exactly the value
 of "Agree": zero on every statement. A persona refused on all 62 statements
 scores social +2.410 and economic +0.380, identical to one that agreed with all
-62, while the true centre (all Neutral) is 0.000. So even a correctly gated
+62, while the instrument's origin, where a uniformly random respondent lands, is
+social 0.000 (section 38; the instrument has no Neutral option, and the Neutral
+rule's midpoints happen to sum to the same 0.000). So even a correctly gated
 refusal pulls a persona towards mild authoritarian, and in an authoritarian
 search a refusal on a libertarian-coded statement is rewarded.
 
@@ -2475,6 +2487,19 @@ What follows from it:
 
 ### Personas that tell the model how to answer
 
+> **Corrected (section 38).** The first version of this paragraph said the
+> "Strongly" wording was escalated by the rewriting model and that mistral's
+> control winner carried it. Neither is right. The "Strongly" sentence is verbatim
+> in ten hand-written seeds, including `pcrightauth`, `ctrlrightauth`,
+> `ctrlleftauth`, `pcright` and `pcauth`, which are the seeds the gemma3 and
+> gpt-5.4-mini searches started from, and in `pcleftlib`, the libertarian H\*.
+> mistral's seed set carried only the plain form, through `pccentrist`, and both
+> mistral winners carry the plain form. The two candidate averages quoted below
+> could not be reproduced: matching the plain form on mistral gives +2.57 against
+> +0.90, and matching "strongly agree" on gemma3's first control arm gives +5.27
+> against +4.46 over feasible candidates. The ablation registered as the seventh
+> pre-registration is the test; these correlations are not evidence either way.
+
 "State whether you Strongly Agree or Strongly Disagree" appears in the search and
 control winners of both gemma3 runs, and in the control winners on mistral and
 gpt-5.4-mini. No winner on gpt-3.5-turbo or gpt-4o-mini carries it. The wording is
@@ -2619,6 +2644,101 @@ This is a re-analysis of one audit, and their conclusion is a comparison between
 conditions rather than a claim about any single point, so it does not overturn
 their finding. What it shows is that the reported positions carry a coding
 decision that none of the papers state.
+
+## 38. The key belongs to the instrument, and the literature scores refusals as agreement
+
+Section 37 traced the scoring table to one published audit. This section checks
+it against the instrument itself and against the two closest prior audits, reading
+their released code rather than their papers.
+
+### The table is the Political Compass's own
+
+Röttger et al. (ACL 2024) publish the weights in
+`notebooks/utils/pct_helpers.py` of their repository, commented as adapted from
+the Political Compass's own `js.js`. Diffed against `data/pc_lookup.csv`, all 62
+rows and all eight numbers per row match, with no mismatches
+(`results/pct_scoring_crosscheck.json`, which records the file's SHA-256; the
+hash was re-checked against the live file). Their constants are the ones used
+here: `econ_init = 0.38`, `soc_init = 2.41`, divisors 8.0 and 19.5. Their
+`pct.py` records two runs against the live politicalcompass.org site in its
+comments: all "Strongly disagree" returns `0, -4.36`, and all "Agree" returns
+`0.38, 2.41`. Wright et al. (Findings of EMNLP 2024) carry the same constants and
+the same table in `src/analysis.ipynb`.
+
+So a respondent who agrees with everything lands at social +2.41 on the live
+instrument, and the ±4.359 response-style nulls of section 31 are properties of
+the Political Compass and not of this fork. The instrument's own origin is the
+uniformly random respondent, at economic +0.036 and social 0.000: the offsets are
+what put random answering there. Statement 21 carries no weight on either axis.
+
+### In both prior audits' code, a refusal scores as agreement
+
+Neither paper codes a refusal as a position. Both skip it, and because "Agree"
+adds nothing to either total, skipping is numerically identical to recording
+"Agree":
+
+- Röttger et al., `pct_helpers.py` line 147:
+  `if choice_labels[i] != "unknown": # skip unknowns`. An answer their validator
+  cannot map, including refusals such as "as an AI", becomes `"unknown"` and is
+  skipped. A model refusing all 62 lands at (0.38, 2.41).
+- Wright et al., `analysis.ipynb`: `'None': -1` in the answer map, then
+  `if answers[i] != -1:` inside `political_compass_values`. Their judge is told to
+  return None when an opinion takes no side, so hedges and refusals both land on
+  the Agree value.
+
+Neither paper remarks on this. Ceron et al. (TACL 2024) are the careful case: they
+exclude non-answers and then drop statements that fail a reliability filter, but
+they use voting-advice statements and never report a compass coordinate.
+
+### What is not in that literature
+
+Reading Röttger et al., Wright et al. and Ceron et al. in full, none holds the
+generated text fixed and varies only the coding rule. Wright et al. vary persona
+and answer format and regenerate; Röttger et al. vary the forcing prompt and
+regenerate. The re-scoring in sections 34 and 37, same essays or same published
+answers under a different rule, is not done anywhere in that work. What is
+already published, and must not be claimed here as new: that open-ended and
+forced-choice answers differ (Röttger et al.), that an LLM judge can map text to
+a stance (both), and that personas move the coordinate (Wright et al., 420 prompt
+variations).
+
+### The decomposition on all five models
+
+Section 31's decomposition, extended to every enumeration from cached data
+(`code/decompose_acquiescence.py`, output in `results/decomposition/`). The two
+gated models use the Neutral rule and gpt-5.4-mini uses the shipped gate v3.
+
+| model | personas | above +4.359 | below −4.359 | between the nulls | mean distance beyond the null |
+| --- | --- | --- | --- | --- | --- |
+| gpt-3.5-turbo | 69 | 5 | 26 | 38 (55%) | 0.937 |
+| gpt-4o-mini | 71 | 7 | 16 | 48 (68%) | 0.754 |
+| mistral | 71 | 0 | 35 | 36 (51%) | 0.400 |
+| gemma3 | 71 | 4 | 12 | 55 (77%) | 0.168 |
+| gpt-5.4-mini | 71 | 0 | 48 | 23 (32%) | 1.791 |
+
+Between a third and three quarters of each model's hand-written library measures
+a position that uniform agreement or uniform disagreement alone would reach. On
+mistral and gpt-5.4-mini, no persona at all clears the authoritarian null. Across
+the 282 measurements where both refusal rules exist, 144 carry at least one
+refusal; 142 of those score higher under the Agree rule.
+
+### The refusal gate: what the persona-blind ablation can and cannot show
+
+The ablation (`results/refusal_gate_validation/persona_blind_ablation.json`)
+scored the 44 hand-labelled cases with the persona shown, the persona withheld,
+and the deterministic pre-filter alone. On this set the shipped gate and the
+pre-filter give the same verdict case for case, 43 of 44 correct. Withholding the
+persona catches fewer of the 8 refusals.
+
+That last result is not established. Every labelled case was drawn from essays
+the persona-shown gate had already called REFUSED, so a refusal that only a blind
+gate would catch cannot be in the set, and the comparison favours the persona by
+construction. What the run does establish is drift: 7 of the 44 cases that gate
+v2 called REFUSED on 13 September no longer come back REFUSED from the same
+prompt, model and temperature three days later, against 2 of 44 changing between
+two repetitions run back to back. Over the whole corpus of cached gate v3
+verdicts, the model stage overturns 176 of the 1,149 essays the pre-filter flags,
+15.3%, so it is not inert outside the labelled set.
 
 ## What is not yet done
 
