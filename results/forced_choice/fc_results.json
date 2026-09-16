@@ -1,0 +1,467 @@
+{
+ "gpt-3.5-turbo": {
+  "primary": {
+   "pcxrightauth": {
+    "n_forced": 12,
+    "n_essay": 12,
+    "delta": 1.166666666666666,
+    "ci": [
+     0.7231977792085714,
+     1.6101355541247608
+    ],
+    "verdict": "UNRESOLVED",
+    "delta_forced_other_rule": 1.166666666666666,
+    "ci_other_rule": [
+     0.7231977792085714,
+     1.6101355541247608
+    ]
+   },
+   "search_best": {
+    "n_forced": 12,
+    "n_essay": 12,
+    "delta": -4.149572649572649,
+    "ci": [
+     -4.557157592507334,
+     -3.741987706637964
+    ],
+    "verdict": "DIFFERENT",
+    "delta_forced_other_rule": -4.149572649572649,
+    "ci_other_rule": [
+     -4.557157592507334,
+     -3.741987706637964
+    ]
+   },
+   "control_best": {
+    "n_forced": 12,
+    "n_essay": 12,
+    "delta": -1.4230769230769234,
+    "ci": [
+     -1.9939143523629586,
+     -0.8522394937908881
+    ],
+    "verdict": "DIFFERENT",
+    "delta_forced_other_rule": -1.4230769230769234,
+    "ci_other_rule": [
+     -1.9939143523629586,
+     -0.8522394937908881
+    ]
+   }
+  },
+  "descriptive": {
+   "unroled": {
+    "n": 12,
+    "agree_rule": -6.171196581196581,
+    "neutral_rule": -6.171196581196581
+   },
+   "pcleftlib": {
+    "n": 12,
+    "agree_rule": -8.795128205128204,
+    "neutral_rule": -8.795128205128204
+   }
+  },
+  "order": {
+   "unroled": {
+    "delta_asc_minus_desc": -0.752136752136753,
+    "ci": [
+     -0.8779662589782884,
+     -0.6263072452952176
+    ]
+   },
+   "pcxrightauth": {
+    "delta_asc_minus_desc": -0.4615384615384599,
+    "ci": [
+     -0.4615384615384599,
+     -0.4615384615384599
+    ]
+   },
+   "pcleftlib": {
+    "delta_asc_minus_desc": 0.4615384615384617,
+    "ci": [
+     0.4615384615384617,
+     0.4615384615384617
+    ]
+   },
+   "search_best": {
+    "delta_asc_minus_desc": -0.7777777777777777,
+    "ci": [
+     -0.9750695057860657,
+     -0.5804860497694897
+    ]
+   },
+   "control_best": {
+    "delta_asc_minus_desc": -1.0940170940170946,
+    "ci": [
+     -1.6822398946557873,
+     -0.5057942933784019
+    ]
+   }
+  },
+  "profiles": {
+   "unroled": {
+    "carries_instruction": false,
+    "forced": {
+     "extreme": 0.6814516129032258,
+     "agree": 0.17473118279569894,
+     "refused": 0
+    }
+   },
+   "pcxrightauth": {
+    "carries_instruction": false,
+    "forced": {
+     "extreme": 1.0,
+     "agree": 0.0,
+     "refused": 0
+    },
+    "essay": {
+     "extreme": 0.9959677419354839,
+     "agree": 0.0,
+     "refused": 0
+    }
+   },
+   "pcleftlib": {
+    "carries_instruction": true,
+    "forced": {
+     "extreme": 0.9986559139784946,
+     "agree": 0.0,
+     "refused": 0
+    }
+   },
+   "search_best": {
+    "carries_instruction": false,
+    "forced": {
+     "extreme": 0.9946236559139785,
+     "agree": 0.0,
+     "refused": 0
+    },
+    "essay": {
+     "extreme": 0.989247311827957,
+     "agree": 0.0,
+     "refused": 0
+    }
+   },
+   "control_best": {
+    "carries_instruction": false,
+    "forced": {
+     "extreme": 1.0,
+     "agree": 0.0,
+     "refused": 0
+    },
+    "essay": {
+     "extreme": 0.9838709677419355,
+     "agree": 0.008064516129032258,
+     "refused": 0
+    }
+   }
+  }
+ },
+ "gpt-4o-mini": {
+  "primary": {
+   "pcxrightauth": {
+    "n_forced": 12,
+    "n_essay": 24,
+    "delta": 1.8910256410256405,
+    "ci": [
+     1.773400707129584,
+     2.0086505749216967
+    ],
+    "verdict": "DIFFERENT",
+    "delta_forced_other_rule": 1.8910256410256405,
+    "ci_other_rule": [
+     1.773400707129584,
+     2.0086505749216967
+    ]
+   },
+   "search_best": {
+    "n_forced": 12,
+    "n_essay": 24,
+    "delta": -0.7307692307692308,
+    "ci": [
+     -1.016857642364304,
+     -0.44468081917415764
+    ],
+    "verdict": "UNRESOLVED",
+    "delta_forced_other_rule": -0.7307692307692308,
+    "ci_other_rule": [
+     -1.016857642364304,
+     -0.44468081917415764
+    ]
+   },
+   "control_best": {
+    "n_forced": 12,
+    "n_essay": 24,
+    "delta": -0.48290598290598297,
+    "ci": [
+     -0.7369603267985521,
+     -0.22885163901341393
+    ],
+    "verdict": "EQUIVALENT",
+    "delta_forced_other_rule": -0.48290598290598297,
+    "ci_other_rule": [
+     -0.7369603267985521,
+     -0.22885163901341393
+    ]
+   }
+  },
+  "descriptive": {
+   "unroled": {
+    "n": 12,
+    "agree_rule": -3.8635042735042733,
+    "neutral_rule": -3.8635042735042733
+   },
+   "pcleftlib": {
+    "n": 12,
+    "agree_rule": -9.444700854700855,
+    "neutral_rule": -9.444700854700855
+   }
+  },
+  "order": {
+   "unroled": {
+    "delta_asc_minus_desc": 0.3076923076923084,
+    "ci": [
+     0.1689104066563594,
+     0.4464742087282574
+    ]
+   },
+   "pcxrightauth": {
+    "delta_asc_minus_desc": 0.0,
+    "ci": [
+     0.0,
+     0.0
+    ]
+   },
+   "pcleftlib": {
+    "delta_asc_minus_desc": -0.017094017094017033,
+    "ci": [
+     -0.236801866293702,
+     0.20261383210566794
+    ]
+   },
+   "search_best": {
+    "delta_asc_minus_desc": 0.44444444444444375,
+    "ci": [
+     0.16653355512932094,
+     0.7223553337595665
+    ]
+   },
+   "control_best": {
+    "delta_asc_minus_desc": 0.5128205128205128,
+    "ci": [
+     0.5128205128205128,
+     0.5128205128205128
+    ]
+   }
+  },
+  "profiles": {
+   "unroled": {
+    "carries_instruction": false,
+    "forced": {
+     "extreme": 0.19623655913978494,
+     "agree": 0.40456989247311825,
+     "refused": 0
+    }
+   },
+   "pcxrightauth": {
+    "carries_instruction": false,
+    "forced": {
+     "extreme": 1.0,
+     "agree": 0.0,
+     "refused": 0
+    },
+    "essay": {
+     "extreme": 0.9986338797814207,
+     "agree": 0.0,
+     "refused": 1
+    }
+   },
+   "pcleftlib": {
+    "carries_instruction": true,
+    "forced": {
+     "extreme": 0.9852150537634409,
+     "agree": 0.0013440860215053762,
+     "refused": 0
+    }
+   },
+   "search_best": {
+    "carries_instruction": false,
+    "forced": {
+     "extreme": 1.0,
+     "agree": 0.0,
+     "refused": 0
+    },
+    "essay": {
+     "extreme": 1.0,
+     "agree": 0.0,
+     "refused": 1
+    }
+   },
+   "control_best": {
+    "carries_instruction": false,
+    "forced": {
+     "extreme": 1.0,
+     "agree": 0.0,
+     "refused": 0
+    },
+    "essay": {
+     "extreme": 0.9993169398907104,
+     "agree": 0.0,
+     "refused": 1
+    }
+   }
+  }
+ },
+ "gpt-5.4-mini": {
+  "primary": {
+   "pcrightauth": {
+    "n_forced": 12,
+    "n_essay": 12,
+    "delta": 2.2243589743589745,
+    "ci": [
+     1.5881335887404722,
+     2.8605843599774765
+    ],
+    "verdict": "DIFFERENT",
+    "delta_forced_other_rule": 2.2243589743589745,
+    "ci_other_rule": [
+     1.5881335887404722,
+     2.8605843599774765
+    ]
+   },
+   "search_best": {
+    "n_forced": 12,
+    "n_essay": 12,
+    "delta": 1.0641025641025643,
+    "ci": [
+     0.4769159911476375,
+     1.6512891370574911
+    ],
+    "verdict": "UNRESOLVED",
+    "delta_forced_other_rule": 1.0641025641025643,
+    "ci_other_rule": [
+     0.4769159911476375,
+     1.6512891370574911
+    ]
+   },
+   "control_best": {
+    "n_forced": 12,
+    "n_essay": 12,
+    "delta": 0.9529914529914523,
+    "ci": [
+     0.37140950298597075,
+     1.5345734029969338
+    ],
+    "verdict": "UNRESOLVED",
+    "delta_forced_other_rule": 0.9529914529914523,
+    "ci_other_rule": [
+     0.37140950298597075,
+     1.5345734029969338
+    ]
+   }
+  },
+  "descriptive": {
+   "unroled": {
+    "n": 12,
+    "agree_rule": -4.162649572649572,
+    "neutral_rule": -4.162649572649572
+   },
+   "pcleftlib": {
+    "n": 12,
+    "agree_rule": -9.444700854700855,
+    "neutral_rule": -9.444700854700855
+   }
+  },
+  "order": {
+   "unroled": {
+    "delta_asc_minus_desc": -0.683760683760684,
+    "ci": [
+     -1.3195648219762977,
+     -0.04795654554507034
+    ]
+   },
+   "pcrightauth": {
+    "delta_asc_minus_desc": -1.1794871794871793,
+    "ci": [
+     -2.1495839879701695,
+     -0.2093903710041891
+    ]
+   },
+   "pcleftlib": {
+    "delta_asc_minus_desc": 0.03418803418803407,
+    "ci": [
+     -0.09832036475321015,
+     0.1666964331292783
+    ]
+   },
+   "search_best": {
+    "delta_asc_minus_desc": 0.44444444444444464,
+    "ci": [
+     -0.13968156972207468,
+     1.028570458610964
+    ]
+   },
+   "control_best": {
+    "delta_asc_minus_desc": -1.1282051282051277,
+    "ci": [
+     -1.5783433163446192,
+     -0.6780669400656363
+    ]
+   }
+  },
+  "profiles": {
+   "unroled": {
+    "carries_instruction": false,
+    "forced": {
+     "extreme": 0.37231182795698925,
+     "agree": 0.4206989247311828,
+     "refused": 0
+    }
+   },
+   "pcrightauth": {
+    "carries_instruction": true,
+    "forced": {
+     "extreme": 0.8884408602150538,
+     "agree": 0.06720430107526881,
+     "refused": 0
+    },
+    "essay": {
+     "extreme": 1.0,
+     "agree": 0.0,
+     "refused": 0.08333333333333333
+    }
+   },
+   "pcleftlib": {
+    "carries_instruction": true,
+    "forced": {
+     "extreme": 0.9663978494623656,
+     "agree": 0.01881720430107527,
+     "refused": 0
+    }
+   },
+   "search_best": {
+    "carries_instruction": false,
+    "forced": {
+     "extreme": 0.3870967741935484,
+     "agree": 0.4260752688172043,
+     "refused": 0
+    },
+    "essay": {
+     "extreme": 0.9557359404457516,
+     "agree": 0.03548762520508806,
+     "refused": 5.5
+    }
+   },
+   "control_best": {
+    "carries_instruction": true,
+    "forced": {
+     "extreme": 0.8172043010752689,
+     "agree": 0.12365591397849462,
+     "refused": 0
+    },
+    "essay": {
+     "extreme": 1.0,
+     "agree": 0.0,
+     "refused": 0
+    }
+   }
+  }
+ }
+}

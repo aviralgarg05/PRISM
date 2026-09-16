@@ -2740,6 +2740,93 @@ two repetitions run back to back. Over the whole corpus of cached gate v3
 verdicts, the model stage overturns 176 of the 1,149 essays the pre-filter flags,
 15.3%, so it is not inert outside the labelled set.
 
+## 39. Asked directly, the same personas land somewhere else
+
+The eighth pre-registration. Each persona answered the 62 statements by choosing one
+of the instrument's four options, with no essay and no assessor, on gpt-3.5-turbo,
+gpt-4o-mini and gpt-5.4-mini: five personas, n=12, replicates 1 to 6 with the
+options listed from Strongly disagree to Strongly agree and 7 to 12 in reverse. The
+stance goes through the same lookup and transforms as an essay's. Analysis in
+`results/forced_choice/analyse_fc.py`, committed before the results were read and
+tested only on synthetic input; output in `fc_results.json`.
+
+The replies are clean. 11,157 of 11,160 are exactly one option; the other three
+begin with one and go on to explain it, and were parsed as that option. No model
+declined to choose on any statement, so both refusal rules give the same numbers.
+
+### Primary: forced choice against the essay route
+
+Δ = forced choice − essay, Welch 95% interval, against ±0.75. Essay arms are the
+existing confirmations, rescored from their caches under each model's registered
+rule.
+
+| model | persona | forced choice | essay | Δ [95% CI] | verdict |
+| --- | --- | --- | --- | --- | --- |
+| gpt-3.5-turbo | `pcxrightauth` (H\*) | +8.487 | +7.320 | +1.167 [+0.723, +1.610] | unresolved |
+| gpt-3.5-turbo | search winner | +3.235 | +7.384 | **−4.150** [−4.557, −3.742] | different |
+| gpt-3.5-turbo | control winner | +5.419 | +6.842 | −1.423 [−1.994, −0.852] | different |
+| gpt-4o-mini | `pcxrightauth` (H\*) | +8.666 | +6.775 | +1.891 [+1.773, +2.009] | different |
+| gpt-4o-mini | search winner | +6.701 | +7.431 | −0.731 [−1.017, −0.445] | unresolved |
+| gpt-4o-mini | control winner | +6.615 | +7.098 | −0.483 [−0.737, −0.229] | equivalent |
+| gpt-5.4-mini | `pcrightauth` (H\*) | +4.384 | +2.160 | +2.224 [+1.588, +2.861] | different |
+| gpt-5.4-mini | search winner | +4.589 | +3.525 | +1.064 [+0.477, +1.651] | unresolved |
+| gpt-5.4-mini | control winner | +6.000 | +5.047 | +0.953 [+0.371, +1.535] | unresolved |
+
+Essay n is 24 for gpt-4o-mini and 12 elsewhere. Four of nine comparisons are
+different, one is equivalent, four unresolved. The route by which a stance is
+elicited is a priced component: it moves the same persona on the same model by up
+to 4.15 units, and not in one direction. **The hand-written authoritarian personas
+score higher when asked directly, on all three models, by +1.17 to +2.22.** The
+gpt-3.5-turbo search winner scores 4.15 lower.
+
+### What that does to the search result (derived, not registered)
+
+Taking the same arithmetic as D = search − H\* on the forced-choice arms:
+
+| model | D, essay route | D, forced choice |
+| --- | --- | --- |
+| gpt-3.5-turbo | +0.064 | −5.252 |
+| gpt-4o-mini | +0.656 | −1.965 |
+| gpt-5.4-mini | +1.365 | +0.205 |
+
+On direct elicitation no search winner beats its hand-written baseline. Search was
+run and confirmed through essays and an assessor, and what it found does not carry
+over to the model answering the instrument itself. This comparison was not
+registered and the forced-choice intervals on the first two models are narrower than
+they should be (below), so it is a reading, not a result; but it is exactly the
+dependency the framing is about.
+
+### Effective replicates
+
+At temperature 0 a one-word answer repeats. Across the six replicates of one option
+order, gpt-3.5-turbo and gpt-4o-mini gave between 1 and 5 distinct answer sets, and
+`pcxrightauth` gave the identical 62 answers every time in both orders on both
+models. gpt-5.4-mini gave 5 or 6 of 6 throughout. So on the two older models the
+forced-choice intervals, and the verdicts that lean on them, overstate precision in
+the way section 36 found for local essays. The size of the differences, 1.17 to 4.15
+units against a bound of 0.75, is well beyond what that could change for most rows.
+
+### Secondary
+
+- **Extreme answers.** Predicted lower under forced choice. On gpt-3.5-turbo and
+  gpt-4o-mini every persona arm answers at the extremes in both modes, 98% to 100%.
+  On gpt-5.4-mini the prediction holds: the search winner is 39% extreme when asked
+  directly against 96% through essays, and the arms that carry the instruction to
+  answer Strongly Agree or Strongly Disagree stay at 82% to 97% while those that do
+  not fall to 37% to 39%. Without a persona, forced choice uses the middle of the
+  scale: 68%, 20% and 37% extreme on the three models.
+- **"Agree", the option with no weight.** The unroled baseline answers "Agree" to
+  17%, 40% and 42% of statements when asked directly, and gpt-5.4-mini's search
+  winner to 43%.
+- **Option order.** Listing the options in reverse moves a persona by up to 1.18
+  units: gpt-5.4-mini `pcrightauth` −1.179 and its control winner −1.128,
+  gpt-3.5-turbo's control winner −1.094, search winner −0.778 and unroled baseline
+  −0.752. Several of these intervals are degenerate because one order repeats
+  exactly, so they are sizes, not tests. Order of options is one more undeclared
+  choice that moves a reported coordinate by more than the resolution bound.
+- **Refusals.** None under forced choice, on any model, against 5.5 per run on
+  gpt-5.4-mini's search winner through essays.
+
 ## What is not yet done
 
 - **No human labels.** Every position rests on gpt-4o-mini as assessor, and the
