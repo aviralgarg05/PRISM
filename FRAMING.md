@@ -15,8 +15,10 @@ A political-compass coordinate is the output of a configuration — scoring key,
 assessor, refusal rule, gate version — and this project can price each of those in the
 instrument's own units. The strongest evidence is deterministic: on gemma3, re-scoring
 **unchanged essays** under a refusal rule moves `facist` from −6.64 to +2.41 to 0.00 and
-changes which persona is the model's libertarian extreme (§34). Nothing was regenerated, so
-that result survives every open question in the file.
+changes which persona is the model's libertarian extreme (§34). Re-scoring a published audit's
+**own deposited answers** the same way moves its radical-republican condition 2.68 units on the
+social axis (§37). Nothing was regenerated in either case, so both survive every open question
+in the file.
 
 Search is the probe, not the claim. It earned its place by exposing an instrument defect no
 hand-written audit would have found (§27, §28) and by showing that a reported effect is a
@@ -25,17 +27,29 @@ draw from a distribution an audit run once never sees (§36).
 ## RQ1. What does the instrument score when the respondent supplies no political content?
 
 Answered, and it is arithmetic. "Agree" carries zero weight on both axes, 18 of 62 statements
-carry any economic weight against 43 social (§20). Uniform "Strongly agree" scores social
-**+4.359**, uniform "Strongly disagree" −4.359, uniform "Agree" +2.410, uniform Neutral 0.000
-(§27, §31). A respondent with no political content therefore reaches 44% of a pole, and only
-5 of 69 hand-written personas clear the null (§31). Decomposed: `pcxrightauth` measures +7.18,
-of which +2.82 is content beyond the null, using 50% of its headroom (§31).
+carry any economic weight against 43 social, and statement 21 carries none (§20, §38). The
+instrument offers no neutral option. Its own origin is the uniformly random respondent, at
+economic +0.036 and social 0.000; uniform "Agree" lands at +2.410 social, uniform "Strongly
+agree" at +4.359 and uniform "Strongly disagree" at −4.359 (§31, §38). The same table and
+constants are in Röttger et al.'s and Wright et al.'s code and in Motoki et al.'s replication
+package, and Röttger et al. record the live site returning 0.38, 2.41 for all "Agree" (§37, §38).
 
-Still to run: the answer-format ablation (§36), which decides whether "content beyond the
-null" can be said at all on gemma3, mistral and gpt-5.4-mini; the same decomposition on the
-other four enumerations, which is free arithmetic over cached stances; a forced-choice control
-on the same models and personas, to separate a property of the scoring key from a property of
-essay-mediated elicitation.
+Across the five audited models, between 32% and 77% of each hand-written library measures a
+position that uniform agreement or disagreement alone would reach, and on mistral and
+gpt-5.4-mini no persona clears the authoritarian null at all (§38). The scale is answered at
+its ends: 76.5% to 97.5% of stances across each library are "Strongly agree" or "Strongly
+disagree", and α is 0.889 to 0.952 while the first factor takes 24% to 39% (§37).
+
+The answer instruction is in the seeds. "State whether you either Strongly Agree or Strongly
+Disagree" is verbatim in ten hand-written personas, including the seeds of the gemma3 and
+gpt-5.4-mini searches and `pcleftlib`, the libertarian headline of §31; the authoritarian
+headline `pcxrightauth` does not carry it (§36 correction). On mistral and gpt-5.4-mini the only
+confirmed arms that clear +4.359 carry it.
+
+Running, registered: the answer-format ablation on the winners (seventh pre-registration), the
+same ablation on `pcleftlib` (ninth), and a forced-choice control on three hosted models
+(eighth), which separates a property of the scoring key from a property of essay-mediated
+elicitation.
 
 ## RQ2. How far does a reported position move under choices an audit does not declare?
 
@@ -43,7 +57,11 @@ essay-mediated elicitation.
   `hilter` −3.28 → +2.41 → 0.00, each declined on 62 of 62 statements; the libertarian
   extreme becomes `pcxleft` at −6.411 (§34). On gpt-5.4-mini the same choice moves the
   headline effect: D = +1.365 [+0.793, +1.937] under the Neutral rule against
-  +2.030 [+1.451, +2.609] under Agree (§35).
+  +2.030 [+1.451, +2.609] under Agree (§35). On Motoki et al.'s published answers, scoring
+  "agree" at the midpoint moves the five conditions by between +0.55 and −2.68 on the social
+  axis (§37).
+- **Refusal handling in the literature.** Röttger et al. and Wright et al. both skip a refusal,
+  which under this key is numerically identical to recording "Agree" (§38).
 - **Gate version.** v2 → v3 moves H\* from +1.923 to +1.692 and turns a pre-registered
   prediction from inside the fitted range to outside it (§35).
 - **Assessor.** A weak assessor moves mistral's unroled baseline 6.86 units and flips its
@@ -53,8 +71,8 @@ essay-mediated elicitation.
   libertarian candidates sat bit-exactly on the floor and four candidates the surrogate called
   identical were 1.67 units apart on the full instrument (§27, §28).
 
-Still to run: the strong-versus-strong assessor comparison on unroled baselines and on
-confirmed boundary candidates. Under $25 on cached essays, never run, and a reviewer will ask.
+Running, registered: the strong-versus-strong assessor comparison on unroled baselines and
+confirmed boundary candidates on all five models (sixth pre-registration, about $11).
 
 ## RQ3. Does a model's safety policy get reported as its politics?
 
@@ -67,26 +85,29 @@ own candidates (§35).
 
 The gate is a component with its own error, not a fix: v1 called 9 of 20 ordinary essays
 refusals; v2 passed a hand-labelled set 33/33 and 0/40 and then, in its first production use,
-27 of 34 audited REFUSED verdicts were not refusals (§34). Gate v3 adds a first-person
-pre-filter and releases those.
+27 of 34 audited openings it had called REFUSED were not refusals (§34). Gate v3 adds a
+first-person pre-filter and releases those.
 
-Still to run: a persona-blind gate ablation over the labelled openings, since the gate is the
-one component shown the persona; a second labeller on the gate's categories; a second refusing
-model, so the artefact is not a one-model result.
+The persona-blind ablation has been run and cannot answer the question as posed: every labelled
+case was drawn from essays the persona-shown gate had already called REFUSED (§38). What remains
+is labelling a sample of the 176 essays where the gate's model stage overturns the pre-filter,
+and a sample not selected by any gate, under the exposure note in [ETHICS.md](ETHICS.md). A
+second refusing model is also still needed, so the artefact is not a one-model result.
 
 ## RQ4. What is the measurement's resolution?
 
 Two strong assessors agree within 0.72 units on identical essay sets, ordering preserved (§29).
 Assessor nondeterminism with the essay held literally fixed is sd 0.252 (§36). Pooled
 within-arm sd is 0.446 (§27). The ±0.75 equivalence bound rests on the first two, and both come
-from small, role-conditioned samples, which is the weakest leg of the project. Against that,
-§36 shows local-model replicates give 1.0 to 4.9 distinct essays per statement across twelve
-runs, so several intervals are computed on duplicates.
+from small, role-conditioned samples, which is the weakest leg of the project; the sixth
+pre-registration tests it. Against that, §36 shows local-model replicates give 1.0 to 4.9
+distinct essays per statement across twelve runs, so several intervals are computed on
+duplicates. Model versions are not pinned: the gate's verdicts on the same inputs changed on 7
+of 44 cases over three days (§38).
 
-Still to run: a small crossed design — personas × models × occasions × two strong assessors —
-to replace an asserted bound with a measured standard error per facet, with model versions
-pinned. Free alongside it: item-total correlations and a dimensionality check over the cached
-stance matrices, which no audit using this instrument reports.
+Still to decide: a crossed design — personas × models × occasions × two strong assessors, with
+model versions recorded — to replace an asserted bound with a measured standard error per facet.
+Whether it is needed depends on the outcome of the sixth pre-registration.
 
 ## RQ5. What must an audit declare, and does declaring it change a published conclusion?
 
@@ -95,60 +116,49 @@ three refusal rules implemented and reported, a versioned gate with its failure 
 record, and the requirement to say which statements moved, since statements 4 and 27 alone
 carry 24% of one measured gain (§27).
 
-The external check is done for the strongest case. §31's claim that the acquiescence property
-belongs to the scoring rather than to this fork is confirmed against a published replication
-package: Motoki et al. (Public Choice 2024) publish the per-statement weights, all 62 rows are
-identical to this repository's key, "agree" carries zero weight throughout, and their own code
-applies the ÷19.5 +2.41 transform (§37). So the paper reports a property of a published audit,
-not a bug in one repository.
-
-Still to run: the same check against two or three more audits, to say how widely the key
-travels, and a reading of what those audits do with a refusal.
+The external check is done. The key is the Political Compass's own and is identical in four
+places, and both prior audits that compute coordinates locally score a refusal as agreement
+without saying so (§37, §38). Re-scoring one published audit's deposited answers shows the
+reported positions carry that coding decision (§37).
 
 ## What the existing results are for
 
 | Result | Anchor | Serves | Caveat to carry |
 | --- | --- | --- | --- |
-| "Agree" = 0 on both axes; 18 vs 43 statements | §20 | RQ1, RQ5 | this fork's key until RQ5's reading is done |
-| Acquiescence null ±4.359, Neutral 0.000 | §27, §31 | RQ1 | social-specific; economic moves at most 0.380 |
-| 69-persona decomposition, headroom, modal share | §31 | RQ1 | one model, one assessor, n=1 per persona |
+| "Agree" = 0 on both axes; 18 vs 43 statements | §20, §38 | RQ1, RQ5 | identical in four published sources; live site checked at two uniform patterns |
+| Response-style nulls ±4.359; random respondent at the origin | §31, §38 | RQ1 | social-axis property |
+| Decomposition on five models | §38 | RQ1 | coordinates on five models; modal share on three |
+| Item statistics and extreme-answer share | §37 | RQ1, RQ4 | one replicate per persona, one assessor |
 | gemma3 gated rescore on unchanged essays | §34 | RQ2, RQ3 | deterministic |
+| Motoki et al. re-scored from their own answers | §37 | RQ2, RQ5 | one audit; their conclusion is a comparison between conditions |
+| Refusals skipped as agreement in Röttger et al. and Wright et al. | §38 | RQ2, RQ5 | read from their released code |
 | Refusal rule moves D from +1.365 to +2.030 | §35 | RQ2 | one model |
 | Gate v2 → v3 moves H\* and a prediction | §35 | RQ2, RQ5 | always name the version |
 | Decline-then-write prevalence, four models | §34 | RQ3 | gemma3 supplies most of it |
-| Gate v1 failure and v2 false positives | §34 | RQ3, RQ5 | labelled by one person |
+| Gate v1 failure, v2 false positives, blind ablation | §34, §38 | RQ3, RQ5 | labelled by one person; ablation cases gate-selected |
+| Gate verdict drift, 7 of 44 in three days | §38 | RQ4 | unpinned model versions |
 | Assessor swap 6.86 units, quadrant flip | §8 | RQ2 | weak versus strong |
 | Two hosted assessors 1.25–3.71, mean 2.44 | §20 | RQ2 | ten configurations |
 | Surrogate saturation, 80/116 bit-exact | §27, §28 | RQ2 | search-visible instrument defect |
-| Two strong assessors within 0.72 | §29 | RQ4 | n=3, role-conditioned, the easy regime |
+| Two strong assessors within 0.72 | §29 | RQ4 | n=3, role-conditioned, the easy regime; under test |
 | Distinct-essay counts 1.0–4.9 locally | §36 | RQ4 | local n=12 intervals overstate precision |
 | Winner's curse up to 1.513 | §32 | RQ4, RQ5 | confirms the argmax, not the procedure |
 | Five-model D table | §36 | RQ2 | three models have one search run each |
 
-## Experiments, in order
+## Experiments, and where each stands
 
-| # | Experiment | Cost | Serves |
-| --- | --- | --- | --- |
-| 0 | Ethics and release note: an exposure protocol for anyone who reads essays written in the declined personas, and a policy on releasing the search-derived ones | half a day | all |
-| 1 | Free arithmetic over cached stances: decomposition on all five enumerations, a three-rule table per model, item-total and dimensionality checks | none, 2–3 days | RQ1, RQ2, RQ4 |
-| 2 | Persona-blind gate ablation over the labelled openings | under an hour | RQ3 |
-| 3 | Strong-versus-strong assessor on unroled baselines and boundary candidates, pre-registered | ~$25 | RQ2, RQ4 |
-| 4 | Answer-format ablation: winners confirmed with the "Strongly Agree or Strongly Disagree" sentence removed, 3 models, n=12, pre-registered at ±0.75 | ~$2 hosted, half a day local | RQ1, RQ3 |
-| 5 | Forced-choice control on the same models and personas | ~$10 | RQ1 |
-| 6 | Second labeller on the gate categories | 2 hours each | RQ3 |
-| 7 | Crossed design for resolution, versions pinned | ~$100, 2–3 days | RQ4 |
-| 8 | Read 3–5 published audits against §31 | reading, 3–4 days | RQ5 |
-| 9 | Second refusing model, enumerated ungated and gated | 3–5 local days | RQ3 |
-
-Item 4 has to land before any sentence about content beyond the null is written. Items 1 to 3
-come first because they are cheaper in calendar time and item 3 can invalidate more of the
-framing than item 4 can.
-
-Item 0 is first for a reason. The search has already produced a persona that flips a model
-into endorsing racial superiority (§27), and any labelling task involves reading essays
-written in `hilter`, `facist` and `extremist` personas. A venue like FAccT or AIES will expect
-an exposure protocol and a release policy before that work is described, and there is none in
-the repository yet.
+| # | Experiment | Cost | Serves | Status |
+| --- | --- | --- | --- | --- |
+| 0 | Ethics, exposure and release note | half a day | all | done, [ETHICS.md](ETHICS.md) |
+| 1 | Free arithmetic over cached stances: decomposition on five enumerations, item-total and dimensionality checks | none | RQ1, RQ2, RQ4 | done, §37 and §38 |
+| 2 | Persona-blind gate ablation | under an hour | RQ3 | done, with the selection limit in §38 |
+| 3 | Strong-versus-strong assessor, all five models | about $11 | RQ2, RQ4 | running, sixth pre-registration |
+| 4 | Answer-format ablation on the winners; the same on `pcleftlib` | about $3 hosted, local time | RQ1, RQ3 | running, seventh and ninth |
+| 5 | Forced-choice control, three hosted models, option order counterbalanced | under $1 | RQ1, RQ3 | running, eighth |
+| 6 | Second labeller on the gate categories, and labelling gate overturns | people's time | RQ3 | needs people |
+| 7 | Crossed design for resolution, versions recorded | about $100 | RQ4 | depends on experiment 3 |
+| 8 | Read published audits against §31 | reading | RQ5 | done for eight papers, §37 and §38 |
+| 9 | Second refusing model, enumerated ungated and gated | 3–5 local days | RQ3 | not started |
 
 ## Where the novelty has to sit
 
@@ -159,29 +169,35 @@ run 156k open-ended responses to the same 62 propositions across six models and 
 variations with stance labelling, which is structurally this pipeline. Domínguez-Olmedo et al.,
 NeurIPS 2024, show survey responses are governed by ordering and labelling bias and propose
 null baselines. Sclar et al., ICLR 2024, report performance as a spread over prompt formats
-and use search to find that spread cheaply.
+and use search to find that spread cheaply. Ceron et al., TACL 2024, and Rozado, PLOS ONE 2024,
+use null or reliability baselines. None of this may be claimed as new here.
 
-What is not in that literature, as far as I can tell:
+What is not in that literature, having read the prior audits' code:
 
-1. The scoring key priced on held-fixed essays. Refusal and agreement are numerically
-   identical under this key, so the audit silently imports an item-nonresponse coding rule,
-   and the size of it can be stated in the instrument's own units.
-2. Surrogate saturation as an instrument defect that only optimisation makes visible.
-3. The audit protocol itself: pre-registered decision rules, a matched no-selection control,
+1. The coding rule priced on held-fixed text. No prior audit holds the generated text fixed and
+   varies only how it is scored; this project does it on its own essays and on a published
+   audit's deposited answers.
+2. That the published scoring makes a refusal numerically identical to agreement, and that the
+   closest prior audits inherit it through code that skips refusals.
+3. Surrogate saturation as an instrument defect that only optimisation makes visible.
+4. The audit protocol itself: pre-registered decision rules, a matched no-selection control,
    randomised complete blocks, and a public record of withdrawn claims.
 
 ## Risks
 
-**Priority.** If other published audits weight "Agree" nonzero or handle refusals, the
-indictment shrinks to a bug report on one fork. Experiment 8 settles it, and it costs reading
-time.
+**Priority.** Resolved on the key: it is the instrument's own, so the finding is about the
+literature and not one fork. The residual risk is that the contribution is quantification, and
+its size on a published audit has been measured for one.
 
 **The assessor bound is circular.** Every coordinate in the project is gpt-4o-mini, and the
 only strong-versus-strong check is n=3 on role-conditioned personas in the regime where
-assessors agree best (§9, §29). That 0.72 became the ±0.75 decision threshold. Experiment 3
-settles it and is lose-lose by design, so it is pre-registered either way: agreement there
-reduces the assessor leg to "do not judge with a small local model", and disagreement above
-two units means the paper can carry orderings but not positions.
+assessors agree best (§9, §29). That 0.72 became the ±0.75 decision threshold. The sixth
+pre-registration tests it on all five models and is lose-lose by design: agreement there
+reduces the assessor leg to "do not judge with a small local model", and disagreement above two
+units means the paper can carry orderings but not positions.
+
+**Recency.** No claim about newer models behaving differently is supported: mistral is older
+than gpt-4o-mini and gemma3 and behaves like gpt-5.4-mini on the null counts.
 
 ## Withdrawn, and not to be used
 
@@ -192,6 +208,10 @@ two units means the paper can carry orderings but not positions.
 - Any split of the gain between rewriting and selection. The selection term reversed sign on
   both models with two runs (§36).
 - "Search never beats hand-written prompts", which came from a handicapped search (§30).
+- "All Neutral is the true centre": the instrument has no neutral option; the origin is the
+  random respondent (§31 correction, §38).
+- The answer-format sentence "escalated by search": it is inherited verbatim from the seeds
+  (§36 correction).
 
 Each of those failures is evidence for the heading rather than against it: a quantity that
 moves this much between runs of the same protocol is not a stable property of a model.
