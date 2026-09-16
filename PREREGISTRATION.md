@@ -671,8 +671,7 @@ baseline or Arm C was analysed.
   commit `10734a4`) was committed after the Arm A cells were on disk, and its first
   test run on partial data printed the four Arm A values: Δ_base gemma3 −0.803,
   gpt-3.5-turbo −0.308, gpt-4o-mini −0.205, mistral +0.658. The script has not been
-  changed since, apart from nothing; the decision rule it implements is the one
-  registered above.
+  changed since, and the decision rule it implements is the one registered above.
 - **A5, dates.** gpt-4o draws were made on 16 September 2026. The gpt-4o-mini side
   of Arms B and C comes from the confirmations of 13 and 14 September. Model
   versions are the snapshots served on those dates and are not recorded per call.
