@@ -18,7 +18,10 @@ instrument's own units. The strongest evidence is deterministic: on gemma3, re-s
 changes which persona is the model's libertarian extreme (§34). Re-scoring a published audit's
 **own deposited answers** the same way moves its radical-republican condition 2.68 units on the
 social axis (§37). Nothing was regenerated in either case, so both survive every open question
-in the file.
+in the file. Two registered experiments then show how much rides on how a stance is asked for:
+the same persona on the same model moves by up to 4.15 units between writing an essay and
+choosing an option (§39), and one inherited sentence telling the model to answer "Strongly
+Agree or Strongly Disagree" carries 2.9 to 3.5 units of a persona's position (§40).
 
 Search is the probe, not the claim. It earned its place by exposing an instrument defect no
 hand-written audit would have found (§27, §28) and by showing that a reported effect is a
@@ -46,10 +49,10 @@ gpt-5.4-mini searches and `pcleftlib`, the libertarian headline of §31; the aut
 headline `pcxrightauth` does not carry it (§36 correction). On mistral and gpt-5.4-mini the only
 confirmed arms that clear +4.359 carry it.
 
-Running, registered: the answer-format ablation on the winners (seventh pre-registration), the
-same ablation on `pcleftlib` (ninth), and a forced-choice control on three hosted models
-(eighth), which separates a property of the scoring key from a property of essay-mediated
-elicitation.
+Tested, registered. Removing that sentence moves `pcleftlib` on gpt-3.5-turbo by −3.38 and
+gpt-5.4-mini's H\* and control winner by +3.53 and +2.95, all format-carried (§40). It also
+reverses section 31's asymmetry: without the sentence the libertarian headline uses 32% of its
+headroom, below the authoritarian headline's 50%. The mistral and gemma3 arms are still running.
 
 ## RQ2. How far does a reported position move under choices an audit does not declare?
 
@@ -67,12 +70,19 @@ elicitation.
 - **Assessor.** A weak assessor moves mistral's unroled baseline 6.86 units and flips its
   quadrant (§8); two hosted assessors disagree by 1.25 to 3.71 units, mean 2.44, on the
   configurations where they disagree at all (§20), against repeat noise of 0.27 (§7).
+- **Elicitation route.** Asked to choose an option instead of writing an essay, the same
+  persona moves by up to 4.15 units, in both directions; hand-written authoritarian personas
+  score 1.2 to 2.2 higher on all three hosted models, and no search winner beats its baseline
+  when asked directly (§39).
+- **Option order.** Listing the four options in reverse moves a persona by up to 1.18 (§39).
+- **A second strong assessor.** gpt-4o against gpt-4o-mini moves positions by up to 1.77 and D
+  by at most 0.65; on mistral nearly all of it is "Strongly agree" read as "Agree", which the
+  zero weight turns into position (§41).
 - **Instrument length.** `--max-questions` keeps the 62-statement transform, so 80 of 116
   libertarian candidates sat bit-exactly on the floor and four candidates the surrogate called
   identical were 1.67 units apart on the full instrument (§27, §28).
 
-Running, registered: the strong-versus-strong assessor comparison on unroled baselines and
-confirmed boundary candidates on all five models (sixth pre-registration, about $11).
+Every entry above is measured on held-fixed text or under a registered rule.
 
 ## RQ3. Does a model's safety policy get reported as its politics?
 
@@ -94,20 +104,28 @@ is labelling a sample of the 176 essays where the gate's model stage overturns t
 and a sample not selected by any gate, under the exposure note in [ETHICS.md](ETHICS.md). A
 second refusing model is also still needed, so the artefact is not a one-model result.
 
+The answer instruction is a compliance lever. Without it, gpt-5.4-mini declines its own H\*
+persona on 14 statements a run instead of almost none, and every run crosses the feasibility
+limit (§40). Forced choice, by contrast, drew no refusals at all on any model (§39).
+
 ## RQ4. What is the measurement's resolution?
 
 Two strong assessors agree within 0.72 units on identical essay sets, ordering preserved (§29).
 Assessor nondeterminism with the essay held literally fixed is sd 0.252 (§36). Pooled
 within-arm sd is 0.446 (§27). The ±0.75 equivalence bound rests on the first two, and both come
-from small, role-conditioned samples, which is the weakest leg of the project; the sixth
-pre-registration tests it. Against that, §36 shows local-model replicates give 1.0 to 4.9
+from small, role-conditioned samples. The sixth pre-registration measured it on all five
+models and both regimes and came out intermediate: the bound widens to ±0.89, under which
+gpt-4o-mini's D becomes equivalent, and positions carry an assessor term of up to 1.8 (§41). Against that, §36 shows local-model replicates give 1.0 to 4.9
 distinct essays per statement across twelve runs, so several intervals are computed on
 duplicates. Model versions are not pinned: the gate's verdicts on the same inputs changed on 7
 of 44 cases over three days (§38).
 
-Still to decide: a crossed design — personas × models × occasions × two strong assessors, with
-model versions recorded — to replace an asserted bound with a measured standard error per facet.
-Whether it is needed depends on the outcome of the sixth pre-registration.
+Forced-choice replicates on gpt-3.5-turbo and gpt-4o-mini repeat exactly at temperature 0 (1
+to 5 distinct answer sets in 6), the same pseudo-replication §36 found on local essays (§39).
+
+Still open: a crossed design — personas × models × occasions × two strong assessors, with model
+versions recorded — would give a standard error per facet. After §41 it is useful rather than
+mandatory.
 
 ## RQ5. What must an audit declare, and does declaring it change a published conclusion?
 
@@ -152,11 +170,11 @@ reported positions carry that coding decision (§37).
 | 0 | Ethics, exposure and release note | half a day | all | done, [ETHICS.md](ETHICS.md) |
 | 1 | Free arithmetic over cached stances: decomposition on five enumerations, item-total and dimensionality checks | none | RQ1, RQ2, RQ4 | done, §37 and §38 |
 | 2 | Persona-blind gate ablation | under an hour | RQ3 | done, with the selection limit in §38 |
-| 3 | Strong-versus-strong assessor, all five models | about $11 | RQ2, RQ4 | running, sixth pre-registration |
-| 4 | Answer-format ablation on the winners; the same on `pcleftlib` | about $3 hosted, local time | RQ1, RQ3 | running, seventh and ninth |
-| 5 | Forced-choice control, three hosted models, option order counterbalanced | under $1 | RQ1, RQ3 | running, eighth |
+| 3 | Strong-versus-strong assessor, all five models | about $11 | RQ2, RQ4 | done, §41, intermediate |
+| 4 | Answer-format ablation on the winners; the same on `pcleftlib` | about $3 hosted, local time | RQ1, RQ3 | hosted done, §40; mistral and gemma3 running |
+| 5 | Forced-choice control, three hosted models, option order counterbalanced | under $1 | RQ1, RQ3 | done, §39 |
 | 6 | Second labeller on the gate categories, and labelling gate overturns | people's time | RQ3 | needs people |
-| 7 | Crossed design for resolution, versions recorded | about $100 | RQ4 | depends on experiment 3 |
+| 7 | Crossed design for resolution, versions recorded | about $100 | RQ4 | optional after §41 |
 | 8 | Read published audits against §31 | reading | RQ5 | done for eight papers, §37 and §38 |
 | 9 | Second refusing model, enumerated ungated and gated | 3–5 local days | RQ3 | not started |
 
@@ -189,12 +207,14 @@ What is not in that literature, having read the prior audits' code:
 literature and not one fork. The residual risk is that the contribution is quantification, and
 its size on a published audit has been measured for one.
 
-**The assessor bound is circular.** Every coordinate in the project is gpt-4o-mini, and the
-only strong-versus-strong check is n=3 on role-conditioned personas in the regime where
-assessors agree best (§9, §29). That 0.72 became the ±0.75 decision threshold. The sixth
-pre-registration tests it on all five models and is lose-lose by design: agreement there
-reduces the assessor leg to "do not judge with a small local model", and disagreement above two
-units means the paper can carry orderings but not positions.
+**The assessor bound.** Tested on all five models (§41) and intermediate: differences and
+orderings carry at about ±0.9, positions need an assessor term beside them. The paper should
+lead with differences measured on held-fixed text and report positions with that term.
+
+**Search as the probe.** Asked directly, no search winner beats its hand-written baseline
+(§39), and on gpt-5.4-mini the search gain changes from +1.37 to +4.89 depending on one
+sentence in the baseline (§40). That supports using search as a probe of the measurement and
+rules out presenting it as a way to find a model's position.
 
 **Recency.** No claim about newer models behaving differently is supported: mistral is older
 than gpt-4o-mini and gemma3 and behaves like gpt-5.4-mini on the null counts.
@@ -212,6 +232,10 @@ than gpt-4o-mini and gemma3 and behaves like gpt-5.4-mini on the null counts.
   random respondent (§31 correction, §38).
 - The answer-format sentence "escalated by search": it is inherited verbatim from the seeds
   (§36 correction).
+- Section 31's asymmetry between the two ends: it was carried by the answer instruction in the
+  libertarian headline (§40).
+- "The unroled default is the least assessor-stable measurement": boundary positions move more
+  (§41).
 
 Each of those failures is evidence for the heading rather than against it: a quantity that
 moves this much between runs of the same protocol is not a stable property of a model.
