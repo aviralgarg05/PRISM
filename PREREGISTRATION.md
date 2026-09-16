@@ -389,3 +389,98 @@ Both arms started from the same two infeasible seeds of six.
   honest measure of uncertainty, and it is far wider than either run's interval.
 - Against the section 33 pre-registration, the re-run D of +0.385 falls between
   its bands, above +0.3 and below +0.6.
+
+## Sixth pre-registration: two strong assessors, outside the regime they were compared in
+
+Committed before any cell of this experiment is scored.
+
+### Why
+
+The ±0.75 equivalence bound in every decision rule above comes from section 29:
+three role-conditioned right-authoritarian essay sets, gpt-4o-mini against
+gpt-4o, agreeing within 0.72 units. Section 9 shows that is the regime where
+assessors agree best, 92 to 100% label agreement on role-conditioned runs
+against 69 to 86% on unroled baselines. Every coordinate in this project is
+gpt-4o-mini's reading, and the bound derived from three points in the easy
+regime is what decides the outcomes. This experiment tests the two regimes the
+bound is actually applied in and that were never tested: the unroled baseline,
+and the confirmed boundary candidates that carry every reported D.
+
+### Design
+
+Nothing is regenerated. Every cell rescores cached essays, so the only thing
+varying inside a pair is the assessor. The incumbent is gpt-4o-mini; the second
+assessor is gpt-4o, the same one section 29 used.
+
+**Arm A, unroled baselines**, three independent draws per assessor per model, so
+that assessor identity is separable from assessor nondeterminism (sd 0.252,
+section 36). Cids, verified present with 62 essays each: gpt-3.5-turbo
+`2b78d1d74d`, gpt-4o-mini `0a2357aecd`, mistral `758484e745`, gemma3
+`eca4db9787`. gpt-5.4-mini has no unroled essay set, so 62 essays are generated
+first; that generation is the only new text in the experiment.
+
+**Arm B, boundary candidates**, twelve replicates per arm, one gpt-4o draw each,
+paired against the gpt-4o-mini score already stored from the original
+confirmation. gpt-3.5-turbo `H_pcxrightauth` and `search2_best`, reps 1-12;
+gpt-4o-mini `pcxrightauth` and `search_best`, reps 13-24; gpt-5.4-mini
+`H_pcrightauth` and `search_best`, reps 1-12 with gate v3 on and refusals scored
+Neutral. Twelve is chosen for power: with sd(Δ) = 0.62 taken from section 29,
+n=12 gives a 95% half-width of 0.53 on ΔD, so ±0.75 is testable, where n=6 gives
+exactly 0.75 and no power at all.
+
+**Arm C, mistral and gemma3 boundary candidates**, same form, after their essays
+are copied from the workstation. They are copied, never regenerated: regenerating
+would break the one thing this design rests on, that both assessors read the same
+essays.
+
+Held fixed per model, exactly as the original runs: gpt-3.5-turbo and gpt-4o-mini
+ungated with refusals scored as Agree; gpt-5.4-mini gated with refusals scored
+Neutral. On the gated arms the gate stays on gpt-4o-mini while only the stance
+classifier moves, through the `--gate-assessor` flag added for this experiment.
+Without that, a gpt-4o pass would move the gate and the classifier together, and
+that confound is real: on the one gated cell already scored both ways, one of the
+two label disagreements was a gate disagreement.
+
+### Endpoints
+
+1. Arm A: per model Δ_base = social(gpt-4o) − social(gpt-4o-mini), each a mean of
+   three draws, and the largest |Δ_base| across models.
+2. Arm B and C: per model ΔD = D(gpt-4o) − D(gpt-4o-mini) with a paired 95% CI.
+
+Secondary: per-statement agreement and Cohen's kappa, whether the sign and the
+ordering of D survive, and whether agreement is lower on the unroled cells than
+on the boundary cells, which is section 9's regime claim tested at the level of
+positions rather than labels.
+
+### Decision rule, fixed now, in both directions
+
+- **EQUIVALENT** if every Arm A |Δ_base| ≤ 0.75 and every ΔD interval lies inside
+  ±0.75. Then section 29's 0.72 generalises, the ±0.75 bound stands as measured
+  rather than asserted, and the assessor leg of the framing reduces to "do not
+  judge with a small local model". Section 8's 6.86-unit weak-assessor swap and
+  section 20's mean 2.44 across two hosted assessors stand regardless: a null
+  here is not evidence that the assessor does not matter.
+- **MATERIAL** if any Arm A |Δ_base| ≥ 2.0, or any ΔD interval lies wholly beyond
+  ±0.75. Then the project reports orderings and not positions, the ±0.75 bound is
+  withdrawn as an unmeasured assumption, section 29 is relabelled as the easy
+  regime only, and these recorded outcomes are re-examined: section 32's
+  gpt-3.5-turbo EQUIVALENT, section 33's gpt-4o-mini UNRESOLVED, section 35's
+  gpt-5.4-mini prediction failure.
+- **INTERMEDIATE** otherwise. Report the measured term, widen every equivalence
+  bound to the upper 95% limit of it, and say which outcomes change under the
+  wider bound. Do not round to a verdict.
+- Independent of magnitude: if Arm A's Δ is materially larger than Arm B's, then
+  the unroled default position, which is the number usually reported as a model's
+  politics, is the least assessor-stable measurement the method produces.
+
+### Declared before running
+
+- Four cells were scored with gpt-4o before this design existed: gpt-4o-mini H\*
+  reps 3, 6 and 8, and a gpt-5.4-mini control-arm pilot. The first three are
+  handled by using reps 13-24 for that model rather than selecting around them;
+  the fourth is outside this design, since the control arm is not in it.
+- The gpt-4o-mini unroled baseline already carries a gpt-4o cache from earlier
+  work. It is declared rather than dropped, and it has not been read.
+- Model versions are not pinned in this repository. gpt-4o and gpt-4o-mini are
+  moving targets, so the measured term belongs to the snapshot in use in
+  September 2026 and a rerun months later is not the same comparison.

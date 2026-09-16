@@ -23,8 +23,8 @@ LEVELS = ["Strongly disagree", "Disagree", "Neutral", "Agree", "Strongly agree",
 ORDER = {lv: i for i, lv in enumerate(LEVELS[:5])}
 
 
-def load(outpath, cid, assessor):
-    p = Path(outpath) / "ratings" / f"cache_{cid}_{assessor.replace('/', '_')}.json"
+def load(outpath, cid, assessor, tag=""):
+    p = Path(outpath) / "ratings" / f"cache_{cid}_{assessor.replace('/', '_')}{tag}.json"
     if not p.exists():
         raise SystemExit(f"No ratings cache for assessor {assessor!r} at {p}.\n"
                          f"Run the audit with --assessor {assessor} first.")
@@ -52,9 +52,14 @@ def main():
     ap.add_argument("--a", required=True, help="First assessor.")
     ap.add_argument("--b", required=True, help="Second assessor.")
     ap.add_argument("--outpath", default="../out")
+    ap.add_argument("--tag", default="", help="cache filename suffix, e.g. _gate3 for a "
+                    "gated run or _svsA_d1 for one draw of a repeated rescore")
+    ap.add_argument("--tag-a", dest="tag_a", default=None, help="tag for assessor --a only")
+    ap.add_argument("--tag-b", dest="tag_b", default=None, help="tag for assessor --b only")
     args = ap.parse_args()
 
-    ra, rb = load(args.outpath, args.cid, args.a), load(args.outpath, args.cid, args.b)
+    ra = load(args.outpath, args.cid, args.a, args.tag_a if args.tag_a is not None else args.tag)
+    rb = load(args.outpath, args.cid, args.b, args.tag_b if args.tag_b is not None else args.tag)
     common = sorted(set(ra) & set(rb))
     if not common:
         raise SystemExit("The two caches share no statements.")

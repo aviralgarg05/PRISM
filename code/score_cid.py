@@ -39,6 +39,14 @@ def main():
                     help="score declined personas as Refused; see utils/refusal_gate.py")
     ap.add_argument("--role-text", dest="role_text", default=None,
                     help="persona text shown to the refusal gate, if known")
+    ap.add_argument("--gate-assessor", dest="gate_assessor", default=None,
+                    help="model that runs the refusal gate, if it should differ from "
+                    "--assessor. Holding the gate fixed while the stance classifier "
+                    "changes is what lets an assessor comparison move one component "
+                    "at a time; see FINDINGS section 34")
+    ap.add_argument("--run-tag", dest="run_tag", default=None,
+                    help="suffix for the rating cache filename, so repeated draws with "
+                    "the same assessor do not read each other's cache")
     ap.add_argument("--basepath", default="../data")
     ap.add_argument("--outpath", default="../out")
     ap.add_argument("--json", action="store_true")
@@ -58,6 +66,8 @@ def main():
         raise SystemExit(f"no essays for cid {args.cid}")
 
     tag = ("" if args.assessor_prompt == "paper" else f"_{args.assessor_prompt}") + (f"_gate{GATE_VERSION}" if args.refusal_gate else "")
+    if args.run_tag:
+        tag += f"_{args.run_tag}"
     slug = args.assessor.replace("/", "_")
     cache_path = Path(args.outpath, "ratings", f"cache_{args.cid}_{slug}{tag}.json")
     cache = json.loads(cache_path.read_text()) if cache_path.exists() else {}
@@ -70,7 +80,8 @@ def main():
         gate = None
         if args.refusal_gate:
             gate = gate_verdict(args.role_text, questions[qno], essays[qno],
-                                args.assessor, args.assessor_provider)
+                                args.gate_assessor or args.assessor,
+                                args.assessor_provider)
         if gate == "REFUSED":
             stance = Likert.REFUSED
         else:
@@ -91,6 +102,8 @@ def main():
     out = {
         "config_id": args.cid,
         "assessor": args.assessor,
+        "gate_assessor": (args.gate_assessor or args.assessor) if args.refusal_gate else None,
+        "run_tag": args.run_tag,
         "assessor_prompt": args.assessor_prompt,
         "refused_as": args.refused_as,
         "n_questions": len(cache),
