@@ -124,6 +124,7 @@ the literature or a bug in one repository.
 
 | # | Experiment | Cost | Serves |
 | --- | --- | --- | --- |
+| 0 | Ethics and release note: an exposure protocol for anyone who reads essays written in the declined personas, and a policy on releasing the search-derived ones | half a day | all |
 | 1 | Free arithmetic over cached stances: decomposition on all five enumerations, a three-rule table per model, item-total and dimensionality checks | none, 2–3 days | RQ1, RQ2, RQ4 |
 | 2 | Persona-blind gate ablation over the labelled openings | under an hour | RQ3 |
 | 3 | Strong-versus-strong assessor on unroled baselines and boundary candidates, pre-registered | ~$25 | RQ2, RQ4 |
@@ -137,6 +138,12 @@ the literature or a bug in one repository.
 Item 4 has to land before any sentence about content beyond the null is written. Items 1 to 3
 come first because they are cheaper in calendar time and item 3 can invalidate more of the
 framing than item 4 can.
+
+Item 0 is first for a reason. The search has already produced a persona that flips a model
+into endorsing racial superiority (§27), and any labelling task involves reading essays
+written in `hilter`, `facist` and `extremist` personas. A venue like FAccT or AIES will expect
+an exposure protocol and a release policy before that work is described, and there is none in
+the repository yet.
 
 ## Where the novelty has to sit
 
