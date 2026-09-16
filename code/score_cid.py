@@ -78,7 +78,9 @@ def main():
     # its gated cache exists for this cid, take the stored verdict per statement and only
     # query the gate for statements it never scored.
     stored_gate = {}
-    if args.refusal_gate and args.gate_assessor and args.gate_assessor != args.assessor:
+    # Also when the gate assessor is the assessor but this is a tagged repeat draw: the
+    # untagged gated cache holds the verdicts every draw should share.
+    if args.refusal_gate and args.gate_assessor and (args.gate_assessor != args.assessor or args.run_tag):
         prompt_tag = "" if args.assessor_prompt == "paper" else f"_{args.assessor_prompt}"
         gate_cache = Path(args.outpath, "ratings",
                           f"cache_{args.cid}_{args.gate_assessor.replace('/', '_')}"

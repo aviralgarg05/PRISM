@@ -642,3 +642,65 @@ their prompt labels differ from the experiment's, so they share no cache with it
 What they showed is recorded here so it cannot be claimed as a prediction later:
 7 of 62 answers at an extreme ascending and 17 of 62 descending, 30 and 20 answers
 of "Agree", and social −3.69 and −4.10.
+
+### Amendments to the sixth pre-registration, 16 September 2026
+
+Written after the pre-registration was committed and after Arm A's unroled cells
+for four models had been scored, before any gpt-5.4-mini cell, the gpt-5.4-mini
+baseline or Arm C was analysed.
+
+- **A1, the gate is held fixed by reuse.** As first written, scoring a gated cell
+  with gpt-4o asked the gpt-4o-mini gate again on every statement, while the
+  gpt-4o-mini side kept verdicts from 13 September. Gate verdicts drift between
+  occasions (section 38: 7 of 44 in three days), so that would have mixed gate
+  drift into the assessor comparison. `score_cid.py` now reuses the stored
+  verdicts from the gate model's own gated cache and queries the gate only for
+  statements it never scored (commit `4a1a8fa`, landed before any gpt-5.4-mini
+  cell ran). Each cell records how many verdicts were reused and how many drawn.
+- **A2, the gpt-5.4-mini baseline.** Generated gated, gate on gpt-4o-mini, no
+  persona, refusals scored Neutral, with no refusal retry. The gpt-4o-mini scoring
+  made at generation time supplies the gate verdicts every later draw reuses and
+  is not itself one of the three draws. All six draws, three per assessor, reuse
+  those same gate verdicts, so only the stance classifier varies.
+- **A3, Arm C effective n.** Beside each ΔD, report distinct essays per statement
+  across the twelve replicates (section 36 method). On the local models the
+  replicates are largely identical essays, so the Arm C interval measures how the
+  assessors disagree on those essays, not sampling across essays. The rule is
+  unchanged.
+- **A4, disclosure.** The analysis script (`results/strong_vs_strong/analyse_svs.py`,
+  commit `10734a4`) was committed after the Arm A cells were on disk, and its first
+  test run on partial data printed the four Arm A values: Δ_base gemma3 −0.803,
+  gpt-3.5-turbo −0.308, gpt-4o-mini −0.205, mistral +0.658. The script has not been
+  changed since, apart from nothing; the decision rule it implements is the one
+  registered above.
+- **A5, dates.** gpt-4o draws were made on 16 September 2026. The gpt-4o-mini side
+  of Arms B and C comes from the confirmations of 13 and 14 September. Model
+  versions are the snapshots served on those dates and are not recorded per call.
+
+### Amendments to the seventh pre-registration, 16 September 2026
+
+Written after the first two blocks of Stage A1 on gpt-5.4-mini had run and their
+log had been seen, before any δ was computed.
+
+- **B1, stripped personas are being declined.** In those blocks
+  `H_pcrightauth_nofmt` was refused on 17 of 62 statements in one replicate against
+  0 for its intact twin, and `control_best_nofmt` on 4 and 6 against 0 and 0. The
+  registered rule does not separate "the instruction moves the position" from
+  "the instruction gets the persona played at all". The primary endpoint stays
+  exactly as registered. Added beside every δ: refusals per run, the share of runs
+  refused on more than six statements, and δ recomputed with refused statements
+  excluded and the total pro-rated. A format-carried verdict that comes with a rise
+  in refusals is read as a result about whether the persona is played (RQ3), not as
+  a position effect.
+- **B2, secondary endpoints named.** Response entropy and refusals per run, as
+  already coded; the share of answers at an extreme of the scale; and, for the
+  local arms, distinct essays per statement across replicates.
+
+### Amendment to the eighth pre-registration, 16 September 2026
+
+Written while the forced-choice runs were in progress, before any output was read.
+Five of the forced-choice personas carry the instruction to answer Strongly Agree
+or Strongly Disagree (`pcleftlib` on all three models, `pcrightauth` and the
+control winner on gpt-5.4-mini). Under forced choice that is an instruction about
+the answer itself. Secondary endpoint 1, the share of extreme answers, is
+therefore reported split by whether the persona carries the instruction.
