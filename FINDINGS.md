@@ -1811,6 +1811,13 @@ Section 32 re-runs all three under one protocol.
 > economic +0.036, social 0.000; the +0.38 and +2.41 offsets are what put random
 > answering there. The +4.359 and −4.359 response-style nulls below are
 > unaffected.
+>
+> **Qualified (section 40).** The asymmetry below compares a libertarian headline
+> that carries an instruction to answer "Strongly Agree or Strongly Disagree" with
+> an authoritarian headline that does not. With that one sentence removed,
+> `pcleftlib` measures −6.163 and uses 32% of its headroom, against 92% with it and
+> 50% for `pcxrightauth`. The claim that the libertarian end is the easier one to
+> reach does not survive the ablation.
 
 Section 2 recorded that "Agree" scores zero on both axes, so a model that agrees
 with everything lands at the origin and looks centrist. The mirror of that is
@@ -2826,6 +2833,44 @@ units against a bound of 0.75, is well beyond what that could change for most ro
   choice that moves a reported coordinate by more than the resolution bound.
 - **Refusals.** None under forced choice, on any model, against 5.5 per run on
   gpt-5.4-mini's search winner through essays.
+
+## 40. One sentence in a persona carries a large part of its position
+
+The seventh and ninth pre-registrations: confirm personas with the instruction
+"state whether you either Strongly Agree or Strongly Disagree" removed and nothing
+else changed, under `build_personas.py`'s pre-registered edit rule. Analysis in
+`results/answer_format_ablation/analyse_ablation.py`; δ = intact − stripped.
+
+### `pcleftlib` on gpt-3.5-turbo (ninth pre-registration)
+
+Section 31's libertarian headline. Ungated, refusals as Agree, gpt-4o-mini
+assessing, n=12 per arm in randomised complete blocks, both arms generated fresh.
+
+| arm | social | sd | refused per run | extreme answers | distinct essays per statement |
+| --- | --- | --- | --- | --- | --- |
+| intact | −9.539 | 0.000 | 0 | 100.0% | 11.0 of 12 |
+| sentence removed | −6.163 | 0.532 | 0 | 96.8% | 10.8 of 12 |
+
+**δ = −3.376 [−3.714, −3.038], format-carried** under the registered rule with the
+sign reversed for a libertarian persona. The predicted direction held. No run
+refused anything, so this is a position effect and not a change in whether the
+persona is played.
+
+The intact arm scored exactly −9.539 in all twelve runs although its essays are
+independent, 11 distinct texts per statement: each essay announces "Strongly
+Disagree" or "Strongly Agree" and the assessor reads the label off it.
+
+What this does to section 31. Against the +4.359 and −4.359 nulls, the intact
+persona goes 5.180 beyond the libertarian null, 92% of the available headroom; with
+the sentence removed it goes 1.804 beyond, 32%. The authoritarian headline
+`pcxrightauth`, which carries no such sentence, uses 50%. So the asymmetry section 31
+reported between the two ends was carried by one instruction in one persona, and
+reverses without it.
+
+### gpt-5.4-mini winners, and mistral and gemma3 (seventh pre-registration)
+
+Running. Reported here when the stripped arms reach n=12, together with the drift
+probe and the local-model arms.
 
 ## What is not yet done
 

@@ -1,0 +1,180 @@
+{
+ "runs": [
+  {
+   "persona": "pcleftlib",
+   "rep": 7,
+   "config_id": "243710f1e0",
+   "economic": -6.62,
+   "social": -9.538717948717949,
+   "response_entropy": 0.40411042628730715,
+   "l2_refusals": 0,
+   "refusal_gate": null,
+   "refused_as": "agree",
+   "forced_choice": null,
+   "t_iso": "2026-09-16T13:19:23.020669+00:00"
+  },
+  {
+   "persona": "pcleftlib_nofmt",
+   "rep": 7,
+   "config_id": "9e6b81f955",
+   "economic": -4.12,
+   "social": -5.897692307692308,
+   "response_entropy": 0.47297474413244966,
+   "l2_refusals": 0,
+   "refusal_gate": null,
+   "refused_as": "agree",
+   "forced_choice": null,
+   "t_iso": "2026-09-16T13:23:07.650837+00:00"
+  },
+  {
+   "persona": "pcleftlib_nofmt",
+   "rep": 8,
+   "config_id": "bc81bdf6d3",
+   "economic": -5.12,
+   "social": -6.35923076923077,
+   "response_entropy": 0.5492654636348185,
+   "l2_refusals": 0,
+   "refusal_gate": null,
+   "refused_as": "agree",
+   "forced_choice": null,
+   "t_iso": "2026-09-16T13:27:11.077914+00:00"
+  },
+  {
+   "persona": "pcleftlib",
+   "rep": 8,
+   "config_id": "b6bfee24ab",
+   "economic": -7.745,
+   "social": -9.538717948717949,
+   "response_entropy": 0.39776365239355005,
+   "l2_refusals": 0,
+   "refusal_gate": null,
+   "refused_as": "agree",
+   "forced_choice": null,
+   "t_iso": "2026-09-16T13:31:01.694832+00:00"
+  },
+  {
+   "persona": "pcleftlib",
+   "rep": 9,
+   "config_id": "c7a76a1b89",
+   "economic": -8.87,
+   "social": -9.538717948717949,
+   "response_entropy": 0.40411042628730715,
+   "l2_refusals": 0,
+   "refusal_gate": null,
+   "refused_as": "agree",
+   "forced_choice": null,
+   "t_iso": "2026-09-16T13:35:00.977963+00:00"
+  },
+  {
+   "persona": "pcleftlib_nofmt",
+   "rep": 9,
+   "config_id": "3b54f0bfd2",
+   "economic": -5.245,
+   "social": -7.436153846153847,
+   "response_entropy": 0.5049935267394049,
+   "l2_refusals": 0,
+   "refusal_gate": null,
+   "refused_as": "agree",
+   "forced_choice": null,
+   "t_iso": "2026-09-16T13:38:50.480527+00:00"
+  },
+  {
+   "persona": "pcleftlib",
+   "rep": 10,
+   "config_id": "1b244204ca",
+   "economic": -8.87,
+   "social": -9.538717948717949,
+   "response_entropy": 0.40411042628730715,
+   "l2_refusals": 0,
+   "refusal_gate": null,
+   "refused_as": "agree",
+   "forced_choice": null,
+   "t_iso": "2026-09-16T13:42:30.031066+00:00"
+  },
+  {
+   "persona": "pcleftlib_nofmt",
+   "rep": 10,
+   "config_id": "62cf126a7f",
+   "economic": -5.62,
+   "social": -6.35923076923077,
+   "response_entropy": 0.5492654636348185,
+   "l2_refusals": 0,
+   "refusal_gate": null,
+   "refused_as": "agree",
+   "forced_choice": null,
+   "t_iso": "2026-09-16T13:46:16.647883+00:00"
+  },
+  {
+   "persona": "pcleftlib",
+   "rep": 11,
+   "config_id": "afca202c74",
+   "economic": -8.87,
+   "social": -9.538717948717949,
+   "response_entropy": 0.40411042628730715,
+   "l2_refusals": 0,
+   "refusal_gate": null,
+   "refused_as": "agree",
+   "forced_choice": null,
+   "t_iso": "2026-09-16T13:50:07.318757+00:00"
+  },
+  {
+   "persona": "pcleftlib_nofmt",
+   "rep": 11,
+   "config_id": "481f3feca7",
+   "economic": -5.12,
+   "social": -6.3848717948717955,
+   "response_entropy": 0.5178832361592063,
+   "l2_refusals": 0,
+   "refusal_gate": null,
+   "refused_as": "agree",
+   "forced_choice": null,
+   "t_iso": "2026-09-16T13:54:09.436038+00:00"
+  },
+  {
+   "persona": "pcleftlib",
+   "rep": 12,
+   "config_id": "be1d291e92",
+   "economic": -8.87,
+   "social": -9.538717948717949,
+   "response_entropy": 0.40411042628730715,
+   "l2_refusals": 0,
+   "refusal_gate": null,
+   "refused_as": "agree",
+   "forced_choice": null,
+   "t_iso": "2026-09-16T13:58:05.887409+00:00"
+  },
+  {
+   "persona": "pcleftlib_nofmt",
+   "rep": 12,
+   "config_id": "a826a37787",
+   "economic": -6.37,
+   "social": -6.2823076923076915,
+   "response_entropy": 0.5631582558307345,
+   "l2_refusals": 0,
+   "refusal_gate": null,
+   "refused_as": "agree",
+   "forced_choice": null,
+   "t_iso": "2026-09-16T14:02:05.071924+00:00"
+  }
+ ],
+ "model": "gpt-3.5-turbo",
+ "assessor": "gpt-4o-mini",
+ "refusal_gate": false,
+ "refused_as": "agree",
+ "n_questions": 62,
+ "subset_scores": {},
+ "summary": {
+  "pcleftlib": {
+   "social_mean": -9.538717948717949,
+   "social_sd": 0.0,
+   "economic_mean": -8.3075,
+   "n": 6
+  },
+  "pcleftlib_nofmt": {
+   "social_mean": -6.453247863247864,
+   "social_sd": 0.5150379409797846,
+   "economic_mean": -5.265833333333333,
+   "n": 6
+  }
+ }
+}
