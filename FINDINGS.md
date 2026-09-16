@@ -2867,10 +2867,67 @@ the sentence removed it goes 1.804 beyond, 32%. The authoritarian headline
 reported between the two ends was carried by one instruction in one persona, and
 reverses without it.
 
-### gpt-5.4-mini winners, and mistral and gemma3 (seventh pre-registration)
+### gpt-5.4-mini (seventh pre-registration)
 
-Running. Reported here when the stripped arms reach n=12, together with the drift
-probe and the local-model arms.
+Gated with refusals scored Neutral, as the original confirmation. On this model the
+instruction sits in H\* (`pcrightauth`, verbatim from roles.py) and in the control
+winner, and not in the search winner. Intact arms reuse the original confirmation's
+cached replicates; stripped arms are new, n=12, in the same blocks.
+
+| arm | social | sd | refused per run | runs refused on >6 | extreme answers |
+| --- | --- | --- | --- | --- | --- |
+| H\* intact | +2.160 | 0.421 | 0.1 | 0% | 100.0% |
+| H\* sentence removed | −1.366 | 1.052 | **14.3** | 100% | 95.8% |
+| control winner intact | +5.047 | 0.697 | 0.0 | 0% | 100.0% |
+| control winner removed | +2.098 | 0.624 | **7.8** | 67% | 96.5% |
+| search winner (never carried it) | +3.525 | 0.836 | 5.5 | 25% | 95.6% |
+
+| persona | δ [95% CI] | verdict | δ with refused statements excluded |
+| --- | --- | --- | --- |
+| H\* | +3.526 [+2.826, +4.225] | format-carried | +3.525 [+2.568, +4.482] |
+| control winner | +2.949 [+2.388, +3.509] | format-carried | +2.206 [+1.549, +2.864] |
+
+The drift probe passes. Three fresh draws of each intact arm land within 0.23 of the
+historical mean (H\* +0.147, control −0.107, search −0.226), under the registered
+0.75, so the historical intact arms are a valid comparison.
+
+Two effects, separable because of amendment B1. **Without the instruction,
+gpt-5.4-mini stops playing the persona**: H\* is refused on 14 statements a run where
+it was refused on almost none, and every stripped H\* run crosses the six-refusal
+feasibility limit. That is a safety-policy result for RQ3: one sentence telling the
+model how to answer is what gets an authoritarian persona played at all. **And the
+position moves on the statements the model does answer**: with refused statements
+excluded, δ is still +3.5 on H\* and +2.2 on the control winner.
+
+What it does to the search result on this model (derived, not registered):
+
+| term | published, intact arms | instruction removed from H\* and control |
+| --- | --- | --- |
+| D = search − H\* | +1.365 [+0.793, +1.937] | +4.891 [+4.084, +5.698] |
+| variation = control − H\* | +2.887 [+2.393, +3.380] | +3.464 [+2.721, +4.206] |
+| selection = search − control | −1.521 [−2.174, −0.869] | +1.427 [+0.800, +2.055] |
+
+The selection term reverses sign a third time. Its negative value on this model came
+from comparing a search winner without the instruction against a control winner with
+it. And D moves from +1.365 to +4.891 because the baseline it is measured against was
+itself propped up by the instruction. The registered expectation was that the section
+33 prediction of +3.223 would then fail by more; it fails by 1.668 rather than 1.858,
+slightly less, and still beyond its tolerance of 1.0. The prediction was made for the
+intact protocol, so this is a reading and not a re-test.
+
+### mistral and gemma3 (seventh pre-registration, local)
+
+Running on the workstation, two clients at a time: mistral first, then both gemma3
+runs. Reported here when all arms reach n=12.
+
+### What the answer instruction is
+
+Across both pre-registrations, every ablated persona carried a large part of its
+position in that one sentence: −3.38 on gpt-3.5-turbo's libertarian headline, +3.53
+and +2.95 on gpt-5.4-mini. The predicted direction held on all three. The sentence is
+in ten of the hand-written personas the project started from (§36 correction), so
+it is part of the instrument as used, not something search introduced. A persona's
+measured position is, to a degree this large, an instruction about how to answer.
 
 ## 41. Two strong assessors, outside the regime they were first compared in
 
