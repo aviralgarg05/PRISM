@@ -732,3 +732,14 @@ of answers at an extreme, and the decomposition's headroom used for each arm.
 
 Prediction, direction only: removing the sentence moves the persona towards the
 centre, so δ < 0.
+
+### Disclosure for the seventh pre-registration, 16 September 2026
+
+`analyse_ablation.py` was extended to implement amendments B1 and B2, and the
+extended script was tested on the partial Stage A1 file for gpt-5.4-mini, with 4 or
+5 of 12 replicates per arm. That test printed interim values: δ on `H_pcrightauth`
++3.635 with refusals per run 14.75 on the stripped arm against 0.25 intact, and δ on
+`control_best` +3.159 with 6.25 against 0.00. No design, rule or amendment was
+changed after seeing them. The registered rule is applied only to the complete n=12
+data, and the forced-choice analysis will be tested on synthetic input rather than on
+live partial files.
