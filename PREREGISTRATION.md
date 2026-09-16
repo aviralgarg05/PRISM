@@ -571,3 +571,74 @@ any pooled figure is exploratory.
 δ > 0 on every ablated persona. A negative δ anywhere is a failed prediction and
 is reported as one. Magnitudes are not predicted: the section 36 correlations were
 computed on the 20-statement surrogate, whose scale is compressed.
+
+## Eighth pre-registration: forced choice against essay-mediated elicitation
+
+Committed before any replicate of this experiment runs.
+
+### Why
+
+Every coordinate in this project comes from essays that an assessor turns into
+stances. Röttger et al. (ACL 2024) showed that a model's Political Compass answers
+change between forced choice and open-ended settings. Without the same contrast
+here, the project cannot say whether a measured position belongs to the scoring
+key or to the essay route through an assessor. Forced choice also measures
+refusal with no gate, because a decline is the answer itself.
+
+### Design
+
+The persona answers each statement directly, choosing one of the instrument's four
+options and nothing else (`code/utils/forced_choice.py`). There is no Neutral
+option, because the instrument has none. Everything from the stance onwards is the
+essay pipeline unchanged: the same lookup, the same transforms.
+
+- Models: gpt-3.5-turbo, gpt-4o-mini, gpt-5.4-mini.
+- Personas, five per model: the unroled baseline, the authoritarian H\*
+  (`pcxrightauth` on the first two, `pcrightauth` on gpt-5.4-mini), the libertarian
+  H\* `pcleftlib`, and the confirmed search and control winners. The winner texts
+  were checked against the stored confirmation config ids: 12 of 12, 24 of 24 and
+  12 of 12 match.
+- n=12 per persona in randomised complete blocks. Option order is counterbalanced:
+  replicates 1 to 6 list the options from Strongly disagree to Strongly agree,
+  replicates 7 to 12 in reverse.
+- Refusals are scored both ways, as Agree and as Neutral, and reported both ways.
+
+### Endpoints and rule
+
+**Primary**, for the three personas with an essay-mode confirmation at n=12 (H\*,
+search winner, control winner): Δ = social(forced choice) − social(essay), Welch
+95% interval.
+
+- inside ±0.75 → **equivalent**: that coordinate is a property of the scoring key
+  and the persona, not of the elicitation route.
+- wholly outside ±0.75 → **different**: the elicitation route is a priced
+  component, reported beside the assessor, the refusal rule and the gate version.
+- otherwise → **unresolved**.
+
+The ±0.75 bound is under test in the sixth pre-registration. If that experiment
+widens it, this rule uses the widened bound, and the result is reported under both.
+
+The unroled baseline and `pcleftlib` have only one essay-mode replicate each, so
+for them the comparison is descriptive and is not given a verdict.
+
+**Secondary**, with directions predicted where there is a basis for one:
+
+1. The share of answers at an extreme of the scale, per mode. Predicted lower under
+   forced choice than the 76.5% to 97.5% that section 37 measured on essay-mode
+   libraries. If it is not lower, section 37's reading that the extremity is
+   general stands; if it is much lower, the extremity belongs to the essay route or
+   the assessor.
+2. The share answered "Agree", the option carrying zero weight, per mode.
+3. The option-order effect: ascending against descending, 6 against 6, Welch, per
+   persona. No direction predicted.
+4. Refusals per mode, with no gate involved on the forced-choice side.
+
+### Declared before running
+
+Two forced-choice audits of the unroled gpt-4o-mini baseline were run as a smoke
+test of the new code before this was written (cids `1864d1cc3b` ascending,
+`5b57783a75` descending, one replicate each). They do not enter the analysis:
+their prompt labels differ from the experiment's, so they share no cache with it.
+What they showed is recorded here so it cannot be claimed as a prediction later:
+7 of 62 answers at an extreme ascending and 17 of 62 descending, 30 and 20 answers
+of "Agree", and social −3.69 and −4.10.
