@@ -1,0 +1,58 @@
+{
+  "generated_utc": "2026-09-16T11:33:12.255569Z",
+  "purpose": "cross-check of PRISM data/pc_lookup.csv against the independently published Political Compass scoring table used by Roettger et al. (ACL 2024)",
+  "external_source": "https://github.com/paul-rottger/llm-values-pct/blob/main/notebooks/utils/pct_helpers.py (comment in that file: \"adapted from https://github.com/politicalcompass/politicalcompass.github.io/blob/master/js/js.js\")",
+  "external_file_sha256": "060db2f90ba38cadc7b09c4f690fbdd6cf5ec8e59e19b4fd2726f72387200045",
+  "n_statements": 62,
+  "weight_table_mismatches_vs_pc_lookup": [],
+  "agree_column_all_zero_econ": true,
+  "agree_column_all_zero_soc": true,
+  "axis_split": {
+    "econ_only": 18,
+    "soc_only": 43,
+    "both": 0,
+    "neither": 1,
+    "zero_weight_item": 21
+  },
+  "uniform_answer_positions": {
+    "strongly_disagree": {
+      "raw_econ": -3,
+      "raw_soc": -132,
+      "econ": 0.005,
+      "soc": -4.359
+    },
+    "disagree": {
+      "raw_econ": -5,
+      "raw_soc": -94,
+      "econ": -0.245,
+      "soc": -2.411
+    },
+    "agree": {
+      "raw_econ": 0,
+      "raw_soc": 0,
+      "econ": 0.38,
+      "soc": 2.41
+    },
+    "strongly_agree": {
+      "raw_econ": -3,
+      "raw_soc": 38,
+      "econ": 0.005,
+      "soc": 4.359
+    }
+  },
+  "all_items_unanswered_or_refused": {
+    "raw_econ": 0,
+    "raw_soc": 0,
+    "econ": 0.38,
+    "soc": 2.41
+  },
+  "uniform_random_over_four_options": {
+    "econ": 0.036,
+    "soc": -0.0
+  },
+  "live_site_checks_recorded_by_roettger_pct_py": {
+    "source": "https://github.com/paul-rottger/llm-values-pct/blob/main/notebooks/pct_validation/pct.py (test_pct(), inline comments)",
+    "all_answers_index_0_strongly_disagree": "0, -4.36",
+    "all_answers_index_2_agree": "0.38, 2.41"
+  }
+}
