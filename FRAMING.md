@@ -95,10 +95,15 @@ three refusal rules implemented and reported, a versioned gate with its failure 
 record, and the requirement to say which statements moved, since statements 4 and 27 alone
 carry 24% of one measured gain (§27).
 
-Still to run: the external check. §31 says the acquiescence property belongs to the Political
-Compass scoring rather than to this fork, and that is asserted from our own lookup table. Three
-to five published audits have to be read. It decides whether the paper reports a property of
-the literature or a bug in one repository.
+The external check is done for the strongest case. §31's claim that the acquiescence property
+belongs to the scoring rather than to this fork is confirmed against a published replication
+package: Motoki et al. (Public Choice 2024) publish the per-statement weights, all 62 rows are
+identical to this repository's key, "agree" carries zero weight throughout, and their own code
+applies the ÷19.5 +2.41 transform (§37). So the paper reports a property of a published audit,
+not a bug in one repository.
+
+Still to run: the same check against two or three more audits, to say how widely the key
+travels, and a reading of what those audits do with a refusal.
 
 ## What the existing results are for
 

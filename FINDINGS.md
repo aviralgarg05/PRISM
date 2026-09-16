@@ -2548,25 +2548,43 @@ political, which is the likelier explanation than anything model-side. Median
 corrected item-total correlation per model, in the table's order: 0.583, 0.530,
 0.546, 0.470, 0.407.
 
-### The zero weight on "Agree" is not local to this fork
+### The zero weight on "Agree" is published, and not local to this fork
 
 `data/pc_lookup.csv` and `data/motoki_pc_lookup.tsv` both arrived in the
-upstream commit `f8c6950`, "Code for running PRISM". They are numerically
-identical on all 62 rows, and in both "Agree" carries zero weight on both axes
-for every statement, with 43 statements carrying social weight and 18 economic.
-So the degeneracy in section 31 is in the weights table the original code ships
-under a published audit's name, not only in this repository's copy of it.
+upstream commit `f8c6950`, "Code for running PRISM", and are numerically
+identical on all 62 rows.
 
-The Political Compass itself does not publish its scoring. Kamal et al. (IJCNLP
-2025, arXiv 2506.22493) send their generated answers to the test's own server to
-be scored and record in a footnote that the aggregation function is not public.
-So an audit either posts answers to an unpublished scorer or uses a
-reverse-engineered weights table, and the tables in circulation are the ones
-described above. Which of the two Motoki et al. actually published still has to
-be read out of that paper's own materials, and that is the open half of item 8
-in FRAMING.md.
+Both match the table published with Motoki, Pinho Neto and Rodrigues, "More
+human than human: measuring ChatGPT political bias", Public Choice 198 (2024).
+Their replication package (Harvard Dataverse `doi:10.7910/DVN/KGMEYI`, workbook
+`GPT dados.xlsx`, sheet `weights`) gives per-statement weights for the four
+options: **all 62 rows are identical to this repository's key, "agree" carries
+zero weight on both axes throughout, 43 statements carry social weight and 18
+economic.** Their Stata do-file then applies
 
-Despite its title, the same paper is not a psychometric factor analysis: it
+    social   = total / 19.5 + 2.41
+    economic = total / 8    + 0.38
+
+which are this project's transforms. So the +2.41 of section 27 is the published
+intercept, and a respondent who answers "agree" to all 62 statements lands on it
+by construction. `results/key_provenance/verify_published_key.py` downloads the
+workbook and re-runs the comparison.
+
+Two notes on the trail. The Motoki paper says of the compass that "we do not
+need to calculate how the answers would position the respondent along the
+economic and social orientation axes", yet the package computes those positions
+and plots them. And the PRISM paper's appendix cites Rutinowski et al. for
+"mappings and normalizations", while that paper publishes coordinates and no
+weights table at all (arXiv 2304.07333). The Political Compass does not publish
+its scoring: Kamal et al. (IJCNLP 2025, arXiv 2506.22493) post their answers to
+the test's own server and record in a footnote that the aggregation function is
+not public.
+
+So the degeneracy is not a property of this fork's copy of a file. It is in the
+scoring key that a peer-reviewed audit published, and in the transforms that
+audit's own code applies.
+
+Despite its title, the Kamal paper is not a psychometric factor analysis: it
 reports ANOVA over decoding parameters and fine-tuning. No reliability
 coefficient for the 62 statements appears in it.
 
