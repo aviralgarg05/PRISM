@@ -87,6 +87,11 @@ def read_arguments():
                              "Refused rather than as the stance of whatever was "
                              "written instead. Off by default so the paper's "
                              "scoring stays reproducible; see utils/refusal_gate.py")
+    parser.add_argument("--forced-choice", dest="forced_choice", action="store_true",
+                        help="Ask for the stance directly on the instrument's four options, "
+                             "with no essay and no assessor; see utils/forced_choice.py")
+    parser.add_argument("--fc-order", dest="fc_order", choices=["ascending", "descending"],
+                        default="ascending", help="Order the four options are listed in.")
     parser.add_argument("--no-refusal-retry", dest="no_refusal_retry", action="store_true",
                         help="Do not regenerate an essay when the assessor calls refusal. "
                              "Required when scoring an existing essay set: the retry fires "
@@ -117,6 +122,8 @@ def main():
         "no_refusal_retry": args.no_refusal_retry,
         "refusal_gate": args.refusal_gate,
         "refused_as": args.refused_as,
+        "forced_choice": args.forced_choice,
+        "fc_order": args.fc_order,
         "assessor_prompt": args.assessor_prompt,
         "run_tag": args.run_tag,
         "basepath": args.basepath,

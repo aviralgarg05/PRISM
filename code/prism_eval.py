@@ -22,6 +22,7 @@ from tenacity import retry, wait_exponential, stop_after_attempt
 
 from utils.roles import roles
 from utils.refusal_gate import gate_verdict, GATE_VERSION
+from utils.forced_choice import ask as forced_choice_ask, parse_choice
 from utils.prompt_variants import build_essay_template, DEFAULT_PROMPT_GENES
 from utils.utils import (
     Likert,
@@ -58,6 +59,11 @@ def config_id(config):
         # differing only in wording must not share a cache entry.
         "role_text": config.get("role_text"),
     }
+    # Added only when set, so every essay-mode config keeps the id it already has
+    # and its cached essays and ratings stay reachable.
+    if config.get("forced_choice"):
+        cache_relevant["forced_choice"] = True
+        cache_relevant["fc_order"] = config.get("fc_order", "ascending")
     s = json.dumps(cache_relevant, sort_keys=True)
     return hashlib.md5(s.encode()).hexdigest()[:10]
 
@@ -169,6 +175,28 @@ def read_or_generate_essay(qno, question, config, outpath, cid):
     essay_text = essay.content if hasattr(essay, "content") else str(essay)
     essay_filepath.write_text(essay_text)
     return essay_text
+
+
+def read_or_generate_answer(qno, question, config, outpath, cid):
+    """The forced-choice counterpart of read_or_generate_essay: the raw reply, cached.
+
+    Stored where an essay would be, under the forced-choice config id, so the reply is
+    kept for audit and a repeated run costs nothing.
+    """
+    provider = config.get("provider", "ollama")
+    model_name = config.get("model", "llama3.2")
+    role = config.get("role")
+    answer_dir = Path(outpath) / "essays"
+    answer_dir.mkdir(parents=True, exist_ok=True)
+    answer_filepath = answer_dir / f"pc{int(qno)}_{provider}_{model_name}_{role}_{cid}.txt"
+
+    if answer_filepath.exists():
+        return answer_filepath.read_text()
+
+    _, description = role_details(role, config.get("role_text"))
+    reply = forced_choice_ask(question, config, description)
+    answer_filepath.write_text(reply)
+    return reply
 
 
 def evaluate_prism_config(config):
@@ -320,7 +348,14 @@ def evaluate_prism_config(config):
     # though the current gate had produced them.
     gate_tag = f"_gate{GATE_VERSION}" if refusal_gate else ""
     persona_text = role_details(config.get("role"), config.get("role_text"))[1] if refusal_gate else None
-    cache_path = Path(outpath) / "ratings" / f"cache_{cid}_{assessor.replace('/', '_')}{prompt_tag}{gate_tag}{tag}.json"
+    # Direct elicitation replaces the essay and the assessor together, so no assessor
+    # is named in its cache; see utils/forced_choice.py.
+    forced_choice = bool(config.get("forced_choice"))
+    if forced_choice and refusal_gate:
+        raise ValueError("forced_choice takes no refusal gate: a decline is the answer itself")
+    if forced_choice:
+        assessor = "forced"
+    cache_path =Path(outpath) / "ratings" / f"cache_{cid}_{assessor.replace('/', '_')}{prompt_tag}{gate_tag}{tag}.json"
     # Note the assessor is already part of this filename, so switching assessor
     # never reads another assessor's cached ratings.
     if cache_path.exists() and not config.get("refresh_ratings"):
@@ -346,7 +381,10 @@ def evaluate_prism_config(config):
     with rating_filepath.open("w") as fa:
         fa.write("qno,question,essay_len,stance,q_econ,q_social,total_econ,total_social,economic_dim,social_dim\n")
         for qno, question in questions.items():
-            essay_text = read_or_generate_essay(qno, question, config, outpath, cid)
+            if forced_choice:
+                essay_text = read_or_generate_answer(qno, question, config, outpath, cid)
+            else:
+                essay_text = read_or_generate_essay(qno, question, config, outpath, cid)
             cached = rating_cache.get(str(qno))
 
             if cached:
@@ -355,6 +393,16 @@ def evaluate_prism_config(config):
                 l2_refusals += cached.get("l2", 0)
                 if refusal_gate:
                     gate_counts[cached.get("gate")] += 1
+            elif forced_choice:
+                # No assessor and no retry: the reply is the stance, and a reply naming
+                # none of the four options is the model declining.
+                stance = parse_choice(essay_text)
+                l1 = l2 = int(stance == Likert.REFUSED)
+                l1_refusals += l1
+                l2_refusals += l2
+                rating_cache[str(qno)] = {"stance": stance.value, "l1": l1, "l2": l2,
+                                          "reply": str(essay_text)[:500]}
+                cache_path.write_text(json.dumps(rating_cache, indent=1, sort_keys=True))
             else:
                 gate = None
                 if refusal_gate:
@@ -473,6 +521,7 @@ def evaluate_prism_config(config):
         "l2_refusals": l2_refusals,
         "refusal_gate": dict(gate_counts) if refusal_gate else None,
         "refused_as": refused_as,
+        "forced_choice": config.get("fc_order", "ascending") if forced_choice else None,
         "stance_counts": stance_counts,
         "response_entropy": response_entropy,
         "modal_share": modal_share,

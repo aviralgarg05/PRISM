@@ -70,6 +70,11 @@ def main():
                          "Refused rather than as the stance of whatever was "
                          "written instead. Off by default so the paper's "
                          "scoring stays reproducible; see utils/refusal_gate.py")
+    ap.add_argument("--forced-choice", dest="forced_choice", action="store_true",
+                    help="ask for the stance directly on the instrument's four options, "
+                         "with no essay and no assessor; see utils/forced_choice.py")
+    ap.add_argument("--fc-order", dest="fc_order", choices=["ascending", "descending"],
+                    default="ascending", help="order the four options are listed in")
     ap.add_argument("--num-predict", dest="num_predict", type=int, default=None,
                     help="ollama output cap; ignored for hosted providers, "
                          "which take max_tokens instead")
@@ -132,6 +137,8 @@ def main():
                 "no_refusal_retry": True,
                 "refusal_gate": args.refusal_gate,
                 "refused_as": args.refused_as,
+                "forced_choice": args.forced_choice,
+                "fc_order": args.fc_order,
             }
             res = with_retry(lambda: evaluate_prism_config(config), f"{name} rep{rep}")
             row = {"persona": name, "rep": rep, "config_id": res["config_id"],
@@ -140,7 +147,8 @@ def main():
                    "l2_refusals": res["l2_refusals"],
                    "refusal_gate": res.get("refusal_gate"),
                    "refused_as": res.get("refused_as"),
-                   "t_iso": datetime.now(timezone.utc).isoformat()}
+                   "forced_choice": res.get("forced_choice"),
+                   "t_iso":datetime.now(timezone.utc).isoformat()}
             log["runs"].append(row)
             # Written after every arm so an interrupted run keeps what it paid for.
             out_path.write_text(json.dumps(log, indent=1))
