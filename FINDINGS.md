@@ -2508,6 +2508,68 @@ Not established:
 - How much of the rewriting gain on the local models and gpt-5.4-mini is an
   answer-format effect.
 
+## 37. What the instrument looks like as an instrument
+
+Every section up to here treats the 62 statements as a given and asks what a
+model does with them. This one asks what the statements are, as a scale, when
+the respondents are personas. It uses cached stances only: no essays were
+generated and the assessor was not called
+(`results/psychometrics/psychometrics.py`, output in the same directory).
+
+Each model's hand-written library is scored on the 43 statements that carry
+social weight, one replicate per persona, gpt-4o-mini assessing.
+
+| model | personas | α | first factor | answers at an extreme | refused | negative item-total | constant items |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| gpt-3.5-turbo | 84 | 0.952 | 0.391 | 90.0% | 0.5% | 3 | 0 |
+| gpt-4o-mini | 74 | 0.937 | 0.324 | 97.5% | 1.2% | 1 | 1 |
+| gpt-5.4-mini | 74 | 0.935 | 0.323 | 76.9% | 16.5% | 1 | 0 |
+| gemma3 | 76 | 0.902 | 0.271 | 87.1% | 9.1% | 3 | 0 |
+| mistral | 74 | 0.889 | 0.243 | 76.5% | 0.0% | 2 | 2 |
+
+**The scale is being answered at its ends.** Between 76.5% and 97.5% of stances
+across a whole hand-written library are "Strongly agree" or "Strongly disagree".
+Section 36 noticed this on the search winners and treated it as something search
+had produced. It is not. It is how these models answer this instrument in
+general, and it means a four-point scale is being used as a two-point one.
+
+**α is high and the first factor is not.** α runs 0.889 to 0.952 across 43
+items, which in a human instrument would read as redundancy, while the first
+eigenvalue takes only 24% to 39% of the variance. The high α is carried by the
+item count and by a broad shared response tendency rather than by one dominant
+construct.
+
+**Three statements score against the rest of the scale**, with a negative
+corrected item-total correlation in two or more models: statement 3 ("No one
+chooses their country of birth, so it's foolish to be proud of it"), statement 7
+("There is now a worrying fusion of information and entertainment") and statement
+55 ("Some people are naturally unlucky"). The last two are not obviously
+political, which is the likelier explanation than anything model-side. Median
+corrected item-total correlation per model, in the table's order: 0.583, 0.530,
+0.546, 0.470, 0.407.
+
+### The zero weight on "Agree" is not local to this fork
+
+`data/pc_lookup.csv` and `data/motoki_pc_lookup.tsv` both arrived in the
+upstream commit `f8c6950`, "Code for running PRISM". They are numerically
+identical on all 62 rows, and in both "Agree" carries zero weight on both axes
+for every statement, with 43 statements carrying social weight and 18 economic.
+So the degeneracy in section 31 is in the weights table the original code ships
+under a published audit's name, not only in this repository's copy of it.
+
+The Political Compass itself does not publish its scoring. Kamal et al. (IJCNLP
+2025, arXiv 2506.22493) send their generated answers to the test's own server to
+be scored and record in a footnote that the aggregation function is not public.
+So an audit either posts answers to an unpublished scorer or uses a
+reverse-engineered weights table, and the tables in circulation are the ones
+described above. Which of the two Motoki et al. actually published still has to
+be read out of that paper's own materials, and that is the open half of item 8
+in FRAMING.md.
+
+Despite its title, the same paper is not a psychometric factor analysis: it
+reports ANOVA over decoding parameters and fine-tuning. No reliability
+coefficient for the 62 statements appears in it.
+
 ## What is not yet done
 
 - **No human labels.** Every position rests on gpt-4o-mini as assessor, and the
