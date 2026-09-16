@@ -703,3 +703,32 @@ or Strongly Disagree (`pcleftlib` on all three models, `pcrightauth` and the
 control winner on gpt-5.4-mini). Under forced choice that is an instruction about
 the answer itself. Secondary endpoint 1, the share of extreme answers, is
 therefore reported split by whether the persona carries the instruction.
+
+## Ninth pre-registration: the answer instruction inside section 31's libertarian headline
+
+Committed before any replicate runs.
+
+Section 31's two headline personas differ in a way the decomposition did not
+control: the libertarian one, `pcleftlib` (−9.539, 92% of the headroom beyond the
+null), tells the model to "state whether you either Strongly Agree or Strongly
+Disagree", and the authoritarian one, `pcxrightauth` (+7.179, 50%), does not. The
+50%-against-92% comparison therefore crosses the instruction.
+
+Design, as in the seventh pre-registration: gpt-3.5-turbo audited, gpt-4o-mini
+assessing, ungated, refusals scored as Agree. Two arms, `pcleftlib` intact and
+`pcleftlib_nofmt` with that sentence deleted under `build_personas.py`'s sentence
+rule and nothing else changed (`personas_pcleftlib_gpt35_paired.json`, the roles.py
+text stripped of surrounding whitespace in both arms). n=12 each in randomised
+complete blocks. Both arms are generated fresh, because the enumeration named the
+persona rather than passing its text, so no essay is shared with it.
+
+Endpoint and rule as registered for the seventh: δ = mean social(intact) −
+mean social(stripped), Welch 95% interval, against ±0.75. Because the persona is
+libertarian, a format-carried result is δ below −0.75 (the instruction pushes
+further towards the libertarian end), and the registered labels are applied with
+the sign reversed: interval wholly below −0.75 is format-carried, wholly above
++0.75 is reversed. Reported beside it, per amendment B1: refusals per run, the share
+of answers at an extreme, and the decomposition's headroom used for each arm.
+
+Prediction, direction only: removing the sentence moves the persona towards the
+centre, so δ < 0.
