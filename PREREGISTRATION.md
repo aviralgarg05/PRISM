@@ -484,3 +484,90 @@ positions rather than labels.
 - Model versions are not pinned in this repository. gpt-4o and gpt-4o-mini are
   moving targets, so the measured term belongs to the snapshot in use in
   September 2026 and a rerun months later is not the same comparison.
+
+## Seventh pre-registration: the answer-format ablation
+
+Committed before any stripped arm runs.
+
+### Why
+
+Section 36 recorded that winning personas often tell the model which label to
+answer with, and that 96 to 100% of answers on gemma3 and gpt-5.4-mini sit at an
+extreme of the scale. Section 37 then showed the extremity is general, not
+something search produced. What remains untested is whether the instruction
+itself carries any of the measured gain. This ablation confirms the same personas
+with that instruction removed and nothing else changed.
+
+Where the instruction actually sits, recovered from the search logs and checked
+against each confirmation by config id:
+
+| run | search winner | control winner | H\* |
+| --- | --- | --- | --- |
+| mistral | yes, plain Agree/Disagree form | yes, plain form | yes, `pccentrist` |
+| gemma3 run 1 | yes, "Strongly" form | yes | no, `stalin` |
+| gemma3 run 2 | yes | yes | no, `stalin` |
+| gpt-5.4-mini | no | yes | yes, `pcrightauth` |
+
+That asymmetry decides what is at stake per model. On gemma3 the winners carry it
+and the baseline does not, so D and the variation term are both exposed. On
+gpt-5.4-mini the baseline carries it and the search winner does not, so the
+format effect currently pushes D **down**; this is registered now because it is
+the opposite of the usual worry. On mistral every arm carries it.
+
+### Design
+
+Each model's ablation runs under exactly the flags its own confirmation used:
+gpt-5.4-mini gated with refusals scored Neutral, mistral and gemma3 ungated with
+refusals scored as Agree. Arms are n=12 replicates in randomised complete blocks,
+intact and stripped personas interleaved in the same blocks, with the intact arms
+keeping their original names so their cached essays are reused rather than paid
+for again. Negative controls are the arms that never carried the instruction:
+`search_best` on gpt-5.4-mini and `stalin` on gemma3. A drift probe takes three
+fresh draws of each intact gpt-5.4-mini persona at replicates 13 to 15.
+
+The edit rule is pre-registered as code, in
+`results/answer_format_ablation/build_personas.py`: a sentence-level deletion
+where the sentence is nothing but the instruction, a clause-level deletion where
+it sits inside a sentence that also carries political content, and one declared
+substitution on mistral's search winner, where the label menu is the object of
+the verb and deleting it outright would leave a broken sentence. The script
+asserts that everything outside the edited span is byte-identical.
+
+### Endpoint and decision rule
+
+Per persona, δ = mean social(intact) − mean social(stripped), n=12 against n=12,
+Welch 95% interval.
+
+- interval inside ±0.75 → **format-neutral**: the instruction carries no
+  measurable position.
+- interval entirely above +0.75 → **format-carried**: the instruction is worth at
+  least 0.75 units.
+- interval entirely below −0.75 → **reversed**: removing it raises the score.
+- otherwise → **unresolved**, reported as such and not topped up.
+
+Every persona is reported whatever the outcome, and the primary is per persona;
+any pooled figure is exploratory.
+
+### What each outcome means
+
+1. All format-neutral: the instruction is decoration and the reported gains stand
+   as position moves.
+2. Format-carried on the winners but the recomputed D still positive and outside
+   ±0.75: part of the gain is answer format, and the paper reports the
+   format-adjusted D and the share.
+3. Format-carried and the recomputed D inside ±0.75: on that model the gain is an
+   answer-format effect and the per-model D is withdrawn. gemma3 run 2 is the
+   live candidate, with a control winner at +7.632 against an instruction-free
+   H\* at +5.487.
+4. On gpt-5.4-mini a large δ on H\* means D is currently understated, so the
+   section 33 prediction failed by more than recorded, not less. The selection
+   term of −1.521 is also at stake, because the control winner carries the
+   instruction and the search winner does not.
+5. If any intact arm moves by more than ±0.75 between its historical run and the
+   drift probe, the occasion effect swamps the design and the comparison is void.
+
+### Prediction, direction only
+
+δ > 0 on every ablated persona. A negative δ anywhere is a failed prediction and
+is reported as one. Magnitudes are not predicted: the section 36 correlations were
+computed on the 20-statement surrogate, whose scale is compressed.
