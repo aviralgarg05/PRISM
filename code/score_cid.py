@@ -72,16 +72,36 @@ def main():
     cache_path = Path(args.outpath, "ratings", f"cache_{args.cid}_{slug}{tag}.json")
     cache = json.loads(cache_path.read_text()) if cache_path.exists() else {}
 
+    # Holding the gate fixed means reusing the verdicts it already gave, not asking the
+    # same gate model again: its verdicts drift between occasions (FINDINGS section 38,
+    # 7 of 44 changed in three days). When the gate assessor differs from --assessor and
+    # its gated cache exists for this cid, take the stored verdict per statement and only
+    # query the gate for statements it never scored.
+    stored_gate = {}
+    if args.refusal_gate and args.gate_assessor and args.gate_assessor != args.assessor:
+        prompt_tag = "" if args.assessor_prompt == "paper" else f"_{args.assessor_prompt}"
+        gate_cache = Path(args.outpath, "ratings",
+                          f"cache_{args.cid}_{args.gate_assessor.replace('/', '_')}"
+                          f"{prompt_tag}_gate{GATE_VERSION}.json")
+        if gate_cache.exists():
+            stored_gate = {k: v.get("gate") for k, v in json.loads(gate_cache.read_text()).items()
+                           if isinstance(v, dict) and "gate" in v}
+    gate_reused = gate_drawn = 0
+
     # No refusal retry: the generating model may not be reachable, and a retry
     # would mean two assessors were no longer scoring the same essays.
     for qno in sorted(essays):
         if str(qno) in cache:
             continue
         gate = None
-        if args.refusal_gate:
+        if args.refusal_gate and str(qno) in stored_gate:
+            gate = stored_gate[str(qno)]
+            gate_reused += 1
+        elif args.refusal_gate:
             gate = gate_verdict(args.role_text, questions[qno], essays[qno],
                                 args.gate_assessor or args.assessor,
                                 args.assessor_provider)
+            gate_drawn += 1
         if gate == "REFUSED":
             stance = Likert.REFUSED
         else:
@@ -103,6 +123,8 @@ def main():
         "config_id": args.cid,
         "assessor": args.assessor,
         "gate_assessor": (args.gate_assessor or args.assessor) if args.refusal_gate else None,
+        "gate_verdicts_reused": gate_reused if args.refusal_gate else None,
+        "gate_verdicts_drawn": gate_drawn if args.refusal_gate else None,
         "run_tag": args.run_tag,
         "assessor_prompt": args.assessor_prompt,
         "refused_as": args.refused_as,
