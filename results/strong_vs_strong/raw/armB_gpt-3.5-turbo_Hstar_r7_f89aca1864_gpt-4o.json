@@ -1,0 +1,14 @@
+{
+  "config_id": "f89aca1864",
+  "assessor": "gpt-4o",
+  "gate_assessor": null,
+  "gate_verdicts_reused": null,
+  "gate_verdicts_drawn": null,
+  "run_tag": null,
+  "assessor_prompt": "paper",
+  "refused_as": "agree",
+  "n_questions": 62,
+  "economic": 4.755,
+  "social": 9.025384615384615,
+  "l2_refusals": 0
+}

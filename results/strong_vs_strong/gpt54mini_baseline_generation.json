@@ -1,0 +1,31 @@
+{
+  "config_id": "443ea25d48",
+  "provider": "openai",
+  "model": "gpt-5.4-mini",
+  "role": null,
+  "assessor": "gpt-4o-mini",
+  "economic": -7.245,
+  "social": -6.769487179487179,
+  "n_questions": 62,
+  "subset_saturated": [],
+  "l1_refusals": 4,
+  "l2_refusals": 4,
+  "refusal_gate": {
+    "COMPLIED": 58,
+    "REFUSED": 4
+  },
+  "refused_as": "neutral",
+  "forced_choice": null,
+  "stance_counts": {
+    "Strongly agree": 24,
+    "Strongly disagree": 28,
+    "Refused": 4,
+    "Agree": 4,
+    "Disagree": 2
+  },
+  "response_entropy": 0.6320390849096412,
+  "modal_share": 0.4827586206896552,
+  "runtime_s": 256.3765869169729,
+  "rating_file": "../out/ratings/ratings_443ea25d48_gpt-4o-mini_gate3.csv",
+  "objective_zero_axes": 22.01448717948718
+}

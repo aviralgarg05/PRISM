@@ -1,0 +1,25 @@
+{
+ "note": "computed from the existing out/ratings/rfd_gpt-4o.json cache; no API calls. results/rfd/summary.json has no gpt-4o row.",
+ "human_ceiling_kappa": 0.8285,
+ "majority_class_pct": 47.0,
+ "rows": [
+  {
+   "assessor": "gpt-4o-mini (reproduction check)",
+   "prompt": "paper",
+   "n": 764,
+   "con_to_agree": 14.2,
+   "pro_to_con": 9.3,
+   "accuracy": 77.4,
+   "kappa": 0.604
+  },
+  {
+   "assessor": "gpt-4o",
+   "prompt": "paper",
+   "n": 764,
+   "con_to_agree": 8.9,
+   "pro_to_con": 8.1,
+   "accuracy": 81.0,
+   "kappa": 0.666
+  }
+ ]
+}

@@ -2872,6 +2872,104 @@ reverses without it.
 Running. Reported here when the stripped arms reach n=12, together with the drift
 probe and the local-model arms.
 
+## 41. Two strong assessors, outside the regime they were first compared in
+
+The sixth pre-registration, with its amendments. gpt-4o against gpt-4o-mini on the
+same cached essays: unroled baselines on all five models with three draws per
+assessor (Arm A), and each model's H\* and search winner at twelve replicates each
+(Arm B hosted, Arm C local). On gated cells the gate's stored verdicts were reused,
+62 of 62 in all 27 gpt-4o cells, so only the stance classifier changed. Analysis in
+`results/strong_vs_strong/analyse_svs.py`, committed before the endpoints were
+computed (its late commit and the Arm A values it printed are disclosed in the
+amendments); output in `svs_results.json`.
+
+### Unroled baselines
+
+| model | gpt-4o-mini | gpt-4o | Δ_base |
+| --- | --- | --- | --- |
+| gpt-3.5-turbo | −4.026 | −4.334 | −0.308 |
+| gpt-4o-mini | −2.718 | −2.923 | −0.205 |
+| mistral | −4.872 | −4.214 | +0.658 |
+| gemma3 | −0.940 | −1.744 | **−0.803** |
+| gpt-5.4-mini | −6.393 | −6.616 | −0.222 |
+
+### Boundary candidates
+
+| model | D, gpt-4o-mini | D, gpt-4o | ΔD [95% CI] | H\* moves | search winner moves |
+| --- | --- | --- | --- | --- | --- |
+| gpt-3.5-turbo | +0.064 | −0.278 | −0.342 [−0.811, +0.128] | +1.363 | +1.021 |
+| gpt-4o-mini | +0.833 | +1.043 | +0.209 [−0.104, +0.523] | −0.167 | +0.043 |
+| mistral | +3.380 | +2.731 | −0.650 [−0.889, −0.411] | −1.124 | −1.774 |
+| gemma3 | +0.385 | +0.855 | +0.470 [+0.376, +0.564] | 0.000 | +0.470 |
+| gpt-5.4-mini | +1.365 | +1.100 | −0.265 [−0.441, −0.089] | −0.038 | −0.303 |
+
+gpt-4o-mini's boundary cells are replicates 13 to 24, so its D here is +0.833 rather
+than the n=24 +0.656. On the local models the twelve replicates are few distinct
+essays (amendment A3): gemma3 `H_stalin` 1.0 per statement, its search winner 2.0,
+mistral 3.7 and 4.7. Their intervals measure how the assessors disagree on those
+essays.
+
+### Verdict: intermediate
+
+Not equivalent, because gemma3's Δ_base is 0.803 and two ΔD intervals, gpt-3.5-turbo
+and mistral, cross −0.75. Not material, because no Δ_base reaches 2.0 and no
+interval lies wholly beyond ±0.75. As registered, the bound is widened to the upper
+95% limit of the measured term, **±0.89** (mistral's interval reaches −0.889), and
+the recorded outcomes are re-read under it:
+
+- **gpt-4o-mini, section 33: unresolved becomes equivalent.** D +0.656, 90% interval
+  [+0.443, +0.869], inside ±0.89 though not inside ±0.75.
+- **Forced choice, gpt-3.5-turbo control winner (section 39): different becomes
+  unresolved.** Its interval, [−1.994, −0.852], no longer lies wholly beyond ±0.89.
+- Unchanged: gpt-3.5-turbo equivalent on both runs, every other forced-choice verdict,
+  the `pcleftlib` ablation, the gpt-5.4-mini prediction failure (tested against a
+  tolerance of 1.0, not this bound), and gemma3's failed replication.
+
+### What moves: positions more than differences
+
+The pre-declared regime reading does not hold in the direction it was framed: the
+unroled baselines are not the least stable measurement. The largest baseline shift is
+0.80, while boundary positions move by up to 1.77 (mistral's search winner) and 1.36
+(gpt-3.5-turbo's H\*). But those arms move together, so D moves at most 0.65. A second
+strong assessor shifts **where** a persona sits by more than the resolution bound on
+two models, and shifts **the difference** between two personas by less. Orderings and
+differences travel between strong assessors better than positions do.
+
+### Where the two assessors disagree
+
+Per-statement agreement, draw against draw on the baselines and replicate against
+replicate at the boundary:
+
+| model | unroled: agreement, κ | boundary: agreement, κ | boundary: same direction |
+| --- | --- | --- | --- |
+| gpt-3.5-turbo | 89.8%, 0.824 | 93.6%, 0.824 | 94.7% |
+| gpt-4o-mini | 95.2%, 0.885 | 95.3%, 0.886 | 98.7% |
+| mistral | 78.5%, 0.707 | **41.3%, 0.257** | 99.3% |
+| gemma3 | 84.9%, 0.716 | 96.0%, 0.915 | 96.0% |
+| gpt-5.4-mini | 72.6%, 0.625 | 94.2%, 0.900 | 99.4% |
+
+Section 9's claim, that assessors agree less on unroled essays, holds on gemma3,
+gpt-5.4-mini and gpt-3.5-turbo, is flat on gpt-4o-mini, and reverses on mistral.
+
+The disagreements are of two kinds. On mistral they are almost entirely intensity:
+the assessors agree on direction for 99.3% of statements, and 811 of the
+disagreements are gpt-4o-mini reading "Strongly agree" where gpt-4o reads "Agree".
+Because "Agree" carries zero weight, that judgement of intensity becomes a position
+shift of more than a unit. On gemma3 and gpt-3.5-turbo the leading disagreement is
+polarity, "Strongly disagree" against "Strongly agree" (50 and 72 statements), the
+negation and rebuttal failure of sections 12 and 15. So the assessor's effect on a
+coordinate is partly the assessor and partly the scoring key amplifying a judgement
+that would not matter under a key that weighted "Agree".
+
+### What this settles for the framing
+
+The ±0.75 bound was asserted from three role-conditioned essay sets. Measured on all
+five models and both regimes, the assessor term is up to about 0.89 on differences
+and 1.8 on positions. The project can carry differences and orderings with a
+resolution near ±0.9, and should state positions with a stated assessor term beside
+them. Neither the reduction to "do not use a weak judge" nor the retreat to
+orderings only is what the data show; it is between, as registered.
+
 ## What is not yet done
 
 - **No human labels.** Every position rests on gpt-4o-mini as assessor, and the

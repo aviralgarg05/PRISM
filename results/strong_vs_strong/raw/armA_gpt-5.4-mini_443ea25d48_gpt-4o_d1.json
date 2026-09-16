@@ -1,0 +1,14 @@
+{
+  "config_id": "443ea25d48",
+  "assessor": "gpt-4o",
+  "gate_assessor": "gpt-4o-mini",
+  "gate_verdicts_reused": 62,
+  "gate_verdicts_drawn": 0,
+  "run_tag": "svsA_d1",
+  "assessor_prompt": "paper",
+  "refused_as": "neutral",
+  "n_questions": 62,
+  "economic": -5.995,
+  "social": -6.615641025641025,
+  "l2_refusals": 4
+}

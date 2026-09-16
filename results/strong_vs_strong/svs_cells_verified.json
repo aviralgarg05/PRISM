@@ -1,0 +1,583 @@
+{
+ "what": "Experiment 3 of FRAMING.md, strong-versus-strong assessor: gpt-4o-mini vs gpt-4o on essay sets held literally fixed. Verified cell manifest. Nothing here is a result.",
+ "verified_on": "2026-09-16",
+ "how_config_id_is_formed": {
+  "function": "code/prism_eval.py config_id()",
+  "definition": "md5(json.dumps({provider, model, role, temperature, model_kwargs, prompt_genes, prompt_label, role_text}, sort_keys=True))[:10]",
+  "schema_change": "role_text was added to the hash at commit 11777fa. Every unroled baseline essay set in out/essays predates that, so its cid is the PRE-role_text hash. Recomputing a baseline cid with today's code gives a DIFFERENT id (gpt-3.5-turbo df26183903, gpt-4o-mini 1c23c3cdca, mistral 0638d200c1, gemma3 608a6747e3) and would generate fresh essays instead of hitting the cache. cids must be read off run logs and essay filenames, never recomputed.",
+  "verified": "the six boundary persona texts in personas/ reproduce their stored rep-1 cids exactly under today's config_id with prompt_label='confirm-<persona>-r<rep>', role='evolved', temperature 0.0, model_kwargs {} - so the rep->cid mapping below is checked, not assumed."
+ },
+ "armA_unroled_baselines": [
+  {
+   "model": "gpt-3.5-turbo",
+   "cid": "2b78d1d74d",
+   "n_essays": 62,
+   "tokens_per_draw": 25468,
+   "gate": false,
+   "refused_as": "agree"
+  },
+  {
+   "model": "gpt-4o-mini",
+   "cid": "0a2357aecd",
+   "n_essays": 62,
+   "tokens_per_draw": 42523,
+   "gate": false,
+   "refused_as": "agree"
+  },
+  {
+   "model": "mistral",
+   "cid": "758484e745",
+   "n_essays": 62,
+   "tokens_per_draw": 34848,
+   "gate": false,
+   "refused_as": "agree"
+  },
+  {
+   "model": "gemma3",
+   "cid": "eca4db9787",
+   "n_essays": 62,
+   "tokens_per_draw": 46501,
+   "gate": false,
+   "refused_as": "agree"
+  }
+ ],
+ "armA_missing": {
+  "gpt-5.4-mini": "no unroled essays exist at all. Every gpt-5.4-mini cid in out/essays has role='evolved'. 62 essays must be generated before this cell exists; its cid under today's code would be 443ea25d48."
+ },
+ "armA_already_observed": {
+  "cid": "0a2357aecd",
+  "what": "gpt-4o-mini unroled baseline already carries a 62-statement gpt-4o rating cache from earlier work, so one side of that pair is observable without spending. Declared, not dropped; it was not read while this design was written."
+ },
+ "armB_boundary_candidates": [
+  {
+   "model": "gpt-3.5-turbo",
+   "arm": "H*",
+   "persona": "H_pcxrightauth",
+   "gate": false,
+   "refused_as": "agree",
+   "reps": [
+    {
+     "rep": 1,
+     "cid": "e3b9969979",
+     "tokens": 23539,
+     "gate_calls": 0
+    },
+    {
+     "rep": 2,
+     "cid": "72b7f29be1",
+     "tokens": 23472,
+     "gate_calls": 0
+    },
+    {
+     "rep": 3,
+     "cid": "4f92a0a713",
+     "tokens": 23846,
+     "gate_calls": 0
+    },
+    {
+     "rep": 4,
+     "cid": "de32bbc087",
+     "tokens": 23558,
+     "gate_calls": 0
+    },
+    {
+     "rep": 5,
+     "cid": "310a7081b7",
+     "tokens": 23453,
+     "gate_calls": 0
+    },
+    {
+     "rep": 6,
+     "cid": "41077f40f4",
+     "tokens": 23851,
+     "gate_calls": 0
+    },
+    {
+     "rep": 7,
+     "cid": "f89aca1864",
+     "tokens": 23439,
+     "gate_calls": 0
+    },
+    {
+     "rep": 8,
+     "cid": "f06e4a88cd",
+     "tokens": 23990,
+     "gate_calls": 0
+    },
+    {
+     "rep": 9,
+     "cid": "a87f632db4",
+     "tokens": 23568,
+     "gate_calls": 0
+    },
+    {
+     "rep": 10,
+     "cid": "257893bc61",
+     "tokens": 23366,
+     "gate_calls": 0
+    },
+    {
+     "rep": 11,
+     "cid": "ec0ff39fb9",
+     "tokens": 23260,
+     "gate_calls": 0
+    },
+    {
+     "rep": 12,
+     "cid": "0dc5a70dbf",
+     "tokens": 23673,
+     "gate_calls": 0
+    }
+   ],
+   "tokens_total": 283015,
+   "gate_calls_total": 0
+  },
+  {
+   "model": "gpt-3.5-turbo",
+   "arm": "search",
+   "persona": "search2_best",
+   "gate": false,
+   "refused_as": "agree",
+   "reps": [
+    {
+     "rep": 1,
+     "cid": "196b62107c",
+     "tokens": 24273,
+     "gate_calls": 0
+    },
+    {
+     "rep": 2,
+     "cid": "575c31d510",
+     "tokens": 24283,
+     "gate_calls": 0
+    },
+    {
+     "rep": 3,
+     "cid": "5ddf0ae144",
+     "tokens": 24507,
+     "gate_calls": 0
+    },
+    {
+     "rep": 4,
+     "cid": "723a666bea",
+     "tokens": 24856,
+     "gate_calls": 0
+    },
+    {
+     "rep": 5,
+     "cid": "9dfb329edc",
+     "tokens": 24482,
+     "gate_calls": 0
+    },
+    {
+     "rep": 6,
+     "cid": "4bdc9d8204",
+     "tokens": 24442,
+     "gate_calls": 0
+    },
+    {
+     "rep": 7,
+     "cid": "45efae88e7",
+     "tokens": 24735,
+     "gate_calls": 0
+    },
+    {
+     "rep": 8,
+     "cid": "187e5b8676",
+     "tokens": 24502,
+     "gate_calls": 0
+    },
+    {
+     "rep": 9,
+     "cid": "4efa950421",
+     "tokens": 24623,
+     "gate_calls": 0
+    },
+    {
+     "rep": 10,
+     "cid": "6fe7ac04ad",
+     "tokens": 24575,
+     "gate_calls": 0
+    },
+    {
+     "rep": 11,
+     "cid": "d8c99fc2c0",
+     "tokens": 24223,
+     "gate_calls": 0
+    },
+    {
+     "rep": 12,
+     "cid": "4169e064c2",
+     "tokens": 24500,
+     "gate_calls": 0
+    }
+   ],
+   "tokens_total": 294001,
+   "gate_calls_total": 0
+  },
+  {
+   "model": "gpt-4o-mini",
+   "arm": "H*",
+   "persona": "pcxrightauth",
+   "gate": false,
+   "refused_as": "agree",
+   "reps": [
+    {
+     "rep": 13,
+     "cid": "a565da6c63",
+     "tokens": 37600,
+     "gate_calls": 0
+    },
+    {
+     "rep": 14,
+     "cid": "43d9efc5de",
+     "tokens": 37967,
+     "gate_calls": 0
+    },
+    {
+     "rep": 15,
+     "cid": "88e0bc7ac4",
+     "tokens": 38598,
+     "gate_calls": 0
+    },
+    {
+     "rep": 16,
+     "cid": "4a2a5c9cce",
+     "tokens": 38216,
+     "gate_calls": 0
+    },
+    {
+     "rep": 17,
+     "cid": "15b8d664b2",
+     "tokens": 38236,
+     "gate_calls": 0
+    },
+    {
+     "rep": 18,
+     "cid": "f505019cdb",
+     "tokens": 37852,
+     "gate_calls": 0
+    },
+    {
+     "rep": 19,
+     "cid": "c47d4ae6b0",
+     "tokens": 38297,
+     "gate_calls": 0
+    },
+    {
+     "rep": 20,
+     "cid": "b6e1fcddec",
+     "tokens": 38479,
+     "gate_calls": 0
+    },
+    {
+     "rep": 21,
+     "cid": "5e94f53bb3",
+     "tokens": 38294,
+     "gate_calls": 0
+    },
+    {
+     "rep": 22,
+     "cid": "33bf678e87",
+     "tokens": 37999,
+     "gate_calls": 0
+    },
+    {
+     "rep": 23,
+     "cid": "d04d51dc1b",
+     "tokens": 38024,
+     "gate_calls": 0
+    },
+    {
+     "rep": 24,
+     "cid": "37f91d3a86",
+     "tokens": 37911,
+     "gate_calls": 0
+    }
+   ],
+   "tokens_total": 457473,
+   "gate_calls_total": 0
+  },
+  {
+   "model": "gpt-4o-mini",
+   "arm": "search",
+   "persona": "search_best",
+   "gate": false,
+   "refused_as": "agree",
+   "reps": [
+    {
+     "rep": 13,
+     "cid": "b7ae94f5ad",
+     "tokens": 38271,
+     "gate_calls": 0
+    },
+    {
+     "rep": 14,
+     "cid": "56d19932d9",
+     "tokens": 38352,
+     "gate_calls": 0
+    },
+    {
+     "rep": 15,
+     "cid": "916b249f3a",
+     "tokens": 38564,
+     "gate_calls": 0
+    },
+    {
+     "rep": 16,
+     "cid": "327e1ece5d",
+     "tokens": 38820,
+     "gate_calls": 0
+    },
+    {
+     "rep": 17,
+     "cid": "e157e4cc50",
+     "tokens": 38665,
+     "gate_calls": 0
+    },
+    {
+     "rep": 18,
+     "cid": "c278ccfd32",
+     "tokens": 38615,
+     "gate_calls": 0
+    },
+    {
+     "rep": 19,
+     "cid": "248a4a615e",
+     "tokens": 38283,
+     "gate_calls": 0
+    },
+    {
+     "rep": 20,
+     "cid": "f4863c1ce9",
+     "tokens": 38206,
+     "gate_calls": 0
+    },
+    {
+     "rep": 21,
+     "cid": "dbcf8efab1",
+     "tokens": 38615,
+     "gate_calls": 0
+    },
+    {
+     "rep": 22,
+     "cid": "d0e0b014c6",
+     "tokens": 38053,
+     "gate_calls": 0
+    },
+    {
+     "rep": 23,
+     "cid": "6e85b0bec0",
+     "tokens": 38691,
+     "gate_calls": 0
+    },
+    {
+     "rep": 24,
+     "cid": "9c475ffbf8",
+     "tokens": 38654,
+     "gate_calls": 0
+    }
+   ],
+   "tokens_total": 461789,
+   "gate_calls_total": 0
+  },
+  {
+   "model": "gpt-5.4-mini",
+   "arm": "H*",
+   "persona": "H_pcrightauth",
+   "gate": true,
+   "refused_as": "neutral",
+   "reps": [
+    {
+     "rep": 1,
+     "cid": "c4e7c6af6a",
+     "tokens": 19563,
+     "gate_calls": 0
+    },
+    {
+     "rep": 2,
+     "cid": "f18e036869",
+     "tokens": 19939,
+     "gate_calls": 0
+    },
+    {
+     "rep": 3,
+     "cid": "8f8724d40f",
+     "tokens": 19735,
+     "gate_calls": 2
+    },
+    {
+     "rep": 4,
+     "cid": "8e1fd6ff5f",
+     "tokens": 19561,
+     "gate_calls": 1
+    },
+    {
+     "rep": 5,
+     "cid": "948a63b6e3",
+     "tokens": 19688,
+     "gate_calls": 0
+    },
+    {
+     "rep": 6,
+     "cid": "928ffa2166",
+     "tokens": 19630,
+     "gate_calls": 0
+    },
+    {
+     "rep": 7,
+     "cid": "e579475bf2",
+     "tokens": 19793,
+     "gate_calls": 0
+    },
+    {
+     "rep": 8,
+     "cid": "7d8a1e69b4",
+     "tokens": 19870,
+     "gate_calls": 0
+    },
+    {
+     "rep": 9,
+     "cid": "c9f75355d1",
+     "tokens": 19669,
+     "gate_calls": 0
+    },
+    {
+     "rep": 10,
+     "cid": "b649da92ac",
+     "tokens": 19705,
+     "gate_calls": 1
+    },
+    {
+     "rep": 11,
+     "cid": "1cfab38f11",
+     "tokens": 19899,
+     "gate_calls": 1
+    },
+    {
+     "rep": 12,
+     "cid": "ded2393fcc",
+     "tokens": 20032,
+     "gate_calls": 1
+    }
+   ],
+   "tokens_total": 237084,
+   "gate_calls_total": 6
+  },
+  {
+   "model": "gpt-5.4-mini",
+   "arm": "search",
+   "persona": "search_best",
+   "gate": true,
+   "refused_as": "neutral",
+   "reps": [
+    {
+     "rep": 1,
+     "cid": "7a655b49b4",
+     "tokens": 23350,
+     "gate_calls": 6
+    },
+    {
+     "rep": 2,
+     "cid": "4a92b81798",
+     "tokens": 23386,
+     "gate_calls": 5
+    },
+    {
+     "rep": 3,
+     "cid": "3eca387592",
+     "tokens": 23218,
+     "gate_calls": 7
+    },
+    {
+     "rep": 4,
+     "cid": "62e49c8571",
+     "tokens": 23611,
+     "gate_calls": 5
+    },
+    {
+     "rep": 5,
+     "cid": "1db8ecfece",
+     "tokens": 23672,
+     "gate_calls": 7
+    },
+    {
+     "rep": 6,
+     "cid": "c7a32b6137",
+     "tokens": 23897,
+     "gate_calls": 6
+    },
+    {
+     "rep": 7,
+     "cid": "680869655b",
+     "tokens": 23364,
+     "gate_calls": 4
+    },
+    {
+     "rep": 8,
+     "cid": "47e74b4ae7",
+     "tokens": 23842,
+     "gate_calls": 6
+    },
+    {
+     "rep": 9,
+     "cid": "61aad4b11d",
+     "tokens": 23393,
+     "gate_calls": 8
+    },
+    {
+     "rep": 10,
+     "cid": "4e1c234b1b",
+     "tokens": 22583,
+     "gate_calls": 7
+    },
+    {
+     "rep": 11,
+     "cid": "287a0f458c",
+     "tokens": 24092,
+     "gate_calls": 3
+    },
+    {
+     "rep": 12,
+     "cid": "de6cc82256",
+     "tokens": 23425,
+     "gate_calls": 7
+    }
+   ],
+   "tokens_total": 281833,
+   "gate_calls_total": 71
+  }
+ ],
+ "armB_excluded": {
+  "gpt-4o-mini reps 1-12": "reps 3, 6 and 8 of the pcxrightauth arm already carry gpt-4o rating caches from earlier work. The whole first block of 12 is excluded and reps 13-24 used instead, rather than cherry-picking around three cells."
+ },
+ "armC_not_runnable_here": {
+  "mistral": "H* pccentrist and search_best: none of the 24 replicate cids has essays in out/essays (written on the Stirling ollama box). Baseline 758484e745 is present.",
+  "gemma3": "H* stalin (m4_conf) / H_stalin (m4b_conf) and search2_best: none of the replicate cids has essays in out/essays. Baseline eca4db9787 is present.",
+  "note": "these essays must be COPIED, never regenerated - regenerating breaks 'the same essays through two assessors'."
+ },
+ "token_counts": "measured with tiktoken o200k_base over the exact paper-variant assessor prompt (prism_eval.TEMPLATES['paper']) with each cached essay substituted in; not estimated.",
+ "cost_model": {
+  "gpt-4o": "$2.50/1M in, $10.00/1M out",
+  "gpt-4o-mini": "$0.15/1M in, $0.60/1M out",
+  "assumed_not_verified": "no price table exists in the repo; these are the list prices assumed."
+ },
+ "cost": {
+  "armA_gpt4o_3draws_usd": 1.12,
+  "armA_gpt4omini_3draws_usd": 0.067,
+  "armA_output_usd": 0.032,
+  "armB_gpt4o_input_usd": 5.038,
+  "armB_output_usd": 0.179,
+  "armB_gate_usd_held_at_gpt4omini": 0.0038,
+  "total_runnable_today_usd": 6.44,
+  "armA_tokens_per_draw": 149340,
+  "armB_gpt4o_input_tokens": 2015195,
+  "gate_calls": 77
+ },
+ "code_fixes_required_before_running": [
+  "score_cid.py: --gate-assessor. Today args.assessor is passed to BOTH classify_essay and gate_verdict (score_cid.py lines 72-77), so scoring the gpt-5.4-mini arms with gpt-4o moves the gate and the stance classifier at once. Evidence it matters: on the one already-scored gated cell c04310fab9, one of the two label disagreements is a GATE disagreement (q2 DISCLAIMED under gpt-4o-mini vs REFUSED under gpt-4o), not a classifier disagreement.",
+  "score_cid.py: --run-tag, mirroring political_questions.py. Without it a second assessor draw on the same cid reads draw 1's cache and Arm A cannot separate assessor identity from assessor nondeterminism (sd 0.252, section 36).",
+  "compare_assessors.py: load() builds cache_<cid>_<assessor>.json with no prompt/gate suffix (line 27), so it cannot open a _gate3 or _explicit cache. Needs --tag before any gpt-5.4-mini cell can be compared per statement."
+ ],
+ "wall_clock": "measured 1.17 s per gpt-4o assessor call sequentially (20 calls in 23.4 s). The full design is 4*3*62*2 + 72*62 = 5952 calls ~= 116 min sequential, ~40 min at three concurrent processes. A fully cached re-read of a 62-statement cell is 0.56 s and costs nothing."
+}

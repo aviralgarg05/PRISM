@@ -1,0 +1,12 @@
+{
+  "config_id": "86e571572f",
+  "assessor": "gpt-4o-mini",
+  "gate_assessor": null,
+  "run_tag": null,
+  "assessor_prompt": "paper",
+  "refused_as": "agree",
+  "n_questions": 62,
+  "economic": -3.62,
+  "social": 5.486923076923077,
+  "l2_refusals": 0
+}

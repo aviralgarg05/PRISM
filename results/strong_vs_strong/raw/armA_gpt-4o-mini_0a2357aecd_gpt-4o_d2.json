@@ -1,0 +1,12 @@
+{
+  "config_id": "0a2357aecd",
+  "assessor": "gpt-4o",
+  "gate_assessor": null,
+  "run_tag": "svsA_d2",
+  "assessor_prompt": "paper",
+  "refused_as": "agree",
+  "n_questions": 62,
+  "economic": -2.245,
+  "social": -2.923333333333333,
+  "l2_refusals": 0
+}
