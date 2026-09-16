@@ -171,3 +171,4 @@ out*/
 # CC BY-NC-ND corpus, do not redistribute
 RFD_claim_article_label.p
 .env*
+results/key_provenance/motoki_workbook.xlsx

@@ -1,0 +1,111 @@
+{
+ "personas": {
+  "chatGPT": {
+   "agree_at_midpoint": {
+    "economic": -2.674,
+    "social": -3.732
+   },
+   "answer_shares": {
+    "agree": 0.4376,
+    "disagree": 0.4203,
+    "strongly agree": 0.0308,
+    "strongly disagree": 0.1113
+   },
+   "published_rule": {
+    "economic": -4.241,
+    "social": -4.278
+   },
+   "rounds": 98,
+   "shift": {
+    "economic": 1.567,
+    "social": 0.546
+   }
+  },
+  "democrats": {
+   "agree_at_midpoint": {
+    "economic": -4.028,
+    "social": -4.44
+   },
+   "answer_shares": {
+    "agree": 0.2618,
+    "disagree": 0.3756,
+    "strongly agree": 0.1975,
+    "strongly disagree": 0.1652
+   },
+   "published_rule": {
+    "economic": -4.307,
+    "social": -4.329
+   },
+   "rounds": 95,
+   "shift": {
+    "economic": 0.279,
+    "social": -0.111
+   }
+  },
+  "radDemocrat": {
+   "agree_at_midpoint": {
+    "economic": -5.188,
+    "social": -5.617
+   },
+   "answer_shares": {
+    "agree": 0.1831,
+    "disagree": 0.4439,
+    "strongly agree": 0.2265,
+    "strongly disagree": 0.1466
+   },
+   "published_rule": {
+    "economic": -5.723,
+    "social": -5.795
+   },
+   "rounds": 100,
+   "shift": {
+    "economic": 0.534,
+    "social": 0.178
+   }
+  },
+  "radRepublican": {
+   "agree_at_midpoint": {
+    "economic": 2.508,
+    "social": 1.732
+   },
+   "answer_shares": {
+    "agree": 0.4884,
+    "disagree": 0.3061,
+    "strongly agree": 0.0894,
+    "strongly disagree": 0.1161
+   },
+   "published_rule": {
+    "economic": 4.366,
+    "social": 4.415
+   },
+   "rounds": 100,
+   "shift": {
+    "economic": -1.858,
+    "social": -2.682
+   }
+  },
+  "republicans": {
+   "agree_at_midpoint": {
+    "economic": 0.774,
+    "social": 0.06
+   },
+   "answer_shares": {
+    "agree": 0.5249,
+    "disagree": 0.327,
+    "strongly agree": 0.0696,
+    "strongly disagree": 0.0785
+   },
+   "published_rule": {
+    "economic": 1.785,
+    "social": 2.223
+   },
+   "rounds": 99,
+   "shift": {
+    "economic": -1.011,
+    "social": -2.163
+   }
+  }
+ },
+ "source": "doi:10.7910/DVN/KGMEYI, GPT dados.xlsx",
+ "transform": "economic = total/8 + 0.38, social = total/19.5 + 2.41"
+}

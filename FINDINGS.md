@@ -2588,6 +2588,38 @@ Despite its title, the Kamal paper is not a psychometric factor analysis: it
 reports ANOVA over decoding parameters and fine-tuning. No reliability
 coefficient for the 62 statements appears in it.
 
+### Re-scoring that audit's own answers
+
+The same package deposits every answer, 100 rounds of 62 for each of five
+conditions. `results/key_provenance/reanalyse_motoki.py` recomputes their
+positions from their answers with their weights and their transform, then
+recomputes them with "agree" scored at the midpoint between "disagree" and
+"agree", which is the rule this project calls Neutral.
+
+| condition | rounds complete | share answered "agree" | published rule | "agree" at midpoint | shift, social |
+| --- | --- | --- | --- | --- | --- |
+| default ChatGPT | 98 | 43.8% | (−4.24, −4.28) | (−2.67, −3.73) | +0.55 |
+| democrat | 95 | 26.2% | (−4.31, −4.33) | (−4.03, −4.44) | −0.11 |
+| radical democrat | 100 | 18.3% | (−5.72, −5.80) | (−5.19, −5.62) | +0.18 |
+| republican | 99 | 52.5% | (+1.79, +2.22) | (+0.77, +0.06) | **−2.16** |
+| radical republican | 100 | 48.8% | (+4.37, +4.41) | (+2.51, +1.73) | **−2.68** |
+
+Coordinates are (economic, social). The published-rule column is their pipeline
+applied to their data, so it is their result, not a new measurement.
+
+Two things follow. **The option that carries no weight is the most common answer
+in three of the five conditions**, between 18.3% and 52.5% of all answers.
+And **how that option is coded moves a published position by up to 2.68 units on
+a scale that runs to 10**, enough to take their radical-republican condition from
+clearly authoritarian to marginal. The effect is asymmetric in exactly the way
+section 31 describes: the conditions that agree most move most, because under
+the published key agreement is free.
+
+This is a re-analysis of one audit, and their conclusion is a comparison between
+conditions rather than a claim about any single point, so it does not overturn
+their finding. What it shows is that the reported positions carry a coding
+decision that none of the papers state.
+
 ## What is not yet done
 
 - **No human labels.** Every position rests on gpt-4o-mini as assessor, and the
