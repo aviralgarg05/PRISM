@@ -20,8 +20,9 @@ changes which persona is the model's libertarian extreme (§34). Re-scoring a pu
 social axis (§37). Nothing was regenerated in either case, so both survive every open question
 in the file. Two registered experiments then show how much rides on how a stance is asked for:
 the same persona on the same model moves by up to 4.15 units between writing an essay and
-choosing an option (§39), and one inherited sentence telling the model to answer "Strongly
-Agree or Strongly Disagree" carries 2.9 to 3.5 units of a persona's position (§40).
+choosing an option (§39), and one inherited sentence telling the model how to answer carries
+between 1.1 and 4.3 units of a persona's position in eight of ten personas tested on four
+models (§40).
 
 Search is the probe, not the claim. It earned its place by exposing an instrument defect no
 hand-written audit would have found (§27, §28) and by showing that a reported effect is a
@@ -49,10 +50,10 @@ gpt-5.4-mini searches and `pcleftlib`, the libertarian headline of §31; the aut
 headline `pcxrightauth` does not carry it (§36 correction). On mistral and gpt-5.4-mini the only
 confirmed arms that clear +4.359 carry it.
 
-Tested, registered. Removing that sentence moves `pcleftlib` on gpt-3.5-turbo by −3.38 and
-gpt-5.4-mini's H\* and control winner by +3.53 and +2.95, all format-carried (§40). It also
-reverses section 31's asymmetry: without the sentence the libertarian headline uses 32% of its
-headroom, below the authoritarian headline's 50%. The mistral and gemma3 arms are still running.
+Tested, registered, on ten personas and four models (§40). Eight are format-carried, by 1.10
+to 4.33 units; mistral's search winner is format-neutral and its control winner unresolved.
+Removing the sentence reverses section 31's asymmetry: the libertarian headline then uses 32%
+of its headroom, below the authoritarian headline's 50%.
 
 ## RQ2. How far does a reported position move under choices an audit does not declare?
 
@@ -161,7 +162,7 @@ reported positions carry that coding decision (§37).
 | Two strong assessors within 0.72 | §29 | RQ4 | n=3, role-conditioned, the easy regime; under test |
 | Distinct-essay counts 1.0–4.9 locally | §36 | RQ4 | local n=12 intervals overstate precision |
 | Winner's curse up to 1.513 | §32 | RQ4, RQ5 | confirms the argmax, not the procedure |
-| Five-model D table | §36 | RQ2 | three models have one search run each |
+| Five-model D table | §36, §40 | RQ2 | three models have one search run each; gemma3's D is the answer instruction |
 
 ## Experiments, and where each stands
 
@@ -171,7 +172,7 @@ reported positions carry that coding decision (§37).
 | 1 | Free arithmetic over cached stances: decomposition on five enumerations, item-total and dimensionality checks | none | RQ1, RQ2, RQ4 | done, §37 and §38 |
 | 2 | Persona-blind gate ablation | under an hour | RQ3 | done, with the selection limit in §38 |
 | 3 | Strong-versus-strong assessor, all five models | about $11 | RQ2, RQ4 | done, §41, intermediate |
-| 4 | Answer-format ablation on the winners; the same on `pcleftlib` | about $3 hosted, local time | RQ1, RQ3 | hosted done, §40; mistral and gemma3 running |
+| 4 | Answer-format ablation on the winners; the same on `pcleftlib` | about $3 hosted, local time | RQ1, RQ3 | done, §40 |
 | 5 | Forced-choice control, three hosted models, option order counterbalanced | under $1 | RQ1, RQ3 | done, §39 |
 | 6 | Second labeller on the gate categories, and labelling gate overturns | people's time | RQ3 | needs people |
 | 7 | Crossed design for resolution, versions recorded | about $100 | RQ4 | optional after §41 |
@@ -212,9 +213,11 @@ orderings carry at about ±0.9, positions need an assessor term beside them. The
 lead with differences measured on held-fixed text and report positions with that term.
 
 **Search as the probe.** Asked directly, no search winner beats its hand-written baseline
-(§39), and on gpt-5.4-mini the search gain changes from +1.37 to +4.89 depending on one
-sentence in the baseline (§40). That supports using search as a probe of the measurement and
-rules out presenting it as a way to find a model's position.
+(§39). With the answer instruction removed, gemma3's search gain disappears and turns negative
+on both runs, while mistral's grows from +3.4 to +7.7 and gpt-5.4-mini's from +1.37 to +4.89
+(§40). Whether search moves a model's position therefore depends on the model and on one
+sentence in the baseline. That supports using search as a probe of the measurement and rules
+out presenting it as a way to find a model's position.
 
 **Recency.** No claim about newer models behaving differently is supported: mistral is older
 than gpt-4o-mini and gemma3 and behaves like gpt-5.4-mini on the null counts.
@@ -236,6 +239,8 @@ than gpt-4o-mini and gemma3 and behaves like gpt-5.4-mini on the null counts.
   libertarian headline (§40).
 - "The unroled default is the least assessor-stable measurement": boundary positions move more
   (§41).
+- gemma3's search gain as a move in the model's position: with the answer instruction removed,
+  both search winners score below the hand-written baseline (§40).
 
 Each of those failures is evidence for the heading rather than against it: a quantity that
 moves this much between runs of the same protocol is not a stable property of a model.
