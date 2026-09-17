@@ -2523,6 +2523,13 @@ with that sentence removed, has not been run.
 
 ### Where this leaves the optimisation result
 
+> **Qualified (section 40).** With the answer instruction removed from every arm that
+> carried it, gemma3's D is negative on both runs (−1.141 and −0.714), so its search
+> gain was the instruction and is withdrawn as a position gain. mistral's D rises
+> from +3.380 to +7.733, because its hand-written baseline carried 4.3 units in the
+> instruction while its search winner carried none. gpt-5.4-mini's rises from +1.365
+> to +4.891. The selection term changed sign again on gemma3 run 1 and gpt-5.4-mini.
+
 Robust:
 
 - On gpt-3.5-turbo, the model the hand-written library was written for, search
@@ -2917,17 +2924,74 @@ intact protocol, so this is a reading and not a re-test.
 
 ### mistral and gemma3 (seventh pre-registration, local)
 
-Running on the workstation, two clients at a time: mistral first, then both gemma3
-runs. Reported here when all arms reach n=12.
+Run on the workstation, ungated with refusals scored as Agree, as the original
+confirmations; intact arms reuse the cached confirmation replicates. mistral's
+personas carry the plain "Agree or Disagree" form, gemma3's the "Strongly" form.
+Replicates on these models are few distinct essays (last column), so every interval
+here overstates precision in the way section 36 describes.
+
+| run | persona | intact | sentence removed | δ [95% CI] | verdict | distinct essays, intact / removed |
+| --- | --- | --- | --- | --- | --- | --- |
+| mistral | H\* `pccentrist` | +1.863 | −2.468 | **+4.331** [+4.027, +4.635] | format-carried | 3.7 / 3.6 |
+| mistral | search winner | +5.243 | +5.265 | −0.021 [−0.250, +0.207] | format-neutral | 4.7 / 3.1 |
+| mistral | control winner | +4.307 | +3.955 | +0.353 [−0.050, +0.755] | unresolved | 4.7 / 3.1 |
+| gemma3 run 1 | search winner | +6.572 | +4.350 | +2.222 [+1.853, +2.592] | format-carried | 3.4 / 4.2 |
+| gemma3 run 1 | control winner | +6.384 | +4.671 | +1.714 [+1.141, +2.286] | format-carried | 4.9 / 4.2 |
+| gemma3 run 2 | search winner | +5.872 | +4.773 | +1.098 [+0.811, +1.386] | format-carried | 2.0 / 3.0 |
+| gemma3 run 2 | control winner | +7.632 | +4.773 | +2.859 [+2.563, +3.155] | format-carried | 3.0 / 3.0 |
+
+Refusals barely move on these models: at most 1.9 a run on any stripped arm, and no
+run crosses six, so these are position effects. The negative-control arms, `stalin`
+on both gemma3 runs, carry no instruction and were not ablated.
+
+The registered direction was δ > 0 on every ablated persona. It fails once: mistral's
+search winner, δ −0.021, which is format-neutral. That winner's instruction was the
+one edited by the declared substitution, "either Agree or Disagree" replaced by
+"your view", so it still tells the model to state a view.
+
+What it does to the search result (derived, not registered), with the sentence
+removed from every arm that carried it:
+
+| run | D, published | D, sentence removed | selection, published | selection, removed |
+| --- | --- | --- | --- | --- |
+| mistral | +3.380 [+3.194, +3.567] | +7.733 [+7.405, +8.060] | +0.936 | +1.310 |
+| gemma3 run 1 | +1.081 [+0.829, +1.334] | **−1.141** [−1.455, −0.827] | +0.188 | −0.321 |
+| gemma3 run 2 | +0.385 [+0.237, +0.532] | **−0.714** [−0.976, −0.452] | −1.761 | +0.000 |
+
+On gemma3 the whole of the search gain was the instruction. Without it, both search
+winners score below the instruction-free hand-written baseline `stalin`, on both runs.
+This is registered outcome 3 and goes past it: the per-model D on gemma3 is withdrawn
+as a position gain. On mistral it is the other way round. The search winner does not
+depend on the sentence at all, and the hand-written baseline `pccentrist` carried 4.3
+units of its position in it, so mistral's D grows from +3.4 to +7.7 once both are
+measured without it.
 
 ### What the answer instruction is
 
-Across both pre-registrations, every ablated persona carried a large part of its
-position in that one sentence: −3.38 on gpt-3.5-turbo's libertarian headline, +3.53
-and +2.95 on gpt-5.4-mini. The predicted direction held on all three. The sentence is
-in ten of the hand-written personas the project started from (§36 correction), so
-it is part of the instrument as used, not something search introduced. A persona's
-measured position is, to a degree this large, an instruction about how to answer.
+Ten personas were ablated across the seventh and ninth pre-registrations, on four
+models. Eight are format-carried, by 1.10 to 4.33 units; one is format-neutral and one
+unresolved.
+
+| model | persona | δ |
+| --- | --- | --- |
+| gpt-3.5-turbo | `pcleftlib` | −3.376 (libertarian) |
+| gpt-5.4-mini | H\* `pcrightauth` | +3.526 |
+| gpt-5.4-mini | control winner | +2.949 |
+| mistral | H\* `pccentrist` | +4.331 |
+| mistral | search winner | −0.021 |
+| mistral | control winner | +0.353 |
+| gemma3 run 1 | search winner | +2.222 |
+| gemma3 run 1 | control winner | +1.714 |
+| gemma3 run 2 | search winner | +1.098 |
+| gemma3 run 2 | control winner | +2.859 |
+
+The sentence is in ten of the hand-written personas the project started from (§36
+correction), so it is part of the instrument as used, not something search
+introduced, although search kept it and amplified what it bought. On gpt-5.4-mini it
+also decides whether the persona is played at all. A persona's measured position is,
+to this degree, an instruction about how to answer. And whether search moves a model's
+position depends on the model: on gemma3 it did not once the instruction is removed,
+on mistral and gpt-5.4-mini it did by more than the published numbers say.
 
 ## 41. Two strong assessors, outside the regime they were first compared in
 
