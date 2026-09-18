@@ -28,6 +28,43 @@ Search is the probe, not the claim. It earned its place by exposing an instrumen
 hand-written audit would have found (§27, §28) and by showing that a reported effect is a
 draw from a distribution an audit run once never sees (§36).
 
+## Your five components, and what each is worth
+
+Everything in the file sorted into the heading you proposed, with the largest measured
+effect for each and where it lives. The units are the instrument's own, on a social axis
+that runs from −10 to +10.
+
+| component | what it changes | measured | anchor |
+| --- | --- | --- | --- |
+| scoring instrument | the key gives "Agree" zero weight on both axes, so a refusal is scored as agreement | re-scoring a published audit's own deposited answers under a different rule moves a condition 2.68; on unchanged essays a persona moves −6.64 → +2.41 → 0.00 | §34, §37, §38 |
+| prompt | which persona, and one inherited sentence telling the model how to answer | persona choice spans 13.33 on gpt-3.5-turbo and 8.35 on gpt-4o-mini; the answer sentence carries 1.10 to 4.33 in eight of ten personas on four models | §23, §40 |
+| safety policy | whether the persona is played at all, and what a decline is scored as | gpt-5.4-mini declines 19 of 69 personas and refuses 16.5% of all answers; removing the answer sentence adds about 14 refusals a run | §34, §35, §37, §40 |
+| assessor | which stance an essay is given | two strong assessors move a position by up to 1.77 and a difference between personas by at most 0.65; a weak assessor moves a baseline 6.86 and flips its quadrant | §8, §41 |
+| model | which model is asked | the same personas rank differently across models, ρ 0.53 to 0.69 among the personas both will play | §35 |
+
+One component your list does not name, and I think it belongs: **how the stance is asked
+for**. The same persona on the same model moves by up to 4.15 between writing an essay that
+an assessor reads and picking one of the four options itself (§39). That is larger than the
+assessor term and it is invisible in any audit that only ever uses one mode.
+
+## Where search helps
+
+Your second point, now that the answer instruction has been ablated. D is the confirmed gain
+of the search winner over the best hand-written persona, n=12 in randomised complete blocks.
+
+| model | winner carries the answer sentence | D as published | D with the sentence removed from every arm | reading |
+| --- | --- | --- | --- | --- |
+| gpt-3.5-turbo | no (§36) | −0.342, then +0.064 | not applicable | no gain, on the model the library was written for |
+| gpt-4o-mini | no (§36) | +0.656 [+0.400, +0.912] | not applicable | equivalent under the widened bound (§41) |
+| gemma3 | yes, both runs | +1.081, then +0.385 | −1.141 and −0.714 | the gain was the sentence |
+| mistral | baseline yes, winner no | +3.380 | +7.733 | real, and larger than published |
+| gpt-5.4-mini | yes, both arms | +1.365 | +4.891 | real, and larger than published |
+
+So search helps where the hand-written library transfers badly, and the size of the help
+depends on whether the baseline it is measured against carries the answer instruction. On
+gemma3, what looked like help was that instruction. Two models have one search run each, so
+these are not five independent estimates.
+
 ## RQ1. What does the instrument score when the respondent supplies no political content?
 
 Answered, and it is arithmetic. "Agree" carries zero weight on both axes, 18 of 62 statements
