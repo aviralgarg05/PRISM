@@ -196,7 +196,7 @@ reported positions carry that coding decision (§37).
 | Assessor swap 6.86 units, quadrant flip | §8 | RQ2 | weak versus strong |
 | Two hosted assessors 1.25–3.71, mean 2.44 | §20 | RQ2 | ten configurations |
 | Surrogate saturation, 80/116 bit-exact | §27, §28 | RQ2 | search-visible instrument defect |
-| Two strong assessors within 0.72 | §29 | RQ4 | n=3, role-conditioned, the easy regime; under test |
+| Two strong assessors within 0.72 | §29, §41 | RQ4 | n=3 and the easy regime; §41 widened the bound to ±0.89 |
 | Distinct-essay counts 1.0–4.9 locally | §36 | RQ4 | local n=12 intervals overstate precision |
 | Winner's curse up to 1.513 | §32 | RQ4, RQ5 | confirms the argmax, not the procedure |
 | Five-model D table | §36, §40 | RQ2 | three models have one search run each; gemma3's D is the answer instruction |
