@@ -346,7 +346,7 @@ saturation, §27, §28), showed run-to-run spread (§36) and led to the answer-s
    search as a probe of an evaluation instrument (§26, §27, §28, §32).
 3. **Which open experiments to wait for before submission**: the second labeller on gate
    categories (needs people), a second published audit re-scored, the optional crossed design
-   (FRAMING experiments 6, 7, 9 and 10; the re-scoring is not yet listed there).
+   (FRAMING experiments 6 and 7; the re-scoring is not yet listed there).
 4. **Whether anyone besides Aviral reads essays for labelling**, and whether that needs
    Stirling ethics approval (ETHICS.md, exposure protocol).
 5. **Whether the stance flip appears, and where**: its hosted arms are a registered outcome
