@@ -3255,6 +3255,8 @@ refusals, read or misread, for the rest.
   conscience argue that…" was called REFUSED in 6 of 15 cases (section 34). The
   gemma3 enumeration has since been rescored with the gate (section 34), and its
   authoritarian H\* did not move.
+- **The refusal artefact now rests on three vendors (sections 34, 35, 43)**, but its
+  size has been measured on one persona library and one assessor.
 - **The stance flip is tested on the hosted models only (section 42).** The frame
   ablation and the gpt-4o-mini and gpt-5.4-mini transfer arms are done; gemma3,
   mistral and llama3.2 run after the tenth pre-registration.

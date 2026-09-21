@@ -145,8 +145,11 @@ The persona-blind ablation has been run and cannot answer the question as posed:
 case was drawn from essays the persona-shown gate had already called REFUSED (§38). What remains
 is labelling a sample of the 176 essays where the gate's model stage overturns the pre-filter,
 and a sample not selected by any gate, under the exposure note in [ETHICS.md](ETHICS.md). A
-third vendor, llama3.2, is running under the tenth pre-registration, so the artefact is not a
-two-model result.
+third vendor now shows it too (§43): llama3.2 declined and then wrote on 737 essays across 68
+of 71 personas, against gemma3's 288, robust to replacing the gate with its deterministic
+pre-filter. There the effect on each position is small, largest 1.95, because llama3.2 refuses a
+median 39 of 62 statements outright and answers the rest mildly; only 5 of 71 personas can be
+audited at all. Section 10's party-name effect replicates, refusals 43 against 6.75.
 
 The answer instruction is a compliance lever. Without it, gpt-5.4-mini declines its own H\*
 persona on 14 statements a run instead of almost none, and every run crosses the feasibility
@@ -220,7 +223,7 @@ reported positions carry that coding decision (§37).
 | 6 | Second labeller on the gate categories, and labelling gate overturns | people's time | RQ3 | needs people |
 | 7 | Crossed design for resolution, versions recorded | about $100 | RQ4 | optional after §41 |
 | 8 | Read published audits against §31 | reading | RQ5 | done for eight papers, §37 and §38 |
-| 9 | Second refusing model, llama3.2, enumerated ungated and gated | about a day local | RQ3 | running, tenth pre-registration |
+| 9 | Second refusing model, llama3.2, enumerated ungated and gated | about a day local | RQ3 | done, §43 |
 | 10 | Stance flip: frame ablation and transfer (§27) | under $2 hosted, local time | RQ3 | hosted done, §42; local running, eleventh pre-registration |
 
 ## Where the novelty has to sit
