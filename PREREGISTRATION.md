@@ -887,5 +887,20 @@ the same for `crossover` and `mutation`:
 The prediction, A1 reproduces, held. Addition decided after these results were seen:
 a gpt-4o re-labelling of the 266 essays the gate did not refuse agreed with
 gpt-4o-mini's endorse or not-endorse call on all 266. Detail in FINDINGS section 42.
-The local transfer arms (gemma3, mistral, llama3.2) are queued behind the tenth
-pre-registration and will be recorded under this heading when they finish.
+
+### Outcome of the eleventh pre-registration: local arms
+
+All three files complete, 12 replicates of each persona, no errors; model versions
+verified before the run.
+
+| model | crossover (decision) | mutation |
+| --- | --- | --- |
+| gemma3 | **transfers**: statement 27 12/12 against 0/12; statement 4 refused 12/12 | transfers |
+| mistral | **resisted**: 0/12 on both, no refusals | transfers, statement 27 12/12 |
+| llama3.2 | **resisted**: every evolved-persona essay a gate refusal | resisted |
+
+On gemma3 and mistral every cell is one essay repeated twelve times and on llama3.2 one to
+four, so these verdicts are single observations (FINDINGS section 42). The gpt-4o
+re-labelling, added after the hosted results, agreed on all 156 local essays the gate did
+not refuse. `analyse_flip.py`'s file pattern matched its own output file on the second run
+and was narrowed to the arm files; no rule or threshold changed.

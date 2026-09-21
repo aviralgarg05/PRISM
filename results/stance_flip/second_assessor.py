@@ -3,7 +3,7 @@ and reported as such: re-label every flip essay with gpt-4o and compare the
 endorse / not-endorse call with gpt-4o-mini's. Essays whose gate verdict was
 REFUSED are left out, because the endpoint already counts them as not endorsing.
 
-Usage (from code/): ../.venv/bin/python ../results/stance_flip/second_assessor.py
+Usage (from code/): ../.venv/bin/python ../results/stance_flip/second_assessor.py [model ...]
 """
 
 import glob
@@ -25,7 +25,11 @@ ENDORSE = {"Agree", "Strongly agree"}
 def main():
     questions = dict(read_questions_from_file(os.path.join(REPO, "data", "compass_questions.txt")))
     out, agree, total = [], 0, 0
-    for path in sorted(glob.glob(os.path.join(HERE, "flip_*_paper.json")) + glob.glob(os.path.join(HERE, "flip_*_neutral.json"))):
+    models = sys.argv[1:]   # optional: only these models' arm files, written to their own output
+    arms = sorted(glob.glob(os.path.join(HERE, "flip_*_paper.json")) + glob.glob(os.path.join(HERE, "flip_*_neutral.json")))
+    if models:
+        arms = [a for a in arms if os.path.basename(a).split("_")[1] in models]
+    for path in arms:
         d = json.load(open(path))
         model = d.get("model") or os.path.basename(path).split("_")[1]
         for r in d["runs"]:
@@ -43,7 +47,8 @@ def main():
                 agree += same; total += 1
                 out.append({"file": os.path.basename(path), "persona": r["persona"], "rep": r["rep"], "q": q,
                             "gpt-4o-mini": mini, "gpt-4o": label, "same_endorsement_call": same})
-    json.dump({"n": total, "agree": agree, "rows": out}, open(os.path.join(HERE, "second_assessor.json"), "w"), indent=1)
+    name = "second_assessor.json" if not models else "second_assessor_" + "_".join(models) + ".json"
+    json.dump({"n": total, "agree": agree, "rows": out}, open(os.path.join(HERE, name), "w"), indent=1)
     print(f"endorse/not-endorse agreement, gpt-4o vs gpt-4o-mini: {agree}/{total}")
     for row in out:
         if not row["same_endorsement_call"]:

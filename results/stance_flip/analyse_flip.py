@@ -82,7 +82,9 @@ def main():
         return json.load(open(os.path.join(REPO, "out", "ratings", f"cache_{cid}_gpt-4o-mini_gate{GATE_VERSION}.json")))
 
     tables, verdicts = {}, {}
-    for path in sorted(glob.glob(os.path.join(HERE, "flip_*.json"))):
+    # Arm files only: flip_results.json, this script's own output, also matches flip_*.json.
+    arms = glob.glob(os.path.join(HERE, "flip_*_paper.json")) + glob.glob(os.path.join(HERE, "flip_*_neutral.json"))
+    for path in sorted(arms):
         name = os.path.basename(path)[5:-5]          # e.g. gpt-3.5-turbo_paper
         tables[name] = cells(json.load(open(path))["runs"], load_cache)
 
