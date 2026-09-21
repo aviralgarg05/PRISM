@@ -858,6 +858,19 @@ the gate and the assessor; if a reading is needed to check a label, it follows
 ETHICS.md and is reported as an addition. Results are reported as rates, and no
 essay text or evolved persona text is quoted.
 
+### Outcome of the tenth pre-registration
+
+Both stages complete, 71 of 71 personas, no errors; model versions verified before the run.
+
+| rule | outcome |
+| --- | --- |
+| P1 | **replicates**: 35 personas with k ≥ 10 |
+| P2 | **small**: median \|δ\| 1.231, largest 1.948, short of the 3.0 criterion |
+| S1 | **replicates**: identity mean 43 refusals against 6.75, ratio 6.37 |
+| R | **robust**: the pre-filter alone gives the same P1 label |
+
+The prediction, S1 replicates, held. Detail in FINDINGS section 43.
+
 ### Outcome of the eleventh pre-registration: hosted arms
 
 All four hosted files complete, 12 replicates of each persona, no errors. Verdicts,

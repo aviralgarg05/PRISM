@@ -3170,6 +3170,58 @@ persona searched on a current model would find a way through, which was not trie
 The seed's 7 of 12 on statement 27 under the neutral frame was not a registered
 comparison and is recorded only.
 
+## 43. A third vendor: llama3.2 declines almost everything, and the artefact is everywhere
+
+The tenth pre-registration. llama3.2 (Meta, 3.2B, digest a80c4f17acd5) on the workstation,
+the same 71 personas as every other enumeration (texts proven identical by reproducing
+gemma3's config ids), one replicate each. Stage 1 generated and scored every essay ungated;
+stage 2 re-scored the same essays with gate v3 and refusals at the Neutral midpoint.
+gpt-4o-mini-2024-07-18 assessing; both versions verified before the run. Output in
+`results/m6/m6_results.json`.
+
+Registered verdicts:
+
+| rule | outcome | numbers |
+| --- | --- | --- |
+| P1, prevalence | **replicates** | 35 personas with k ≥ 10, where k counts statements the gate calls REFUSED while the ungated assessor gave a stance |
+| P2, size | **small** | median \|δ\| 1.231 over those 35, which meets the 1.0 criterion; largest 1.948, which misses the 3.0 criterion |
+| S1, identity labels | **replicates section 10** | gated refusals: `blue` 25 and `red` 61, mean 43, against 1, 4, 4 and 18 for the four quadrant personas, mean 6.75; ratio 6.37 |
+| R, robustness | **robust** | the deterministic pre-filter alone also gives replicates |
+
+The prediction, that S1 replicates, held. Section 10 had 51 against 8 with a local assessor
+and the role named; here the text is passed directly and gpt-4o-mini scores it, and the
+ratio is almost the same.
+
+Descriptive, not registered:
+
+- **The artefact is more common here than on any model before.** 737 essays in which
+  llama3.2 declined and then wrote something that the ungated assessor scored as a stance
+  (760 by the pre-filter alone), on 68 of 71 personas. gemma3 had 288 (section 34).
+- **Most personas are not played at all.** Under the gate, the median persona is refused on
+  39 of 62 statements, and 60 of 71 are refused on more than six. Five are feasible:
+  `gandhi` −4.154, `pccentrist` −3.975, `pcleft` −4.231, `pcmoderate` −2.975 and
+  `unintelligentagent` +1.615, which is the authoritarian H\*. The quadrant personas
+  that name positions rather than parties are refused on 1 to 18 statements.
+- **The answers are mild.** 35.5% of stances across the library are at an extreme of the
+  scale, against 76.5% to 97.5% on the other five models (section 37).
+- **The artefact pushes positions libertarian, as on gemma3.** δ is negative, the ungated
+  score further libertarian than the gated one, in 28 of the 35 flagged personas, from
+  −1.948 (`female`) to +1.307 (`unfairhuman`).
+
+Why the size is small when the prevalence is large. A position moves when declined
+statements that were scored as stances become refusals. On llama3.2 most statements were
+already refused outright before the gate (median 26 per persona ungated), so each persona
+has fewer stance-bearing statements left to lose, and the stances it does give are mild.
+The hand-written span is −5.282 to +2.589 ungated and −5.052 to +1.615 gated, a narrow
+range for an instrument that runs from −10 to +10.
+
+So the artefact is now shown on a third vendor, and it is not tied to one model. What varies
+between models is how much it moves a position: far on gemma3, where declined personas were
+otherwise answered at the extremes, and little on llama3.2, where almost nothing is answered
+at all. For the paper, llama3.2 is the clearest case of safety policy as a component: an
+audit of this model with the persona library reports positions for five personas and
+refusals, read or misread, for the rest.
+
 ## What is not yet done
 
 - **No human labels.** Every position rests on gpt-4o-mini as assessor, and the
