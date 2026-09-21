@@ -3095,10 +3095,9 @@ orderings only is what the data show; it is between, as registered.
 
 - **No human labels.** Every position rests on gpt-4o-mini as assessor, and the
   best assessor measured reaches κ 0.604 against gold where two humans reach
-  0.8285 (section 20). Strong assessors agree with each other within 0.72 units
-  on identical essays (section 29), which bounds how far assessors disagree,
-  not how far they are from the truth. A human-labelled sample is still the
-  single thing most needed.
+  0.8285 (section 20). Two strong assessors on all five models move a position by
+  up to 1.77 and a difference between personas by at most 0.65 (section 41), which
+  bounds how far assessors disagree, not how far they are from the truth.
 - **The relationship in section 33 does not hold up.** D = 4.574 − 0.628·H\*
   is fitted on the four points it describes, two of them share a vendor, and H\*
   carries its own winner's-curse error. gemma3 was a genuine held-out
@@ -3112,17 +3111,15 @@ orderings only is what the data show; it is between, as registered.
   under this protocol.
 - **No model's variation/selection split is settled.** With the control arm's
   parents matched to the search arm's, selection reversed from −0.560 to +0.543
-  on gpt-3.5-turbo and from +0.188 to −1.761 on gemma3 (section 36).
+  on gpt-3.5-turbo and from +0.188 to −1.761 on gemma3 (section 36), and changed
+  sign again on gemma3 and gpt-5.4-mini once the answer instruction was removed
+  (section 40).
 - **Intervals on the local models overstate precision.** mistral and gemma3
   replicates are one to five distinct essays per statement, not twelve (section
   36). Only gpt-3.5-turbo and gemma3 have a second independent search run.
-- **The answer-format test has not been run.** Winners on gemma3, mistral and
-  gpt-5.4-mini tell the model to answer Strongly Agree or Strongly Disagree;
-  confirming them with that sentence removed would show how much of the gain it
-  carries (section 36).
-- **gpt-4o-mini stays UNRESOLVED** at n=24: D = +0.656, 95% CI [+0.400, +0.912].
-  Clearly positive and short of the pre-registered +0.50 lower bound. Not topped
-  up further, by design.
+- **gpt-4o-mini is equivalent only under the widened bound.** D = +0.656 at n=24,
+  unresolved under ±0.75 and equivalent under the ±0.89 bound section 41 set. Not
+  topped up further, by design.
 - **The refusal gate has one ambiguous category.** In-voice "I cannot in good
   conscience argue that…" was called REFUSED in 6 of 15 cases (section 34). The
   gemma3 enumeration has since been rescored with the gate (section 34), and its
