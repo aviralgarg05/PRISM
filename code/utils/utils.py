@@ -93,6 +93,11 @@ def get_model(provider, model_name, temperature=0.0, verbose=False, base_url=Non
         # Ollama spellings and drop the ones with no OpenAI equivalent rather
         # than forwarding them and failing inside the client.
         openai_kwargs = dict(common)
+        # Talk to the dated snapshot, not the movable alias. The caller's model
+        # name is untouched, so config ids and caches do not change.
+        from utils.model_versions import pinned_openai_model
+
+        openai_kwargs["model"] = pinned_openai_model(model_name, base_url)
         if "num_predict" in openai_kwargs:
             openai_kwargs["max_tokens"] = openai_kwargs.pop("num_predict")
         for ollama_only in ("num_ctx", "top_k", "repeat_penalty"):
