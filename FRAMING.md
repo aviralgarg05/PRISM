@@ -36,9 +36,9 @@ that runs from −10 to +10.
 
 | component | what it changes | measured | anchor |
 | --- | --- | --- | --- |
-| scoring instrument | the key gives "Agree" zero weight on both axes, so a refusal is scored as agreement | re-scoring a published audit's own deposited answers under a different rule moves a condition 2.68; on unchanged essays a persona moves −6.64 → +2.41 → 0.00 | §34, §37, §38 |
+| scoring instrument | the key gives "Agree" zero weight on both axes, so a refusal is scored as agreement and a persona refused on every statement lands at +2.41 | re-scoring a published audit's own deposited answers with "agree" at the midpoint moves a condition 2.68; one audit, and its conclusion compares conditions | §37, §38 |
 | prompt | which persona, and one inherited sentence telling the model how to answer | persona choice spans 13.33 on gpt-3.5-turbo and 8.35 on gpt-4o-mini; the answer sentence carries 1.10 to 4.33 in eight of ten personas on four models | §23, §40 |
-| safety policy | whether the persona is played at all, and what a decline is scored as | gpt-5.4-mini declines 19 of 69 personas and refuses 16.5% of all answers; removing the answer sentence adds about 14 refusals a run | §34, §35, §37, §40 |
+| safety policy | whether the persona is played at all, and what a decline is read as | a persona gemma3 declines on every statement is reported at −6.64 ungated, against 0.00, the no-position point, once the declines are gated (+2.41 under the Agree coding, a 9.05 swing); on gpt-5.4-mini 17 of 69 personas are infeasible under gate v3 and 16.5% of all answers are refused; gpt-4o-mini refuses statement 4 under every role persona yet endorses statement 27 12 of 12 under an evolved one | §34, §35, §37, §42 |
 | assessor | which stance an essay is given | two strong assessors move a position by up to 1.77 and a difference between personas by at most 0.65; a weak assessor moves a baseline 6.86 and flips its quadrant | §8, §41 |
 | model | which model is asked | the same personas rank differently across models, ρ 0.53 to 0.69 among the personas both will play | §35 |
 
@@ -55,7 +55,7 @@ of the search winner over the best hand-written persona, n=12 in randomised comp
 | model | winner carries the answer sentence | D as published | D with the sentence removed from every arm | reading |
 | --- | --- | --- | --- | --- |
 | gpt-3.5-turbo | no (§36) | −0.342, then +0.064 | not applicable | no gain, on the model the library was written for |
-| gpt-4o-mini | no (§36) | +0.656 [+0.400, +0.912] | not applicable | equivalent under the widened bound (§41) |
+| gpt-4o-mini | no (§36) | +0.656, 90% interval [+0.443, +0.869] | not applicable | equivalent under the widened bound (§41) |
 | gemma3 | yes, both runs | +1.081, then +0.385 | −1.141 and −0.714 | the gain was the sentence |
 | mistral | baseline yes, winner no | +3.380 | +7.733 | real, and larger than published |
 | gpt-5.4-mini | yes, both arms | +1.365 | +4.891 | real, and larger than published |
@@ -127,9 +127,14 @@ Every entry above is measured on held-fixed text or under a registered rule.
 The assessor records Refused only when no essay is provided, so a model that declines a persona
 and then argues against it is scored as holding that stance (§34). Prevalence: gemma3 288 such
 essays, 229 of them given a strong stance and 35 correctly Refused; gpt-3.5-turbo 15; mistral
-14; gpt-4o-mini 1 (§34). On gpt-5.4-mini, 19 of the 69 hand-written personas are declined on
-more than six statements, which makes them infeasible under the rule the search applies to its
-own candidates (§35).
+14; gpt-4o-mini 1 (§34). On gpt-5.4-mini, 17 of the 69 hand-written personas are infeasible under
+gate v3, most of them declined on more than six statements (§35; 19 under gate v2).
+
+The guardrail is keyed on wording. gpt-4o-mini refuses statement 4, racial superiority, under
+every persona that carries a role, and endorses statement 27, segregation in politer words, 12
+of 12 under the evolved personas from section 27, against 0 of 12 with no persona (§42). The same
+personas make gpt-3.5-turbo endorse both statements 12 of 12, with or without PRISM's instruction
+to argue a side, and gpt-5.4-mini refuses them throughout (§42).
 
 The gate is a component with its own error, not a fix: v1 called 9 of 20 ordinary essays
 refusals; v2 passed a hand-labelled set 33/33 and 0/40 and then, in its first production use,
@@ -140,7 +145,8 @@ The persona-blind ablation has been run and cannot answer the question as posed:
 case was drawn from essays the persona-shown gate had already called REFUSED (§38). What remains
 is labelling a sample of the 176 essays where the gate's model stage overturns the pre-filter,
 and a sample not selected by any gate, under the exposure note in [ETHICS.md](ETHICS.md). A
-second refusing model is also still needed, so the artefact is not a one-model result.
+third vendor, llama3.2, is running under the tenth pre-registration, so the artefact is not a
+two-model result.
 
 The answer instruction is a compliance lever. Without it, gpt-5.4-mini declines its own H\*
 persona on 14 statements a run instead of almost none, and every run crosses the feasibility
@@ -214,7 +220,8 @@ reported positions carry that coding decision (§37).
 | 6 | Second labeller on the gate categories, and labelling gate overturns | people's time | RQ3 | needs people |
 | 7 | Crossed design for resolution, versions recorded | about $100 | RQ4 | optional after §41 |
 | 8 | Read published audits against §31 | reading | RQ5 | done for eight papers, §37 and §38 |
-| 9 | Second refusing model, enumerated ungated and gated | 3–5 local days | RQ3 | not started |
+| 9 | Second refusing model, llama3.2, enumerated ungated and gated | about a day local | RQ3 | running, tenth pre-registration |
+| 10 | Stance flip: frame ablation and transfer (§27) | under $2 hosted, local time | RQ3 | hosted done, §42; local running, eleventh pre-registration |
 
 ## Where the novelty has to sit
 
