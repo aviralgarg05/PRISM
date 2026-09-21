@@ -121,9 +121,8 @@ distribution [§36], and led to the answer-sentence ablation [§40].
 - **3.6 Decision rules.** Positive, negative, equivalent, unresolved (first pre-registration);
   equivalence bound widened from ±0.75 to ±0.89 by the sixth (§41). Eleven pre-registrations.
   The first nine have recorded outcomes (the third's through the fifth, which re-registered it
-  under gate v3). The tenth (llama3.2) is registered and has no recorded outcome yet. The
-  eleventh (stance-flip frame ablation and transfer) has its hosted arms recorded (§42) and its
-  local arms pending.
+  under gate v3). The tenth (llama3.2) and eleventh (stance-flip frame ablation and transfer)
+  have recorded outcomes (§43, §42).
 - **3.7 Forced choice and answer-format ablation** (eighth, seventh and ninth pre-registrations;
   §39, §40).
 - **3.8 Stance-flip frame ablation and transfer** (eleventh pre-registration; §42), if the
@@ -214,9 +213,9 @@ about how to answer decides whether an authoritarian persona is played at all.
 | Table 10 | gpt-5.4-mini: 52 of 69 feasible under gate v3; 16.5% of stances on the 43 social statements Refused, one replicate per persona (§37); H\* stripped of the sentence refused on 14.3 statements a run against 0.1 intact, δ +3.525 with refused statements excluded; forced choice drew no refusals on any model | §35, §37, §40, §39 |
 | text | if the stance flip appears (Decision 5): gpt-4o-mini refuses statement 4 under every persona that carries a role, and endorses statement 27 in 12 of 12 replicates under both evolved personas against 0 of 12 with no persona, so its guardrail is keyed on wording; gpt-5.4-mini endorses neither, every evolved-persona essay a gate refusal. Rates only, no persona text | §42; eleventh pre-registration |
 
-**Missing.** A second refusing model: the tenth pre-registration (llama3.2) is registered with
-no recorded outcome yet, and gemma3 supplies most decline-then-write cases (§34). The local
-arms of the eleventh pre-registration are pending (§42). Human labelling of the 176 gate
+**Missing.** The artefact is now on three vendors, with llama3.2 supplying 737 decline-then-write
+essays against gemma3's 288, but its size is small there, largest 1.948 (§43); the local
+stance-flip verdicts are single essays at temperature 0 (§42). Human labelling of the 176 gate
 overturns and of a sample no gate selected, under ETHICS.md. The in-voice category is
 ambiguous, 6 of 15 (§34). Why gpt-5.4-mini refuses `red` (15) and `gay` (13), gate v2 counts,
 is unread (§35).
@@ -295,12 +294,12 @@ what each audit read in §37 and §38 declares. Table 14 is not assembled.
 | §31's asymmetry between the two ends | carried by the sentence in the libertarian headline | §40 |
 | "the unroled default is the least assessor-stable measurement" | boundary positions move more | §41 |
 | gemma3's search gain as a move in position | both winners fall below the baseline without the sentence | §40 |
-| the stance flip on the local models, on statements other than 4 and 27, or as something a search on a current model would find | the local arms of the eleventh pre-registration are pending; only statements 4 and 27 were tested; whether a persona searched on a current model would find a way through was not tried | §42; eleventh pre-registration |
+| the stance flip on the local models, on statements other than 4 and 27, or as something a search on a current model would find | the local verdicts rest on one essay per cell at temperature 0 on gemma3 and mistral; only statements 4 and 27 were tested; whether a persona searched on a current model would find a way through was not tried | §42; eleventh pre-registration |
 | any position as true | no human labels; the assessor used, gpt-4o-mini, κ 0.604 (§18); the best measured, gpt-4o, κ 0.666 (§22); humans 0.8285 (§18) | §18, §22; "What is not yet done" |
 | anything about the economic axis, or the libertarian direction under search | under the §32 protocol every search pushed social upward; the §27 libertarian search ran on a saturated surrogate and measured nothing about the model's libertarian reach; the economic axis has not been searched under this protocol | §27, §32; "What is not yet done" |
 | that search finds a model's position | depends on the model and one sentence; asked directly, no winner beats its baseline by more than 0.205 (forced-choice D −5.252, −1.965 and +0.205, a reading) | §39, §40 |
 | that Motoki et al.'s conclusion is overturned | theirs is a between-condition comparison | §37 |
-| the refusal artefact as general across vendors | rests mostly on gemma3 until the tenth pre-registration has an outcome | §34 |
+| the refusal artefact's size as general across vendors | prevalent on three vendors, but large only on gemma3 and small on llama3.2 (largest 1.948) | §34, §43 |
 | newer models behave differently | mistral behaves like gpt-5.4-mini on the null counts: no persona clears the authoritarian null on either | §38 |
 | a search-time maximum as a result | shrink up to 1.513 on confirmation | §32 |
 
@@ -345,13 +344,13 @@ saturation, §27, §28), showed run-to-run spread (§36) and led to the answer-s
    its note as a starting draft for one).
 2. **One paper or two**: the measurement paper (RQ1 to RQ5), and possibly a separate paper on
    search as a probe of an evaluation instrument (§26, §27, §28, §32).
-3. **Which open experiments to wait for before submission**: the second refusing model (tenth
-   pre-registration), the local stance-flip arms (eleventh), the second labeller on gate
+3. **Which open experiments to wait for before submission**: the second labeller on gate
    categories (needs people), a second published audit re-scored, the optional crossed design
    (FRAMING experiments 6, 7, 9 and 10; the re-scoring is not yet listed there).
 4. **Whether anyone besides Aviral reads essays for labelling**, and whether that needs
    Stirling ethics approval (ETHICS.md, exposure protocol).
 5. **Whether the stance flip appears, and where**: its hosted arms are a registered outcome
-   (§42), its local arms are pending, and its persona text is withheld under ETHICS.md.
+   (§42), its local verdicts are single essays, and its persona text is withheld under
+   ETHICS.md.
 6. **Whether to contact the PRISM and Motoki authors** before submission about the refusal
    artefact (§34), the under-specified `pcleftauth` clause (§24) and the re-scored answers (§37).

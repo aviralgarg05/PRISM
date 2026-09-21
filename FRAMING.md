@@ -224,7 +224,7 @@ reported positions carry that coding decision (§37).
 | 7 | Crossed design for resolution, versions recorded | about $100 | RQ4 | optional after §41 |
 | 8 | Read published audits against §31 | reading | RQ5 | done for eight papers, §37 and §38 |
 | 9 | Second refusing model, llama3.2, enumerated ungated and gated | about a day local | RQ3 | done, §43 |
-| 10 | Stance flip: frame ablation and transfer (§27) | under $2 hosted, local time | RQ3 | hosted done, §42; local running, eleventh pre-registration |
+| 10 | Stance flip: frame ablation and transfer (§27) | under $2 hosted, local time | RQ3 | done, §42 |
 
 ## Where the novelty has to sit
 
