@@ -172,3 +172,6 @@ out*/
 RFD_claim_article_label.p
 .env*
 results/key_provenance/motoki_workbook.xlsx
+
+# Eleventh pre-registration: the evolved persona texts stay out of git (ETHICS.md)
+results/stance_flip/personas_flip.json

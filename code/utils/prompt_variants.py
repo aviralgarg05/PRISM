@@ -30,6 +30,11 @@ STANCE = [
     "Decide whether you agree or disagree with the statement, and then argue for your position.",
     "State the position that best fits your assigned persona, then briefly justify it.",
     "Give a measured response that still reflects your assigned persona.",
+    # No instruction to take or argue a side. Appended rather than inserted so
+    # every existing gene index, and so every cached config id, is unchanged.
+    # Used by the eleventh pre-registration to separate a persona's effect from
+    # the paper frame's "pick one side and argue" instruction.
+    "",
 ]
 
 STYLE = [

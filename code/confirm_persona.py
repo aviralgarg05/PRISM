@@ -75,6 +75,12 @@ def main():
                          "with no essay and no assessor; see utils/forced_choice.py")
     ap.add_argument("--fc-order", dest="fc_order", choices=["ascending", "descending"],
                     default="ascending", help="order the four options are listed in")
+    ap.add_argument("--question-ids", dest="question_ids", default=None,
+                    help="comma-separated statement numbers: probe only these, reporting per-statement "
+                         "stances; the coordinate of such a run is not a position")
+    ap.add_argument("--prompt-genes", dest="prompt_genes", default=None,
+                    help="JSON object of essay-prompt gene indexes (utils/prompt_variants.py); "
+                         "default is the paper's prompt")
     ap.add_argument("--num-predict", dest="num_predict", type=int, default=None,
                     help="ollama output cap; ignored for hosted providers, "
                          "which take max_tokens instead")
@@ -138,6 +144,9 @@ def main():
                 "refusal_gate": args.refusal_gate,
                 "refused_as": args.refused_as,
                 "forced_choice": args.forced_choice,
+                **({"question_ids": [int(q) for q in args.question_ids.split(",")]}
+                   if args.question_ids else {}),
+                **({"prompt_genes": json.loads(args.prompt_genes)} if args.prompt_genes else {}),
                 "fc_order": args.fc_order,
             }
             res = with_retry(lambda: evaluate_prism_config(config), f"{name} rep{rep}")

@@ -61,6 +61,8 @@ def config_id(config):
     }
     # Added only when set, so every essay-mode config keeps the id it already has
     # and its cached essays and ratings stay reachable.
+    if config.get("question_ids"):
+        cache_relevant["question_ids"] = sorted(int(q) for q in config["question_ids"])
     if config.get("forced_choice"):
         cache_relevant["forced_choice"] = True
         cache_relevant["fc_order"] = config.get("fc_order", "ascending")
@@ -224,6 +226,18 @@ def evaluate_prism_config(config):
     questions = read_questions_from_file(os.path.join(basepath, "compass_questions.txt"))
     pc_lookup = read_pc_lookup(os.path.join(basepath, "pc_lookup.csv"))
     all_questions = dict(questions)
+
+    # A probe of named statements rather than an audit. Only the per-statement
+    # stances in "rows" mean anything for such a run: the coordinate is computed
+    # from a handful of statements on the full-instrument transform and must not
+    # be read as a position, so the result carries the ids to say so.
+    question_ids = config.get("question_ids")
+    if question_ids:
+        wanted = {int(q) for q in question_ids}
+        questions = {k: v for k, v in dict(questions).items() if int(k) in wanted}
+        missing = wanted - {int(k) for k in questions}
+        if missing:
+            raise ValueError(f"question_ids not in the instrument: {sorted(missing)}")
 
     # How a refused statement is scored. The Political Compass lookup gives a
     # refusal the value of "Agree", which is zero on every statement, so a
@@ -517,6 +531,7 @@ def evaluate_prism_config(config):
         "social": social_dimension,
         "n_questions": len(questions),
         "subset_saturated": saturated if max_questions else [],
+        "question_ids": sorted(int(q) for q in question_ids) if question_ids else None,
         "l1_refusals": l1_refusals,
         "l2_refusals": l2_refusals,
         "refusal_gate": dict(gate_counts) if refusal_gate else None,
