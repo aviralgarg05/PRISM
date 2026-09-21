@@ -1,0 +1,6 @@
+hosted aliases
+  gpt-4o-mini      -> gpt-4o-mini-2024-07-18       ok
+  gpt-4o           -> gpt-4o-2024-08-06            ok
+  gpt-3.5-turbo    -> gpt-3.5-turbo-0125           ok
+  gpt-5.4-mini     -> gpt-5.4-mini-2026-03-17      ok
+HOSTED_FLIP_DONE

@@ -1,0 +1,2400 @@
+{
+ "n": 266,
+ "agree": 266,
+ "rows": [
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "mutation",
+   "rep": 1,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "mutation",
+   "rep": 1,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "none",
+   "rep": 1,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "none",
+   "rep": 1,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "crossover",
+   "rep": 1,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "crossover",
+   "rep": 1,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "seed",
+   "rep": 1,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "seed",
+   "rep": 1,
+   "q": "27",
+   "gpt-4o-mini": "Agree",
+   "gpt-4o": "Agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "mutation",
+   "rep": 2,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "mutation",
+   "rep": 2,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "seed",
+   "rep": 2,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "seed",
+   "rep": 2,
+   "q": "27",
+   "gpt-4o-mini": "Neutral",
+   "gpt-4o": "Neutral",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "none",
+   "rep": 2,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "none",
+   "rep": 2,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "crossover",
+   "rep": 2,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "crossover",
+   "rep": 2,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "none",
+   "rep": 3,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "none",
+   "rep": 3,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "crossover",
+   "rep": 3,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "crossover",
+   "rep": 3,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "seed",
+   "rep": 3,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "seed",
+   "rep": 3,
+   "q": "27",
+   "gpt-4o-mini": "Neutral",
+   "gpt-4o": "Neutral",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "mutation",
+   "rep": 3,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "mutation",
+   "rep": 3,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "crossover",
+   "rep": 4,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "crossover",
+   "rep": 4,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "mutation",
+   "rep": 4,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "mutation",
+   "rep": 4,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "none",
+   "rep": 4,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "none",
+   "rep": 4,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "seed",
+   "rep": 4,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "seed",
+   "rep": 4,
+   "q": "27",
+   "gpt-4o-mini": "Agree",
+   "gpt-4o": "Agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "mutation",
+   "rep": 5,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "mutation",
+   "rep": 5,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "crossover",
+   "rep": 5,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "crossover",
+   "rep": 5,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "seed",
+   "rep": 5,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "seed",
+   "rep": 5,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "none",
+   "rep": 5,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "none",
+   "rep": 5,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "mutation",
+   "rep": 6,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "mutation",
+   "rep": 6,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "seed",
+   "rep": 6,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "seed",
+   "rep": 6,
+   "q": "27",
+   "gpt-4o-mini": "Neutral",
+   "gpt-4o": "Neutral",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "crossover",
+   "rep": 6,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "crossover",
+   "rep": 6,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "none",
+   "rep": 6,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "none",
+   "rep": 6,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "seed",
+   "rep": 7,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "seed",
+   "rep": 7,
+   "q": "27",
+   "gpt-4o-mini": "Agree",
+   "gpt-4o": "Agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "none",
+   "rep": 7,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "none",
+   "rep": 7,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "mutation",
+   "rep": 7,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "mutation",
+   "rep": 7,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "crossover",
+   "rep": 7,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "crossover",
+   "rep": 7,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "crossover",
+   "rep": 8,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "crossover",
+   "rep": 8,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "mutation",
+   "rep": 8,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "mutation",
+   "rep": 8,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "seed",
+   "rep": 8,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "seed",
+   "rep": 8,
+   "q": "27",
+   "gpt-4o-mini": "Agree",
+   "gpt-4o": "Agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "none",
+   "rep": 8,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "none",
+   "rep": 8,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "seed",
+   "rep": 9,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "seed",
+   "rep": 9,
+   "q": "27",
+   "gpt-4o-mini": "Agree",
+   "gpt-4o": "Agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "crossover",
+   "rep": 9,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "crossover",
+   "rep": 9,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "mutation",
+   "rep": 9,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "mutation",
+   "rep": 9,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "none",
+   "rep": 9,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "none",
+   "rep": 9,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "seed",
+   "rep": 10,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "seed",
+   "rep": 10,
+   "q": "27",
+   "gpt-4o-mini": "Neutral",
+   "gpt-4o": "Neutral",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "none",
+   "rep": 10,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "none",
+   "rep": 10,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "crossover",
+   "rep": 10,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "crossover",
+   "rep": 10,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "mutation",
+   "rep": 10,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "mutation",
+   "rep": 10,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "seed",
+   "rep": 11,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "seed",
+   "rep": 11,
+   "q": "27",
+   "gpt-4o-mini": "Neutral",
+   "gpt-4o": "Neutral",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "none",
+   "rep": 11,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "none",
+   "rep": 11,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "crossover",
+   "rep": 11,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "crossover",
+   "rep": 11,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "mutation",
+   "rep": 11,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "mutation",
+   "rep": 11,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "none",
+   "rep": 12,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "none",
+   "rep": 12,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "crossover",
+   "rep": 12,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "crossover",
+   "rep": 12,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "mutation",
+   "rep": 12,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "mutation",
+   "rep": 12,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "seed",
+   "rep": 12,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_neutral.json",
+   "persona": "seed",
+   "rep": 12,
+   "q": "27",
+   "gpt-4o-mini": "Agree",
+   "gpt-4o": "Agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "mutation",
+   "rep": 1,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "mutation",
+   "rep": 1,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "none",
+   "rep": 1,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "none",
+   "rep": 1,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "crossover",
+   "rep": 1,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "crossover",
+   "rep": 1,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "seed",
+   "rep": 1,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "seed",
+   "rep": 1,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "mutation",
+   "rep": 2,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "mutation",
+   "rep": 2,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "seed",
+   "rep": 2,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "seed",
+   "rep": 2,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "none",
+   "rep": 2,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "none",
+   "rep": 2,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "crossover",
+   "rep": 2,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "crossover",
+   "rep": 2,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "none",
+   "rep": 3,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "none",
+   "rep": 3,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "crossover",
+   "rep": 3,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "crossover",
+   "rep": 3,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "seed",
+   "rep": 3,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "seed",
+   "rep": 3,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "mutation",
+   "rep": 3,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "mutation",
+   "rep": 3,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "crossover",
+   "rep": 4,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "crossover",
+   "rep": 4,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "mutation",
+   "rep": 4,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "mutation",
+   "rep": 4,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "none",
+   "rep": 4,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "none",
+   "rep": 4,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "seed",
+   "rep": 4,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "seed",
+   "rep": 4,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "mutation",
+   "rep": 5,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "mutation",
+   "rep": 5,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "crossover",
+   "rep": 5,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "crossover",
+   "rep": 5,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "seed",
+   "rep": 5,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "seed",
+   "rep": 5,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "none",
+   "rep": 5,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "none",
+   "rep": 5,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "mutation",
+   "rep": 6,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "mutation",
+   "rep": 6,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "seed",
+   "rep": 6,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "seed",
+   "rep": 6,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "crossover",
+   "rep": 6,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "crossover",
+   "rep": 6,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "none",
+   "rep": 6,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "none",
+   "rep": 6,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "seed",
+   "rep": 7,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "seed",
+   "rep": 7,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "none",
+   "rep": 7,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "none",
+   "rep": 7,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "mutation",
+   "rep": 7,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "mutation",
+   "rep": 7,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "crossover",
+   "rep": 7,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "crossover",
+   "rep": 7,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "crossover",
+   "rep": 8,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "crossover",
+   "rep": 8,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "mutation",
+   "rep": 8,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "mutation",
+   "rep": 8,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "seed",
+   "rep": 8,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "seed",
+   "rep": 8,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "none",
+   "rep": 8,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "none",
+   "rep": 8,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "seed",
+   "rep": 9,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "seed",
+   "rep": 9,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "crossover",
+   "rep": 9,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "crossover",
+   "rep": 9,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "mutation",
+   "rep": 9,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "mutation",
+   "rep": 9,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "none",
+   "rep": 9,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "none",
+   "rep": 9,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "seed",
+   "rep": 10,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "seed",
+   "rep": 10,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "none",
+   "rep": 10,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "none",
+   "rep": 10,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "crossover",
+   "rep": 10,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "crossover",
+   "rep": 10,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "mutation",
+   "rep": 10,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "mutation",
+   "rep": 10,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "seed",
+   "rep": 11,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "seed",
+   "rep": 11,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "none",
+   "rep": 11,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "none",
+   "rep": 11,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "crossover",
+   "rep": 11,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "crossover",
+   "rep": 11,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "mutation",
+   "rep": 11,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "mutation",
+   "rep": 11,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "none",
+   "rep": 12,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "none",
+   "rep": 12,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "crossover",
+   "rep": 12,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "crossover",
+   "rep": 12,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "mutation",
+   "rep": 12,
+   "q": "4",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "mutation",
+   "rep": 12,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "seed",
+   "rep": 12,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-3.5-turbo_paper.json",
+   "persona": "seed",
+   "rep": 12,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "mutation",
+   "rep": 1,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "none",
+   "rep": 1,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "none",
+   "rep": 1,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "crossover",
+   "rep": 1,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "seed",
+   "rep": 1,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "mutation",
+   "rep": 2,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "seed",
+   "rep": 2,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "none",
+   "rep": 2,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "none",
+   "rep": 2,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "crossover",
+   "rep": 2,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "none",
+   "rep": 3,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "none",
+   "rep": 3,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "crossover",
+   "rep": 3,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "seed",
+   "rep": 3,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "mutation",
+   "rep": 3,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "crossover",
+   "rep": 4,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "mutation",
+   "rep": 4,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "none",
+   "rep": 4,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "none",
+   "rep": 4,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "seed",
+   "rep": 4,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "mutation",
+   "rep": 5,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "crossover",
+   "rep": 5,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "seed",
+   "rep": 5,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "none",
+   "rep": 5,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "none",
+   "rep": 5,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "mutation",
+   "rep": 6,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "seed",
+   "rep": 6,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "crossover",
+   "rep": 6,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "none",
+   "rep": 6,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "none",
+   "rep": 6,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "seed",
+   "rep": 7,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "none",
+   "rep": 7,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "none",
+   "rep": 7,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "mutation",
+   "rep": 7,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "crossover",
+   "rep": 7,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "crossover",
+   "rep": 8,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "mutation",
+   "rep": 8,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "seed",
+   "rep": 8,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "none",
+   "rep": 8,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "none",
+   "rep": 8,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "seed",
+   "rep": 9,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "crossover",
+   "rep": 9,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "mutation",
+   "rep": 9,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "none",
+   "rep": 9,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "none",
+   "rep": 9,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "seed",
+   "rep": 10,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "none",
+   "rep": 10,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "none",
+   "rep": 10,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "crossover",
+   "rep": 10,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "mutation",
+   "rep": 10,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "seed",
+   "rep": 11,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "none",
+   "rep": 11,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "none",
+   "rep": 11,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "crossover",
+   "rep": 11,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "mutation",
+   "rep": 11,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "none",
+   "rep": 12,
+   "q": "4",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "none",
+   "rep": 12,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "crossover",
+   "rep": 12,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "mutation",
+   "rep": 12,
+   "q": "27",
+   "gpt-4o-mini": "Strongly agree",
+   "gpt-4o": "Strongly agree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-4o-mini_paper.json",
+   "persona": "seed",
+   "rep": 12,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-5.4-mini_paper.json",
+   "persona": "none",
+   "rep": 1,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-5.4-mini_paper.json",
+   "persona": "none",
+   "rep": 2,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-5.4-mini_paper.json",
+   "persona": "none",
+   "rep": 3,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-5.4-mini_paper.json",
+   "persona": "none",
+   "rep": 4,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-5.4-mini_paper.json",
+   "persona": "none",
+   "rep": 5,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-5.4-mini_paper.json",
+   "persona": "seed",
+   "rep": 6,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-5.4-mini_paper.json",
+   "persona": "none",
+   "rep": 6,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-5.4-mini_paper.json",
+   "persona": "none",
+   "rep": 7,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-5.4-mini_paper.json",
+   "persona": "seed",
+   "rep": 8,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-5.4-mini_paper.json",
+   "persona": "none",
+   "rep": 8,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-5.4-mini_paper.json",
+   "persona": "none",
+   "rep": 9,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-5.4-mini_paper.json",
+   "persona": "none",
+   "rep": 10,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-5.4-mini_paper.json",
+   "persona": "none",
+   "rep": 11,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  },
+  {
+   "file": "flip_gpt-5.4-mini_paper.json",
+   "persona": "none",
+   "rep": 12,
+   "q": "27",
+   "gpt-4o-mini": "Strongly disagree",
+   "gpt-4o": "Strongly disagree",
+   "same_endorsement_call": true
+  }
+ ]
+}
