@@ -1,0 +1,339 @@
+% refs.bib -- references for paper/RELATED_WORK.md
+%
+% Every entry below was checked on 2026-09-21 against the publisher of record
+% (ACL Anthology BibTeX export, NeurIPS or ICLR proceedings BibTeX export, the
+% Crossref record for the DOI, the Harvard Dataverse API, the GitHub API for the
+% two code repositories, or the arXiv abstract page). Keys follow
+% lastnameYEARword.
+%
+% Starting set, supplied with the drafting task. The task listed
+% rottger2024political, wright2024tropes, dominguezolmedo2024questioning,
+% sclar2024quantifying, motoki2024more, feng2023pretraining,
+% rozado2024political, hartmann2023political, ceron2024beyond and
+% azzopardi2024prism, and asked for the works FINDINGS.md sections 37-38 cite,
+% which adds rutinowski2024selfperception and kamal2025detailed (section 37).
+% Which project files cite them: FINDINGS sections 37-38 cite motoki2024more,
+% rutinowski2024selfperception (arXiv version), kamal2025detailed,
+% rottger2024political, wright2024tropes and ceron2024beyond. FRAMING.md
+% "Where the novelty has to sit" cites rottger2024political, wright2024tropes,
+% dominguezolmedo2024questioning, sclar2024quantifying, ceron2024beyond and
+% rozado2024political. FINDINGS refers to azzopardi2024prism throughout as
+% "the paper". Neither file cites hartmann2023political or
+% feng2023pretraining; they are here because the task listed them.
+% Artefacts of starting-set papers, read in FINDINGS: motoki2023replication
+% (section 37), rottger2024code and wright2024code (section 38).
+% Added works (six): zheng2023judging, tjuatja2024biases, rottger2024xstest,
+% perez2022red, riccio2020frontier, sorokin2026stellar.
+
+% ---------------------------------------------------------------------------
+% Political audits of LLMs
+% ---------------------------------------------------------------------------
+
+% Source: ACL Anthology export for 2024.acl-long.816; Crossref agrees.
+@inproceedings{rottger2024political,
+  title     = {Political Compass or Spinning Arrow? {T}owards More Meaningful Evaluations for Values and Opinions in Large Language Models},
+  author    = {R{\"o}ttger, Paul and Hofmann, Valentin and Pyatkin, Valentina and Hinck, Musashi and Kirk, Hannah and Schuetze, Hinrich and Hovy, Dirk},
+  editor    = {Ku, Lun-Wei and Martins, Andre and Srikumar, Vivek},
+  booktitle = {Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)},
+  month     = aug,
+  year      = {2024},
+  address   = {Bangkok, Thailand},
+  publisher = {Association for Computational Linguistics},
+  pages     = {15295--15311},
+  doi       = {10.18653/v1/2024.acl-long.816},
+  url       = {https://aclanthology.org/2024.acl-long.816/}
+}
+
+% Source: GitHub API (repository created 2024-01-18; description names the
+% ACL 2024 paper). File read in FINDINGS section 38:
+% notebooks/utils/pct_helpers.py.
+@misc{rottger2024code,
+  title        = {llm-values-pct: code for ``{P}olitical Compass or Spinning Arrow?''},
+  author       = {R{\"o}ttger, Paul and Hofmann, Valentin and Pyatkin, Valentina and Hinck, Musashi and Kirk, Hannah and Schuetze, Hinrich and Hovy, Dirk},
+  year         = {2024},
+  howpublished = {GitHub repository},
+  url          = {https://github.com/paul-rottger/llm-values-pct},
+  urldate      = {2026-09-21}
+}
+
+% Source: ACL Anthology export for 2024.findings-emnlp.995; Crossref agrees.
+@inproceedings{wright2024tropes,
+  title     = {{LLM} Tropes: Revealing Fine-Grained Values and Opinions in Large Language Models},
+  author    = {Wright, Dustin and Arora, Arnav and Borenstein, Nadav and Yadav, Srishti and Belongie, Serge and Augenstein, Isabelle},
+  editor    = {Al-Onaizan, Yaser and Bansal, Mohit and Chen, Yun-Nung},
+  booktitle = {Findings of the Association for Computational Linguistics: EMNLP 2024},
+  month     = nov,
+  year      = {2024},
+  address   = {Miami, Florida, USA},
+  publisher = {Association for Computational Linguistics},
+  pages     = {17085--17112},
+  doi       = {10.18653/v1/2024.findings-emnlp.995},
+  url       = {https://aclanthology.org/2024.findings-emnlp.995/}
+}
+
+% Source: GitHub API (repository created 2024-06-26). File read in FINDINGS
+% section 38: src/analysis.ipynb.
+@misc{wright2024code,
+  title        = {llm-pct-tropes: code for ``{R}evealing Fine-Grained Values and Opinions in Large Language Models''},
+  author       = {Wright, Dustin and Arora, Arnav and Borenstein, Nadav and Yadav, Srishti and Belongie, Serge and Augenstein, Isabelle},
+  year         = {2024},
+  howpublished = {GitHub repository},
+  url          = {https://github.com/copenlu/llm-pct-tropes},
+  urldate      = {2026-09-21}
+}
+
+% Source: Crossref for 10.1007/s11127-023-01097-2 (online 2023-08-17, issue
+% 2024) and the UEA repository record.
+@article{motoki2024more,
+  title   = {More human than human: measuring {ChatGPT} political bias},
+  author  = {Motoki, Fabio and Pinho Neto, Valdemar and Rodrigues, Victor},
+  journal = {Public Choice},
+  volume  = {198},
+  number  = {1--2},
+  pages   = {3--23},
+  year    = {2024},
+  doi     = {10.1007/s11127-023-01097-2}
+}
+
+% Source: Harvard Dataverse API for doi:10.7910/DVN/KGMEYI (published
+% 2023-02-27; version 4.0 released 2023-08-18; files doFile-final.do and
+% GPT dados.xlsx). Used in FINDINGS section 37.
+@misc{motoki2023replication,
+  title     = {Replication Data for: More Human than Human: Measuring {ChatGPT} Political Bias},
+  author    = {Motoki, Fabio and Pinho Neto, Valdemar and Rodrigues, Victor},
+  year      = {2023},
+  publisher = {Harvard Dataverse},
+  version   = {V4},
+  doi       = {10.7910/DVN/KGMEYI},
+  url       = {https://doi.org/10.7910/DVN/KGMEYI}
+}
+
+% Source: ACL Anthology export for 2023.acl-long.656; Crossref agrees.
+@inproceedings{feng2023pretraining,
+  title     = {From Pretraining Data to Language Models to Downstream Tasks: Tracking the Trails of Political Biases Leading to Unfair {NLP} Models},
+  author    = {Feng, Shangbin and Park, Chan Young and Liu, Yuhan and Tsvetkov, Yulia},
+  editor    = {Rogers, Anna and Boyd-Graber, Jordan and Okazaki, Naoaki},
+  booktitle = {Proceedings of the 61st Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)},
+  month     = jul,
+  year      = {2023},
+  address   = {Toronto, Canada},
+  publisher = {Association for Computational Linguistics},
+  pages     = {11737--11762},
+  doi       = {10.18653/v1/2023.acl-long.656},
+  url       = {https://aclanthology.org/2023.acl-long.656/}
+}
+
+% Source: Crossref for 10.1371/journal.pone.0306621 and the PLOS ONE article page.
+@article{rozado2024political,
+  title   = {The political preferences of {LLMs}},
+  author  = {Rozado, David},
+  journal = {PLOS ONE},
+  volume  = {19},
+  number  = {7},
+  pages   = {e0306621},
+  year    = {2024},
+  doi     = {10.1371/journal.pone.0306621}
+}
+
+% Source: arXiv abstract page for 2301.01768 (single version, 2023-01-05; no
+% journal reference). Found only as a preprint (arXiv, SSRN).
+@misc{hartmann2023political,
+  title         = {The political ideology of conversational {AI}: Converging evidence on {ChatGPT}'s pro-environmental, left-libertarian orientation},
+  author        = {Hartmann, Jochen and Schwenzow, Jasper and Witte, Maximilian},
+  year          = {2023},
+  eprint        = {2301.01768},
+  archivePrefix = {arXiv},
+  doi           = {10.48550/arXiv.2301.01768},
+  url           = {https://arxiv.org/abs/2301.01768}
+}
+
+% Source: ACL Anthology export for 2024.tacl-1.76; Crossref agrees.
+@article{ceron2024beyond,
+  title     = {Beyond Prompt Brittleness: Evaluating the Reliability and Consistency of Political Worldviews in {LLMs}},
+  author    = {Ceron, Tanise and Falk, Neele and Bari{\'c}, Ana and Nikolaev, Dmitry and Pad{\'o}, Sebastian},
+  journal   = {Transactions of the Association for Computational Linguistics},
+  volume    = {12},
+  pages     = {1378--1400},
+  year      = {2024},
+  address   = {Cambridge, MA},
+  publisher = {MIT Press},
+  doi       = {10.1162/tacl_a_00710},
+  url       = {https://aclanthology.org/2024.tacl-1.76/}
+}
+
+% Source: arXiv abstract page for 2410.18906 (v1 2024-10-24, v2 2024-11-10) and
+% the Strathprints record, which lists it as an arXiv preprint.
+@misc{azzopardi2024prism,
+  title         = {{PRISM}: A Methodology for Auditing Biases in Large Language Models},
+  author        = {Azzopardi, Leif and Moshfeghi, Yashar},
+  year          = {2024},
+  eprint        = {2410.18906},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CL},
+  doi           = {10.48550/arXiv.2410.18906},
+  url           = {https://arxiv.org/abs/2410.18906}
+}
+
+% Source: Crossref for 10.1155/2024/7115633 (published 2024-01-22). The
+% journal version adds Moritz Roidl to the arXiv version's author list
+% (arXiv 2304.07333). FINDINGS section 37 cites the arXiv version, and so does
+% the PRISM paper (arXiv 2410.18906, reference list: Rutinowski, Franke,
+% Endendyk, Dormuth and Pauly, 2023, checked 2026-09-21). RELATED_WORK.md
+% cites only what both versions report, so the journal version stands.
+@article{rutinowski2024selfperception,
+  title   = {The Self-Perception and Political Biases of {ChatGPT}},
+  author  = {Rutinowski, J{\'e}r{\^o}me and Franke, Sven and Endendyk, Jan and Dormuth, Ina and Roidl, Moritz and Pauly, Markus},
+  journal = {Human Behavior and Emerging Technologies},
+  volume  = {2024},
+  eid     = {7115633},
+  pages   = {1--9},
+  year    = {2024},
+  doi     = {10.1155/2024/7115633}
+}
+
+% Source: ACL Anthology export for 2025.ijcnlp-short.25; Crossref agrees.
+@inproceedings{kamal2025detailed,
+  title     = {A Detailed Factor Analysis for the Political Compass Test: Navigating Ideologies of Large Language Models},
+  author    = {Kamal, Sadia and Prakash, Lalu Prasad Yadav and Rafiuddin, S M and Rakib, Mohammed and Sen, Atriya and Choudhury, Sagnik Ray},
+  editor    = {Inui, Kentaro and Sakti, Sakriani and Wang, Haofen and Wong, Derek F. and Bhattacharyya, Pushpak and Banerjee, Biplab and Ekbal, Asif and Chakraborty, Tanmoy and Singh, Dhirendra Pratap},
+  booktitle = {Proceedings of the 14th International Joint Conference on Natural Language Processing and the 4th Conference of the Asia-Pacific Chapter of the Association for Computational Linguistics},
+  month     = dec,
+  year      = {2025},
+  address   = {Mumbai, India},
+  publisher = {The Asian Federation of Natural Language Processing and The Association for Computational Linguistics},
+  pages     = {284--303},
+  doi       = {10.18653/v1/2025.ijcnlp-short.25},
+  url       = {https://aclanthology.org/2025.ijcnlp-short.25/}
+}
+
+% ---------------------------------------------------------------------------
+% Prompt and format sensitivity
+% ---------------------------------------------------------------------------
+
+% Source: ICLR 2024 proceedings BibTeX export; OpenReview id RIu5lyNXjT;
+% arXiv 2310.11324v2 is the camera-ready. No DOI.
+@inproceedings{sclar2024quantifying,
+  title     = {Quantifying Language Models' Sensitivity to Spurious Features in Prompt Design or: How {I} learned to start worrying about prompt formatting},
+  author    = {Sclar, Melanie and Choi, Yejin and Tsvetkov, Yulia and Suhr, Alane},
+  editor    = {Kim, B. and Yue, Y. and Chaudhuri, S. and Fragkiadaki, K. and Khan, M. and Sun, Y.},
+  booktitle = {International Conference on Learning Representations},
+  volume    = {2024},
+  pages     = {25055--25083},
+  year      = {2024},
+  url       = {https://openreview.net/forum?id=RIu5lyNXjT},
+  eprint    = {2310.11324},
+  archivePrefix = {arXiv}
+}
+
+% Source: NeurIPS 2024 proceedings BibTeX export; Crossref for
+% 10.52202/079017-1458 agrees. The proceedings spell the first author
+% without an accent.
+@inproceedings{dominguezolmedo2024questioning,
+  title     = {Questioning the Survey Responses of Large Language Models},
+  author    = {Dominguez-Olmedo, Ricardo and Hardt, Moritz and Mendler-D{\"u}nner, Celestine},
+  editor    = {Globerson, A. and Mackey, L. and Belgrave, D. and Fan, A. and Paquet, U. and Tomczak, J. and Zhang, C.},
+  booktitle = {Advances in Neural Information Processing Systems},
+  volume    = {37},
+  pages     = {45850--45878},
+  year      = {2024},
+  publisher = {Curran Associates, Inc.},
+  doi       = {10.52202/079017-1458},
+  url       = {https://proceedings.neurips.cc/paper_files/paper/2024/hash/515c62809e0a29729d7eec26e2916fc0-Abstract-Conference.html}
+}
+
+% ---------------------------------------------------------------------------
+% LLM judges, response style, refusal
+% ---------------------------------------------------------------------------
+
+% Source: NeurIPS 2023 Datasets and Benchmarks proceedings BibTeX export;
+% Crossref for 10.52202/075280-2020 agrees.
+@inproceedings{zheng2023judging,
+  title     = {Judging {LLM}-as-a-Judge with {MT}-Bench and Chatbot Arena},
+  author    = {Zheng, Lianmin and Chiang, Wei-Lin and Sheng, Ying and Zhuang, Siyuan and Wu, Zhanghao and Zhuang, Yonghao and Lin, Zi and Li, Zhuohan and Li, Dacheng and Xing, Eric and Zhang, Hao and Gonzalez, Joseph and Stoica, Ion},
+  editor    = {Oh, A. and Naumann, T. and Globerson, A. and Saenko, K. and Hardt, M. and Levine, S.},
+  booktitle = {Advances in Neural Information Processing Systems (Datasets and Benchmarks Track)},
+  volume    = {36},
+  pages     = {46595--46623},
+  year      = {2023},
+  publisher = {Curran Associates, Inc.},
+  doi       = {10.52202/075280-2020},
+  url       = {https://papers.nips.cc/paper_files/paper/2023/hash/91f18a1287b398d378ef22505bf41832-Abstract-Datasets_and_Benchmarks.html}
+}
+
+% Source: ACL Anthology export for 2024.tacl-1.56 and Crossref. Both spell the
+% fourth author "Talwalkwar"; the arXiv record (2311.04076) and the author's
+% own name are "Talwalkar", used here.
+@article{tjuatja2024biases,
+  title     = {Do {LLMs} Exhibit Human-like Response Biases? {A} Case Study in Survey Design},
+  author    = {Tjuatja, Lindia and Chen, Valerie and Wu, Tongshuang and Talwalkar, Ameet and Neubig, Graham},
+  journal   = {Transactions of the Association for Computational Linguistics},
+  volume    = {12},
+  pages     = {1011--1026},
+  year      = {2024},
+  address   = {Cambridge, MA},
+  publisher = {MIT Press},
+  doi       = {10.1162/tacl_a_00685},
+  url       = {https://aclanthology.org/2024.tacl-1.56/}
+}
+
+% Source: ACL Anthology export for 2024.naacl-long.301; Crossref agrees.
+@inproceedings{rottger2024xstest,
+  title     = {{XSTest}: A Test Suite for Identifying Exaggerated Safety Behaviours in Large Language Models},
+  author    = {R{\"o}ttger, Paul and Kirk, Hannah and Vidgen, Bertie and Attanasio, Giuseppe and Bianchi, Federico and Hovy, Dirk},
+  editor    = {Duh, Kevin and Gomez, Helena and Bethard, Steven},
+  booktitle = {Proceedings of the 2024 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 1: Long Papers)},
+  month     = jun,
+  year      = {2024},
+  address   = {Mexico City, Mexico},
+  publisher = {Association for Computational Linguistics},
+  pages     = {5377--5400},
+  doi       = {10.18653/v1/2024.naacl-long.301},
+  url       = {https://aclanthology.org/2024.naacl-long.301/}
+}
+
+% ---------------------------------------------------------------------------
+% Search as a probe of a system under test
+% ---------------------------------------------------------------------------
+
+% Source: ACL Anthology export for 2022.emnlp-main.225; Crossref agrees.
+@inproceedings{perez2022red,
+  title     = {Red Teaming Language Models with Language Models},
+  author    = {Perez, Ethan and Huang, Saffron and Song, Francis and Cai, Trevor and Ring, Roman and Aslanides, John and Glaese, Amelia and McAleese, Nat and Irving, Geoffrey},
+  editor    = {Goldberg, Yoav and Kozareva, Zornitsa and Zhang, Yue},
+  booktitle = {Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing},
+  month     = dec,
+  year      = {2022},
+  address   = {Abu Dhabi, United Arab Emirates},
+  publisher = {Association for Computational Linguistics},
+  pages     = {3419--3448},
+  doi       = {10.18653/v1/2022.emnlp-main.225},
+  url       = {https://aclanthology.org/2022.emnlp-main.225/}
+}
+
+% Source: Crossref for 10.1145/3368089.3409730; arXiv 2007.02787.
+@inproceedings{riccio2020frontier,
+  title     = {Model-based exploration of the frontier of behaviours for deep learning system testing},
+  author    = {Riccio, Vincenzo and Tonella, Paolo},
+  booktitle = {Proceedings of the 28th ACM Joint Meeting on European Software Engineering Conference and Symposium on the Foundations of Software Engineering},
+  series    = {ESEC/FSE 2020},
+  pages     = {876--888},
+  year      = {2020},
+  publisher = {ACM},
+  doi       = {10.1145/3368089.3409730},
+  eprint    = {2007.02787},
+  archivePrefix = {arXiv}
+}
+
+% Source: Crossref for 10.1109/saner67736.2026.00093 (issued 2026-03-17);
+% arXiv 2601.00497.
+@inproceedings{sorokin2026stellar,
+  title     = {{STELLAR}: A Search-Based Testing Framework for Large Language Model Applications},
+  author    = {Sorokin, Lev and Vasilev, Ivan and Friedl, Ken E. and Stocco, Andrea},
+  booktitle = {2026 IEEE International Conference on Software Analysis, Evolution and Reengineering (SANER)},
+  pages     = {790--801},
+  year      = {2026},
+  publisher = {IEEE},
+  doi       = {10.1109/saner67736.2026.00093},
+  eprint    = {2601.00497},
+  archivePrefix = {arXiv}
+}
