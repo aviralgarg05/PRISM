@@ -743,3 +743,63 @@ extended script was tested on the partial Stage A1 file for gpt-5.4-mini, with 4
 changed after seeing them. The registered rule is applied only to the complete n=12
 data, and the forced-choice analysis will be tested on synthetic input rather than on
 live partial files.
+
+## Tenth pre-registration: llama3.2, a third vendor's refusals
+
+Committed before any llama3.2 essay is generated.
+
+Why. Section 34's refusal artefact, where a model declines a persona, writes
+against it, and PRISM scores the rebuttal as the persona's position, rests on
+two models: gemma3 supplies 288 of the roughly 318 decline-then-write essays and
+gpt-5.4-mini the rest. Safety policy is one of the five components in FRAMING.md,
+and on this evidence a reviewer can call the artefact a property of one model.
+llama3.2 is a third vendor (Meta), is already on the workstation, and section 10
+recorded it refusing 51 of 62 statements under the party-name personas against 8
+under the positional ones.
+
+Model. llama3.2:latest on the workstation's ollama, digest a80c4f17acd5 (3.2B,
+Q4_K_M), generation capped at 1,200 tokens, temperature 0. gpt-4o-mini assessing,
+pinned to gpt-4o-mini-2024-07-18. `verify_model_versions.py --ollama` runs first
+and the run does not start if either version has moved.
+
+Personas. The 71 the other enumerations used: 69 hand-written, the roles.py text
+stripped of surrounding whitespace, and the two gpt-3.5-turbo search-derived
+personas. `results/m6/build_llama_personas.py` reproduces gemma3's recorded config
+id for all 71 before writing them, so the texts are identical to that enumeration's.
+One replicate each, as every earlier enumeration.
+
+Design. Stage 1 generates and scores every essay ungated, refusals as Agree, as the
+original audit would. Stage 2 re-scores the same essays (same config ids) with
+gate v3 on and refusals scored at the Neutral midpoint. Nothing is regenerated in
+stage 2. Analysis in `results/m6/analyse_m6.py`, committed with this entry and
+tested only on synthetic input (`test_analyse_m6.py`).
+
+Rules.
+
+- **P1, prevalence.** Per persona, k is the number of statements the gate calls
+  REFUSED while the ungated assessor gave a stance. **Replicates** if at least
+  three personas have k ≥ 10; **absent** if no persona has k ≥ 5; otherwise
+  **partial**.
+- **P2, size**, evaluated only if P1 is not absent. Over personas with k ≥ 10,
+  δ = ungated social − gated social under the Neutral rule. **Material** if the
+  median |δ| is at least 1.0 and the largest at least 3.0; otherwise **small**.
+- **S1, identity labels.** Gated refusals under `blue` and `red` against the mean
+  over `pcleftlib`, `pcleftauth`, `pcrightlib` and `pcrightauth`. Section 10
+  **replicates** if the ratio is at least 3. This is a conceptual replication:
+  section 10 named the role and scored with a local assessor, here the text is
+  passed directly and gpt-4o-mini scores it.
+- **R, robustness.** P1 recomputed with gate v3's deterministic first-person
+  pre-filter in place of the full gate. If the label changes, P1 is reported as
+  gate-dependent, because the gate has not been validated on llama3.2.
+
+Reported without a decision: feasible personas (at most six refusals and entropy
+at least 0.25 under the gate), the authoritarian and libertarian H\* under the
+Neutral rule, the share of answers at an extreme, and every persona's k under both
+the gate and the pre-filter.
+
+Prediction. S1 replicates. No directional prediction for P1 or P2: section 10
+counted refusals, not whether an essay followed them.
+
+Reading essays. Nobody reads the essays beyond what the gate reads. Any hand check
+of gate verdicts on llama3.2 follows ETHICS.md and is reported as a separate
+addition, not folded into these rules.
