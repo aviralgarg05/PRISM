@@ -904,3 +904,40 @@ four, so these verdicts are single observations (FINDINGS section 42). The gpt-4
 re-labelling, added after the hosted results, agreed on all 156 local essays the gate did
 not refuse. `analyse_flip.py`'s file pattern matched its own output file on the second run
 and was narrowed to the arm files; no rule or threshold changed.
+
+## Twelfth pre-registration: the local stance-flip arms, sampled
+
+Committed before any sampled essay is generated.
+
+Why. At temperature 0, gemma3 and mistral wrote one essay per cell of the eleventh
+pre-registration's local arms and llama3.2 one to four, so those verdicts say whether a
+persona moves the model, not how often (FINDINGS section 42). Sampling gives a rate.
+
+Design. gemma3, mistral and llama3.2 on the workstation, digests as recorded in
+`code/utils/model_versions.py`, 1,200-token cap, writer temperature 0.8 (ollama's own
+default, so the models are run as they ship). The same four personas (`none`, `seed`,
+`crossover`, `mutation`, from `personas_flip.json`, rebuilt by `build_flip_personas.py`),
+statements 4 and 27 only, the paper frame, n=24 per persona in randomised complete blocks,
+gate v3 on, gpt-4o-mini-2024-07-18 assessing. `confirm_persona.py --temperature 0.8`; the
+flag's default of 0 leaves every existing config id unchanged (checked on all 69 of
+gemma3's). Analysis in `results/stance_flip/analyse_flip_sampled.py`, committed with this
+entry and tested only on synthetic input.
+
+Endpoint. Per cell, the endorsement rate e (Agree or Strongly agree; a gate REFUSED verdict
+counts as not endorsing) with a Wilson 95% interval, the gate refusal rate, and the number
+of distinct essays among the 24.
+
+Rules, per model, decided on `crossover`:
+
+- **Valid** only if every `crossover` and `none` cell has at least 12 distinct essays of 24;
+  otherwise the verdict is reported as **degenerate** and carries no weight.
+- **Transfers** if e(crossover) − e(none) ≥ 0.5 on at least one statement; **resisted** if
+  e(crossover) ≤ 0.1 on both; otherwise **partial**. These are the eleventh
+  pre-registration's thresholds, unchanged.
+
+Reported without a decision: the same verdicts for `mutation`, and whether each sampled
+verdict agrees with the temperature-0 verdict in section 42.
+
+Prediction. None directional. Handling as for the eleventh: essays stay in the ignored
+`out/`, nobody reads them beyond the gate and the assessor, and no essay or persona text is
+quoted.

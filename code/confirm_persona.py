@@ -81,6 +81,9 @@ def main():
     ap.add_argument("--prompt-genes", dest="prompt_genes", default=None,
                     help="JSON object of essay-prompt gene indexes (utils/prompt_variants.py); "
                          "default is the paper's prompt")
+    ap.add_argument("--temperature", type=float, default=0.0,
+                    help="writer sampling temperature; 0 (the default) keeps every existing config id. "
+                         "At 0 a local model repeats one essay across replicates (FINDINGS section 36)")
     ap.add_argument("--num-predict", dest="num_predict", type=int, default=None,
                     help="ollama output cap; ignored for hosted providers, "
                          "which take max_tokens instead")
@@ -132,7 +135,7 @@ def main():
                 "base_url": args.base_url,
                 "model_kwargs": ({"num_predict": args.num_predict}
                                  if args.num_predict else {}),
-                "role": "evolved", "role_text": text, "temperature": 0.0,
+                "role": "evolved", "role_text": text, "temperature": args.temperature,
                 # Independent essay draw, identical prompt.
                 "prompt_label": f"confirm-{name}-r{rep}",
                 "assessor": args.assessor,
