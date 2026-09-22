@@ -119,7 +119,7 @@ distribution [§36], and led to the answer-sentence ablation [§40].
   search-time maximum (§32, §33; first pre-registration, second round; third and fifth for
   gpt-5.4-mini's gate and Neutral rule).
 - **3.6 Decision rules.** Positive, negative, equivalent, unresolved (first pre-registration);
-  equivalence bound widened from ±0.75 to ±0.89 by the sixth (§41). Eleven pre-registrations.
+  equivalence bound widened from ±0.75 to ±0.89 by the sixth (§41). Thirteen pre-registrations.
   The first nine have recorded outcomes (the third's through the fifth, which re-registered it
   under gate v3). The tenth (llama3.2) and eleventh (stance-flip frame ablation and transfer)
   have recorded outcomes (§43, §42).

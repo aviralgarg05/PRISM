@@ -698,12 +698,10 @@ on the n=24 data. The confirmation is not extended further ["What is not yet don
 | ninth | the instruction inside `pcleftlib` on gpt-3.5-turbo | as the seventh, sign reversed for a libertarian persona | §40 |
 | tenth | llama3.2, enumerated ungated then gated | P1 prevalence, P2 size, S1 identity labels, R pre-filter alone | §43 |
 | eleventh (Section 3.8, conditional) | the stance flip: frame ablation and transfer, statements 4 and 27 | endorsement-rate differences of at least 0.5; resisted at 0.1 or below | §42 |
-| twelfth (Section 3.8, conditional) | the eleventh's local arms, sampled | as the eleventh, valid only with at least 12 distinct essays of 24 | not yet recorded |
+| twelfth (Section 3.8, conditional) | the eleventh's local arms, sampled | as the eleventh, valid only with at least 12 distinct essays of 24 | §42 |
+| thirteenth (Section 3.4) | Röttger et al.'s and Wright et al.'s released answers, re-scored | validation against 20 printed coordinates; material at 0.89 under each coding | §44 |
 
-> Note for the authors: PREREGISTRATION.md holds thirteen entries, all with recorded outcomes;
-> the twelfth (line 908) has none yet. OUTLINE §3.6 says "Eleven pre-registrations", and the brief
-> this draft was written to says eleven, all with outcomes. Both predate the twelfth entry and need
-> reconciling.
+> Note for the authors: PREREGISTRATION.md holds thirteen entries, all with recorded outcomes.
 
 **The equivalence bound.** The first pre-registration set ±0.75 from the 0.72-unit gap between
 gpt-4o and gpt-4o-mini on three identical essay sets and the replicate sd of 0.73 for H\* [first
