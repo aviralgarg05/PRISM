@@ -36,7 +36,7 @@ that runs from −10 to +10.
 
 | component | what it changes | measured | anchor |
 | --- | --- | --- | --- |
-| scoring instrument | the key gives "Agree" zero weight on both axes, so a refusal is scored as agreement and a persona refused on every statement lands at +2.41 | re-scoring a published audit's own deposited answers with "agree" at the midpoint moves a condition 2.68; one audit, and its conclusion compares conditions | §37, §38 |
+| scoring instrument | the key gives "Agree" zero weight on both axes, so a refusal is scored as agreement and a persona refused on every statement lands at +2.41 | re-scored from three published audits' own answers: "agree" at the midpoint moves positions by up to 2.68 (Motoki et al.), 1.31 (Röttger et al.) and 0.90 (Wright et al.); coding refusals at the midpoint moves Röttger et al.'s by up to 2.74 and flips the social sign of 43 of 130 coordinates | §37, §38, §44 |
 | prompt | which persona, and one inherited sentence telling the model how to answer | persona choice spans 13.33 on gpt-3.5-turbo and 8.35 on gpt-4o-mini; the answer sentence carries 1.10 to 4.33 in eight of ten personas on four models | §23, §40 |
 | safety policy | whether the persona is played at all, and what a decline is read as | a persona gemma3 declines on every statement is reported at −6.64 ungated, against 0.00, the no-position point, once the declines are gated (+2.41 under the Agree coding, a 9.05 swing); on gpt-5.4-mini 17 of 69 personas are infeasible under gate v3 and 16.5% of all answers are refused; gpt-4o-mini refuses statement 4 under every role persona yet endorses statement 27 12 of 12 under an evolved one | §34, §35, §37, §42 |
 | assessor | which stance an essay is given | two strong assessors move a position by up to 1.77 and a difference between personas by at most 0.65; a weak assessor moves a baseline 6.86 and flips its quadrant | §8, §41 |
@@ -252,8 +252,9 @@ What is not in that literature, having read the prior audits' code:
 ## Risks
 
 **Priority.** Resolved on the key: it is the instrument's own, so the finding is about the
-literature and not one fork. The residual risk is that the contribution is quantification, and
-its size on a published audit has been measured for one.
+literature and not one fork. Its size is now measured on three published audits' own answers
+(§37, §44): material on Motoki et al. and Röttger et al., marginal on Wright et al. The residual
+risk is that the contribution is quantification rather than a new phenomenon.
 
 **The assessor bound.** Tested on all five models (§41) and intermediate: differences and
 orderings carry at about ±0.9, positions need an assessor term beside them. The paper should

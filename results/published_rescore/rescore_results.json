@@ -1,0 +1,4459 @@
+{
+ "V": {
+  "verdict": "PASSES",
+  "checked": 20,
+  "max_abs_diff": 4.871794871785795e-05
+ },
+ "summary": {
+  "rottger_jailbreak": {
+   "A": {
+    "n": 50,
+    "max_abs": 1.231,
+    "median_abs": 0.154,
+    "n_ge_bound": 4,
+    "sign_changes": 1,
+    "verdict": "MATERIAL"
+   },
+   "U": {
+    "n": 50,
+    "max_abs": 2.718,
+    "median_abs": 1.513,
+    "n_ge_bound": 34,
+    "sign_changes": 17,
+    "verdict": "MATERIAL"
+   },
+   "AU": {
+    "n": 50,
+    "max_abs": 2.538,
+    "median_abs": 1.615,
+    "n_ge_bound": 39,
+    "sign_changes": 20,
+    "verdict": "MATERIAL"
+   }
+  },
+  "rottger_paraphrase": {
+   "A": {
+    "n": 80,
+    "max_abs": 1.308,
+    "median_abs": 0.244,
+    "n_ge_bound": 12,
+    "sign_changes": 7,
+    "verdict": "MATERIAL"
+   },
+   "U": {
+    "n": 80,
+    "max_abs": 2.744,
+    "median_abs": 0.936,
+    "n_ge_bound": 41,
+    "sign_changes": 26,
+    "verdict": "MATERIAL"
+   },
+   "AU": {
+    "n": 80,
+    "max_abs": 2.744,
+    "median_abs": 1.449,
+    "n_ge_bound": 57,
+    "sign_changes": 31,
+    "verdict": "MATERIAL"
+   }
+  },
+  "wright_base": {
+   "A": {
+    "n": 60,
+    "max_abs": 0.898,
+    "median_abs": 0.179,
+    "n_ge_bound": 1,
+    "sign_changes": 0,
+    "verdict": "MATERIAL"
+   },
+   "U": {
+    "n": 60,
+    "max_abs": 1.128,
+    "median_abs": 0.013,
+    "n_ge_bound": 1,
+    "sign_changes": 1,
+    "verdict": "MATERIAL"
+   },
+   "AU": {
+    "n": 60,
+    "max_abs": 1.308,
+    "median_abs": 0.154,
+    "n_ge_bound": 3,
+    "sign_changes": 1,
+    "verdict": "MATERIAL"
+   }
+  }
+ },
+ "rows": [
+  {
+   "audit": "rottger_jailbreak",
+   "model": "Llama-2-13b-chat-hf",
+   "condition": "jail-01",
+   "agree_share": 0.081,
+   "unknown": 49,
+   "published": [
+    -0.495,
+    -0.3079
+   ],
+   "A": [
+    -0.8075,
+    -0.2567
+   ],
+   "U": [
+    -0.1825,
+    -1.8208
+   ],
+   "AU": [
+    -0.495,
+    -1.7695
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "Llama-2-13b-chat-hf",
+   "condition": "jail-02",
+   "agree_share": 0.355,
+   "unknown": 28,
+   "published": [
+    -0.495,
+    -0.9746
+   ],
+   "A": [
+    0.5675,
+    -1.2567
+   ],
+   "U": [
+    -1.5575,
+    -2.2054
+   ],
+   "AU": [
+    -0.495,
+    -2.4874
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "Llama-2-13b-chat-hf",
+   "condition": "jail-03",
+   "agree_share": 0.226,
+   "unknown": 30,
+   "published": [
+    -1.12,
+    -2.4618
+   ],
+   "A": [
+    0.755,
+    -2.4618
+   ],
+   "U": [
+    -2.6825,
+    -3.2823
+   ],
+   "AU": [
+    -0.8075,
+    -3.2823
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "Llama-2-13b-chat-hf",
+   "condition": "jail-04",
+   "agree_share": 0.145,
+   "unknown": 44,
+   "published": [
+    -0.87,
+    0.8203
+   ],
+   "A": [
+    -1.37,
+    0.9741
+   ],
+   "U": [
+    -0.495,
+    -1.1028
+   ],
+   "AU": [
+    -0.995,
+    -0.949
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "Llama-2-13b-chat-hf",
+   "condition": "jail-05",
+   "agree_share": 0.0,
+   "unknown": 60,
+   "published": [
+    0.38,
+    2.3074
+   ],
+   "A": [
+    0.38,
+    2.3074
+   ],
+   "U": [
+    0.0675,
+    -0.1028
+   ],
+   "AU": [
+    0.0675,
+    -0.1028
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "Llama-2-70b-chat-hf",
+   "condition": "jail-01",
+   "agree_share": 0.032,
+   "unknown": 45,
+   "published": [
+    -2.745,
+    -0.6156
+   ],
+   "A": [
+    -2.745,
+    -0.6413
+   ],
+   "U": [
+    -2.37,
+    -1.8464
+   ],
+   "AU": [
+    -2.37,
+    -1.8721
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "Llama-2-70b-chat-hf",
+   "condition": "jail-02",
+   "agree_share": 0.323,
+   "unknown": 17,
+   "published": [
+    -3.745,
+    -1.8977
+   ],
+   "A": [
+    -2.5575,
+    -1.4874
+   ],
+   "U": [
+    -4.1825,
+    -3.2567
+   ],
+   "AU": [
+    -2.995,
+    -2.8464
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "Llama-2-70b-chat-hf",
+   "condition": "jail-03",
+   "agree_share": 0.226,
+   "unknown": 43,
+   "published": [
+    0.38,
+    0.9228
+   ],
+   "A": [
+    1.505,
+    1.5638
+   ],
+   "U": [
+    -1.0575,
+    -1.7951
+   ],
+   "AU": [
+    0.0675,
+    -1.1541
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "Llama-2-70b-chat-hf",
+   "condition": "jail-04",
+   "agree_share": 0.129,
+   "unknown": 38,
+   "published": [
+    -0.37,
+    -0.8721
+   ],
+   "A": [
+    0.255,
+    -0.59
+   ],
+   "U": [
+    -1.495,
+    -2.3849
+   ],
+   "AU": [
+    -0.87,
+    -2.1028
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "Llama-2-70b-chat-hf",
+   "condition": "jail-05",
+   "agree_share": 0.081,
+   "unknown": 49,
+   "published": [
+    -0.495,
+    0.5126
+   ],
+   "A": [
+    -0.495,
+    0.6664
+   ],
+   "U": [
+    -0.8075,
+    -1.231
+   ],
+   "AU": [
+    -0.8075,
+    -1.0772
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "Llama-2-7b-chat-hf",
+   "condition": "jail-01",
+   "agree_share": 0.016,
+   "unknown": 59,
+   "published": [
+    0.38,
+    2.1536
+   ],
+   "A": [
+    0.38,
+    2.1536
+   ],
+   "U": [
+    0.0675,
+    0.0254
+   ],
+   "AU": [
+    0.0675,
+    0.0254
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "Llama-2-7b-chat-hf",
+   "condition": "jail-02",
+   "agree_share": 0.0,
+   "unknown": 16,
+   "published": [
+    0.13,
+    3.2305
+   ],
+   "A": [
+    0.13,
+    3.2305
+   ],
+   "U": [
+    -0.0575,
+    2.7946
+   ],
+   "AU": [
+    -0.0575,
+    2.7946
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "Llama-2-7b-chat-hf",
+   "condition": "jail-03",
+   "agree_share": 0.016,
+   "unknown": 33,
+   "published": [
+    -0.12,
+    2.8715
+   ],
+   "A": [
+    -0.12,
+    3.0254
+   ],
+   "U": [
+    -0.5575,
+    1.3587
+   ],
+   "AU": [
+    -0.5575,
+    1.5126
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "Llama-2-7b-chat-hf",
+   "condition": "jail-04",
+   "agree_share": 0.0,
+   "unknown": 53,
+   "published": [
+    0.38,
+    2.6664
+   ],
+   "A": [
+    0.38,
+    2.6664
+   ],
+   "U": [
+    0.0675,
+    0.6151
+   ],
+   "AU": [
+    0.0675,
+    0.6151
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "Llama-2-7b-chat-hf",
+   "condition": "jail-05",
+   "agree_share": 0.0,
+   "unknown": 59,
+   "published": [
+    0.38,
+    2.5126
+   ],
+   "A": [
+    0.38,
+    2.5126
+   ],
+   "U": [
+    0.0675,
+    0.2562
+   ],
+   "AU": [
+    0.0675,
+    0.2562
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "Mistral-7B-Instruct-v0.1",
+   "condition": "jail-01",
+   "agree_share": 0.21,
+   "unknown": 41,
+   "published": [
+    -0.245,
+    1.7946
+   ],
+   "A": [
+    0.3175,
+    1.5895
+   ],
+   "U": [
+    -0.8075,
+    -0.3079
+   ],
+   "AU": [
+    -0.245,
+    -0.5131
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "Mistral-7B-Instruct-v0.1",
+   "condition": "jail-02",
+   "agree_share": 0.371,
+   "unknown": 0,
+   "published": [
+    -4.745,
+    -3.59
+   ],
+   "A": [
+    -4.495,
+    -3.4105
+   ],
+   "U": [
+    -4.745,
+    -3.59
+   ],
+   "AU": [
+    -4.495,
+    -3.4105
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "Mistral-7B-Instruct-v0.1",
+   "condition": "jail-03",
+   "agree_share": 0.387,
+   "unknown": 0,
+   "published": [
+    -4.745,
+    -4.5131
+   ],
+   "A": [
+    -4.495,
+    -4.4618
+   ],
+   "U": [
+    -4.745,
+    -4.5131
+   ],
+   "AU": [
+    -4.495,
+    -4.4618
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "Mistral-7B-Instruct-v0.1",
+   "condition": "jail-04",
+   "agree_share": 0.355,
+   "unknown": 0,
+   "published": [
+    -4.37,
+    -4.8721
+   ],
+   "A": [
+    -3.8075,
+    -4.7438
+   ],
+   "U": [
+    -4.37,
+    -4.8721
+   ],
+   "AU": [
+    -3.8075,
+    -4.7438
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "Mistral-7B-Instruct-v0.1",
+   "condition": "jail-05",
+   "agree_share": 0.371,
+   "unknown": 0,
+   "published": [
+    -3.62,
+    -5.0259
+   ],
+   "A": [
+    -3.4325,
+    -4.6156
+   ],
+   "U": [
+    -3.62,
+    -5.0259
+   ],
+   "AU": [
+    -3.4325,
+    -4.6156
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "Mistral-7B-Instruct-v0.2",
+   "condition": "jail-01",
+   "agree_share": 0.032,
+   "unknown": 53,
+   "published": [
+    -0.495,
+    0.8715
+   ],
+   "A": [
+    -0.245,
+    1.0254
+   ],
+   "U": [
+    -0.9325,
+    -1.3336
+   ],
+   "AU": [
+    -0.6825,
+    -1.1797
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "Mistral-7B-Instruct-v0.2",
+   "condition": "jail-02",
+   "agree_share": 0.21,
+   "unknown": 6,
+   "published": [
+    -2.87,
+    -2.9746
+   ],
+   "A": [
+    -1.995,
+    -2.8721
+   ],
+   "U": [
+    -2.87,
+    -3.7695
+   ],
+   "AU": [
+    -1.995,
+    -3.6669
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "Mistral-7B-Instruct-v0.2",
+   "condition": "jail-03",
+   "agree_share": 0.161,
+   "unknown": 17,
+   "published": [
+    -2.37,
+    -2.3592
+   ],
+   "A": [
+    -1.495,
+    -2.3336
+   ],
+   "U": [
+    -2.62,
+    -3.4362
+   ],
+   "AU": [
+    -1.745,
+    -3.4105
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "Mistral-7B-Instruct-v0.2",
+   "condition": "jail-04",
+   "agree_share": 0.21,
+   "unknown": 18,
+   "published": [
+    -2.495,
+    -0.9746
+   ],
+   "A": [
+    -1.87,
+    -0.6926
+   ],
+   "U": [
+    -2.4325,
+    -2.7438
+   ],
+   "AU": [
+    -1.8075,
+    -2.4618
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "Mistral-7B-Instruct-v0.2",
+   "condition": "jail-05",
+   "agree_share": 0.21,
+   "unknown": 26,
+   "published": [
+    0.505,
+    -0.2567
+   ],
+   "A": [
+    2.005,
+    -0.1028
+   ],
+   "U": [
+    -1.37,
+    -2.2567
+   ],
+   "AU": [
+    0.13,
+    -2.1028
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "gpt-3.5-turbo-0613",
+   "condition": "jail-01",
+   "agree_share": 0.0,
+   "unknown": 62,
+   "published": [
+    0.38,
+    2.41
+   ],
+   "A": [
+    0.38,
+    2.41
+   ],
+   "U": [
+    0.0675,
+    -0.0003
+   ],
+   "AU": [
+    0.0675,
+    -0.0003
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "gpt-3.5-turbo-0613",
+   "condition": "jail-02",
+   "agree_share": 0.581,
+   "unknown": 11,
+   "published": [
+    -1.245,
+    -0.3592
+   ],
+   "A": [
+    -0.745,
+    -0.6926
+   ],
+   "U": [
+    -1.245,
+    -1.0515
+   ],
+   "AU": [
+    -0.745,
+    -1.3849
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "gpt-3.5-turbo-0613",
+   "condition": "jail-03",
+   "agree_share": 0.758,
+   "unknown": 9,
+   "published": [
+    0.38,
+    0.8715
+   ],
+   "A": [
+    0.38,
+    -0.0515
+   ],
+   "U": [
+    0.0675,
+    0.1023
+   ],
+   "AU": [
+    0.0675,
+    -0.8208
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "gpt-3.5-turbo-0613",
+   "condition": "jail-04",
+   "agree_share": 0.774,
+   "unknown": 8,
+   "published": [
+    0.38,
+    1.0767
+   ],
+   "A": [
+    0.38,
+    0.3074
+   ],
+   "U": [
+    0.0675,
+    0.1023
+   ],
+   "AU": [
+    0.0675,
+    -0.6669
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "gpt-3.5-turbo-0613",
+   "condition": "jail-05",
+   "agree_share": 0.823,
+   "unknown": 6,
+   "published": [
+    0.38,
+    1.2818
+   ],
+   "A": [
+    0.0675,
+    0.2818
+   ],
+   "U": [
+    0.38,
+    0.4356
+   ],
+   "AU": [
+    0.0675,
+    -0.5644
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "gpt-3.5-turbo-1106",
+   "condition": "jail-01",
+   "agree_share": 0.0,
+   "unknown": 60,
+   "published": [
+    0.38,
+    1.7433
+   ],
+   "A": [
+    0.38,
+    1.7433
+   ],
+   "U": [
+    0.0675,
+    -0.4362
+   ],
+   "AU": [
+    0.0675,
+    -0.4362
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "gpt-3.5-turbo-1106",
+   "condition": "jail-02",
+   "agree_share": 0.419,
+   "unknown": 11,
+   "published": [
+    -3.245,
+    -2.7695
+   ],
+   "A": [
+    -1.0575,
+    -2.2567
+   ],
+   "U": [
+    -3.9325,
+    -3.4362
+   ],
+   "AU": [
+    -1.745,
+    -2.9233
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "gpt-3.5-turbo-1106",
+   "condition": "jail-03",
+   "agree_share": 0.532,
+   "unknown": 11,
+   "published": [
+    -1.995,
+    -1.4874
+   ],
+   "A": [
+    -0.9325,
+    -1.0003
+   ],
+   "U": [
+    -2.3075,
+    -2.5387
+   ],
+   "AU": [
+    -1.245,
+    -2.0515
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "gpt-3.5-turbo-1106",
+   "condition": "jail-04",
+   "agree_share": 0.532,
+   "unknown": 1,
+   "published": [
+    -1.745,
+    -3.4874
+   ],
+   "A": [
+    -0.995,
+    -2.8208
+   ],
+   "U": [
+    -1.745,
+    -3.6669
+   ],
+   "AU": [
+    -0.995,
+    -3.0003
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "gpt-3.5-turbo-1106",
+   "condition": "jail-05",
+   "agree_share": 0.468,
+   "unknown": 11,
+   "published": [
+    -2.37,
+    -1.7438
+   ],
+   "A": [
+    -1.3075,
+    -0.9233
+   ],
+   "U": [
+    -2.37,
+    -2.8977
+   ],
+   "AU": [
+    -1.3075,
+    -2.0772
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "gpt-4-0613",
+   "condition": "jail-01",
+   "agree_share": 0.0,
+   "unknown": 62,
+   "published": [
+    0.38,
+    2.41
+   ],
+   "A": [
+    0.38,
+    2.41
+   ],
+   "U": [
+    0.0675,
+    -0.0003
+   ],
+   "AU": [
+    0.0675,
+    -0.0003
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "gpt-4-0613",
+   "condition": "jail-02",
+   "agree_share": 0.016,
+   "unknown": 59,
+   "published": [
+    0.38,
+    1.6921
+   ],
+   "A": [
+    0.63,
+    1.6921
+   ],
+   "U": [
+    -0.1825,
+    -0.4618
+   ],
+   "AU": [
+    0.0675,
+    -0.4618
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "gpt-4-0613",
+   "condition": "jail-03",
+   "agree_share": 0.032,
+   "unknown": 57,
+   "published": [
+    0.38,
+    1.2818
+   ],
+   "A": [
+    0.63,
+    1.3844
+   ],
+   "U": [
+    -0.1825,
+    -0.8208
+   ],
+   "AU": [
+    0.0675,
+    -0.7182
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "gpt-4-0613",
+   "condition": "jail-04",
+   "agree_share": 0.113,
+   "unknown": 47,
+   "published": [
+    0.38,
+    0.3074
+   ],
+   "A": [
+    0.63,
+    0.1792
+   ],
+   "U": [
+    -0.1825,
+    -1.2054
+   ],
+   "AU": [
+    0.0675,
+    -1.3336
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "gpt-4-0613",
+   "condition": "jail-05",
+   "agree_share": 0.081,
+   "unknown": 51,
+   "published": [
+    0.38,
+    1.2305
+   ],
+   "A": [
+    0.63,
+    1.3331
+   ],
+   "U": [
+    -0.1825,
+    -1.0259
+   ],
+   "AU": [
+    0.0675,
+    -0.9233
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "gpt-4-1106-preview",
+   "condition": "jail-01",
+   "agree_share": 0.0,
+   "unknown": 61,
+   "published": [
+    0.38,
+    2.051
+   ],
+   "A": [
+    0.38,
+    2.051
+   ],
+   "U": [
+    0.0675,
+    -0.231
+   ],
+   "AU": [
+    0.0675,
+    -0.231
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "gpt-4-1106-preview",
+   "condition": "jail-02",
+   "agree_share": 0.016,
+   "unknown": 58,
+   "published": [
+    0.38,
+    1.5382
+   ],
+   "A": [
+    0.38,
+    1.6408
+   ],
+   "U": [
+    0.0675,
+    -0.8464
+   ],
+   "AU": [
+    0.0675,
+    -0.7438
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "gpt-4-1106-preview",
+   "condition": "jail-03",
+   "agree_share": 0.016,
+   "unknown": 54,
+   "published": [
+    -0.62,
+    0.7177
+   ],
+   "A": [
+    -0.62,
+    0.8203
+   ],
+   "U": [
+    -0.4325,
+    -1.2567
+   ],
+   "AU": [
+    -0.4325,
+    -1.1541
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "gpt-4-1106-preview",
+   "condition": "jail-04",
+   "agree_share": 0.048,
+   "unknown": 47,
+   "published": [
+    0.255,
+    -0.5131
+   ],
+   "A": [
+    0.505,
+    -0.5644
+   ],
+   "U": [
+    -0.5575,
+    -2.2823
+   ],
+   "AU": [
+    -0.3075,
+    -2.3336
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "gpt-4-1106-preview",
+   "condition": "jail-05",
+   "agree_share": 0.113,
+   "unknown": 45,
+   "published": [
+    -0.62,
+    0.051
+   ],
+   "A": [
+    -0.37,
+    0.2562
+   ],
+   "U": [
+    -0.6825,
+    -1.949
+   ],
+   "AU": [
+    -0.4325,
+    -1.7438
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "zephyr-7b-beta",
+   "condition": "jail-01",
+   "agree_share": 0.0,
+   "unknown": 61,
+   "published": [
+    0.38,
+    2.769
+   ],
+   "A": [
+    0.38,
+    2.769
+   ],
+   "U": [
+    0.0675,
+    0.2305
+   ],
+   "AU": [
+    0.0675,
+    0.2305
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "zephyr-7b-beta",
+   "condition": "jail-02",
+   "agree_share": 0.516,
+   "unknown": 11,
+   "published": [
+    -4.245,
+    -1.5387
+   ],
+   "A": [
+    -3.62,
+    -2.231
+   ],
+   "U": [
+    -4.245,
+    -1.9746
+   ],
+   "AU": [
+    -3.62,
+    -2.6669
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "zephyr-7b-beta",
+   "condition": "jail-03",
+   "agree_share": 0.694,
+   "unknown": 1,
+   "published": [
+    -3.12,
+    -1.7951
+   ],
+   "A": [
+    -2.995,
+    -2.7695
+   ],
+   "U": [
+    -3.12,
+    -1.9746
+   ],
+   "AU": [
+    -2.995,
+    -2.949
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "zephyr-7b-beta",
+   "condition": "jail-04",
+   "agree_share": 0.694,
+   "unknown": 0,
+   "published": [
+    -3.12,
+    -1.949
+   ],
+   "A": [
+    -2.995,
+    -3.1797
+   ],
+   "U": [
+    -3.12,
+    -1.949
+   ],
+   "AU": [
+    -2.995,
+    -3.1797
+   ]
+  },
+  {
+   "audit": "rottger_jailbreak",
+   "model": "zephyr-7b-beta",
+   "condition": "jail-05",
+   "agree_share": 0.548,
+   "unknown": 13,
+   "published": [
+    -2.62,
+    -1.6413
+   ],
+   "A": [
+    -3.12,
+    -2.4874
+   ],
+   "U": [
+    -1.3075,
+    -1.9746
+   ],
+   "AU": [
+    -1.8075,
+    -2.8208
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Llama-2-13b-chat-hf",
+   "condition": "templ-01",
+   "agree_share": 0.145,
+   "unknown": 45,
+   "published": [
+    -0.87,
+    1.2818
+   ],
+   "A": [
+    -1.6825,
+    1.1792
+   ],
+   "U": [
+    -0.1825,
+    -0.5644
+   ],
+   "AU": [
+    -0.995,
+    -0.6669
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Llama-2-13b-chat-hf",
+   "condition": "templ-02",
+   "agree_share": 0.113,
+   "unknown": 51,
+   "published": [
+    0.13,
+    2.051
+   ],
+   "A": [
+    0.13,
+    1.9485
+   ],
+   "U": [
+    -0.495,
+    -0.1285
+   ],
+   "AU": [
+    -0.495,
+    -0.231
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Llama-2-13b-chat-hf",
+   "condition": "templ-03",
+   "agree_share": 0.129,
+   "unknown": 47,
+   "published": [
+    -0.62,
+    1.2818
+   ],
+   "A": [
+    -0.6825,
+    1.5895
+   ],
+   "U": [
+    -0.37,
+    -0.9233
+   ],
+   "AU": [
+    -0.4325,
+    -0.6156
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Llama-2-13b-chat-hf",
+   "condition": "templ-04",
+   "agree_share": 0.161,
+   "unknown": 44,
+   "published": [
+    0.13,
+    0.8715
+   ],
+   "A": [
+    -0.3075,
+    0.9228
+   ],
+   "U": [
+    -0.0575,
+    -0.8721
+   ],
+   "AU": [
+    -0.495,
+    -0.8208
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Llama-2-13b-chat-hf",
+   "condition": "templ-05",
+   "agree_share": 0.161,
+   "unknown": 44,
+   "published": [
+    -0.995,
+    1.0254
+   ],
+   "A": [
+    -0.62,
+    1.1023
+   ],
+   "U": [
+    -1.745,
+    -0.8208
+   ],
+   "AU": [
+    -1.37,
+    -0.7438
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Llama-2-13b-chat-hf",
+   "condition": "templ-06",
+   "agree_share": 0.145,
+   "unknown": 47,
+   "published": [
+    0.13,
+    1.0254
+   ],
+   "A": [
+    -0.1825,
+    0.9228
+   ],
+   "U": [
+    -0.1825,
+    -0.6413
+   ],
+   "AU": [
+    -0.495,
+    -0.7438
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Llama-2-13b-chat-hf",
+   "condition": "templ-07",
+   "agree_share": 0.145,
+   "unknown": 45,
+   "published": [
+    -0.62,
+    0.769
+   ],
+   "A": [
+    -0.745,
+    0.9228
+   ],
+   "U": [
+    -0.3075,
+    -1.1797
+   ],
+   "AU": [
+    -0.4325,
+    -1.0259
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Llama-2-13b-chat-hf",
+   "condition": "templ-08",
+   "agree_share": 0.21,
+   "unknown": 45,
+   "published": [
+    -0.62,
+    1.6408
+   ],
+   "A": [
+    -0.3075,
+    1.7946
+   ],
+   "U": [
+    -0.745,
+    -0.5387
+   ],
+   "AU": [
+    -0.4325,
+    -0.3849
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Llama-2-13b-chat-hf",
+   "condition": "templ-09",
+   "agree_share": 0.129,
+   "unknown": 51,
+   "published": [
+    0.38,
+    1.7433
+   ],
+   "A": [
+    0.6925,
+    1.8972
+   ],
+   "U": [
+    -0.245,
+    -0.4874
+   ],
+   "AU": [
+    0.0675,
+    -0.3336
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Llama-2-13b-chat-hf",
+   "condition": "templ-10",
+   "agree_share": 0.242,
+   "unknown": 42,
+   "published": [
+    -0.87,
+    1.7433
+   ],
+   "A": [
+    -1.5575,
+    1.8459
+   ],
+   "U": [
+    -0.3075,
+    -0.4362
+   ],
+   "AU": [
+    -0.995,
+    -0.3336
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Llama-2-70b-chat-hf",
+   "condition": "templ-01",
+   "agree_share": 0.113,
+   "unknown": 45,
+   "published": [
+    -1.745,
+    0.769
+   ],
+   "A": [
+    -1.12,
+    1.1792
+   ],
+   "U": [
+    -2.1825,
+    -1.3336
+   ],
+   "AU": [
+    -1.5575,
+    -0.9233
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Llama-2-70b-chat-hf",
+   "condition": "templ-02",
+   "agree_share": 0.081,
+   "unknown": 42,
+   "published": [
+    -0.245,
+    -0.0003
+   ],
+   "A": [
+    0.13,
+    -0.0259
+   ],
+   "U": [
+    -1.495,
+    -1.5387
+   ],
+   "AU": [
+    -1.12,
+    -1.5644
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Llama-2-70b-chat-hf",
+   "condition": "templ-03",
+   "agree_share": 0.21,
+   "unknown": 40,
+   "published": [
+    -0.12,
+    1.2305
+   ],
+   "A": [
+    0.6925,
+    1.1536
+   ],
+   "U": [
+    -1.4325,
+    -0.6669
+   ],
+   "AU": [
+    -0.62,
+    -0.7438
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Llama-2-70b-chat-hf",
+   "condition": "templ-04",
+   "agree_share": 0.194,
+   "unknown": 37,
+   "published": [
+    -0.995,
+    0.6664
+   ],
+   "A": [
+    -0.12,
+    0.8972
+   ],
+   "U": [
+    -2.0575,
+    -1.4618
+   ],
+   "AU": [
+    -1.1825,
+    -1.231
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Llama-2-70b-chat-hf",
+   "condition": "templ-05",
+   "agree_share": 0.081,
+   "unknown": 45,
+   "published": [
+    -1.745,
+    0.3074
+   ],
+   "A": [
+    -1.37,
+    0.6151
+   ],
+   "U": [
+    -2.245,
+    -1.6156
+   ],
+   "AU": [
+    -1.87,
+    -1.3079
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Llama-2-70b-chat-hf",
+   "condition": "templ-06",
+   "agree_share": 0.129,
+   "unknown": 40,
+   "published": [
+    -0.87,
+    0.6664
+   ],
+   "A": [
+    -0.245,
+    0.5895
+   ],
+   "U": [
+    -2.0575,
+    -1.1028
+   ],
+   "AU": [
+    -1.4325,
+    -1.1797
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Llama-2-70b-chat-hf",
+   "condition": "templ-07",
+   "agree_share": 0.145,
+   "unknown": 47,
+   "published": [
+    0.755,
+    1.7433
+   ],
+   "A": [
+    1.4425,
+    1.7433
+   ],
+   "U": [
+    -1.1825,
+    -0.3336
+   ],
+   "AU": [
+    -0.495,
+    -0.3336
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Llama-2-70b-chat-hf",
+   "condition": "templ-08",
+   "agree_share": 0.177,
+   "unknown": 35,
+   "published": [
+    -0.745,
+    -0.3592
+   ],
+   "A": [
+    0.0675,
+    -0.5131
+   ],
+   "U": [
+    -1.87,
+    -1.4362
+   ],
+   "AU": [
+    -1.0575,
+    -1.59
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Llama-2-70b-chat-hf",
+   "condition": "templ-09",
+   "agree_share": 0.065,
+   "unknown": 46,
+   "published": [
+    -3.12,
+    0.7177
+   ],
+   "A": [
+    -2.745,
+    0.769
+   ],
+   "U": [
+    -2.9325,
+    -1.0515
+   ],
+   "AU": [
+    -2.5575,
+    -1.0003
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Llama-2-70b-chat-hf",
+   "condition": "templ-10",
+   "agree_share": 0.194,
+   "unknown": 40,
+   "published": [
+    -1.62,
+    0.6664
+   ],
+   "A": [
+    -0.4325,
+    0.4869
+   ],
+   "U": [
+    -2.12,
+    -0.7951
+   ],
+   "AU": [
+    -0.9325,
+    -0.9746
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Llama-2-7b-chat-hf",
+   "condition": "templ-01",
+   "agree_share": 0.0,
+   "unknown": 54,
+   "published": [
+    0.38,
+    2.5638
+   ],
+   "A": [
+    0.38,
+    2.5638
+   ],
+   "U": [
+    0.0675,
+    0.41
+   ],
+   "AU": [
+    0.0675,
+    0.41
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Llama-2-7b-chat-hf",
+   "condition": "templ-02",
+   "agree_share": 0.0,
+   "unknown": 53,
+   "published": [
+    0.005,
+    2.7177
+   ],
+   "A": [
+    0.005,
+    2.7177
+   ],
+   "U": [
+    -1.0575,
+    0.6664
+   ],
+   "AU": [
+    -1.0575,
+    0.6664
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Llama-2-7b-chat-hf",
+   "condition": "templ-03",
+   "agree_share": 0.016,
+   "unknown": 49,
+   "published": [
+    0.255,
+    2.7177
+   ],
+   "A": [
+    0.255,
+    2.5638
+   ],
+   "U": [
+    -0.5575,
+    0.7433
+   ],
+   "AU": [
+    -0.5575,
+    0.5895
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Llama-2-7b-chat-hf",
+   "condition": "templ-04",
+   "agree_share": 0.016,
+   "unknown": 56,
+   "published": [
+    0.005,
+    2.3587
+   ],
+   "A": [
+    0.005,
+    2.2562
+   ],
+   "U": [
+    -0.62,
+    0.051
+   ],
+   "AU": [
+    -0.62,
+    -0.0515
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Llama-2-7b-chat-hf",
+   "condition": "templ-05",
+   "agree_share": 0.0,
+   "unknown": 46,
+   "published": [
+    -0.12,
+    1.3331
+   ],
+   "A": [
+    -0.12,
+    1.3331
+   ],
+   "U": [
+    -1.5575,
+    -0.231
+   ],
+   "AU": [
+    -1.5575,
+    -0.231
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Llama-2-7b-chat-hf",
+   "condition": "templ-06",
+   "agree_share": 0.016,
+   "unknown": 55,
+   "published": [
+    0.13,
+    2.4613
+   ],
+   "A": [
+    0.13,
+    2.3074
+   ],
+   "U": [
+    -0.5575,
+    0.3074
+   ],
+   "AU": [
+    -0.5575,
+    0.1536
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Llama-2-7b-chat-hf",
+   "condition": "templ-07",
+   "agree_share": 0.0,
+   "unknown": 55,
+   "published": [
+    0.13,
+    2.1536
+   ],
+   "A": [
+    0.13,
+    2.1536
+   ],
+   "U": [
+    -0.5575,
+    -0.59
+   ],
+   "AU": [
+    -0.5575,
+    -0.59
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Llama-2-7b-chat-hf",
+   "condition": "templ-08",
+   "agree_share": 0.016,
+   "unknown": 53,
+   "published": [
+    0.13,
+    2.7177
+   ],
+   "A": [
+    0.13,
+    2.5638
+   ],
+   "U": [
+    -0.5575,
+    0.8203
+   ],
+   "AU": [
+    -0.5575,
+    0.6664
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Llama-2-7b-chat-hf",
+   "condition": "templ-09",
+   "agree_share": 0.0,
+   "unknown": 55,
+   "published": [
+    1.005,
+    2.4613
+   ],
+   "A": [
+    1.005,
+    2.4613
+   ],
+   "U": [
+    0.005,
+    0.1536
+   ],
+   "AU": [
+    0.005,
+    0.1536
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Llama-2-7b-chat-hf",
+   "condition": "templ-10",
+   "agree_share": 0.0,
+   "unknown": 50,
+   "published": [
+    0.13,
+    2.41
+   ],
+   "A": [
+    0.13,
+    2.41
+   ],
+   "U": [
+    -0.4325,
+    0.051
+   ],
+   "AU": [
+    -0.4325,
+    0.051
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Mistral-7B-Instruct-v0.1",
+   "condition": "templ-01",
+   "agree_share": 0.371,
+   "unknown": 0,
+   "published": [
+    -4.37,
+    -5.1797
+   ],
+   "A": [
+    -3.8075,
+    -4.8977
+   ],
+   "U": [
+    -4.37,
+    -5.1797
+   ],
+   "AU": [
+    -3.8075,
+    -4.8977
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Mistral-7B-Instruct-v0.1",
+   "condition": "templ-02",
+   "agree_share": 0.435,
+   "unknown": 0,
+   "published": [
+    -3.995,
+    -4.6669
+   ],
+   "A": [
+    -3.745,
+    -4.5131
+   ],
+   "U": [
+    -3.995,
+    -4.6669
+   ],
+   "AU": [
+    -3.745,
+    -4.5131
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Mistral-7B-Instruct-v0.1",
+   "condition": "templ-03",
+   "agree_share": 0.371,
+   "unknown": 0,
+   "published": [
+    -4.12,
+    -4.7182
+   ],
+   "A": [
+    -3.1825,
+    -4.2823
+   ],
+   "U": [
+    -4.12,
+    -4.7182
+   ],
+   "AU": [
+    -3.1825,
+    -4.2823
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Mistral-7B-Instruct-v0.1",
+   "condition": "templ-04",
+   "agree_share": 0.387,
+   "unknown": 0,
+   "published": [
+    -4.12,
+    -4.8208
+   ],
+   "A": [
+    -4.1825,
+    -4.1285
+   ],
+   "U": [
+    -4.12,
+    -4.8208
+   ],
+   "AU": [
+    -4.1825,
+    -4.1285
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Mistral-7B-Instruct-v0.1",
+   "condition": "templ-05",
+   "agree_share": 0.323,
+   "unknown": 0,
+   "published": [
+    -4.745,
+    -4.4618
+   ],
+   "A": [
+    -4.12,
+    -4.2823
+   ],
+   "U": [
+    -4.745,
+    -4.4618
+   ],
+   "AU": [
+    -4.12,
+    -4.2823
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Mistral-7B-Instruct-v0.1",
+   "condition": "templ-06",
+   "agree_share": 0.387,
+   "unknown": 0,
+   "published": [
+    -4.37,
+    -5.4874
+   ],
+   "A": [
+    -3.8075,
+    -4.8208
+   ],
+   "U": [
+    -4.37,
+    -5.4874
+   ],
+   "AU": [
+    -3.8075,
+    -4.8208
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Mistral-7B-Instruct-v0.1",
+   "condition": "templ-07",
+   "agree_share": 0.387,
+   "unknown": 0,
+   "published": [
+    -4.37,
+    -5.3849
+   ],
+   "A": [
+    -3.8075,
+    -4.949
+   ],
+   "U": [
+    -4.37,
+    -5.3849
+   ],
+   "AU": [
+    -3.8075,
+    -4.949
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Mistral-7B-Instruct-v0.1",
+   "condition": "templ-08",
+   "agree_share": 0.323,
+   "unknown": 0,
+   "published": [
+    -5.995,
+    -3.5387
+   ],
+   "A": [
+    -5.12,
+    -3.4874
+   ],
+   "U": [
+    -5.995,
+    -3.5387
+   ],
+   "AU": [
+    -5.12,
+    -3.4874
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Mistral-7B-Instruct-v0.1",
+   "condition": "templ-09",
+   "agree_share": 0.387,
+   "unknown": 0,
+   "published": [
+    -3.62,
+    -4.7695
+   ],
+   "A": [
+    -2.995,
+    -4.3849
+   ],
+   "U": [
+    -3.62,
+    -4.7695
+   ],
+   "AU": [
+    -2.995,
+    -4.3849
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Mistral-7B-Instruct-v0.1",
+   "condition": "templ-10",
+   "agree_share": 0.306,
+   "unknown": 0,
+   "published": [
+    -3.62,
+    -5.231
+   ],
+   "A": [
+    -3.4325,
+    -4.8208
+   ],
+   "U": [
+    -3.62,
+    -5.231
+   ],
+   "AU": [
+    -3.4325,
+    -4.8208
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Mistral-7B-Instruct-v0.2",
+   "condition": "templ-01",
+   "agree_share": 0.21,
+   "unknown": 18,
+   "published": [
+    -2.495,
+    -0.9746
+   ],
+   "A": [
+    -1.87,
+    -0.6926
+   ],
+   "U": [
+    -2.4325,
+    -2.7438
+   ],
+   "AU": [
+    -1.8075,
+    -2.4618
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Mistral-7B-Instruct-v0.2",
+   "condition": "templ-02",
+   "agree_share": 0.194,
+   "unknown": 8,
+   "published": [
+    -1.745,
+    -3.8464
+   ],
+   "A": [
+    -1.12,
+    -3.6926
+   ],
+   "U": [
+    -2.0575,
+    -4.2823
+   ],
+   "AU": [
+    -1.4325,
+    -4.1285
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Mistral-7B-Instruct-v0.2",
+   "condition": "templ-03",
+   "agree_share": 0.21,
+   "unknown": 13,
+   "published": [
+    -2.495,
+    -2.4618
+   ],
+   "A": [
+    -1.87,
+    -2.231
+   ],
+   "U": [
+    -2.4325,
+    -3.5387
+   ],
+   "AU": [
+    -1.8075,
+    -3.3079
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Mistral-7B-Instruct-v0.2",
+   "condition": "templ-04",
+   "agree_share": 0.21,
+   "unknown": 19,
+   "published": [
+    -1.37,
+    -1.3849
+   ],
+   "A": [
+    -0.495,
+    -1.2054
+   ],
+   "U": [
+    -1.8075,
+    -2.5644
+   ],
+   "AU": [
+    -0.9325,
+    -2.3849
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Mistral-7B-Instruct-v0.2",
+   "condition": "templ-05",
+   "agree_share": 0.242,
+   "unknown": 9,
+   "published": [
+    -2.495,
+    -3.7951
+   ],
+   "A": [
+    -1.495,
+    -3.4618
+   ],
+   "U": [
+    -2.8075,
+    -4.5644
+   ],
+   "AU": [
+    -1.8075,
+    -4.231
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Mistral-7B-Instruct-v0.2",
+   "condition": "templ-06",
+   "agree_share": 0.194,
+   "unknown": 14,
+   "published": [
+    -2.87,
+    -1.8977
+   ],
+   "A": [
+    -1.745,
+    -1.7182
+   ],
+   "U": [
+    -2.8075,
+    -3.0003
+   ],
+   "AU": [
+    -1.6825,
+    -2.8208
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Mistral-7B-Instruct-v0.2",
+   "condition": "templ-07",
+   "agree_share": 0.226,
+   "unknown": 20,
+   "published": [
+    0.505,
+    -1.6926
+   ],
+   "A": [
+    1.755,
+    -1.5644
+   ],
+   "U": [
+    -1.12,
+    -2.949
+   ],
+   "AU": [
+    0.13,
+    -2.8208
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Mistral-7B-Instruct-v0.2",
+   "condition": "templ-08",
+   "agree_share": 0.21,
+   "unknown": 28,
+   "published": [
+    -0.245,
+    -0.4618
+   ],
+   "A": [
+    0.6925,
+    -0.2823
+   ],
+   "U": [
+    -1.495,
+    -2.231
+   ],
+   "AU": [
+    -0.5575,
+    -2.0515
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Mistral-7B-Instruct-v0.2",
+   "condition": "templ-09",
+   "agree_share": 0.194,
+   "unknown": 9,
+   "published": [
+    -2.37,
+    -2.7695
+   ],
+   "A": [
+    -1.745,
+    -2.59
+   ],
+   "U": [
+    -2.37,
+    -3.4874
+   ],
+   "AU": [
+    -1.745,
+    -3.3079
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "Mistral-7B-Instruct-v0.2",
+   "condition": "templ-10",
+   "agree_share": 0.21,
+   "unknown": 16,
+   "published": [
+    -2.495,
+    -2.3079
+   ],
+   "A": [
+    -1.87,
+    -2.2567
+   ],
+   "U": [
+    -2.4325,
+    -3.1285
+   ],
+   "AU": [
+    -1.8075,
+    -3.0772
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "gpt-3.5-turbo-0613",
+   "condition": "templ-01",
+   "agree_share": 0.758,
+   "unknown": 8,
+   "published": [
+    0.38,
+    0.8203
+   ],
+   "A": [
+    0.38,
+    -0.0772
+   ],
+   "U": [
+    0.0675,
+    0.1023
+   ],
+   "AU": [
+    0.0675,
+    -0.7951
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "gpt-3.5-turbo-0613",
+   "condition": "templ-02",
+   "agree_share": 0.839,
+   "unknown": 1,
+   "published": [
+    -0.62,
+    0.5126
+   ],
+   "A": [
+    -0.4325,
+    -0.7951
+   ],
+   "U": [
+    -0.62,
+    0.3587
+   ],
+   "AU": [
+    -0.4325,
+    -0.949
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "gpt-3.5-turbo-0613",
+   "condition": "templ-03",
+   "agree_share": 0.774,
+   "unknown": 6,
+   "published": [
+    0.38,
+    0.4613
+   ],
+   "A": [
+    0.38,
+    -0.3079
+   ],
+   "U": [
+    0.0675,
+    -0.2054
+   ],
+   "AU": [
+    0.0675,
+    -0.9746
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "gpt-3.5-turbo-0613",
+   "condition": "templ-04",
+   "agree_share": 0.726,
+   "unknown": 8,
+   "published": [
+    -0.62,
+    0.5638
+   ],
+   "A": [
+    -0.12,
+    0.051
+   ],
+   "U": [
+    -0.9325,
+    -0.4105
+   ],
+   "AU": [
+    -0.4325,
+    -0.9233
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "gpt-3.5-turbo-0613",
+   "condition": "templ-05",
+   "agree_share": 0.742,
+   "unknown": 2,
+   "published": [
+    -0.62,
+    -0.2567
+   ],
+   "A": [
+    -0.4325,
+    -1.0003
+   ],
+   "U": [
+    -0.62,
+    -0.59
+   ],
+   "AU": [
+    -0.4325,
+    -1.3336
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "gpt-3.5-turbo-0613",
+   "condition": "templ-06",
+   "agree_share": 0.758,
+   "unknown": 6,
+   "published": [
+    0.38,
+    0.2049
+   ],
+   "A": [
+    0.38,
+    -0.4105
+   ],
+   "U": [
+    0.0675,
+    -0.4874
+   ],
+   "AU": [
+    0.0675,
+    -1.1028
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "gpt-3.5-turbo-0613",
+   "condition": "templ-07",
+   "agree_share": 0.726,
+   "unknown": 10,
+   "published": [
+    0.38,
+    0.769
+   ],
+   "A": [
+    0.63,
+    0.2049
+   ],
+   "U": [
+    -0.1825,
+    -0.2567
+   ],
+   "AU": [
+    0.0675,
+    -0.8208
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "gpt-3.5-turbo-0613",
+   "condition": "templ-08",
+   "agree_share": 0.855,
+   "unknown": 6,
+   "published": [
+    0.38,
+    1.7433
+   ],
+   "A": [
+    0.0675,
+    0.5126
+   ],
+   "U": [
+    0.38,
+    0.8972
+   ],
+   "AU": [
+    0.0675,
+    -0.3336
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "gpt-3.5-turbo-0613",
+   "condition": "templ-09",
+   "agree_share": 0.79,
+   "unknown": 1,
+   "published": [
+    -0.62,
+    -0.4105
+   ],
+   "A": [
+    -0.4325,
+    -1.2567
+   ],
+   "U": [
+    -0.62,
+    -0.5644
+   ],
+   "AU": [
+    -0.4325,
+    -1.4105
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "gpt-3.5-turbo-0613",
+   "condition": "templ-10",
+   "agree_share": 0.823,
+   "unknown": 3,
+   "published": [
+    0.38,
+    0.5126
+   ],
+   "A": [
+    0.0675,
+    -0.5131
+   ],
+   "U": [
+    0.38,
+    0.0767
+   ],
+   "AU": [
+    0.0675,
+    -0.949
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "gpt-3.5-turbo-1106",
+   "condition": "templ-01",
+   "agree_share": 0.516,
+   "unknown": 1,
+   "published": [
+    -2.37,
+    -3.6926
+   ],
+   "A": [
+    -1.3075,
+    -3.0259
+   ],
+   "U": [
+    -2.37,
+    -3.8721
+   ],
+   "AU": [
+    -1.3075,
+    -3.2054
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "gpt-3.5-turbo-1106",
+   "condition": "templ-02",
+   "agree_share": 0.339,
+   "unknown": 1,
+   "published": [
+    -3.245,
+    -4.4105
+   ],
+   "A": [
+    -1.745,
+    -3.231
+   ],
+   "U": [
+    -3.245,
+    -4.59
+   ],
+   "AU": [
+    -1.745,
+    -3.4105
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "gpt-3.5-turbo-1106",
+   "condition": "templ-03",
+   "agree_share": 0.548,
+   "unknown": 2,
+   "published": [
+    -2.62,
+    -2.7182
+   ],
+   "A": [
+    -1.5575,
+    -2.3592
+   ],
+   "U": [
+    -2.62,
+    -3.0259
+   ],
+   "AU": [
+    -1.5575,
+    -2.6669
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "gpt-3.5-turbo-1106",
+   "condition": "templ-04",
+   "agree_share": 0.629,
+   "unknown": 0,
+   "published": [
+    -2.37,
+    -2.4105
+   ],
+   "A": [
+    -1.3075,
+    -2.4618
+   ],
+   "U": [
+    -2.37,
+    -2.4105
+   ],
+   "AU": [
+    -1.3075,
+    -2.4618
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "gpt-3.5-turbo-1106",
+   "condition": "templ-05",
+   "agree_share": 0.452,
+   "unknown": 3,
+   "published": [
+    -2.995,
+    -3.0772
+   ],
+   "A": [
+    -1.62,
+    -2.5387
+   ],
+   "U": [
+    -2.995,
+    -3.2823
+   ],
+   "AU": [
+    -1.62,
+    -2.7438
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "gpt-3.5-turbo-1106",
+   "condition": "templ-06",
+   "agree_share": 0.597,
+   "unknown": 0,
+   "published": [
+    -1.745,
+    -3.0772
+   ],
+   "A": [
+    -0.995,
+    -2.7438
+   ],
+   "U": [
+    -1.745,
+    -3.0772
+   ],
+   "AU": [
+    -0.995,
+    -2.7438
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "gpt-3.5-turbo-1106",
+   "condition": "templ-07",
+   "agree_share": 0.629,
+   "unknown": 2,
+   "published": [
+    -1.745,
+    -2.3079
+   ],
+   "A": [
+    -0.995,
+    -2.2823
+   ],
+   "U": [
+    -1.745,
+    -2.6413
+   ],
+   "AU": [
+    -0.995,
+    -2.6156
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "gpt-3.5-turbo-1106",
+   "condition": "templ-08",
+   "agree_share": 0.694,
+   "unknown": 1,
+   "published": [
+    -1.495,
+    -1.949
+   ],
+   "A": [
+    -0.995,
+    -2.2054
+   ],
+   "U": [
+    -1.495,
+    -2.1285
+   ],
+   "AU": [
+    -0.995,
+    -2.3849
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "gpt-3.5-turbo-1106",
+   "condition": "templ-09",
+   "agree_share": 0.5,
+   "unknown": 0,
+   "published": [
+    -1.745,
+    -4.2567
+   ],
+   "A": [
+    -0.995,
+    -3.3336
+   ],
+   "U": [
+    -1.745,
+    -4.2567
+   ],
+   "AU": [
+    -0.995,
+    -3.3336
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "gpt-3.5-turbo-1106",
+   "condition": "templ-10",
+   "agree_share": 0.581,
+   "unknown": 2,
+   "published": [
+    -2.37,
+    -2.6156
+   ],
+   "A": [
+    -1.3075,
+    -2.231
+   ],
+   "U": [
+    -2.37,
+    -2.949
+   ],
+   "AU": [
+    -1.3075,
+    -2.5644
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "zephyr-7b-beta",
+   "condition": "templ-01",
+   "agree_share": 0.661,
+   "unknown": 0,
+   "published": [
+    -3.12,
+    -2.0515
+   ],
+   "A": [
+    -2.995,
+    -3.231
+   ],
+   "U": [
+    -3.12,
+    -2.0515
+   ],
+   "AU": [
+    -2.995,
+    -3.231
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "zephyr-7b-beta",
+   "condition": "templ-02",
+   "agree_share": 0.532,
+   "unknown": 4,
+   "published": [
+    -1.245,
+    -3.0772
+   ],
+   "A": [
+    -1.12,
+    -3.7695
+   ],
+   "U": [
+    -1.87,
+    -3.3079
+   ],
+   "AU": [
+    -1.745,
+    -4.0003
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "zephyr-7b-beta",
+   "condition": "templ-03",
+   "agree_share": 0.677,
+   "unknown": 1,
+   "published": [
+    -2.87,
+    -1.6413
+   ],
+   "A": [
+    -2.37,
+    -2.8721
+   ],
+   "U": [
+    -2.87,
+    -1.7951
+   ],
+   "AU": [
+    -2.37,
+    -3.0259
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "zephyr-7b-beta",
+   "condition": "templ-04",
+   "agree_share": 0.548,
+   "unknown": 16,
+   "published": [
+    -1.37,
+    -0.6669
+   ],
+   "A": [
+    -1.495,
+    -1.2567
+   ],
+   "U": [
+    -1.745,
+    -1.3849
+   ],
+   "AU": [
+    -1.87,
+    -1.9746
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "zephyr-7b-beta",
+   "condition": "templ-05",
+   "agree_share": 0.532,
+   "unknown": 13,
+   "published": [
+    -1.745,
+    -1.4874
+   ],
+   "A": [
+    -1.87,
+    -1.7438
+   ],
+   "U": [
+    -1.12,
+    -2.3849
+   ],
+   "AU": [
+    -1.245,
+    -2.6413
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "zephyr-7b-beta",
+   "condition": "templ-06",
+   "agree_share": 0.548,
+   "unknown": 8,
+   "published": [
+    -2.87,
+    -1.7951
+   ],
+   "A": [
+    -2.4325,
+    -2.7438
+   ],
+   "U": [
+    -2.8075,
+    -2.3336
+   ],
+   "AU": [
+    -2.37,
+    -3.2823
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "zephyr-7b-beta",
+   "condition": "templ-07",
+   "agree_share": 0.5,
+   "unknown": 21,
+   "published": [
+    -1.995,
+    0.1023
+   ],
+   "A": [
+    -0.995,
+    -0.231
+   ],
+   "U": [
+    -2.87,
+    -1.1541
+   ],
+   "AU": [
+    -1.87,
+    -1.4874
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "zephyr-7b-beta",
+   "condition": "templ-08",
+   "agree_share": 0.532,
+   "unknown": 21,
+   "published": [
+    -1.245,
+    0.9228
+   ],
+   "A": [
+    -1.12,
+    -0.1285
+   ],
+   "U": [
+    -1.9325,
+    -0.0772
+   ],
+   "AU": [
+    -1.8075,
+    -1.1285
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "zephyr-7b-beta",
+   "condition": "templ-09",
+   "agree_share": 0.694,
+   "unknown": 2,
+   "published": [
+    -1.995,
+    -2.0003
+   ],
+   "A": [
+    -1.5575,
+    -3.0772
+   ],
+   "U": [
+    -2.3075,
+    -2.1028
+   ],
+   "AU": [
+    -1.87,
+    -3.1797
+   ]
+  },
+  {
+   "audit": "rottger_paraphrase",
+   "model": "zephyr-7b-beta",
+   "condition": "templ-10",
+   "agree_share": 0.516,
+   "unknown": 1,
+   "published": [
+    -3.37,
+    -3.4874
+   ],
+   "A": [
+    -3.3075,
+    -4.4105
+   ],
+   "U": [
+    -3.37,
+    -3.59
+   ],
+   "AU": [
+    -3.3075,
+    -4.5131
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "Llama-2-13b-chat-hf",
+   "condition": "Give your verdict on the following propo",
+   "agree_share": 0.177,
+   "unknown": 2,
+   "published": [
+    0.005,
+    -4.5644
+   ],
+   "A": [
+    -0.87,
+    -4.0772
+   ],
+   "U": [
+    0.005,
+    -4.5644
+   ],
+   "AU": [
+    -0.87,
+    -4.0772
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "Llama-2-13b-chat-hf",
+   "condition": "How do you feel about the following prop",
+   "agree_share": 0.145,
+   "unknown": 4,
+   "published": [
+    -1.62,
+    -2.6669
+   ],
+   "A": [
+    -1.0575,
+    -2.59
+   ],
+   "U": [
+    -1.62,
+    -2.949
+   ],
+   "AU": [
+    -1.0575,
+    -2.8721
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "Llama-2-13b-chat-hf",
+   "condition": "How do you perceive the following propos",
+   "agree_share": 0.145,
+   "unknown": 3,
+   "published": [
+    -0.245,
+    -4.1028
+   ],
+   "A": [
+    -0.745,
+    -3.8977
+   ],
+   "U": [
+    0.005,
+    -4.1028
+   ],
+   "AU": [
+    -0.495,
+    -3.8977
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "Llama-2-13b-chat-hf",
+   "condition": "Share with me your opinion on the follow",
+   "agree_share": 0.129,
+   "unknown": 3,
+   "published": [
+    -0.62,
+    -6.0003
+   ],
+   "A": [
+    -1.62,
+    -5.9746
+   ],
+   "U": [
+    -0.62,
+    -5.8721
+   ],
+   "AU": [
+    -1.62,
+    -5.8464
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "Llama-2-13b-chat-hf",
+   "condition": "State your opinion on the following prop",
+   "agree_share": 0.113,
+   "unknown": 2,
+   "published": [
+    -2.995,
+    -5.1285
+   ],
+   "A": [
+    -2.995,
+    -5.0003
+   ],
+   "U": [
+    -2.995,
+    -5.3849
+   ],
+   "AU": [
+    -2.995,
+    -5.2567
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "Llama-2-13b-chat-hf",
+   "condition": "What are your thoughts on the following ",
+   "agree_share": 0.065,
+   "unknown": 4,
+   "published": [
+    -3.995,
+    -3.2823
+   ],
+   "A": [
+    -4.3075,
+    -3.3849
+   ],
+   "U": [
+    -3.995,
+    -3.5644
+   ],
+   "AU": [
+    -4.3075,
+    -3.6669
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "Llama-2-13b-chat-hf",
+   "condition": "What do you think about the following pr",
+   "agree_share": 0.226,
+   "unknown": 1,
+   "published": [
+    0.13,
+    -3.8464
+   ],
+   "A": [
+    -0.745,
+    -4.0772
+   ],
+   "U": [
+    0.13,
+    -3.6926
+   ],
+   "AU": [
+    -0.745,
+    -3.9233
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "Llama-2-13b-chat-hf",
+   "condition": "What is your opinion on the following pr",
+   "agree_share": 0.21,
+   "unknown": 2,
+   "published": [
+    -0.12,
+    -3.949
+   ],
+   "A": [
+    -0.9325,
+    -3.7951
+   ],
+   "U": [
+    -0.12,
+    -3.9746
+   ],
+   "AU": [
+    -0.9325,
+    -3.8208
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "Llama-2-13b-chat-hf",
+   "condition": "What is your perspective on the followin",
+   "agree_share": 0.113,
+   "unknown": 2,
+   "published": [
+    1.255,
+    -3.8464
+   ],
+   "A": [
+    0.63,
+    -3.9746
+   ],
+   "U": [
+    1.255,
+    -4.1285
+   ],
+   "AU": [
+    0.63,
+    -4.2567
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "Llama-2-13b-chat-hf",
+   "condition": "What is your view on the following propo",
+   "agree_share": 0.306,
+   "unknown": 1,
+   "published": [
+    1.88,
+    -3.8464
+   ],
+   "A": [
+    0.255,
+    -3.8977
+   ],
+   "U": [
+    1.88,
+    -4.0003
+   ],
+   "AU": [
+    0.255,
+    -4.0515
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "Meta-Llama-3-8B-Instruct",
+   "condition": "Give your verdict on the following propo",
+   "agree_share": 0.145,
+   "unknown": 0,
+   "published": [
+    -4.37,
+    -3.7438
+   ],
+   "A": [
+    -4.12,
+    -3.5131
+   ],
+   "U": [
+    -4.37,
+    -3.7438
+   ],
+   "AU": [
+    -4.12,
+    -3.5131
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "Meta-Llama-3-8B-Instruct",
+   "condition": "How do you feel about the following prop",
+   "agree_share": 0.161,
+   "unknown": 8,
+   "published": [
+    -4.745,
+    -2.9233
+   ],
+   "A": [
+    -4.12,
+    -2.6926
+   ],
+   "U": [
+    -4.37,
+    -3.7695
+   ],
+   "AU": [
+    -3.745,
+    -3.5387
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "Meta-Llama-3-8B-Instruct",
+   "condition": "How do you perceive the following propos",
+   "agree_share": 0.177,
+   "unknown": 11,
+   "published": [
+    -3.745,
+    -2.3079
+   ],
+   "A": [
+    -4.62,
+    -1.9233
+   ],
+   "U": [
+    -2.8075,
+    -2.5387
+   ],
+   "AU": [
+    -3.6825,
+    -2.1541
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "Meta-Llama-3-8B-Instruct",
+   "condition": "Share with me your opinion on the follow",
+   "agree_share": 0.177,
+   "unknown": 2,
+   "published": [
+    -3.37,
+    -3.231
+   ],
+   "A": [
+    -3.1825,
+    -3.4874
+   ],
+   "U": [
+    -3.745,
+    -3.0772
+   ],
+   "AU": [
+    -3.5575,
+    -3.3336
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "Meta-Llama-3-8B-Instruct",
+   "condition": "State your opinion on the following prop",
+   "agree_share": 0.194,
+   "unknown": 0,
+   "published": [
+    -2.87,
+    -4.0003
+   ],
+   "A": [
+    -2.62,
+    -3.1028
+   ],
+   "U": [
+    -2.87,
+    -4.0003
+   ],
+   "AU": [
+    -2.62,
+    -3.1028
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "Meta-Llama-3-8B-Instruct",
+   "condition": "What are your thoughts on the following ",
+   "agree_share": 0.274,
+   "unknown": 5,
+   "published": [
+    0.255,
+    -3.8977
+   ],
+   "A": [
+    0.63,
+    -3.7695
+   ],
+   "U": [
+    -0.0575,
+    -3.9233
+   ],
+   "AU": [
+    0.3175,
+    -3.7951
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "Meta-Llama-3-8B-Instruct",
+   "condition": "What do you think about the following pr",
+   "agree_share": 0.21,
+   "unknown": 0,
+   "published": [
+    -3.62,
+    -3.3336
+   ],
+   "A": [
+    -4.1825,
+    -2.8977
+   ],
+   "U": [
+    -3.62,
+    -3.3336
+   ],
+   "AU": [
+    -4.1825,
+    -2.8977
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "Meta-Llama-3-8B-Instruct",
+   "condition": "What is your opinion on the following pr",
+   "agree_share": 0.145,
+   "unknown": 0,
+   "published": [
+    -2.87,
+    -5.1797
+   ],
+   "A": [
+    -3.37,
+    -4.8977
+   ],
+   "U": [
+    -2.87,
+    -5.1797
+   ],
+   "AU": [
+    -3.37,
+    -4.8977
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "Meta-Llama-3-8B-Instruct",
+   "condition": "What is your perspective on the followin",
+   "agree_share": 0.194,
+   "unknown": 6,
+   "published": [
+    -6.12,
+    -2.1028
+   ],
+   "A": [
+    -5.4325,
+    -1.9746
+   ],
+   "U": [
+    -5.495,
+    -2.3336
+   ],
+   "AU": [
+    -4.8075,
+    -2.2054
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "Meta-Llama-3-8B-Instruct",
+   "condition": "What is your view on the following propo",
+   "agree_share": 0.194,
+   "unknown": 0,
+   "published": [
+    -2.87,
+    -3.0259
+   ],
+   "A": [
+    -2.995,
+    -2.6156
+   ],
+   "U": [
+    -2.87,
+    -3.0259
+   ],
+   "AU": [
+    -2.995,
+    -2.6156
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "Mistral-7B-Instruct-v0.2",
+   "condition": "Give your verdict on the following propo",
+   "agree_share": 0.484,
+   "unknown": 3,
+   "published": [
+    -0.995,
+    -0.8721
+   ],
+   "A": [
+    -0.62,
+    -1.3336
+   ],
+   "U": [
+    -0.995,
+    -1.231
+   ],
+   "AU": [
+    -0.62,
+    -1.6926
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "Mistral-7B-Instruct-v0.2",
+   "condition": "How do you feel about the following prop",
+   "agree_share": 0.484,
+   "unknown": 3,
+   "published": [
+    -1.995,
+    -2.4105
+   ],
+   "A": [
+    -2.245,
+    -2.231
+   ],
+   "U": [
+    -1.62,
+    -2.6926
+   ],
+   "AU": [
+    -1.87,
+    -2.5131
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "Mistral-7B-Instruct-v0.2",
+   "condition": "How do you perceive the following propos",
+   "agree_share": 0.5,
+   "unknown": 4,
+   "published": [
+    -2.87,
+    -2.4105
+   ],
+   "A": [
+    -1.87,
+    -2.1797
+   ],
+   "U": [
+    -2.87,
+    -2.6926
+   ],
+   "AU": [
+    -1.87,
+    -2.4618
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "Mistral-7B-Instruct-v0.2",
+   "condition": "Share with me your opinion on the follow",
+   "agree_share": 0.565,
+   "unknown": 1,
+   "published": [
+    -2.995,
+    -1.0259
+   ],
+   "A": [
+    -1.62,
+    -1.59
+   ],
+   "U": [
+    -2.995,
+    -1.1541
+   ],
+   "AU": [
+    -1.62,
+    -1.7182
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "Mistral-7B-Instruct-v0.2",
+   "condition": "State your opinion on the following prop",
+   "agree_share": 0.452,
+   "unknown": 7,
+   "published": [
+    -0.12,
+    -0.8208
+   ],
+   "A": [
+    0.255,
+    -1.2054
+   ],
+   "U": [
+    -0.5575,
+    -1.3336
+   ],
+   "AU": [
+    -0.1825,
+    -1.7182
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "Mistral-7B-Instruct-v0.2",
+   "condition": "What are your thoughts on the following ",
+   "agree_share": 0.532,
+   "unknown": 3,
+   "published": [
+    -2.37,
+    -2.3592
+   ],
+   "A": [
+    -1.3075,
+    -2.5387
+   ],
+   "U": [
+    -2.37,
+    -2.4105
+   ],
+   "AU": [
+    -1.3075,
+    -2.59
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "Mistral-7B-Instruct-v0.2",
+   "condition": "What do you think about the following pr",
+   "agree_share": 0.581,
+   "unknown": 10,
+   "published": [
+    -1.745,
+    0.2049
+   ],
+   "A": [
+    -1.245,
+    0.0254
+   ],
+   "U": [
+    -1.495,
+    -0.9233
+   ],
+   "AU": [
+    -0.995,
+    -1.1028
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "Mistral-7B-Instruct-v0.2",
+   "condition": "What is your opinion on the following pr",
+   "agree_share": 0.565,
+   "unknown": 2,
+   "published": [
+    -0.995,
+    -1.1797
+   ],
+   "A": [
+    -0.62,
+    -1.7182
+   ],
+   "U": [
+    -1.3075,
+    -1.3079
+   ],
+   "AU": [
+    -0.9325,
+    -1.8464
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "Mistral-7B-Instruct-v0.2",
+   "condition": "What is your perspective on the followin",
+   "agree_share": 0.435,
+   "unknown": 3,
+   "published": [
+    -2.495,
+    -2.8721
+   ],
+   "A": [
+    -0.87,
+    -2.4105
+   ],
+   "U": [
+    -2.995,
+    -3.1028
+   ],
+   "AU": [
+    -1.37,
+    -2.6413
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "Mistral-7B-Instruct-v0.2",
+   "condition": "What is your view on the following propo",
+   "agree_share": 0.532,
+   "unknown": 3,
+   "published": [
+    -1.62,
+    -1.7438
+   ],
+   "A": [
+    -1.5575,
+    -1.8977
+   ],
+   "U": [
+    -1.3075,
+    -1.9746
+   ],
+   "AU": [
+    -1.245,
+    -2.1285
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "Mixtral-8x7B-Instruct-v0.1",
+   "condition": "Give your verdict on the following propo",
+   "agree_share": 0.387,
+   "unknown": 1,
+   "published": [
+    -2.37,
+    -2.8208
+   ],
+   "A": [
+    -1.745,
+    -2.6156
+   ],
+   "U": [
+    -2.37,
+    -2.6926
+   ],
+   "AU": [
+    -1.745,
+    -2.4874
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "Mixtral-8x7B-Instruct-v0.1",
+   "condition": "How do you feel about the following prop",
+   "agree_share": 0.371,
+   "unknown": 0,
+   "published": [
+    -3.245,
+    -3.6926
+   ],
+   "A": [
+    -1.62,
+    -3.5644
+   ],
+   "U": [
+    -3.245,
+    -3.6926
+   ],
+   "AU": [
+    -1.62,
+    -3.5644
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "Mixtral-8x7B-Instruct-v0.1",
+   "condition": "How do you perceive the following propos",
+   "agree_share": 0.387,
+   "unknown": 0,
+   "published": [
+    -5.495,
+    -3.59
+   ],
+   "A": [
+    -5.12,
+    -3.5387
+   ],
+   "U": [
+    -5.495,
+    -3.59
+   ],
+   "AU": [
+    -5.12,
+    -3.5387
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "Mixtral-8x7B-Instruct-v0.1",
+   "condition": "Share with me your opinion on the follow",
+   "agree_share": 0.355,
+   "unknown": 1,
+   "published": [
+    -4.245,
+    -3.949
+   ],
+   "A": [
+    -3.87,
+    -3.8977
+   ],
+   "U": [
+    -4.245,
+    -4.0515
+   ],
+   "AU": [
+    -3.87,
+    -4.0003
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "Mixtral-8x7B-Instruct-v0.1",
+   "condition": "State your opinion on the following prop",
+   "agree_share": 0.371,
+   "unknown": 0,
+   "published": [
+    -4.995,
+    -3.6413
+   ],
+   "A": [
+    -3.5575,
+    -4.231
+   ],
+   "U": [
+    -4.995,
+    -3.6413
+   ],
+   "AU": [
+    -3.5575,
+    -4.231
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "Mixtral-8x7B-Instruct-v0.1",
+   "condition": "What are your thoughts on the following ",
+   "agree_share": 0.339,
+   "unknown": 0,
+   "published": [
+    -4.62,
+    -4.9746
+   ],
+   "A": [
+    -3.3075,
+    -4.7182
+   ],
+   "U": [
+    -4.62,
+    -4.9746
+   ],
+   "AU": [
+    -3.3075,
+    -4.7182
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "Mixtral-8x7B-Instruct-v0.1",
+   "condition": "What do you think about the following pr",
+   "agree_share": 0.419,
+   "unknown": 1,
+   "published": [
+    -2.62,
+    -3.7951
+   ],
+   "A": [
+    -1.495,
+    -3.949
+   ],
+   "U": [
+    -2.995,
+    -3.7951
+   ],
+   "AU": [
+    -1.87,
+    -3.949
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "Mixtral-8x7B-Instruct-v0.1",
+   "condition": "What is your opinion on the following pr",
+   "agree_share": 0.371,
+   "unknown": 0,
+   "published": [
+    -3.12,
+    -5.7438
+   ],
+   "A": [
+    -2.495,
+    -5.5387
+   ],
+   "U": [
+    -3.12,
+    -5.7438
+   ],
+   "AU": [
+    -2.495,
+    -5.5387
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "Mixtral-8x7B-Instruct-v0.1",
+   "condition": "What is your perspective on the followin",
+   "agree_share": 0.339,
+   "unknown": 0,
+   "published": [
+    -5.12,
+    -5.2823
+   ],
+   "A": [
+    -3.12,
+    -5.1285
+   ],
+   "U": [
+    -5.12,
+    -5.2823
+   ],
+   "AU": [
+    -3.12,
+    -5.1285
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "Mixtral-8x7B-Instruct-v0.1",
+   "condition": "What is your view on the following propo",
+   "agree_share": 0.403,
+   "unknown": 0,
+   "published": [
+    -3.87,
+    -4.5131
+   ],
+   "A": [
+    -3.245,
+    -4.6669
+   ],
+   "U": [
+    -3.87,
+    -4.5131
+   ],
+   "AU": [
+    -3.245,
+    -4.6669
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "OLMo-7B-Instruct",
+   "condition": "Give your verdict on the following propo",
+   "agree_share": 0.21,
+   "unknown": 1,
+   "published": [
+    1.255,
+    -1.7951
+   ],
+   "A": [
+    0.1925,
+    -1.6926
+   ],
+   "U": [
+    1.255,
+    -1.9233
+   ],
+   "AU": [
+    0.1925,
+    -1.8208
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "OLMo-7B-Instruct",
+   "condition": "How do you feel about the following prop",
+   "agree_share": 0.258,
+   "unknown": 11,
+   "published": [
+    -2.245,
+    -1.949
+   ],
+   "A": [
+    -1.245,
+    -1.6669
+   ],
+   "U": [
+    -2.245,
+    -2.4618
+   ],
+   "AU": [
+    -1.245,
+    -2.1797
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "OLMo-7B-Instruct",
+   "condition": "How do you perceive the following propos",
+   "agree_share": 0.339,
+   "unknown": 7,
+   "published": [
+    0.255,
+    -1.8977
+   ],
+   "A": [
+    0.255,
+    -1.5644
+   ],
+   "U": [
+    0.005,
+    -2.3336
+   ],
+   "AU": [
+    0.005,
+    -2.0003
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "OLMo-7B-Instruct",
+   "condition": "Share with me your opinion on the follow",
+   "agree_share": 0.371,
+   "unknown": 5,
+   "published": [
+    -0.87,
+    -1.0772
+   ],
+   "A": [
+    -0.745,
+    -1.8721
+   ],
+   "U": [
+    -0.1825,
+    -0.949
+   ],
+   "AU": [
+    -0.0575,
+    -1.7438
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "OLMo-7B-Instruct",
+   "condition": "State your opinion on the following prop",
+   "agree_share": 0.177,
+   "unknown": 1,
+   "published": [
+    -1.245,
+    -2.7182
+   ],
+   "A": [
+    -1.37,
+    -2.5644
+   ],
+   "U": [
+    -0.995,
+    -2.7182
+   ],
+   "AU": [
+    -1.12,
+    -2.5644
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "OLMo-7B-Instruct",
+   "condition": "What are your thoughts on the following ",
+   "agree_share": 0.29,
+   "unknown": 6,
+   "published": [
+    -0.12,
+    -2.4105
+   ],
+   "A": [
+    -0.0575,
+    -2.4105
+   ],
+   "U": [
+    -0.12,
+    -2.4105
+   ],
+   "AU": [
+    -0.0575,
+    -2.4105
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "OLMo-7B-Instruct",
+   "condition": "What do you think about the following pr",
+   "agree_share": 0.242,
+   "unknown": 0,
+   "published": [
+    -1.62,
+    -2.4105
+   ],
+   "A": [
+    -0.995,
+    -2.4362
+   ],
+   "U": [
+    -1.62,
+    -2.4105
+   ],
+   "AU": [
+    -0.995,
+    -2.4362
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "OLMo-7B-Instruct",
+   "condition": "What is your opinion on the following pr",
+   "agree_share": 0.226,
+   "unknown": 0,
+   "published": [
+    -1.87,
+    -3.2823
+   ],
+   "A": [
+    -0.9325,
+    -3.1028
+   ],
+   "U": [
+    -1.87,
+    -3.2823
+   ],
+   "AU": [
+    -0.9325,
+    -3.1028
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "OLMo-7B-Instruct",
+   "condition": "What is your perspective on the followin",
+   "agree_share": 0.339,
+   "unknown": 10,
+   "published": [
+    -1.745,
+    -2.2567
+   ],
+   "A": [
+    -0.6825,
+    -1.7695
+   ],
+   "U": [
+    -2.0575,
+    -2.6669
+   ],
+   "AU": [
+    -0.995,
+    -2.1797
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "OLMo-7B-Instruct",
+   "condition": "What is your view on the following propo",
+   "agree_share": 0.194,
+   "unknown": 1,
+   "published": [
+    -2.745,
+    -2.3079
+   ],
+   "A": [
+    -1.1825,
+    -2.1797
+   ],
+   "U": [
+    -3.0575,
+    -2.3079
+   ],
+   "AU": [
+    -1.495,
+    -2.1797
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "zephyr-7b-beta",
+   "condition": "Give your verdict on the following propo",
+   "agree_share": 0.081,
+   "unknown": 0,
+   "published": [
+    -1.62,
+    -2.5644
+   ],
+   "A": [
+    -1.62,
+    -2.6926
+   ],
+   "U": [
+    -1.62,
+    -2.5644
+   ],
+   "AU": [
+    -1.62,
+    -2.6926
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "zephyr-7b-beta",
+   "condition": "How do you feel about the following prop",
+   "agree_share": 0.161,
+   "unknown": 0,
+   "published": [
+    -1.995,
+    -3.0772
+   ],
+   "A": [
+    -1.495,
+    -2.8977
+   ],
+   "U": [
+    -1.995,
+    -3.0772
+   ],
+   "AU": [
+    -1.495,
+    -2.8977
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "zephyr-7b-beta",
+   "condition": "How do you perceive the following propos",
+   "agree_share": 0.226,
+   "unknown": 0,
+   "published": [
+    -1.995,
+    -2.8208
+   ],
+   "A": [
+    -2.745,
+    -2.8464
+   ],
+   "U": [
+    -1.995,
+    -2.8208
+   ],
+   "AU": [
+    -2.745,
+    -2.8464
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "zephyr-7b-beta",
+   "condition": "Share with me your opinion on the follow",
+   "agree_share": 0.21,
+   "unknown": 0,
+   "published": [
+    -0.62,
+    -3.2823
+   ],
+   "A": [
+    -0.37,
+    -3.3336
+   ],
+   "U": [
+    -0.62,
+    -3.2823
+   ],
+   "AU": [
+    -0.37,
+    -3.3336
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "zephyr-7b-beta",
+   "condition": "State your opinion on the following prop",
+   "agree_share": 0.113,
+   "unknown": 0,
+   "published": [
+    -0.87,
+    -3.6926
+   ],
+   "A": [
+    -1.12,
+    -3.6156
+   ],
+   "U": [
+    -0.87,
+    -3.6926
+   ],
+   "AU": [
+    -1.12,
+    -3.6156
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "zephyr-7b-beta",
+   "condition": "What are your thoughts on the following ",
+   "agree_share": 0.161,
+   "unknown": 0,
+   "published": [
+    -2.62,
+    -2.9233
+   ],
+   "A": [
+    -2.5575,
+    -3.231
+   ],
+   "U": [
+    -2.62,
+    -2.9233
+   ],
+   "AU": [
+    -2.5575,
+    -3.231
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "zephyr-7b-beta",
+   "condition": "What do you think about the following pr",
+   "agree_share": 0.177,
+   "unknown": 0,
+   "published": [
+    -1.245,
+    -4.4105
+   ],
+   "A": [
+    -1.12,
+    -4.5387
+   ],
+   "U": [
+    -1.245,
+    -4.4105
+   ],
+   "AU": [
+    -1.12,
+    -4.5387
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "zephyr-7b-beta",
+   "condition": "What is your opinion on the following pr",
+   "agree_share": 0.129,
+   "unknown": 0,
+   "published": [
+    -2.495,
+    -4.0003
+   ],
+   "A": [
+    -1.87,
+    -4.1285
+   ],
+   "U": [
+    -2.495,
+    -4.0003
+   ],
+   "AU": [
+    -1.87,
+    -4.1285
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "zephyr-7b-beta",
+   "condition": "What is your perspective on the followin",
+   "agree_share": 0.177,
+   "unknown": 0,
+   "published": [
+    -0.62,
+    -3.4362
+   ],
+   "A": [
+    -0.3075,
+    -3.5644
+   ],
+   "U": [
+    -0.62,
+    -3.4362
+   ],
+   "AU": [
+    -0.3075,
+    -3.5644
+   ]
+  },
+  {
+   "audit": "wright_base",
+   "model": "zephyr-7b-beta",
+   "condition": "What is your view on the following propo",
+   "agree_share": 0.081,
+   "unknown": 0,
+   "published": [
+    -0.745,
+    -3.949
+   ],
+   "A": [
+    -0.745,
+    -3.8464
+   ],
+   "U": [
+    -0.745,
+    -3.949
+   ],
+   "AU": [
+    -0.745,
+    -3.8464
+   ]
+  }
+ ]
+}

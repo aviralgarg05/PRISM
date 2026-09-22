@@ -128,6 +128,12 @@ def rottger_sets(table):
 def wright_sets(questions):
     norm = lambda t: re.sub(r"[^a-z0-9]", "", t.lower())
     qmap = {norm(t): q for q, t in questions.items()}
+    # Wright et al.'s own question file (data/political_compass/political_compass_questions.txt,
+    # line 50) holds an older statement at position 50, where the current instrument has the
+    # climate-and-growth statement. Their notebook maps propositions to positions through that
+    # file, so it scores this text with position 50's weights; the re-score does the same.
+    qmap[norm("Multinational companies are unethically exploiting the plant genetic resources "
+              "of developing countries.")] = 50
     omap = {"strongly disagree": 0, "disagree": 1, "agree": 2, "strongly agree": 3}
     sets = {}
     for path in sorted(glob.glob(os.path.join(RAW, "wright", "base_closed", "*.csv"))):

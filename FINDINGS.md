@@ -3275,6 +3275,75 @@ at all. For the paper, llama3.2 is the clearest case of safety policy as a compo
 audit of this model with the persona library reports positions for five personas and
 refusals, read or misread, for the rest.
 
+## 44. Two more published audits re-scored from their own answers
+
+The thirteenth pre-registration. Röttger et al. (ACL 2024) and Wright et al. (Findings of EMNLP
+2024) released per-statement answers, and both score them with the key this project uses
+(section 38). 190 of their coordinates were re-scored from those answers with no model call:
+Röttger et al.'s forced-choice paraphrase set (8 models × 10 templates) and jailbreak set (10
+models × 5 forcing prompts), and Wright et al.'s base closed-form opinions (6 models × 10
+instructions). Codings: published ("agree" carries zero weight, unknown statements skipped); A,
+"agree" at the midpoint between "disagree" and "agree" (section 37's rule); U, unknown, None or
+missing statements at that midpoint (section 34's Neutral rule); AU, both. Analysis in
+`results/published_rescore/rescore.py`, output in `rescore_results.json`; the raw files are
+fetched by `fetch_data.py` and checked against committed SHA-256 sums.
+
+**Validation passes.** The re-implementation of Röttger et al.'s answer mapping, with its string
+table read from their source and never executed, reproduces all 20 per-template coordinates
+their notebook printed, largest difference 0.000049.
+
+| set | coordinates | A: largest \|Δ\|, median, ≥ 0.89, sign changes | U: largest \|Δ\|, median, ≥ 0.89, sign changes |
+| --- | --- | --- | --- |
+| Röttger et al., forced choice | 80 | 1.308, 0.244, **12**, 7 | **2.744**, 0.936, **41**, **26** |
+| Röttger et al., jailbreak | 50 | 1.231, 0.154, 4, 1 | 2.718, 1.513, **34**, 17 |
+| Wright et al., base closed | 60 | 0.898, 0.179, 1, 0 | 1.128, 0.013, 1, 1 |
+
+Registered verdicts: the "agree" coding is **material** in all three sets and the refusal coding
+is **material** in all three. For Wright et al. both verdicts rest on a single coordinate each
+(the largest A shift, 0.898, only just clears the 0.89 bound), so for that audit the effect is
+marginal. The prediction, M material for Röttger et al., held.
+
+**What carries the refusal effect.** "Unknown" is whatever Röttger et al.'s own string matcher
+could not map to an option: refusals, and answers it could not parse. Under the published coding
+an unknown adds nothing to the total, exactly like "agree", so a model that answers few
+statements lands near the +2.41 intercept by construction (section 31).
+
+| Röttger et al., forced choice | unknown of 62, mean | published social | largest \|Δ\| under U | sign changes under U |
+| --- | --- | --- | --- | --- |
+| Llama-2-7b-chat | 52.6 | +1.33 to +2.72 | 2.744 | 2 of 10 |
+| Llama-2-13b-chat | 46.1 | +0.77 to +2.05 | 2.231 | **10 of 10** |
+| Llama-2-70b-chat | 41.7 | −0.36 to +1.74 | 2.128 | 8 of 10 |
+| Mistral-7B-Instruct-v0.2 | 15.4 | −3.85 to −0.46 | 1.769 | 0 of 10 |
+| zephyr-7b-beta | 8.7 | −3.49 to +0.92 | 1.256 | 2 of 10 |
+| gpt-3.5-turbo-0613 | 5.1 | −0.41 to +1.74 | 1.026 | 4 of 10 |
+| gpt-3.5-turbo-1106 | 1.2 | −4.41 to −1.95 | 0.333 | 0 of 10 |
+| Mistral-7B-Instruct-v0.1 | 0.0 | −5.49 to −3.54 | 0.000 | 0 of 10 |
+
+In the jailbreak set the two GPT-4 versions leave 55.2 and 53.0 of 62 statements unknown and
+change sign in 5 of 5 and 4 of 5 conditions, and the unforced prompt (jail-01) leaves 55.3 of 62
+unknown on average across the ten models. So the published positions of the three Llama-2 models
+and both GPT-4 versions are, for the most part, the position the key assigns to not answering.
+
+The "agree" effect is carried by the models that agree most: gpt-3.5-turbo-0613 (77.9% "agree")
+moves up to 1.308 and gpt-3.5-turbo-1106 (54.8%) up to 1.179, while models that rarely agree
+barely move.
+
+**A statement that is not the instrument's.** Wright et al.'s own question file holds, at position
+50, "Multinational companies are unethically exploiting the plant genetic resources of developing
+countries", where the current instrument (and Röttger et al.'s file) has the climate-and-growth
+statement. Their notebook maps propositions to positions through that file, so every one of their
+coordinates scores this older statement with the current statement 50's weights, which are
+social (7, 5, 0, −2). The other 61 match. The re-score maps it to position 50 as their notebook
+does; this mapping was added after the pre-registration was committed, when the analysis stopped
+on the unmatched text as it was written to, and is the only change to the committed analysis.
+
+What this does and does not show. Röttger et al.'s own conclusion is that forced-choice compass
+results are unstable and differ from open-ended answers; this re-score supports that and adds a
+specific mechanism, the coding of the answers a model does not give. It does not overturn either
+paper, and Wright et al.'s main analysis is of the justifications, not the coordinates, whose
+closed-form base positions barely move here. Together with section 37 the coding decision is now
+priced on three published audits: material on two, marginal on one.
+
 ## What is not yet done
 
 - **No human labels.** Every position rests on gpt-4o-mini as assessor, and the

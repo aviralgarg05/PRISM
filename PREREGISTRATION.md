@@ -990,3 +990,16 @@ largest and median shift, and how many change the sign of their social coordinat
 
 Prediction. M is material for Röttger et al., informed by the agree share already seen. No
 prediction for Wright et al. or for MU.
+
+### Outcome of the thirteenth pre-registration
+
+| rule | Röttger et al., forced choice (80) | Röttger et al., jailbreak (50) | Wright et al., base (60) |
+| --- | --- | --- | --- |
+| V | **passes**: 20 printed coordinates, largest difference 0.000049 | | not externally checkable |
+| M, "agree" coding | **material**: 12 coordinates ≥ 0.89, largest 1.308 | **material**: 4, largest 1.231 | **material, marginal**: 1, largest 0.898 |
+| MU, refusal coding | **material**: 41 ≥ 0.89, largest 2.744, 26 sign changes | **material**: 34, largest 2.718, 17 sign changes | **material, marginal**: 1, largest 1.128 |
+
+The prediction, M material for Röttger et al., held. One change to the committed analysis, made
+after it stopped on an unmatched proposition as written: Wright et al.'s position 50 holds an older
+statement than the current instrument, and it is mapped to position 50 as their own notebook maps
+it. Detail in FINDINGS section 44.
