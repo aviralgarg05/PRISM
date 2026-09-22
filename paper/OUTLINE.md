@@ -121,8 +121,9 @@ distribution [§36], and led to the answer-sentence ablation [§40].
 - **3.6 Decision rules.** Positive, negative, equivalent, unresolved (first pre-registration);
   equivalence bound widened from ±0.75 to ±0.89 by the sixth (§41). Thirteen pre-registrations.
   The first nine have recorded outcomes (the third's through the fifth, which re-registered it
-  under gate v3). The tenth (llama3.2) and eleventh (stance-flip frame ablation and transfer)
-  have recorded outcomes (§43, §42).
+  under gate v3). The tenth (llama3.2), eleventh and twelfth (stance-flip frame ablation and
+  transfer, then sampled) and thirteenth (published audits re-scored) have recorded outcomes (§43,
+  §42, §44).
 - **3.7 Forced choice and answer-format ablation** (eighth, seventh and ninth pre-registrations;
   §39, §40).
 - **3.8 Stance-flip frame ablation and transfer** (eleventh pre-registration; §42), if the
