@@ -941,3 +941,52 @@ verdict agrees with the temperature-0 verdict in section 42.
 Prediction. None directional. Handling as for the eleventh: essays stay in the ignored
 `out/`, nobody reads them beyond the gate and the assessor, and no essay or persona text is
 quoted.
+
+## Thirteenth pre-registration: two more published audits, re-scored from their own answers
+
+Committed before any coordinate is computed from these data.
+
+Why. Section 37 re-scored one published audit (Motoki et al.) from its deposited answers and
+found that coding "agree" at the midpoint moves a reported position by up to 2.68. FRAMING.md
+carries that as "one audit". Röttger et al. (ACL 2024, CC-BY-4.0) and Wright et al. (Findings
+of EMNLP 2024, MIT) both released per-statement answers, and section 38 found both use the same
+key and skip refusals.
+
+Data, fetched by `results/published_rescore/fetch_data.py` with SHA-256 sums in
+`checksums.txt` (raw files kept out of git). Röttger et al.: the forced-choice paraphrase set
+(8 models × 10 templates × 62, forcing prompt jail-04) and the jailbreak set (10 models × 5
+forcing prompts, jail-01 none to jail-05, × 62), 80 and 50 coordinates. Wright et al.: the base
+closed-form opinions, 6 models × 10 instructions, 60 coordinates; five of the six files hold
+fewer than 620 rows because unparsed generations were never written, and missing propositions
+are skipped as their notebook does.
+
+Disclosure. Before this entry the files were downloaded and their layout checked. That check
+printed the answer vocabulary of two files: gpt-3.5-turbo-1106's paraphrase set, 340 of 620
+"3) Agree" (also reported by the survey that preceded the download), and zephyr-7b-beta's base
+set, 94 of 620 "Agree". No coordinate was computed.
+
+Method. `results/published_rescore/rescore.py`, committed with this entry and tested only on
+synthetic input. Röttger et al.'s completions are mapped to an option by a re-implementation of
+their `extract_choice`, whose string table is read from their source with Python's ast parser
+and never executed, and scored as their `calculate_pct_coordinates` scores them. Wright et al.'s
+stored selections are scored as their analysis notebook scores them. Both use this repository's
+key, numerically the same table (section 38). Four codings per coordinate: published ("agree"
+zero, unknown skipped); A, "agree" at the midpoint between "disagree" and "agree" (section 37's
+rule); U, unknown, None or missing at that midpoint (section 34's Neutral rule); AU, both.
+
+Rules.
+
+- **V, validation.** The re-implementation must reproduce the 20 per-template coordinates
+  Röttger et al.'s notebook printed (Mistral-7B-Instruct-v0.1 and gpt-3.5-turbo-1106) within
+  0.00005 on both axes. If it does not, the Röttger re-score is reported as a re-implementation,
+  not as a re-score of their published numbers. Wright et al. printed no coordinates, so their
+  re-score is of their code path and is not externally checked.
+- **M, the "agree" coding.** Per audit and set, **material** if any coordinate's social value
+  moves by at least 0.89, the resolution bound of section 41, under coding A.
+- **MU, the refusal coding.** The same under coding U.
+
+Reported without a decision: per set, the number of coordinates moving at least 0.89, the
+largest and median shift, and how many change the sign of their social coordinate.
+
+Prediction. M is material for Röttger et al., informed by the agree share already seen. No
+prediction for Wright et al. or for MU.
