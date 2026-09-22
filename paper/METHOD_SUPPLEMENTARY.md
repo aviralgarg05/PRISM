@@ -700,7 +700,7 @@ on the n=24 data. The confirmation is not extended further ["What is not yet don
 | eleventh (Section 3.8, conditional) | the stance flip: frame ablation and transfer, statements 4 and 27 | endorsement-rate differences of at least 0.5; resisted at 0.1 or below | §42 |
 | twelfth (Section 3.8, conditional) | the eleventh's local arms, sampled | as the eleventh, valid only with at least 12 distinct essays of 24 | not yet recorded |
 
-> Note for the authors: PREREGISTRATION.md holds twelve entries, eleven with recorded outcomes;
+> Note for the authors: PREREGISTRATION.md holds thirteen entries, all with recorded outcomes;
 > the twelfth (line 908) has none yet. OUTLINE §3.6 says "Eleven pre-registrations", and the brief
 > this draft was written to says eleven, all with outcomes. Both predate the twelfth entry and need
 > reconciling.
@@ -974,4 +974,4 @@ reader can find the file, not measurements.
 | up to 13 days between the two sides of an assessor pair | 16 September, the gpt-4o draws [sixth pre-registration, amendment A5], minus 3 September†, the earliest gpt-4o-mini side (mistral `pccentrist`) = 13 days |
 | 1.26-unit margin of mistral's H\* | +1.863 [§32] − (+0.600†) = 1.263 |
 | 72 hand-written ids in the H\* candidates run | 6 personas × 12 replicates [§36, n=12 per arm] |
-| twelve pre-registrations, eleven with outcomes | the twelve entries of PREREGISTRATION.md; the twelfth has no outcome yet |
+| thirteen pre-registrations, all with outcomes | the thirteen entries of PREREGISTRATION.md |
