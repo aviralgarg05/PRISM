@@ -3,7 +3,7 @@ and reported as such: re-label every flip essay with gpt-4o and compare the
 endorse / not-endorse call with gpt-4o-mini's. Essays whose gate verdict was
 REFUSED are left out, because the endpoint already counts them as not endorsing.
 
-Usage (from code/): ../.venv/bin/python ../results/stance_flip/second_assessor.py [model ...]
+Usage (from code/): ../.venv/bin/python ../results/stance_flip/second_assessor.py [--sampled] [model ...]
 """
 
 import glob
@@ -25,13 +25,21 @@ ENDORSE = {"Agree", "Strongly agree"}
 def main():
     questions = dict(read_questions_from_file(os.path.join(REPO, "data", "compass_questions.txt")))
     out, agree, total = [], 0, 0
-    models = sys.argv[1:]   # optional: only these models' arm files, written to their own output
-    arms = sorted(glob.glob(os.path.join(HERE, "flip_*_paper.json")) + glob.glob(os.path.join(HERE, "flip_*_neutral.json")))
+    args = sys.argv[1:]
+    sampled = "--sampled" in args          # the twelfth pre-registration's temperature-0.8 files
+    models = [a for a in args if a != "--sampled"]   # optional: only these models, own output file
+    if sampled:
+        arms = sorted(glob.glob(os.path.join(HERE, "flip_sampled_*.json")))
+        arms = [a for a in arms if not a.endswith("_results.json")]
+        pick = lambda a: os.path.basename(a)[len("flip_sampled_"):-len(".json")]
+    else:
+        arms = sorted(glob.glob(os.path.join(HERE, "flip_*_paper.json")) + glob.glob(os.path.join(HERE, "flip_*_neutral.json")))
+        pick = lambda a: os.path.basename(a).split("_")[1]
     if models:
-        arms = [a for a in arms if os.path.basename(a).split("_")[1] in models]
+        arms = [a for a in arms if pick(a) in models]
     for path in arms:
         d = json.load(open(path))
-        model = d.get("model") or os.path.basename(path).split("_")[1]
+        model = d.get("model") or pick(path)
         for r in d["runs"]:
             cache = json.load(open(os.path.join(REPO, "out", "ratings", f"cache_{r['config_id']}_gpt-4o-mini_gate{GATE_VERSION}.json")))
             for q in ("4", "27"):
@@ -47,7 +55,7 @@ def main():
                 agree += same; total += 1
                 out.append({"file": os.path.basename(path), "persona": r["persona"], "rep": r["rep"], "q": q,
                             "gpt-4o-mini": mini, "gpt-4o": label, "same_endorsement_call": same})
-    name = "second_assessor.json" if not models else "second_assessor_" + "_".join(models) + ".json"
+    name = ("second_assessor" + ("_sampled" if sampled else "") + ("_" + "_".join(models) if models else "") + ".json")
     json.dump({"n": total, "agree": agree, "rows": out}, open(os.path.join(HERE, name), "w"), indent=1)
     print(f"endorse/not-endorse agreement, gpt-4o vs gpt-4o-mini: {agree}/{total}")
     for row in out:

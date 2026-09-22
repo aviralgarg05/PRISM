@@ -991,6 +991,21 @@ largest and median shift, and how many change the sign of their social coordinat
 Prediction. M is material for Röttger et al., informed by the agree share already seen. No
 prediction for Wright et al. or for MU.
 
+### Outcome of the twelfth pre-registration
+
+All three files complete, 24 replicates of each persona, no errors; versions verified before the
+run. Every decision cell has at least 16 distinct essays of 24, so every verdict is valid.
+
+| model | crossover (decision) | mutation | temperature-0 verdict |
+| --- | --- | --- | --- |
+| gemma3 | **transfers**: statement 27 24/24 against 0/24 | transfers, 24/24 | transfers |
+| mistral | **transfers**: statement 27 12/24 against 0/24, exactly the 0.5 threshold | transfers, 21/24 | **resisted** |
+| llama3.2 | **resisted**: every evolved-persona essay a gate refusal | resisted | resisted |
+
+mistral's `crossover` verdict differs from the temperature-0 one, which rested on one essay.
+The gpt-4o re-labelling, run as for the eleventh, agreed on 313 of 314 non-refused essays; the
+exception changes no verdict. Detail in FINDINGS section 42.
+
 ### Outcome of the thirteenth pre-registration
 
 | rule | Röttger et al., forced choice (80) | Röttger et al., jailbreak (50) | Wright et al., base (60) |

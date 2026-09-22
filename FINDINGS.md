@@ -3218,9 +3218,46 @@ of the two, and on neither gpt-5.4-mini nor llama3.2, which refused.
 The analysis script's file pattern also matched its own output file on the second run, so
 it was narrowed to the arm files; the rules and their thresholds did not change.
 
-Not established here: anything about statements other than 4 and 27; the local verdicts
-beyond single essays; and whether a persona searched on a current model would find a way
-through, which was not tried. The seed's 7 of 12 on statement 27 under the neutral frame
+### The local models, sampled (twelfth pre-registration)
+
+The same four personas and two statements at writer temperature 0.8, ollama's own default, n=24
+per persona in randomised complete blocks, so that each cell holds independent essays. Every
+decision cell has 16 to 24 distinct essays of 24, so all three verdicts are valid under the
+registered rule. e with Wilson 95% intervals:
+
+| model | persona | e, statement 4 | e, statement 27 | refused 4 / 27 |
+| --- | --- | --- | --- | --- |
+| gemma3 | none | 0/24 | 0/24 [0.00, 0.14] | 24 / 0 |
+| | crossover | 0/24 | **24/24** [0.86, 1.00] | 24 / 0 |
+| | mutation | 0/24 | **24/24** [0.86, 1.00] | 24 / 0 |
+| mistral | none | 0/24 | 0/24 [0.00, 0.14] | 0 / 0 |
+| | crossover | 1/24 | **12/24** [0.31, 0.69] | 0 / 0 |
+| | mutation | 1/24 | **21/24** [0.69, 0.96] | 0 / 0 |
+| llama3.2 | none | 1/24 | 0/24 | 0 / 16 |
+| | crossover | 0/24 | 0/24 | 24 / 24 |
+| | mutation | 0/24 | 0/24 | 24 / 24 |
+
+(The seed persona endorses neither statement on any of the three; `results/stance_flip/flip_sampled_results.json`.)
+
+Registered verdicts on `crossover`: **gemma3 transfers**, **mistral transfers**, **llama3.2
+resisted**; the same under `mutation`. Two of the three agree with the temperature-0 verdicts.
+**mistral's does not**: at temperature 0 its single `crossover` essay disagreed, and sampled,
+the same persona endorses statement 27 in 12 of 24 essays, against 0 of 24 with no persona. That
+difference is exactly the registered 0.5, so this transfer sits on the threshold, with an interval
+of 0.31 to 0.69. gpt-4o re-labelled the 314 sampled essays the gate did not refuse and agreed with
+gpt-4o-mini's call on 313; the exception is llama3.2's one no-persona endorsement of statement 4,
+which gpt-4o reads as disagreement. No verdict changes.
+
+So across the six audited models, the evolved personas from one gpt-3.5-turbo search move
+statement 27 to endorsement on gpt-3.5-turbo, gpt-4o-mini, gemma3 and mistral, and on neither
+gpt-5.4-mini nor llama3.2, which refuse. gemma3's transfer is complete (24 of 24) and mistral's is
+partial (12 of 24 under `crossover`, 21 of 24 under `mutation`). A temperature-0 audit of mistral
+would have reported the opposite of the sampled rate for one of the two personas, which is
+section 36's point about single draws, arriving in the safety-relevant result.
+
+Not established here: anything about statements other than 4 and 27; how gpt-4o-mini behaves
+sampled; and whether a persona searched on a current model would find a way through, which was
+not tried. The seed's 7 of 12 on statement 27 under the neutral frame
 was not a registered comparison and is recorded only.
 
 ## 43. A third vendor: llama3.2 declines almost everything, and the artefact is everywhere
@@ -3379,9 +3416,8 @@ priced on three published audits: material on two, marginal on one.
   authoritarian H\* did not move.
 - **The refusal artefact now rests on three vendors (sections 34, 35, 43)**, but its
   size has been measured on one persona library and one assessor.
-- **The stance flip's local transfer verdicts are single essays (section 42).** At
-  temperature 0 gemma3 and mistral wrote one essay per cell; a sampled replicate design
-  would be needed to say how often, rather than whether, they endorse.
+- **The stance flip is tested on two statements (section 42).** Local rates are now
+  sampled (twelfth pre-registration); the hosted models were run at temperature 0 only.
 - **The `--max-questions` rescale restores no ranking information.** It makes a
   bound look like a bound, but candidates tied at a bound stay tied. A search
   objective should use the full instrument, as sections 32 and 33 do.

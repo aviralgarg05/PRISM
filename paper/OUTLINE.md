@@ -215,7 +215,7 @@ about how to answer decides whether an authoritarian persona is played at all.
 
 **Missing.** The artefact is now on three vendors, with llama3.2 supplying 737 decline-then-write
 essays against gemma3's 288, but its size is small there, largest 1.948 (§43); the local
-stance-flip verdicts are single essays at temperature 0 (§42). Human labelling of the 176 gate
+stance-flip verdicts are sampled rates at temperature 0.8 (§42, twelfth pre-registration). Human labelling of the 176 gate
 overturns and of a sample no gate selected, under ETHICS.md. The in-voice category is
 ambiguous, 6 of 15 (§34). Why gpt-5.4-mini refuses `red` (15) and `gay` (13), gate v2 counts,
 is unread (§35).
@@ -294,7 +294,7 @@ what each audit read in §37 and §38 declares. Table 14 is not assembled.
 | §31's asymmetry between the two ends | carried by the sentence in the libertarian headline | §40 |
 | "the unroled default is the least assessor-stable measurement" | boundary positions move more | §41 |
 | gemma3's search gain as a move in position | both winners fall below the baseline without the sentence | §40 |
-| the stance flip on the local models, on statements other than 4 and 27, or as something a search on a current model would find | the local verdicts rest on one essay per cell at temperature 0 on gemma3 and mistral; only statements 4 and 27 were tested; whether a persona searched on a current model would find a way through was not tried | §42; eleventh pre-registration |
+| the stance flip on the local models, on statements other than 4 and 27, or as something a search on a current model would find | hosted models run at temperature 0 only; only statements 4 and 27 were tested; whether a persona searched on a current model would find a way through was not tried | §42; eleventh pre-registration |
 | any position as true | no human labels; the assessor used, gpt-4o-mini, κ 0.604 (§18); the best measured, gpt-4o, κ 0.666 (§22); humans 0.8285 (§18) | §18, §22; "What is not yet done" |
 | anything about the economic axis, or the libertarian direction under search | under the §32 protocol every search pushed social upward; the §27 libertarian search ran on a saturated surrogate and measured nothing about the model's libertarian reach; the economic axis has not been searched under this protocol | §27, §32; "What is not yet done" |
 | that search finds a model's position | depends on the model and one sentence; asked directly, no winner beats its baseline by more than 0.205 (forced-choice D −5.252, −1.965 and +0.205, a reading) | §39, §40 |
@@ -350,7 +350,7 @@ saturation, §27, §28), showed run-to-run spread (§36) and led to the answer-s
 4. **Whether anyone besides Aviral reads essays for labelling**, and whether that needs
    Stirling ethics approval (ETHICS.md, exposure protocol).
 5. **Whether the stance flip appears, and where**: its hosted arms are a registered outcome
-   (§42), its local verdicts are single essays, and its persona text is withheld under
-   ETHICS.md.
+   (§42), its local rates are sampled (twelfth pre-registration), and its persona text is
+   withheld under ETHICS.md.
 6. **Whether to contact the PRISM and Motoki authors** before submission about the refusal
    artefact (§34), the under-specified `pcleftauth` clause (§24) and the re-scored answers (§37).
